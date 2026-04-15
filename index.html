@@ -1079,6 +1079,27 @@
       color: var(--accent);
     }
 
+    /* ===== EDITOR'S NOTE ===== */
+    .editors-note {
+      background: var(--warm);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--r-sm, 6px) var(--r-sm, 6px) 0;
+      padding: var(--sp-4) var(--sp-6);
+      margin-top: var(--sp-6);
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-2);
+    }
+    .editors-note strong {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
     /* ===== NEWSLETTER ===== */
     .newsletter {
       background: var(--text);
@@ -2163,6 +2184,7 @@ function openDetail(id, skipPush) {
 
       <div class="detail-text">
         ${a.summary.split('\n').filter(p => p.trim()).map(p => '<p>' + p.trim() + '</p>').join('')}
+        ${a.editorsNote ? `<div class="editors-note"><strong>Editor's Note</strong>${a.editorsNote}</div>` : ''}
         <p style="color:var(--text-3);font-style:italic;margin-top:var(--sp-6);">This article was originally published by ${a.source}. The Mold Report curates and summarizes mold-related news from trusted sources.</p>
       </div>
       ${a.sourceUrl ? `<a href="${a.sourceUrl}" target="_blank" rel="noopener" class="detail-source">Read full article at ${a.source} &rarr;</a>` : ''}

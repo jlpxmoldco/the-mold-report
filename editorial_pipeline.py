@@ -492,15 +492,19 @@ Style rules:
 - Never use em dashes. Use periods and commas.
 - End with context: why this matters for people concerned about mold exposure.
 
-IMPORTANT — Testing method editorial notes:
-When an article mentions urine mycotoxin testing, visual contrast sensitivity (VCS) testing, or other testing methods that are NOT aligned with the Shoemaker Protocol's blood biomarker approach:
-- Do NOT silently remove or censor the mention. Keep the article factual.
-- DO add a brief, light editorial note at the end of the relevant paragraph. Use this pattern:
-  "Editor's note: The Shoemaker Protocol, which underpins much of the peer-reviewed mold illness research, relies on blood biomarker testing (TGF-beta1, MMP-9, MSH) as the preferred evidence-based approach for assessing mold-related immune response."
-- Keep it informative, not dismissive. The goal is to educate readers about the evidence base, not to attack other methods.
-- Only add this note ONCE per article, even if multiple non-aligned methods are mentioned.
+CRITICAL — Respect the source material:
+Your summary must accurately reflect the original article's content. Do NOT silently inject claims, recommendations, or context that was not in the original source. The summary should be a rewrite of what the source actually reported.
 
-Return ONLY the rewritten summary text. No headers, no formatting, no preamble."""
+If context is needed (e.g., about testing methods, biomarkers, the Shoemaker Protocol, or mold illness background that was NOT in the original article), put it in a SEPARATE editors_note field. Never weave it into the summary itself.
+
+Return ONLY valid JSON in this format:
+{"summary": "the rewritten summary text", "editors_note": "optional note if you added context not in the original, or empty string if none needed"}
+
+When to include an editors_note:
+- The article mentions urine mycotoxin testing, VCS testing, or methods not aligned with Shoemaker Protocol blood biomarkers
+- You want to add biomarker context (TGF-beta1, MMP-9, MSH) not present in the original
+- The article makes claims that need qualification from an evidence-based perspective
+- Keep notes brief (1-2 sentences), informative, not dismissive"""
 
     prompt = f"""Rewrite this article for The Mold Report:
 
@@ -509,10 +513,27 @@ Original summary: {article['summary']}
 Source: {article['source']}
 Category: {article['category']}"""
 
-    result = call_claude(system, prompt, max_tokens=500)
+    result = call_claude(system, prompt, max_tokens=600)
     if result:
-        article['summary'] = result.strip()
-        article['readTime'] = max(2, round(len(result.split()) / 200) + 2)
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                parsed = json.loads(json_match.group())
+                if parsed.get('summary'):
+                    article['summary'] = parsed['summary'].strip()
+                    article['readTime'] = max(2, round(len(article['summary'].split()) / 200) + 2)
+                if parsed.get('editors_note'):
+                    article['editorsNote'] = parsed['editors_note'].strip()
+                    print(f"    📝 Editor's note added")
+            else:
+                # Fallback: treat entire result as summary (backward compat)
+                article['summary'] = result.strip()
+                article['readTime'] = max(2, round(len(result.split()) / 200) + 2)
+        except (json.JSONDecodeError, AttributeError):
+            # Fallback: treat entire result as summary
+            article['summary'] = result.strip()
+            article['readTime'] = max(2, round(len(result.split()) / 200) + 2)
     return article
 
 
@@ -529,10 +550,13 @@ Check the article against these rules and return a JSON response.
 {COMPLIANCE_RULES}
 
 Return ONLY valid JSON in this exact format:
-{{"pass": true/false, "issues": ["issue 1", "issue 2"], "corrected_summary": "..." }}
+{{"pass": true/false, "issues": ["issue 1", "issue 2"], "corrected_summary": "...", "editors_note": "..." }}
 
-If pass is true, corrected_summary should be empty string.
-If pass is false, provide the corrected summary with issues fixed."""
+If pass is true, corrected_summary and editors_note should be empty strings.
+If pass is false:
+- For factual/terminology corrections (wrong stats, wrong terms): fix them directly in corrected_summary
+- For added context or qualifications NOT in the original source (e.g. biomarker recommendations, protocol context): put them in editors_note instead
+- The editors_note should be brief (1-2 sentences), clearly framing additional context as The Mold Report's editorial perspective"""
 
     prompt = f"""Review this article for compliance:
 
@@ -553,6 +577,11 @@ Tags: {', '.join(article.get('tags', []))}"""
                     if review.get('corrected_summary'):
                         article['summary'] = review['corrected_summary']
                         print("    ✓ Auto-corrected")
+                    if review.get('editors_note'):
+                        existing = article.get('editorsNote', '')
+                        note = review['editors_note'].strip()
+                        article['editorsNote'] = (existing + ' ' + note).strip() if existing else note
+                        print(f"    📝 Editor's note: {note[:60]}...")
                 else:
                     print("    ✓ Passed")
                 article['_compliance_pass'] = review.get('pass', True)
