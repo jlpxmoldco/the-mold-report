@@ -1032,9 +1032,10 @@
       display: flex;
       align-items: center;
       gap: var(--sp-3);
-      margin-top: var(--sp-6);
-      padding-top: var(--sp-6);
+      margin: var(--sp-6) 0 var(--sp-8);
+      padding: var(--sp-6) 0;
       border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
     .share-label {
       font-size: 12px;
@@ -2106,9 +2107,9 @@ function renderList(items) {
 // ARTICLE DETAIL
 // ==========================================
 function articleUrl(id) {
-  // Build shareable URL — uses /a/ID.html if custom domain, otherwise ?a=ID
-  const base = window.location.origin + window.location.pathname.replace(/\/+$/, '');
-  return `${base}/a/${id}.html`;
+  // Build shareable URL — points to /a/ID.html (has OG meta tags, redirects to main page)
+  const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '');
+  return `${window.location.origin}${path}/a/${id}.html`;
 }
 
 function openDetail(id, skipPush) {
