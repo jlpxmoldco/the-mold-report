@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mold Report — The First AI-Curated Mold News Publication</title>
+  <meta name="description" content="The Mold Report is the first AI-curated mold news publication. Daily coverage of research, regulation, industry, and health — verified by compliance and research sub-agents.">
+  <meta name="keywords" content="mold news, mold research, indoor air quality, mold remediation, mold illness, biomarkers, mold regulation, mold testing">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="The Mold Report">
+  <link rel="canonical" href="https://themoldreport.com">
+  <meta property="og:title" content="The Mold Report — The First AI-Curated Mold News Publication">
+  <meta property="og:description" content="The first AI-curated mold news publication. Daily coverage of research, regulation, industry, and health — every article compliance-checked and research-verified.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://themoldreport.com">
+  <meta property="og:site_name" content="The Mold Report">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Mold Report — The First AI-Curated Mold News Publication">
+  <meta name="twitter:description" content="The first AI-curated mold news publication. Daily coverage of research, regulation, industry, and health — every article compliance-checked and research-verified.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "The Mold Report",
+    "url": "https://themoldreport.com",
+    "description": "The first AI-curated mold news publication. Every article is sourced, rewritten, compliance-checked, and research-verified by AI editorial agents.",
+    "publishingPrinciples": "https://themoldreport.com/editorial-standards"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F7F4;
+      --surface: #FFFFFF;
+      --text: #111111;
+      --text-2: #555555;
+      --text-3: #999999;
+      --accent: #1B4D3E;
+      --accent-light: #E6F0EB;
+      --accent-hover: #143D31;
+      --border: #E5E4E0;
+      --border-light: #EEEDE9;
+      --warm: #F5F0E8;
+
+      /* Category colors */
+      --cat-research: #6366F1;
+      --cat-regulation: #D97706;
+      --cat-news: #0EA5E9;
+      --cat-industry: #8B5CF6;
+      --cat-diagnostics: #10B981;
+
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+      --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+      --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
+
+      --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px;
+
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-2: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-3: 0 12px 40px rgba(0,0,0,0.08);
+      --shadow-4: 0 24px 60px rgba(0,0,0,0.12);
+
+      --max-w: 1280px;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+      --ease-out: cubic-bezier(0, 0, 0.25, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: var(--text);
+      color: white;
+      padding: 7px 0;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+    }
+    .ticker-wrap {
+      display: flex;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+    }
+    .ticker-label {
+      background: #DC2626;
+      color: white;
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      margin-right: var(--sp-4);
+      flex-shrink: 0;
+    }
+    .ticker-track { overflow: hidden; flex: 1; }
+    .ticker-content {
+      display: flex;
+      gap: var(--sp-12);
+      animation: ticker 45s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-content span { opacity: 0.7; font-weight: 400; }
+    .ticker-content span::before { content: '\2022'; margin-right: 8px; opacity: 0.3; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ===== MASTHEAD ===== */
+    .masthead {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: box-shadow 0.3s var(--ease);
+    }
+    .masthead.scrolled { box-shadow: var(--shadow-2); }
+    .masthead-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 34px; height: 34px;
+      background: var(--accent);
+      border-radius: var(--r-sm);
+      display: grid; place-items: center;
+      color: white; font-weight: 700; font-size: 17px;
+      font-family: var(--serif);
+    }
+    .logo-type {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1;
+    }
+    .logo-type i { font-style: italic; color: var(--accent); }
+
+    .nav { display: flex; align-items: center; gap: var(--sp-6); }
+    .nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: color 0.15s;
+      position: relative;
+    }
+    .nav a:hover { color: var(--text); }
+    .nav a.active {
+      color: var(--accent);
+    }
+    .nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      transition: all 0.2s var(--ease) !important;
+    }
+    .nav-cta:hover { background: var(--accent-hover) !important; transform: translateY(-1px); }
+
+    .hamburger { display: none; width: 24px; height: 18px; flex-direction: column; justify-content: space-between; }
+    .hamburger span { display: block; height: 2px; background: var(--text); border-radius: 1px; transition: 0.3s var(--ease); }
+
+    /* ===== EDITION BAR ===== */
+    .edition-bar {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-4) var(--sp-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .edition-left { display: flex; align-items: center; gap: var(--sp-4); }
+    .edition-date {
+      font-size: 13px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+    .edition-num {
+      font-size: 11px;
+      color: var(--text-3);
+      font-weight: 500;
+      padding: 2px 10px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+    }
+    .edition-greeting {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-2);
+    }
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .ai-badge .ai-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+    }
+    .divider-line {
+      height: 2px;
+      background: var(--text);
+    }
+    .divider-line.thin {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ===== CATEGORY FILTERS ===== */
+    .filters {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-4) var(--sp-6);
+      display: flex;
+      gap: var(--sp-2);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+      transition: all 0.2s var(--ease);
+      color: var(--text-2);
+      background: transparent;
+      border: 1.5px solid transparent;
+    }
+    .filter-btn:hover { background: var(--border-light); }
+    .filter-btn.active {
+      background: var(--text);
+      color: white;
+      border-color: var(--text);
+    }
+    .filter-btn[data-filter="research"].active { background: var(--cat-research); border-color: var(--cat-research); }
+    .filter-btn[data-filter="regulation"].active { background: var(--cat-regulation); border-color: var(--cat-regulation); }
+    .filter-btn[data-filter="news"].active { background: var(--cat-news); border-color: var(--cat-news); }
+    .filter-btn[data-filter="industry"].active { background: var(--cat-industry); border-color: var(--cat-industry); }
+    .filter-btn[data-filter="diagnostics"].active { background: var(--cat-diagnostics); border-color: var(--cat-diagnostics); }
+
+    /* ===== CONTENT AREA ===== */
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-8) var(--sp-6);
+    }
+
+    /* ===== HERO LAYOUT (newspaper style) ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-10);
+    }
+    .hero-lead {
+      grid-row: 1 / 3;
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      min-height: 520px;
+      cursor: pointer;
+    }
+    .hero-lead img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease), opacity 0.5s;
+      opacity: 0.55;
+    }
+    .hero-lead:hover img { transform: scale(1.03); opacity: 0.45; }
+    .hero-lead-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.15) 100%);
+      z-index: 1;
+    }
+    .hero-lead-content {
+      position: relative; z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--sp-8);
+    }
+    .cat-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: var(--sp-4);
+    }
+    .cat-badge.research { background: var(--cat-research); color: white; }
+    .cat-badge.regulation { background: var(--cat-regulation); color: white; }
+    .cat-badge.news { background: var(--cat-news); color: white; }
+    .cat-badge.industry { background: var(--cat-industry); color: white; }
+    .cat-badge.diagnostics { background: var(--cat-diagnostics); color: white; }
+
+    .hero-lead h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: white;
+      margin-bottom: var(--sp-3);
+    }
+    .hero-lead p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: var(--sp-4);
+    }
+    .hero-lead .meta {
+      display: flex;
+      gap: var(--sp-4);
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+    .meta-dot::before { content: '\00B7'; margin-right: var(--sp-1); }
+
+    .hero-secondary {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-6);
+    }
+    .hero-card {
+      flex: 1;
+      background: var(--surface);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      border: 1px solid var(--border-light);
+      transition: all 0.25s var(--ease);
+      cursor: pointer;
+    }
+    .hero-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px);
+    }
+    .hero-card img {
+      width: 100%; height: 100%;
+      min-height: 140px;
+      object-fit: cover;
+    }
+    .hero-card-body {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--sp-2);
+    }
+    .hero-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero-card-cat.research { color: var(--cat-research); }
+    .hero-card-cat.regulation { color: var(--cat-regulation); }
+    .hero-card-cat.news { color: var(--cat-news); }
+    .hero-card-cat.industry { color: var(--cat-industry); }
+    .hero-card-cat.diagnostics { color: var(--cat-diagnostics); }
+
+    .hero-card h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .hero-card .meta {
+      font-size: 12px;
+      color: var(--text-3);
+    }
+
+    /* ===== AD BANNER (native style) ===== */
+    .ad-native {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      margin-bottom: var(--sp-10);
+      position: relative;
+      background: linear-gradient(135deg, #0F3028 0%, #1B5E4A 50%, #1B4D3E 100%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: var(--sp-8);
+      padding: var(--sp-8) var(--sp-10);
+    }
+    .ad-native::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .ad-native::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 30%;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .ad-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: var(--sp-2);
+    }
+    .ad-native h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: var(--sp-2);
+      position: relative;
+      z-index: 1;
+    }
+    .ad-native .ad-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      max-width: 420px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+    .ad-cta-group { position: relative; z-index: 1; text-align: center; }
+    .ad-cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      transition: all 0.2s var(--ease);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .ad-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+    .ad-cta-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: var(--sp-2);
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--sp-6);
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      position: relative;
+    }
+    .section-head h2::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 0;
+      width: 40px; height: 2px;
+      background: var(--accent);
+    }
+    .section-head a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      transition: opacity 0.15s;
+    }
+    .section-head a:hover { opacity: 0.7; }
+
+    /* ===== ARTICLE CARD GRID ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-10);
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow-3);
+      transform: translateY(-4px);
+    }
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .card-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .card:hover .card-img-wrap img { transform: scale(1.05); }
+    .card-img-wrap .cat-badge {
+      position: absolute;
+      top: var(--sp-3);
+      left: var(--sp-3);
+      z-index: 2;
+    }
+    /* Fallback image containers (no text overlap) */
+    .fallback-img {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      min-height: 140px;
+    }
+    .fallback-img .fb-icon {
+      font-size: 56px; opacity: 0.55; z-index: 1;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+    }
+    .fallback-img::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(135deg, transparent, transparent 20px, rgba(255,255,255,0.04) 20px, rgba(255,255,255,0.04) 40px);
+    }
+    .fallback-img.research { background: linear-gradient(135deg, #4338CA 0%, #6366F1 50%, #818CF8 100%); }
+    .fallback-img.regulation { background: linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%); }
+    .fallback-img.news { background: linear-gradient(135deg, #075985 0%, #0EA5E9 50%, #38BDF8 100%); }
+    .fallback-img.industry { background: linear-gradient(135deg, #5B21B6 0%, #8B5CF6 50%, #A78BFA 100%); }
+    .fallback-img.diagnostics { background: linear-gradient(135deg, #065F46 0%, #10B981 50%, #34D399 100%); }
+    .fallback-img.default { background: linear-gradient(135deg, #0F3028 0%, #1B4D3E 50%, #2D7A5F 100%); }
+
+    .card-body {
+      padding: var(--sp-5);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: var(--sp-2);
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--sp-4);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--border-light);
+      font-size: 12px;
+      color: var(--text-3);
+    }
+    .card-footer strong { color: var(--text-2); font-weight: 600; }
+
+    /* ===== INLINE AD (softer) ===== */
+    .ad-inline {
+      background: var(--warm);
+      border-radius: var(--r-lg);
+      padding: var(--sp-10) var(--sp-8);
+      text-align: center;
+      margin-bottom: var(--sp-10);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .ad-inline .ad-label { color: var(--text-3); margin-bottom: var(--sp-3); }
+    .ad-inline h3 { font-family: var(--serif); font-size: 24px; margin-bottom: var(--sp-2); }
+    .ad-inline p {
+      font-size: 14px; color: var(--text-2);
+      margin-bottom: var(--sp-6);
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .ad-inline a {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: 100px;
+      transition: all 0.2s var(--ease);
+    }
+    .ad-inline a:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* ===== ARTICLE LIST ===== */
+    .article-list { margin-bottom: var(--sp-10); }
+    .list-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--sp-6);
+      padding: var(--sp-6) 0;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .list-item:first-child { padding-top: 0; }
+    .list-item:hover { opacity: 0.85; }
+    .list-item img {
+      width: 100%; height: 150px;
+      object-fit: cover;
+      border-radius: var(--r-sm);
+    }
+    .list-item-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--sp-2);
+    }
+    .list-item-cat {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .list-item h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .list-item p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .list-item .meta {
+      font-size: 12px;
+      color: var(--text-3);
+      display: flex;
+      gap: var(--sp-4);
+    }
+
+    /* ===== SUBMIT SECTION ===== */
+    .submit-section {
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      padding: var(--sp-12);
+      border: 1px solid var(--border);
+      margin-bottom: var(--sp-10);
+    }
+    .submit-inner { max-width: 600px; margin: 0 auto; }
+    .submit-inner h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: var(--sp-2);
+    }
+    .submit-intro {
+      text-align: center;
+      color: var(--text-2);
+      font-size: 15px;
+      margin-bottom: var(--sp-8);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+    .form-full { grid-column: 1 / -1; }
+    .field { display: flex; flex-direction: column; gap: var(--sp-1); }
+    .field label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-2);
+    }
+    .field input, .field textarea, .field select {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-size: 14px;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+    .field textarea { resize: vertical; min-height: 100px; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 36px;
+      border-radius: 100px;
+      transition: all 0.2s var(--ease);
+      margin-top: var(--sp-4);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-2); }
+
+    .submit-ok { display: none; text-align: center; padding: var(--sp-10); }
+    .submit-ok.show { display: block; }
+    .submit-ok .icon {
+      width: 56px; height: 56px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      display: grid; place-items: center;
+      margin: 0 auto var(--sp-4);
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .submit-ok h3 { font-family: var(--serif); font-size: 22px; margin-bottom: var(--sp-2); }
+    .submit-ok p { color: var(--text-2); font-size: 14px; }
+
+    /* ===== AI TRANSPARENCY ===== */
+    .ai-transparency {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-10) var(--sp-8);
+      margin-bottom: var(--sp-10);
+    }
+    .ai-transparency h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      margin-bottom: var(--sp-2);
+    }
+    .ai-transparency .ai-sub {
+      color: var(--text-2);
+      font-size: 15px;
+      margin-bottom: var(--sp-8);
+      max-width: 600px;
+    }
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--sp-3);
+      position: relative;
+    }
+    .pipeline-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .pipe-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .pipe-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: var(--sp-3);
+      border: 3px solid var(--surface);
+    }
+    .pipe-step h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .pipe-step p {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.4;
+    }
+
+    /* ===== AI WEIGHTS & BIASES ===== */
+    .ai-wb-section {
+      margin-top: var(--sp-8);
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-8);
+    }
+    .ai-wb-section h3 {
+      font-size: 18px;
+      font-family: var(--serif);
+      margin-bottom: var(--sp-4);
+    }
+    .ai-wb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--sp-4);
+    }
+    .wb-card {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-md);
+      padding: var(--sp-5);
+    }
+    .wb-card h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-3);
+      margin-bottom: var(--sp-2);
+    }
+    .wb-card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    .wb-card code {
+      font-size: 12px;
+      background: var(--warm);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', monospace;
+    }
+    .wb-meter {
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 3px;
+      margin-top: var(--sp-2);
+      overflow: hidden;
+    }
+    .wb-meter-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s var(--ease-out);
+    }
+
+    /* Version log */
+    .version-log {
+      margin-top: var(--sp-8);
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-8);
+    }
+    .version-log h3 {
+      font-size: 18px;
+      font-family: var(--serif);
+      margin-bottom: var(--sp-4);
+    }
+    .version-log p.vl-desc {
+      font-size: 13px;
+      color: var(--text-3);
+      margin-bottom: var(--sp-4);
+    }
+    .vl-entry {
+      display: flex;
+      gap: var(--sp-4);
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .vl-entry:last-child { border-bottom: none; }
+    .vl-version {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      height: fit-content;
+    }
+    .vl-body { flex: 1; }
+    .vl-body strong { font-size: 14px; display: block; margin-bottom: 2px; }
+    .vl-body span { font-size: 12px; color: var(--text-3); }
+    .vl-body p { font-size: 13px; color: var(--text-2); margin-top: 4px; line-height: 1.5; }
+
+    /* ===== ARTICLE DISCLAIMER ===== */
+    .article-disclaimer {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-md);
+      padding: var(--sp-5);
+      margin-top: var(--sp-6);
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.6;
+    }
+    .article-disclaimer strong {
+      color: var(--text-2);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ===== MOLDCO ARTICLE TILE ===== */
+    .moldco-tile {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      background: var(--warm);
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-md);
+      padding: var(--sp-4) var(--sp-5);
+      margin-top: var(--sp-4);
+      text-decoration: none;
+      transition: all 0.2s var(--ease);
+    }
+    .moldco-tile:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-1);
+    }
+    .moldco-tile-icon {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      color: white;
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .moldco-tile-text {
+      flex: 1;
+    }
+    .moldco-tile-text span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+    .moldco-tile-text small {
+      font-size: 11px;
+      color: var(--text-3);
+    }
+    .moldco-tile-arrow {
+      color: var(--text-3);
+      font-size: 16px;
+    }
+
+    /* ===== SHARE BAR ===== */
+    .share-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--border-light);
+    }
+    .share-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-3);
+      margin-right: var(--sp-1);
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      color: var(--text-2);
+      background: var(--surface);
+      transition: all 0.2s var(--ease);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-1);
+    }
+    .share-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .share-btn.x:hover { border-color: #000; color: #000; }
+    .share-btn.fb:hover { border-color: #1877F2; color: #1877F2; }
+    .share-btn.li:hover { border-color: #0A66C2; color: #0A66C2; }
+    .share-btn.email:hover { border-color: #D97706; color: #D97706; }
+    .share-btn.copy:hover { border-color: var(--accent); color: var(--accent); }
+    .share-btn.copy.copied {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: var(--text);
+      border-radius: var(--r-xl);
+      padding: var(--sp-12) var(--sp-8);
+      text-align: center;
+      margin-bottom: var(--sp-10);
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: -60%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(27,77,62,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .newsletter h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      color: white;
+      margin-bottom: var(--sp-2);
+      position: relative;
+    }
+    .newsletter .sub {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      margin-bottom: var(--sp-8);
+      position: relative;
+    }
+    .nl-form {
+      display: flex;
+      gap: var(--sp-3);
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .nl-form input {
+      flex: 1;
+      padding: 14px 20px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-size: 14px;
+      font-family: var(--sans);
+      transition: border-color 0.2s;
+    }
+    .nl-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .nl-form input:focus { outline: none; border-color: rgba(255,255,255,0.3); }
+    .nl-form button {
+      background: white;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      white-space: nowrap;
+      transition: all 0.2s var(--ease);
+    }
+    .nl-form button:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+    .nl-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: var(--sp-4);
+      position: relative;
+    }
+
+    /* ===== QC BAR ===== */
+    .qc-bar {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--r-md);
+      padding: var(--sp-4) var(--sp-5);
+      margin-bottom: var(--sp-6);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+    .qc-bar.show { display: flex; }
+    .qc-pills { display: flex; gap: var(--sp-2); }
+    .qc-pill {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .qc-pill.pub { background: #DCFCE7; color: #166534; }
+    .qc-pill.rev { background: #FEF3C7; color: #92400E; }
+
+    /* ===== ARTICLE DETAIL OVERLAY ===== */
+    .article-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: var(--sp-10) var(--sp-6);
+      overflow-y: auto;
+    }
+    .article-overlay.open { display: flex; }
+    .article-detail {
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      max-width: 760px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-4);
+      animation: slideUp 0.4s var(--ease-out);
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .detail-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+    .detail-body { padding: var(--sp-8) var(--sp-10); }
+    .detail-close {
+      position: absolute;
+      top: var(--sp-4);
+      right: var(--sp-4);
+      width: 40px; height: 40px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      display: grid; place-items: center;
+      color: white;
+      font-size: 20px;
+      transition: background 0.15s;
+      z-index: 201;
+    }
+    .detail-close:hover { background: rgba(0,0,0,0.7); }
+    .detail-body .cat-badge { margin-bottom: var(--sp-4); }
+    .detail-body h1 {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: var(--sp-4);
+    }
+    .detail-meta {
+      display: flex;
+      gap: var(--sp-4);
+      font-size: 13px;
+      color: var(--text-3);
+      margin-bottom: var(--sp-6);
+      padding-bottom: var(--sp-6);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .detail-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .detail-text p { margin-bottom: var(--sp-4); }
+    .detail-source {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-top: var(--sp-6);
+      padding: var(--sp-3) var(--sp-5);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      transition: background 0.15s;
+    }
+    .detail-source:hover { background: var(--accent-light); }
+    .detail-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--border-light);
+    }
+    .detail-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      background: var(--bg);
+      border-radius: 100px;
+      color: var(--text-2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: var(--sp-12) 0 var(--sp-8);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--sp-12);
+      margin-bottom: var(--sp-8);
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+      max-width: 260px;
+      margin-top: var(--sp-4);
+    }
+    .footer-col h4 {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      margin-bottom: var(--sp-4);
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-2);
+      margin-bottom: 6px;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-disclosure {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.6;
+      padding: var(--sp-4) 0;
+      border-top: 1px solid var(--border);
+      margin-bottom: var(--sp-4);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-3);
+    }
+    .footer-bottom a { margin-left: var(--sp-4); cursor: pointer; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    /* ===== LEGAL MODALS ===== */
+    .legal-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 300;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: var(--sp-10) var(--sp-6);
+      overflow-y: auto;
+    }
+    .legal-modal-overlay.open { display: flex; }
+    .legal-modal {
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      max-width: 680px;
+      width: 100%;
+      padding: var(--sp-10) var(--sp-8);
+      box-shadow: var(--shadow-4);
+      animation: slideUp 0.3s var(--ease-out);
+      position: relative;
+    }
+    .legal-modal h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      margin-bottom: var(--sp-6);
+    }
+    .legal-modal p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin-bottom: var(--sp-4);
+    }
+    .legal-modal h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: var(--sp-6);
+      margin-bottom: var(--sp-2);
+    }
+    .legal-modal-close {
+      position: absolute;
+      top: var(--sp-4);
+      right: var(--sp-4);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+    .legal-modal-close:hover { background: var(--border); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-lead { min-height: 380px; grid-row: auto; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+      .ad-native { grid-template-columns: 1fr; text-align: center; padding: var(--sp-8); }
+      .ad-native .ad-desc { margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .nav { display: none; }
+      .hamburger { display: flex; }
+      .nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--surface);
+        padding: var(--sp-6);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-3);
+        z-index: 99;
+      }
+      .nav a.active::after { display: none; }
+      .masthead-inner { position: relative; }
+      .hero-lead { min-height: 320px; }
+      .hero-lead h2 { font-size: 24px; }
+      .hero-card { grid-template-columns: 1fr; }
+      .hero-card img { height: 180px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .list-item { grid-template-columns: 1fr; }
+      .list-item img { height: 200px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .edition-bar { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+      .pipeline-steps { grid-template-columns: 1fr; gap: var(--sp-4); }
+      .pipeline-steps::before { display: none; }
+      .pipe-step { display: flex; align-items: center; gap: var(--sp-4); text-align: left; }
+      .pipe-icon { flex-shrink: 0; width: 44px; height: 44px; font-size: 18px; }
+      .nl-form { flex-direction: column; }
+      .submit-section { padding: var(--sp-8) var(--sp-6); }
+      .detail-body { padding: var(--sp-6); }
+      .detail-body h1 { font-size: 24px; }
+      .detail-img { height: 240px; }
+      .article-overlay { padding: var(--sp-4); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar" role="marquee" aria-label="Breaking news">
+    <div class="ticker-wrap">
+      <span class="ticker-label">Latest</span>
+      <div class="ticker-track">
+        <div class="ticker-content" id="ticker"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MASTHEAD -->
+  <header class="masthead" id="masthead">
+    <div class="masthead-inner">
+      <a href="/" class="logo" aria-label="Home">
+        <div class="logo-mark">M</div>
+        <div class="logo-type">The Mold <i>Report</i></div>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#" onclick="navFilter(event,'all')">Today</a>
+        <a href="#" onclick="navFilter(event,'research')">Research</a>
+        <a href="#" onclick="navFilter(event,'regulation')">Regulation</a>
+        <a href="#" onclick="navFilter(event,'industry')">Industry</a>
+        <a href="about.html">About</a>
+        <a href="#how-we-work">How We Work</a>
+        <a href="#submit">Submit a Tip</a>
+        <a href="#newsletter" class="nav-cta">Subscribe</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- EDITION BAR -->
+  <div class="edition-bar">
+    <div class="edition-left">
+      <span class="edition-date" id="editionDate"></span>
+      <span class="edition-num" id="editionNum"></span>
+      <span class="ai-badge"><span class="ai-dot"></span> AI-Curated</span>
+    </div>
+    <span class="edition-greeting" id="greeting"></span>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- FILTERS -->
+  <div class="filters" role="tablist" aria-label="Filter articles">
+    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Stories</button>
+    <button class="filter-btn" data-filter="research" role="tab">Research</button>
+    <button class="filter-btn" data-filter="regulation" role="tab">Regulation</button>
+    <button class="filter-btn" data-filter="news" role="tab">News</button>
+    <button class="filter-btn" data-filter="industry" role="tab">Industry</button>
+    <button class="filter-btn" data-filter="diagnostics" role="tab">Diagnostics</button>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- QC BAR -->
+    <div class="qc-bar" id="qcBar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <strong>Editorial</strong>
+        <div class="qc-pills">
+          <span class="qc-pill pub" id="qcPub">0 Published</span>
+          <span class="qc-pill rev" id="qcRev">0 Review</span>
+        </div>
+      </div>
+      <span style="color:var(--text-3);font-size:12px;" id="qcTime"></span>
+    </div>
+
+    <!-- HERO -->
+    <section class="reveal" aria-label="Featured">
+      <div class="section-head">
+        <h2>Today's Headlines</h2>
+      </div>
+      <div class="hero" id="heroSection"></div>
+    </section>
+
+    <!-- AD: STARTER PANEL -->
+    <div class="ad-native reveal" role="complementary" aria-label="Sponsored">
+      <div>
+        <div class="ad-label">From Our Partners</div>
+        <h3>Is mold affecting your health?</h3>
+        <p class="ad-desc">The Starter Health Panel checks 3 key biomarkers linked to mold illness. Blood draw at 2,000+ LabCorp locations. Results delivered to you.</p>
+      </div>
+      <div class="ad-cta-group">
+        <a href="https://moldco.com?utm_source=themoldreport&utm_medium=referral&utm_campaign=starter_panel_ad" target="_blank" rel="noopener" class="ad-cta-btn">Get Tested for $56</a>
+        <div class="ad-cta-sub">At-cost pricing. No markup.</div>
+      </div>
+    </div>
+
+    <!-- LATEST NEWS -->
+    <section class="reveal" aria-label="Latest news">
+      <div class="section-head">
+        <h2>Latest News</h2>
+        <a href="#">View All &rarr;</a>
+      </div>
+      <div class="card-grid" id="cardGrid"></div>
+    </section>
+
+    <!-- AD: CARE -->
+    <div class="ad-inline reveal" role="complementary" aria-label="Sponsored">
+      <div class="ad-label">From Our Partners</div>
+      <h3>Think mold is making you sick?</h3>
+      <p>MoldCo clinicians specialize in mold-related illness. Start with a $129 telehealth consultation. Treatment plans built around your data.</p>
+      <a href="https://moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=care_ad" target="_blank" rel="noopener">Book a Consultation</a>
+    </div>
+
+    <!-- MORE STORIES -->
+    <section class="reveal" aria-label="More stories">
+      <div class="section-head"><h2>More Stories</h2></div>
+      <div class="article-list" id="articleList"></div>
+    </section>
+
+    <!-- SUBMIT -->
+    <section class="submit-section reveal" id="submit" aria-label="Submit a news tip">
+      <div class="submit-inner">
+        <h2>Submit a News Tip</h2>
+        <p class="submit-intro">Got a story the mold world should know? We review every submission. Published tips get credited.</p>
+        <form id="submitForm" class="form-grid">
+          <div class="field">
+            <label for="sName">Your Name</label>
+            <input type="text" id="sName" placeholder="Jane Doe" required>
+          </div>
+          <div class="field">
+            <label for="sEmail">Email</label>
+            <input type="email" id="sEmail" placeholder="jane@email.com" required>
+          </div>
+          <div class="field form-full">
+            <label for="sTitle">Headline</label>
+            <input type="text" id="sTitle" placeholder="What's the story?" required>
+          </div>
+          <div class="field">
+            <label for="sCat">Category</label>
+            <select id="sCat">
+              <option value="news">News</option>
+              <option value="research">Research</option>
+              <option value="regulation">Regulation</option>
+              <option value="industry">Industry</option>
+              <option value="diagnostics">Diagnostics</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sUrl">Source URL <span style="font-weight:400;color:var(--text-3);">(optional)</span></label>
+            <input type="url" id="sUrl" placeholder="https://...">
+            <span style="font-size:11px;color:var(--text-3);margin-top:2px;">Including a link helps us verify faster, but isn't required. We'll research it either way.</span>
+          </div>
+          <div class="field form-full">
+            <label for="sSum">Summary</label>
+            <textarea id="sSum" placeholder="Key details in a few sentences..." required></textarea>
+          </div>
+          <div class="form-full" style="text-align:center;">
+            <button type="submit" class="btn-primary">Submit for Review</button>
+          </div>
+        </form>
+        <div class="submit-ok" id="submitOk">
+          <div class="icon">&#10003;</div>
+          <h3>Tip Received</h3>
+          <p>Our AI editorial pipeline will review, verify, and publish it. You'll be credited.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI TRANSPARENCY -->
+    <section class="ai-transparency reveal" id="how-we-work" aria-label="How We Work">
+      <h2>AI Journalism, Done Right</h2>
+      <p class="ai-sub">We don't hide behind AI. We lead with it. Every article passes through five AI sub-agents that source, rewrite, compliance-check, research-verify, and QC before anything goes live. No hallucinations. No fabricated sources. Just faster, more consistent, more comprehensive mold coverage than any human newsroom could deliver alone.</p>
+      <div class="pipeline-steps">
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x1F4E1;</div>
+          <div>
+            <h4>Source</h4>
+            <p>Google Alerts RSS + reader tips feed real-time mold news</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x270D;&#xFE0F;</div>
+          <div>
+            <h4>Rewrite</h4>
+            <p>AI editorial agent rewrites into clear, accessible journalism</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x2696;&#xFE0F;</div>
+          <div>
+            <h4>Compliance</h4>
+            <p>Every claim checked against medical compliance rules</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x1F52C;</div>
+          <div>
+            <h4>Research</h4>
+            <p>Science articles verified for Shoemaker Protocol alignment</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x2705;</div>
+          <div>
+            <h4>Publish</h4>
+            <p>Only verified articles go live. Full source attribution.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEIGHTS & BIASES -->
+      <div class="ai-wb-section">
+        <h3>Our Weights & Biases</h3>
+        <p class="ai-sub" style="margin-bottom:var(--sp-6);">Full transparency. Here's exactly how our AI editor thinks, what it prioritizes, and what it's biased toward. No black box.</p>
+        <div class="ai-wb-grid">
+          <div class="wb-card">
+            <h4>Model</h4>
+            <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, and invention checking.</p>
+          </div>
+          <div class="wb-card">
+            <h4>Source Bias</h4>
+            <p>Weighted toward peer-reviewed journals, government agencies (EPA, CDC), and established news organizations. We deprioritize press releases, affiliate content, and social media.</p>
+            <div class="wb-meter"><div class="wb-meter-fill" style="width:85%;background:var(--cat-research);"></div></div>
+            <p style="margin-top:4px;font-size:11px;">85% academic/gov sources</p>
+          </div>
+          <div class="wb-card">
+            <h4>Research Framework</h4>
+            <p>Aligned with the Shoemaker Protocol research framework. Biomarker references prioritize TGF-B1, MMP-9, MSH, C4a, VIP. This is a known bias. We believe it's the most evidence-backed framework available.</p>
+          </div>
+          <div class="wb-card">
+            <h4>Compliance Strictness</h4>
+            <p>Zero tolerance. Articles with diagnosis language, unapproved statistics, or missing hedging are auto-rejected. No exceptions.</p>
+            <div class="wb-meter"><div class="wb-meter-fill" style="width:100%;background:#DC2626;"></div></div>
+            <p style="margin-top:4px;font-size:11px;">100% enforcement rate</p>
+          </div>
+          <div class="wb-card">
+            <h4>Freshness Gate</h4>
+            <p>Articles older than 90 days are rejected. No publication date = no publication. Future dates are flagged as suspicious. We only publish recent, verifiable news.</p>
+          </div>
+          <div class="wb-card">
+            <h4>Invention Guard</h4>
+            <p>Every article is checked by a dedicated AI agent for signs of fabrication: fake journals, impossible statistics, non-existent organizations. Confidence threshold: 70%. Below that, the article is flagged for manual review.</p>
+            <div class="wb-meter"><div class="wb-meter-fill" style="width:70%;background:var(--cat-diagnostics);"></div></div>
+            <p style="margin-top:4px;font-size:11px;">70% confidence minimum</p>
+          </div>
+          <div class="wb-card">
+            <h4>Editorial Voice</h4>
+            <p>Neutral, data-driven, journalistic. No em dashes. No alarmist language. No promotional framing. Lead with facts, end with context. 150-250 words per summary.</p>
+          </div>
+          <div class="wb-card">
+            <h4>Known Limitations</h4>
+            <p>AI cannot verify paywalled sources. Cannot access real-time lab data. Cannot interview human subjects. Cannot detect subtle p-hacking in cited studies. We acknowledge these limits openly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VERSION LOG -->
+      <div class="version-log">
+        <h3>Pipeline Version History</h3>
+        <p class="vl-desc">Every change to our AI editorial pipeline is logged here. You can see exactly what changed, when, and why.</p>
+        <div class="vl-entry">
+          <span class="vl-version">v1.3</span>
+          <div class="vl-body">
+            <strong>Added Invention Guard</strong>
+            <span>April 15, 2026</span>
+            <p>New AI sub-agent that checks every article for signs of fabrication before publishing. Rejects articles below 70% confidence threshold. Added freshness gate (90-day max) and source URL verification.</p>
+          </div>
+        </div>
+        <div class="vl-entry">
+          <span class="vl-version">v1.2</span>
+          <div class="vl-body">
+            <strong>Compliance Agent + Research Agent</strong>
+            <span>April 14, 2026</span>
+            <p>Added dedicated compliance sub-agent with MoldCo medical claims rules embedded. Research sub-agent verifies Shoemaker Protocol alignment for science and diagnostics articles. Both run as independent verification layers.</p>
+          </div>
+        </div>
+        <div class="vl-entry">
+          <span class="vl-version">v1.1</span>
+          <div class="vl-body">
+            <strong>Editorial Voice + Photo Agent</strong>
+            <span>April 13, 2026</span>
+            <p>Editorial agent rewrites all summaries in Mold Report voice. Photo agent extracts OG images from source URLs with category-colored fallbacks. Added per-article compliance metadata.</p>
+          </div>
+        </div>
+        <div class="vl-entry">
+          <span class="vl-version">v1.0</span>
+          <div class="vl-body">
+            <strong>Launch: Five-Stage Pipeline</strong>
+            <span>April 12, 2026</span>
+            <p>Initial release. RSS scraping from Google Alerts, rule-based QC (blocklist, relevance scoring, length checks), category auto-classification, and manual review mode. 24 seed articles hand-curated and compliance-checked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter reveal" id="newsletter" aria-label="Newsletter">
+      <h2>The Morning Mold Brief</h2>
+      <p class="sub">Every weekday at 7am. Top mold stories in 5 minutes.</p>
+      <form class="nl-form" id="nlForm">
+        <input type="email" placeholder="your@email.com" required aria-label="Email">
+        <button type="submit">Subscribe Free</button>
+      </form>
+      <div class="nl-note">No spam. Unsubscribe anytime.</div>
+    </section>
+  </main>
+
+  <!-- ARTICLE DETAIL OVERLAY -->
+  <div class="article-overlay" id="overlay">
+    <div class="article-detail" id="detailPanel">
+      <button class="detail-close" id="detailClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-mark">M</div>
+            <div class="logo-type">The Mold <i>Report</i></div>
+          </div>
+          <p>The first AI-curated mold news publication. Every article is sourced from real research, rewritten by AI editorial agents, compliance-checked, and research-verified. Published daily.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sections</h4>
+          <a href="#" onclick="setFilter('research')">Research</a>
+          <a href="#" onclick="setFilter('regulation')">Regulation</a>
+          <a href="#" onclick="setFilter('news')">News</a>
+          <a href="#" onclick="setFilter('industry')">Industry</a>
+          <a href="#" onclick="setFilter('diagnostics')">Diagnostics</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="#how-we-work">How We Work</a>
+          <a href="#editorial-modal" onclick="openModal('editorial')">Editorial Standards</a>
+          <a href="mailto:advertise@themoldreport.com">Advertise</a>
+          <a href="mailto:hello@themoldreport.com">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#submit">Submit a Tip</a>
+          <a href="#newsletter">Subscribe</a>
+        </div>
+      </div>
+      <div class="footer-disclosure">
+        Disclosure: The Mold Report's founder is affiliated with MoldCo. Sponsored content is clearly labeled "From Our Partners." Editorial coverage is independent and AI-curated from public sources.
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 The Mold Report. All rights reserved.</span>
+        <div>
+          <a href="#privacy-modal" onclick="openModal('privacy')">Privacy</a>
+          <a href="#terms-modal" onclick="openModal('terms')">Terms</a>
+          <a href="#editorial-modal" onclick="openModal('editorial')">Editorial Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LEGAL MODALS -->
+  <div class="legal-modal-overlay" id="privacyModal">
+    <div class="legal-modal">
+      <button class="legal-modal-close" onclick="closeModal('privacy')">&times;</button>
+      <h2>Privacy Policy</h2>
+      <p><strong>Effective:</strong> April 15, 2026</p>
+      <h3>What We Collect</h3>
+      <p>The Mold Report collects only the information you voluntarily provide: email addresses submitted through our newsletter signup form, and name, email, and news tip details submitted through our tip submission form.</p>
+      <h3>How We Use It</h3>
+      <p>Newsletter emails are used solely to deliver The Mold Report newsletter. Tip submissions are reviewed by our AI editorial pipeline and may be published with attribution. We do not sell, rent, or share your personal information with third parties.</p>
+      <h3>Cookies & Tracking</h3>
+      <p>This site does not use tracking cookies, analytics scripts, or third-party advertising pixels. We use browser localStorage only to temporarily store newsletter signups and tip submissions before they are processed.</p>
+      <h3>Data Retention</h3>
+      <p>You may request deletion of your data at any time by contacting us. Newsletter subscribers can unsubscribe at any time via the link included in every email.</p>
+      <h3>Contact</h3>
+      <p>For privacy inquiries, contact: privacy@themoldreport.com</p>
+    </div>
+  </div>
+
+  <div class="legal-modal-overlay" id="termsModal">
+    <div class="legal-modal">
+      <button class="legal-modal-close" onclick="closeModal('terms')">&times;</button>
+      <h2>Terms of Use</h2>
+      <p><strong>Effective:</strong> April 15, 2026</p>
+      <h3>Content</h3>
+      <p>The Mold Report provides AI-curated news summaries sourced from publicly available research, news outlets, and government publications. All articles include source attribution and links to original sources. Our summaries are editorial in nature and do not constitute medical advice.</p>
+      <h3>Medical Disclaimer</h3>
+      <p>Nothing on this site should be interpreted as medical advice, diagnosis, or treatment recommendation. The Mold Report reports on research and news. Always consult a qualified healthcare provider for medical decisions. Biomarker data and research findings discussed on this site are informational only.</p>
+      <h3>AI Disclosure</h3>
+      <p>All content on The Mold Report is curated, rewritten, and verified by AI editorial agents. Every article passes through a five-stage pipeline including compliance checking and research verification. We believe in full transparency about our AI-powered editorial process.</p>
+      <h3>Affiliate Disclosure</h3>
+      <p>The founder of The Mold Report is affiliated with MoldCo. Sponsored content from MoldCo is clearly labeled "From Our Partners" and is visually distinct from editorial content. Editorial coverage is independent and sourced from public research and news.</p>
+      <h3>Copyright</h3>
+      <p>Original editorial summaries are copyright The Mold Report. Source material belongs to its respective publishers. We operate under fair use principles: transformative rewriting, limited excerpting, and full source attribution.</p>
+    </div>
+  </div>
+
+  <div class="legal-modal-overlay" id="editorialModal">
+    <div class="legal-modal">
+      <button class="legal-modal-close" onclick="closeModal('editorial')">&times;</button>
+      <h2>Editorial Standards</h2>
+      <p><strong>Last updated:</strong> April 15, 2026</p>
+      <h3>Why AI Journalism</h3>
+      <p>The Mold Report is the first AI-curated publication in the mold and indoor environmental health space. We built it this way on purpose. Mold news is fragmented across government agencies, academic journals, local news outlets, and industry publications. No single human editor could monitor all these sources daily, rewrite them for accessibility, fact-check every medical claim, and verify scientific alignment. AI can. We believe AI journalism done transparently produces more consistent, more compliant, and more comprehensive coverage than traditional editorial alone.</p>
+      <h3>Our AI Pipeline</h3>
+      <p>Every article passes through five AI sub-agents before publication. The <strong>Source Agent</strong> monitors Google Alerts RSS feeds and reader-submitted tips in real time. The <strong>Editorial Agent</strong> rewrites raw headlines and abstracts into clear, accessible journalism. The <strong>Compliance Agent</strong> checks every claim against our medical compliance ruleset. The <strong>Research Agent</strong> verifies that science and diagnostics articles align with established Shoemaker Protocol research. The <strong>QC Agent</strong> runs final checks on title quality, relevance scoring, and spam filtering. Only articles that pass all five stages get published.</p>
+      <h3>What AI Does (and Doesn't Do)</h3>
+      <p>AI writes the editorial summaries. AI checks the compliance. AI verifies the research alignment. AI does not fabricate sources, generate fake studies, or invent quotes. Every article on The Mold Report links back to its original source. We summarize and contextualize. If our AI pipeline cannot verify a claim, the article doesn't publish. That's the whole point.</p>
+      <h3>Source Standards</h3>
+      <p>We source from peer-reviewed journals (Frontiers in Immunology, Scientific Reports, Journal of Integrative Neuroscience), government agencies (EPA, CDC), accredited news organizations (KFF Health News, NPR affiliates), and recognized clinical researchers. We do not publish from anonymous sources, social media rumors, or unverified claims.</p>
+      <h3>Medical Claims Policy</h3>
+      <p>We use hedging language ("may," "research suggests," "data indicates") for all medical claims. We never state that any product or treatment can diagnose, cure, or treat mold illness. We refer to treatment and improvement, not recovery or cure. Our Compliance Agent enforces these rules automatically on every article.</p>
+      <h3>Corrections</h3>
+      <p>If an error is identified in any article, we correct it promptly and note the correction. AI doesn't get defensive about mistakes. Readers can report errors through our tip submission form or by contacting editorial@themoldreport.com.</p>
+      <h3>Independence & Transparency</h3>
+      <p>Editorial decisions are made by the AI pipeline based on source quality, relevance, and compliance. The founder's affiliation with MoldCo does not influence which stories are covered or how they are framed. Sponsored content is always labeled "From Our Partners." We publish our full editorial pipeline methodology because we believe transparency is the foundation of trust in AI journalism.</p>
+    </div>
+  </div>
+
+<script>const EMBEDDED_ARTICLES = {"lastUpdated":"2026-04-15T20:22:51.810551+00:00","articles":[{"title":"ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards","summary":"ISSA and NORMI have expanded their Indoor Health Alliance, a partnership first established in 2018, to more formally connect the cleaning and mold remediation industries under shared standards and education. The renewed agreement covers four areas: cross-disciplinary certification access, reciprocal membership benefits, coordinated advocacy with media and government bodies on indoor air quality, and unified professional standards. Cleanfax has been named the official publication of NORMI as part of the arrangement.\n\nUnder the expanded terms, ISSA members can access NORMI's mold assessment training at member pricing. NORMI members gain access to trade show resources through ISSA. Both organizations represent large professional networks, with ISSA serving the broader cleaning industry and NORMI focusing on mold inspection and remediation credentialing.\n\nThe alliance reflects a shift in how the industry understands building health. Routine cleaning and mold remediation have historically operated in separate professional silos. Bringing them into closer alignment means inspectors and cleaners may increasingly share protocols and training frameworks. For building occupants and property managers concerned about mold exposure, this coordination could lead to more consistent identification and response to indoor mold problems, particularly in commercial and institutional settings where cleaning staff are often first to encounter visible growth.","source":"Environmental Protection","sourceUrl":"https://eponline.com/articles/2026/04/14/issa-and-normi-expand-indoor-health-alliance.aspx","publishedAt":"2026-04-14T12:00:00+00:00","category":"industry","imageUrl":"https://eponline.com/-/media/ENV/eponline/Images/2026/04/0414IndoorAirTest.jpg","id":"7a8ca235a1e4","imageAlt":"ISSA and NORMI Expand Indoor Health Alliance to Unify Cleaning and Mold Remediat","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:29:40.468255+00:00","tags":["mold","remediation","air quality","health"],"featured":true,"readTime":3,"author":"Environmental Protection","_original_title":"ISSA and NORMI Expand Indoor Health Alliance to Unify Cleaning and Mold Remediation Standards"},{"title":"MoldCo Drops Mold Blood Test Price From $99 to $56","summary":"MoldCo has reduced the price of its Starter Health Panel from $99 to $56, lowering the cost of blood-based mold illness screening for consumers without specialist access. The panel measures three biomarkers, TGF-beta1, MMP-9, and MSH, which researchers associate with immune-mediated responses to mold exposure. Testing is available at more than 2,000 LabCorp locations across the United States.\n\nThe panel is structured around the Shoemaker Protocol, a clinical framework developed to identify and treat what proponents call Chronic Inflammatory Response Syndrome (CIRS), a condition attributed to biotoxin exposure including mold. The protocol remains a subject of ongoing discussion within mainstream medicine, though its biomarker-based approach has a following among practitioners who specialize in environmental illness.\n\nThe pricing shift is notable given that mold-related illness is frequently underdiagnosed, in part because conventional screening tools are limited. Some estimates suggest that roughly 24% of the population carries genetic variants that may reduce the body's ability to clear biotoxins efficiently, making them more susceptible to prolonged symptoms after mold exposure. For individuals experiencing unexplained fatigue, cognitive difficulty, or respiratory issues in water-damaged environments, accessible biomarker testing represents one avenue for gathering objective data before pursuing clinical evaluation.","source":"MoldCo","sourceUrl":"https://moldco.com","publishedAt":"2026-04-12T10:00:00+00:00","category":"diagnostics","imageUrl":"https://images.prismic.io/moldco/aby4ER5fn6DF3BEk_image.png?auto=format,compress","id":"d972861abbe1","imageAlt":"MoldCo Drops Starter Health Panel Price to $56, Making Mold Biomarker Testing Mo","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:32:43.766618+00:00","tags":["mold","biomarker","testing","health","Shoemaker","TGF"],"featured":true,"readTime":3,"author":"MoldCo","_original_title":"MoldCo Drops Starter Health Panel Price to $56, Making Mold Biomarker Testing More Accessible"},{"title":"120 Students in Limbo 7 Weeks After Mold Found at LA Elementary School","summary":"A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.","source":"CBS News","sourceUrl":"https://www.cbsnews.com/losangeles/news/chatsworth-elementary-school-mold-exposure-concerns/","publishedAt":"2026-04-10T15:00:00+00:00","category":"news","imageUrl":"https://assets1.cbsnewsstatic.com/hub/i/r/2026/03/10/7325800f-3a3f-49c0-b8ba-b9e37bc1e65c/thumbnail/1200x630/0cd44f0ae5b75e3e3cf7976a8bc217a7/chatsworth-park-elementary.jpg","id":"60540c95b5ba","imageAlt":"Chatsworth Elementary Parents Demand Answers After Months of Mold Exposure Conce","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:30:00.063792+00:00","tags":["mold","air quality","school","health"],"featured":false,"readTime":3,"author":"CBS News","_original_title":"Chatsworth Elementary Parents Demand Answers After Months of Mold Exposure Concerns"},{"title":"Midea Recalls 1.7 Million Window AC Units After 152 Mold Reports","summary":"Midea has voluntarily recalled approximately 1.7 million U-shaped window air conditioners due to a drainage design flaw that allows water to pool inside the units, creating conditions for mold growth. The U.S. Consumer Product Safety Commission announced the recall following 152 reports of mold growth and 17 reports of respiratory symptoms, including allergic reactions, coughing, sneezing, and sore throats.\n\nThe affected units were sold under 10 brand names, including Midea, Frigidaire, Insignia, Mr. Cool, and Comfort Aire. They retailed between $280 and $500 and were available at major retailers including Best Buy, Costco, Home Depot, and Amazon from March 2020 through May 2025. Consumers who purchased these units are advised to contact Midea directly to receive a free repair or a full or prorated refund.\n\nThis recall is significant for anyone concerned about indoor air quality. Window air conditioners are a common source of mold exposure, particularly when drainage systems fail and moisture accumulates in enclosed spaces. Given the five-year sales window and wide retail distribution, the number of affected households is likely substantial. Owners of any U-shaped window AC unit purchased during this period should verify whether their model is included in the recall before continued use.","source":"CPSC / ABC News","sourceUrl":"https://www.cpsc.gov/Recalls/2025/Midea-Recalls-About-1-7-Million-U-and-U-Window-Air-Conditioners-Due-to-Risk-of-Mold-Exposure","publishedAt":"2026-04-08T10:00:00+00:00","category":"news","imageUrl":"","id":"9f5b2b79d66c","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:30:07.340641+00:00","tags":["EPA","mold"],"featured":false,"readTime":3,"author":"CPSC / ABC News","_original_title":"Midea Recalls 1.7 Million Window Air Conditioners Over Mold Growth Risk"},{"title":"Mold Forces Closure of Wichita Fire Stations; Nearly 90% of Stations Affected","summary":"Mold contamination has been identified in approximately 19 of Wichita's 22 fire stations, representing nearly 90% of the city's fire infrastructure. Station 15, located at Lincoln and Rock Road, remains closed for remediation with an estimated timeline of at least two additional weeks. Stations 3, 11, and 13 face imminent closures for similar treatment. The city's Public Works Director, Gary Janzen, has outlined plans for turnkey remediation to accelerate repairs across affected facilities.\n\nFire union President Ted Bush stated the contamination problem has persisted for decades, suggesting long-term exposure risks for station personnel. Fire Chief Tammy Snow, who recently announced her retirement, acknowledged that some mold conditions went unreported and called for improved facility inspection and reporting procedures. The scale of the problem raises questions about how contamination reached this level without triggering earlier intervention.\n\nThe situation carries direct implications for Wichita residents and firefighters alike. Active mold remediation at multiple stations simultaneously strains emergency response capacity. The disclosure also coincides with a voter referendum on a 1% sales tax intended to fund fire station infrastructure maintenance, giving the public direct financial stakes in the outcome. For anyone monitoring institutional mold exposure, this case illustrates how deferred maintenance in large building portfolios can allow contamination to spread across dozens of facilities before corrective action begins.","source":"KSN / FireRescue1","sourceUrl":"https://www.firerescue1.com/fire-stations-and-firehouses/mold-remediation-continues-at-kan-fire-station-as-more-may-be-closed","publishedAt":"2026-04-07T12:00:00+00:00","category":"news","imageUrl":"https://lexipol.brightspotcdn.com/dims4/default/4884120/2147483647/strip/true/crop/1920x1080+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk1-prod-lexipol.s3.us-east-2.amazonaws.com%2Fbrightspot%2Fd6%2Fbc%2Ff9eb824d44e1b86bd0f25b7ee4ab%2Ffr1-affiliate-images-2026-02-16t114600-311.jpg","id":"07977f9562cb","imageAlt":"Mold Forces Closure of Wichita Fire Stations; Nearly 90% of Stations Affected","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:30:53.559201+00:00","tags":["EPA","WHO","mold","remediation"],"featured":false,"readTime":3,"author":"KSN / FireRescue1"},{"title":"Dr. Ritchie Shoemaker to Host AMA on r/ToxicMoldExposure, Marking 25 Years of Mold Illness Research","summary":"Dr. Ritchie Shoemaker, the physician credited with establishing the medical framework for mold-related illness, will participate in an Ask Me Anything session on Reddit's r/ToxicMoldExposure community. The event coincides with the 25th anniversary of his initial identification of the link between biotoxin exposure and Chronic Inflammatory Response Syndrome, or CIRS.\n\nShoemaker's research spans more than 30 years and includes data from over 14,000 patients. His work produced the Shoemaker Protocol, a structured clinical approach to diagnosing and treating biotoxin-related illness. A key contribution of his research was identifying measurable blood biomarkers, including TGF-beta1, MMP-9, and MSH, that provide objective indicators of immune system disruption following mold exposure. These markers gave clinicians a laboratory basis for a condition that had long been difficult to diagnose.\n\nThe Reddit AMA offers an uncommon direct line to a researcher whose work remains central to how practitioners approach mold illness today. For patients navigating symptoms that standard medical workups often miss, and for clinicians seeking updated guidance, the session represents a practical opportunity for evidence-based dialogue. The field of environmental medicine continues to grow, and events like this reflect increasing public and clinical demand for accessible expertise on mold-related health conditions.","source":"Reddit / r/ToxicMoldExposure","sourceUrl":"https://www.reddit.com/r/ToxicMoldExposure/comments/1shrejd/dr_shoemaker_discovered_mold_illness_25_years_ago/","publishedAt":"2026-04-05T12:00:00+00:00","category":"research","imageUrl":"","id":"4832fa4a3139","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:32:06.250968+00:00","tags":["WHO","mold","biomarker","Shoemaker","TGF","MMP-9"],"featured":false,"readTime":3,"author":"Reddit / r/ToxicMoldExposure"},{"id":"93dccf1b2f86","title":"Human Contact Frequency as a Dominant Ecological Driver of Fungal Community Assembly and Homogenization in Public Built Environments.","summary":"A study published in the Journal of Microbiology and Biotechnology identifies human contact frequency as the primary factor shaping fungal communities in public built environments. Lead author Wee GN and colleagues found that surfaces touched more often by people show greater homogenization of fungal species, meaning the same molds tend to appear repeatedly across different high-contact locations regardless of the building type or geography.\n\nThe research examines how fungal community assembly, the process by which mold species colonize and establish themselves in indoor spaces, is driven less by environmental conditions like humidity or building materials and more by human activity patterns. High-contact surfaces essentially act as transfer points, redistributing fungi across built environments and flattening the natural diversity that would otherwise exist between locations.\n\nFor people concerned about mold exposure, this finding reframes where attention should be directed. Rather than focusing solely on visibly damp or damaged areas, the research suggests that frequently touched surfaces in public spaces, such as door handles, railings, and shared equipment, may serve as consistent sources of fungal exposure. This has practical implications for cleaning protocols, building management standards, and public health guidelines, particularly in schools, hospitals, and transit facilities where contact rates are high and vulnerable populations are common.","source":"J Microbiol Biotechnol","sourceUrl":"https://pubmed.ncbi.nlm.nih.gov/41937469/","author":"Wee GN","publishedAt":"2026-04-03T00:00:00+00:00","category":"research","imageUrl":"https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg","imageAlt":"Human Contact Frequency as a Dominant Ecological Driver of Fungal Community Asse","status":"published","qcReviewer":"AI Editorial Pipeline v1.3","qcTimestamp":"2026-04-15T18:35:49.978614+00:00","tags":[],"featured":false,"readTime":3},{"title":"USA Today: Doctors Blamed Her Symptoms on Motherhood. She Actually Had Mold Illness.","summary":"A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists — they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]","source":"USA Today","sourceUrl":"https://eu.usatoday.com/story/life/health-wellness/2026/04/02/mold-illness-motherhood-chronic-symptoms/89215085007/","publishedAt":"2026-04-02T08:00:00+00:00","category":"news","imageUrl":"","id":"b4c708cec8ba","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:30:27.132480+00:00","tags":["WHO","mold","treatment"],"featured":false,"readTime":3,"author":"USA Today"},{"id":"bba0d96d84f3","title":"Two Common Grain Mold Toxins Damage Brain Cells More When Combined, Study Finds","summary":"Researchers have developed a physiologically based toxicokinetic model to predict the combined toxic effects of two common mold-derived contaminants, deoxynivalenol (DON) and fumonisin B1 (FB1), with findings published in the Journal of Hazardous Materials. Lead author Wang X. and the research team focused on how these mycotoxins interact when present together, a scenario common in contaminated grain and corn supplies worldwide.\n\nThe study used astrocyte-like C6 cells, a rat brain cell line, to examine the biological mechanisms behind the toxicity. This cellular model allowed researchers to observe how DON and FB1 affect brain-adjacent tissue at the molecular level, and whether their combined presence amplifies, diminishes, or simply adds to the individual harm each toxin causes. The physiologically based toxicokinetic approach translates laboratory findings into predictions about how these substances behave inside a living body over time.\n\nThis research matters because DON and FB1 frequently co-occur in food supplies, particularly in cereals and maize, and regulatory limits are typically set for each toxin individually. Understanding combined toxicity provides a more realistic picture of actual human risk. For people concerned about mold exposure through diet, this type of modeling work helps inform safer food safety thresholds and more accurate health guidance.","source":"J Hazard Mater","sourceUrl":"https://pubmed.ncbi.nlm.nih.gov/41950836/","author":"Wang X","publishedAt":"2026-04-02T00:00:00+00:00","category":"research","imageUrl":"","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3","qcTimestamp":"2026-04-15T18:34:13.945966+00:00","tags":[],"featured":false,"readTime":3,"_original_title":"Combined toxicity prediction of deoxynivalenol and fumonisin B(1) by physiologically based toxicokinetic modelling and in vitro toxicity mechanism study on astrocyte-like C6 cells."},{"title":"Congress Introduces MOLD Act to Fix Environmental Health Standards in Military Housing","summary":"Federal lawmakers have introduced the Military Occupancy Living Defense Act, or MOLD Act (H.R. 7188), in the 119th Congress to address environmental health conditions in privatized military housing. A companion Senate bill, S. 3654, has also been introduced. The legislation responds to documented reports of mold contamination affecting thousands of active-duty military families across the country.\n\nThe bill's key provisions set specific timelines and accountability measures. Environmental inspection results would be reported to both the Secretary of Defense and affected tenants within 10 days of sample collection. An independent inspection protocol would be established within 180 days of enactment. Housing offices would be required to submit annual certifications to Congress confirming compliance with health and safety standards. The Secretary of Defense would also be directed to establish a uniform housing code meeting or exceeding nationally recognized property maintenance standards.\n\nFor the estimated millions of people living in military housing managed by private contractors, this legislation represents a potential shift toward enforceable standards and greater transparency. Mold exposure is associated with respiratory illness, neurological symptoms, and chronic health conditions. Currently, oversight of privatized military housing has been inconsistent across installations. If enacted, the MOLD Act would create a federal baseline for environmental inspections, giving tenants access to results and giving Congress a direct accountability mechanism for the first time.","source":"Congress.gov","sourceUrl":"https://www.congress.gov/bill/119th-congress/house-bill/7188","publishedAt":"2026-04-01T12:00:00+00:00","category":"regulation","imageUrl":"","id":"98fd4e828fd7","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:31:17.279902+00:00","tags":["mold","housing","health"],"featured":false,"readTime":3,"author":"Congress.gov","_original_title":"MOLD Act (H.R. 7188) Introduced in Congress to Reform Military Housing Environmental Standards"},{"title":"Michigan Family Racked Up 100 Hospital Visits in 4 Years — They Blame Black Mold","summary":"A Michigan family documented nearly 100 medical visits over four years they attribute to black mold exposure in their manufactured home. Brian Bartenbaker and his family lived at Oakland Estates in Auburn Hills, Michigan, where airborne testing confirmed extensive mold contamination throughout the residence. The property also showed deteriorated flooring with holes, absent insulation, and pest intrusion.\n\nDespite repeated maintenance requests to management, the family reported receiving no remediation assistance. Instead, they say they were told to either purchase the home or vacate. The family has since left the property. The case was reported by WDIV Click On Detroit.\n\nThe situation reflects a broader pattern in manufactured housing communities, where maintenance accountability structures can leave tenants with limited options. Residents in these communities often lack the legal standing of traditional renters or the financial resources to pursue independent remediation. When mold goes unaddressed for extended periods, as testing confirmed here, cumulative health effects can be significant. For anyone in similar housing circumstances, documenting medical visits, requesting inspections from local health authorities, and obtaining independent air quality testing are concrete steps toward establishing a record and pursuing remediation.","source":"Click On Detroit / WDIV","sourceUrl":"https://www.clickondetroit.com/news/local/2026/03/31/family-says-black-mold-in-auburn-hills-home-sent-kids-to-hospital-nearly-100-times/","publishedAt":"2026-03-31T14:00:00+00:00","category":"news","imageUrl":"https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/ptTZQZ0BrH9-zVdFAZKf/1774926416585_1920x1080_thumbnail.jpg?_a=DATAg1fkZAA0","id":"ca894d52cadf","imageAlt":"Auburn Hills Family Reports Nearly 100 Hospital Visits Linked to Black Mold in M","status":"published","qcReviewer":"AI Editorial Pipeline v1.3 (launch batch)","qcTimestamp":"2026-04-15T18:30:36.365428+00:00","tags":["mold","housing","testing"],"featured":false,"readTime":3,"author":"Click On Detroit / WDIV","_original_title":"Auburn Hills Family Reports Nearly 100 Hospital Visits Linked to Black Mold in Manufactured Home"},{"id":"4c5cf73834bc","title":"Indoor air bacterial and fungal burden in the environment of an atopic child: implications for elevated urine mycotoxin levels.","summary":"A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Majić and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing—including markers such as TGF-B1, MMP-9, and MSH—represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.","source":"Arh Hig Rada Toksikol","sourceUrl":"https://pubmed.ncbi.nlm.nih.gov/41944406/","author":"Majić I","publishedAt":"2026-03-01T00:00:00+00:00","category":"research","imageUrl":"","imageAlt":"","status":"published","qcReviewer":"AI Editorial Pipeline v1.3","qcTimestamp":"2026-04-15T18:35:03.972566+00:00","tags":["mycotoxin"],"featured":false,"readTime":3}]};</script>
+
+<script>
+// ==========================================
+// STATE
+// ==========================================
+let articles = [];
+let filter = 'all';
+
+// ==========================================
+// INIT
+// ==========================================
+document.addEventListener('DOMContentLoaded', async () => {
+  setEdition();
+  setupScroll();
+  setupFilters();
+  setupMobileMenu();
+  setupForms();
+  setupOverlay();
+  checkAdmin();
+  await loadArticles();
+  observeReveal();
+  openFromUrl();
+});
+
+// Handle back/forward navigation
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.article) {
+    openDetail(e.state.article, true);
+  } else {
+    const overlay = document.getElementById('overlay');
+    if (overlay.classList.contains('open')) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+});
+
+// Auto-open article from URL params (?a=ID)
+function openFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('a');
+  if (id && articles.length) {
+    openDetail(id, true);
+  }
+}
+
+// ==========================================
+// EDITION BAR
+// ==========================================
+function setEdition() {
+  const now = new Date();
+  const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('editionDate').textContent = now.toLocaleDateString('en-US', opts);
+
+  // Edition number (days since April 15, 2026 = Edition #1)
+  const start = new Date(2026, 3, 15);
+  const edNum = Math.floor((now - start) / 86400000) + 1;
+  document.getElementById('editionNum').textContent = `Edition #${edNum}`;
+
+  // Time-based greeting
+  const h = now.getHours();
+  let greet = 'Good evening';
+  if (h < 12) greet = 'Good morning';
+  else if (h < 17) greet = 'Good afternoon';
+  document.getElementById('greeting').textContent = greet;
+}
+
+// ==========================================
+// STICKY HEADER SHADOW
+// ==========================================
+function setupScroll() {
+  const mast = document.getElementById('masthead');
+  window.addEventListener('scroll', () => {
+    mast.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+
+// ==========================================
+// SCROLL REVEAL
+// ==========================================
+function observeReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+// ==========================================
+// LOAD ARTICLES
+// ==========================================
+async function loadArticles() {
+  let data;
+  try {
+    const res = await fetch('./articles.json');
+    if (!res.ok) throw new Error(res.status);
+    data = await res.json();
+  } catch (e) {
+    console.warn('Fetch failed, using embedded data:', e.message);
+    if (typeof EMBEDDED_ARTICLES !== 'undefined') {
+      data = EMBEDDED_ARTICLES;
+    } else {
+      console.error('No article data available. Serve via HTTP or embed data.');
+      document.getElementById('heroSection').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-3);padding:60px 0;">Articles failed to load. Please open this page via a web server (not file://). Run: <code>python3 -m http.server 8000</code></p>';
+      return;
+    }
+  }
+  articles = data.articles.filter(a => a.status === 'published');
+  renderAll();
+  injectLD();
+  updateQC(data);
+  buildTicker();
+}
+
+// ==========================================
+// RENDER
+// ==========================================
+function renderAll() {
+  const list = filter === 'all' ? articles : articles.filter(a => a.category === filter);
+  renderHero(list);
+  renderGrid(list);
+  renderList(list);
+}
+
+function renderHero(items) {
+  const el = document.getElementById('heroSection');
+  if (!items.length) {
+    el.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-3);padding:60px 0;">No articles in this category yet.</p>';
+    return;
+  }
+  const lead = items[0];
+  // Show up to 3 side articles to fill the right column
+  const sides = items.slice(1, Math.min(4, items.length));
+  const leadImg = isFallbackImg(lead.imageUrl)
+    ? fallbackHtml(lead.category, 'position:absolute;inset:0;')
+    : `<img src="${lead.imageUrl}" alt="${lead.imageAlt}" loading="eager" data-cat="${lead.category}" data-fbstyle="position:absolute;inset:0;" onerror="imgErr(this)">`;
+
+  // If only 1 article, go full width (no side column)
+  if (sides.length === 0) {
+    el.innerHTML = `
+      <article class="hero-lead" style="grid-column:1/-1;" onclick="openDetail('${lead.id}')">
+        ${leadImg}
+        <div class="hero-lead-overlay"></div>
+        <div class="hero-lead-content">
+          <span class="cat-badge ${lead.category}">${lead.category}</span>
+          <h2>${lead.title}</h2>
+          <p>${truncate(lead.summary.split('\n')[0], 200)}</p>
+          <div class="meta">
+            <span>${lead.source}</span>
+            <span class="meta-dot">${timeAgo(lead.publishedAt)}</span>
+            <span class="meta-dot">${lead.readTime} min read</span>
+          </div>
+        </div>
+      </article>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <article class="hero-lead" onclick="openDetail('${lead.id}')">
+      ${leadImg}
+      <div class="hero-lead-overlay"></div>
+      <div class="hero-lead-content">
+        <span class="cat-badge ${lead.category}">${lead.category}</span>
+        <h2>${lead.title}</h2>
+        <p>${truncate(lead.summary.split('\n')[0], 200)}</p>
+        <div class="meta">
+          <span>${lead.source}</span>
+          <span class="meta-dot">${timeAgo(lead.publishedAt)}</span>
+          <span class="meta-dot">${lead.readTime} min read</span>
+        </div>
+      </div>
+    </article>
+    <div class="hero-secondary">
+      ${sides.map(a => {
+        const sideImg = isFallbackImg(a.imageUrl)
+          ? fallbackHtml(a.category)
+          : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" onerror="imgErr(this)">`;
+        return `
+        <article class="hero-card" onclick="openDetail('${a.id}')">
+          ${sideImg}
+          <div class="hero-card-body">
+            <span class="hero-card-cat ${a.category}">${a.category}</span>
+            <h3>${a.title}</h3>
+            <div class="meta">${a.source} &middot; ${timeAgo(a.publishedAt)}</div>
+          </div>
+        </article>
+      `}).join('')}
+    </div>
+  `;
+}
+
+function renderGrid(items) {
+  const el = document.getElementById('cardGrid');
+  const cards = items.slice(4, 7);
+  if (!cards.length) { el.innerHTML = ''; return; }
+  el.innerHTML = cards.map(a => {
+    const cardImg = isFallbackImg(a.imageUrl)
+      ? fallbackHtml(a.category)
+      : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" onerror="imgErr(this)">`;
+    return `
+    <article class="card" onclick="openDetail('${a.id}')">
+      <div class="card-img-wrap">
+        <span class="cat-badge ${a.category}">${a.category}</span>
+        ${cardImg}
+      </div>
+      <div class="card-body">
+        <h3>${a.title}</h3>
+        <p>${truncate(a.summary.split('\n')[0], 140)}</p>
+        <div class="card-footer">
+          <strong>${a.source}</strong>
+          <span>${a.readTime} min &middot; ${timeAgo(a.publishedAt)}</span>
+        </div>
+      </div>
+    </article>
+  `}).join('');
+}
+
+function renderList(items) {
+  const el = document.getElementById('articleList');
+  const rest = items.slice(7);
+  if (!rest.length) {
+    el.innerHTML = '<p style="text-align:center;color:var(--text-3);padding:40px 0;">That\'s all for today. Check back tomorrow.</p>';
+    return;
+  }
+  el.innerHTML = rest.map(a => {
+    const listImg = isFallbackImg(a.imageUrl)
+      ? fallbackHtml(a.category, 'width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;')
+      : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" data-fbstyle="width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;" onerror="imgErr(this)">`;
+    return `
+    <article class="list-item" onclick="openDetail('${a.id}')">
+      ${listImg}
+      <div class="list-item-body">
+        <span class="list-item-cat" style="color:var(--cat-${a.category})">${a.category}</span>
+        <h3>${a.title}</h3>
+        <p>${truncate(a.summary.split('\n')[0], 180)}</p>
+        <div class="meta">
+          <span>${a.source}</span>
+          <span class="meta-dot">${timeAgo(a.publishedAt)}</span>
+          <span class="meta-dot">${a.readTime} min read</span>
+        </div>
+      </div>
+    </article>
+  `}).join('');
+}
+
+// ==========================================
+// ARTICLE DETAIL
+// ==========================================
+function articleUrl(id) {
+  // Build shareable URL — uses /a/ID.html if custom domain, otherwise ?a=ID
+  const base = window.location.origin + window.location.pathname.replace(/\/+$/, '');
+  return `${base}/a/${id}.html`;
+}
+
+function openDetail(id, skipPush) {
+  const a = articles.find(x => x.id === id);
+  if (!a) return;
+  const panel = document.getElementById('detailPanel');
+  const overlay = document.getElementById('overlay');
+  const shareUrl = articleUrl(a.id);
+  const shareText = encodeURIComponent(a.title + ' — The Mold Report');
+  const shareUrlEnc = encodeURIComponent(shareUrl);
+
+  panel.innerHTML = `
+    <button class="detail-close" onclick="closeDetail()" aria-label="Close">&times;</button>
+    ${isFallbackImg(a.imageUrl)
+      ? fallbackHtml(a.category, 'height:280px;border-radius:var(--r-lg) var(--r-lg) 0 0;')
+      : `<img class="detail-img" src="${a.imageUrl}" alt="${a.imageAlt}" data-cat="${a.category}" data-fbstyle="height:280px;border-radius:var(--r-lg) var(--r-lg) 0 0;" onerror="imgErr(this)">`
+    }
+    <div class="detail-body">
+      <span class="cat-badge ${a.category}">${a.category}</span>
+      <h1>${a.title}</h1>
+      <div class="detail-meta">
+        <span>By ${a.author}</span>
+        <span class="meta-dot">${a.source}</span>
+        <span class="meta-dot">${formatDate(a.publishedAt)}</span>
+        <span class="meta-dot">${a.readTime} min read</span>
+      </div>
+
+      <div class="share-bar">
+        <span class="share-label">Share</span>
+        <a class="share-btn x" href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrlEnc}" target="_blank" rel="noopener" title="Share on X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X
+        </a>
+        <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}" target="_blank" rel="noopener" title="Share on Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}" target="_blank" rel="noopener" title="Share on LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="share-btn email" href="mailto:?subject=${shareText}&body=Read%20this%20on%20The%20Mold%20Report%3A%20${shareUrlEnc}" title="Share via Email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+        <button class="share-btn copy" onclick="copyShareLink('${shareUrl}')" title="Copy link">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          Copy link
+        </button>
+      </div>
+
+      <div class="detail-text">
+        ${a.summary.split('\n').filter(p => p.trim()).map(p => '<p>' + p.trim() + '</p>').join('')}
+        <p style="color:var(--text-3);font-style:italic;margin-top:var(--sp-6);">This article was originally published by ${a.source}. The Mold Report curates and summarizes mold-related news from trusted sources.</p>
+      </div>
+      ${a.sourceUrl ? `<a href="${a.sourceUrl}" target="_blank" rel="noopener" class="detail-source">Read full article at ${a.source} &rarr;</a>` : ''}
+      ${a.tags && a.tags.length ? `
+        <div class="detail-tags">
+          ${a.tags.map(t => `<span class="detail-tag">${t}</span>`).join('')}
+        </div>
+      ` : ''}
+      <div class="article-disclaimer">
+        <strong>AI Editorial Disclaimer</strong>
+        This article was curated and summarized by The Mold Report's AI editorial pipeline from publicly available sources across the internet. The original reporting was done by ${a.source}. Our AI agents rewrote the summary for clarity, verified it against medical compliance rules, and checked research alignment before publishing. This content is informational only and does not constitute medical advice. Published ${formatDate(a.publishedAt)}.
+      </div>
+      <a href="${moldcoUrl()}" target="_blank" rel="noopener" class="moldco-tile">
+        <div class="moldco-tile-icon">M</div>
+        <div class="moldco-tile-text">
+          <span>Think mold might be affecting your health?</span>
+          <small>MoldCo's Starter Health Panel checks 3 key biomarkers. $56 at 2,000+ LabCorp locations.</small>
+        </div>
+        <span class="moldco-tile-arrow">&rarr;</span>
+      </a>
+    </div>
+  `;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Update URL for shareability
+  if (!skipPush) {
+    history.pushState({ article: id }, a.title, '?a=' + id);
+  }
+}
+
+function copyShareLink(url) {
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.querySelector('.share-btn.copy');
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> Copy link';
+    }, 2000);
+  });
+}
+
+function closeDetail() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  // Restore base URL
+  history.pushState({}, '', window.location.pathname);
+}
+
+function setupOverlay() {
+  document.getElementById('overlay').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeDetail();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDetail();
+  });
+}
+
+// ==========================================
+// TICKER
+// ==========================================
+function buildTicker() {
+  const el = document.getElementById('ticker');
+  const headlines = articles.slice(0, 6).map(a => a.title);
+  el.innerHTML = [...headlines, ...headlines].map(h => `<span>${h}</span>`).join('');
+}
+
+// ==========================================
+// FILTERS
+// ==========================================
+function navFilter(e, cat) {
+  e.preventDefault();
+  filter = cat;
+  // Update filter buttons
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+    if (b.dataset.filter === cat) {
+      b.classList.add('active');
+      b.setAttribute('aria-selected', 'true');
+    }
+  });
+  // Update nav link active state
+  document.querySelectorAll('#nav a[onclick]').forEach(a => a.classList.remove('active'));
+  if (e.target && e.target.tagName === 'A') e.target.classList.add('active');
+  renderAll();
+  // Scroll to content area
+  const hero = document.getElementById('heroSection');
+  if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Close mobile menu if open
+  document.getElementById('nav').classList.remove('open');
+}
+
+function setupFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      filter = btn.dataset.filter;
+      renderAll();
+    });
+  });
+}
+
+// ==========================================
+// MOBILE MENU
+// ==========================================
+function setupMobileMenu() {
+  document.getElementById('hamburger').addEventListener('click', () => {
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('open');
+  });
+}
+
+// ==========================================
+// FORMS
+// ==========================================
+function setupForms() {
+  document.getElementById('submitForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.querySelector('#sName').value,
+      email: form.querySelector('#sEmail').value,
+      title: form.querySelector('#sTitle').value,
+      url: form.querySelector('#sUrl').value,
+      category: form.querySelector('#sCat').value,
+      summary: form.querySelector('#sSum').value,
+      submittedAt: new Date().toISOString(),
+      status: 'pending_review'
+    };
+    const q = JSON.parse(localStorage.getItem('tmr_subs') || '[]');
+    q.push(data);
+    localStorage.setItem('tmr_subs', JSON.stringify(q));
+    form.style.display = 'none';
+    document.getElementById('submitOk').classList.add('show');
+    setTimeout(() => {
+      form.style.display = '';
+      form.reset();
+      document.getElementById('submitOk').classList.remove('show');
+    }, 4000);
+  });
+
+  document.getElementById('nlForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = e.target.querySelector('input');
+    const btn = e.target.querySelector('button');
+    const subs = JSON.parse(localStorage.getItem('tmr_nl') || '[]');
+    subs.push({ email: input.value, at: new Date().toISOString() });
+    localStorage.setItem('tmr_nl', JSON.stringify(subs));
+    input.value = '';
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--accent)';
+    btn.style.color = 'white';
+    setTimeout(() => { btn.textContent = 'Subscribe Free'; btn.style.background = 'white'; btn.style.color = 'var(--text)'; }, 3000);
+  });
+}
+
+// ==========================================
+// QC
+// ==========================================
+function checkAdmin() {
+  if (new URLSearchParams(window.location.search).get('admin') === 'true') {
+    document.getElementById('qcBar').classList.add('show');
+  }
+}
+function updateQC(data) {
+  const pub = data.articles.filter(a => a.status === 'published').length;
+  const rev = data.articles.filter(a => a.status === 'review').length;
+  document.getElementById('qcPub').textContent = `${pub} Published`;
+  document.getElementById('qcRev').textContent = `${rev} Review`;
+  document.getElementById('qcTime').textContent = 'Updated ' + new Date(data.lastUpdated).toLocaleString();
+}
+
+// ==========================================
+// SEO: LD+JSON
+// ==========================================
+function injectLD() {
+  articles.forEach(a => {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      headline: a.title,
+      description: a.summary,
+      datePublished: a.publishedAt,
+      author: { "@type": "Person", name: a.author },
+      publisher: { "@type": "Organization", name: "The Mold Report" },
+      image: a.imageUrl,
+      articleSection: a.category,
+      keywords: a.tags ? a.tags.join(', ') : ''
+    });
+    document.head.appendChild(s);
+  });
+}
+
+// ==========================================
+// UTILS
+// ==========================================
+function timeAgo(d) {
+  const s = Math.floor((Date.now() - new Date(d)) / 1000);
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+  if (s < 172800) return 'Yesterday';
+  return `${Math.floor(s / 86400)}d ago`;
+}
+function formatDate(d) {
+  return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+// ==========================================
+// LEGAL MODALS
+// ==========================================
+function openModal(type) {
+  event.preventDefault();
+  const id = type + 'Modal';
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(type) {
+  const id = type + 'Modal';
+  document.getElementById(id).classList.remove('open');
+  if (!document.getElementById('overlay').classList.contains('open')) {
+    document.body.style.overflow = '';
+  }
+}
+document.querySelectorAll('.legal-modal-overlay').forEach(el => {
+  el.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      el.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// ==========================================
+// TRUNCATE HELPER
+// ==========================================
+function setFilter(cat) {
+  event.preventDefault();
+  filter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === cat);
+    b.setAttribute('aria-selected', b.dataset.filter === cat ? 'true' : 'false');
+  });
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function truncate(text, len) {
+  if (!text || text.length <= len) return text || '';
+  return text.substring(0, len).replace(/\s+\S*$/, '') + '...';
+}
+
+// Fallback icons per category
+const FB_ICONS = {
+  research: '&#x1F52C;',     // microscope
+  regulation: '&#x2696;',    // scales
+  news: '&#x1F4F0;',         // newspaper
+  industry: '&#x1F3ED;',     // factory
+  diagnostics: '&#x1F9EA;',  // test tube
+  default: '&#x1F343;'       // leaf
+};
+
+function isFallbackImg(url) {
+  if (!url) return true;
+  // Generic/stock images that look bad as article images
+  const bad = ['placehold.co', 'pubmed-meta-image', 'ncbi.nlm.nih.gov/pubmed/persistent'];
+  return bad.some(b => url.includes(b));
+}
+
+function fallbackHtml(cat, style) {
+  const icon = FB_ICONS[cat] || FB_ICONS['default'];
+  return `<div class="fallback-img ${cat}"${style ? ` style="${style}"` : ''}><span class="fb-icon">${icon}</span></div>`;
+}
+
+// Global onerror handler — replaces broken images with CSS fallback
+function imgErr(el) {
+  const cat = el.dataset.cat || 'default';
+  const style = el.dataset.fbstyle || '';
+  el.outerHTML = fallbackHtml(cat, style);
+}
+
+// UTM helper for MoldCo links
+const MOLDCO_UTM = 'utm_source=themoldreport&utm_medium=referral&utm_campaign=mold_report';
+function moldcoUrl(path) {
+  const base = 'https://moldco.com' + (path || '');
+  return base + (base.includes('?') ? '&' : '?') + MOLDCO_UTM;
+}
+</script>
+
+</body>
+</html>

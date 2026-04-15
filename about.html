@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — The Mold Report</title>
+  <meta name="description" content="The Mold Report is the first AI-curated mold news publication. Learn about our mission, our founder, and the AI editorial team behind every article.">
+  <meta property="og:title" content="About Us — The Mold Report">
+  <meta property="og:description" content="The first AI-curated mold news publication. Meet the team.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Mold Report">
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F8F7F4;
+      --surface: #FFFFFF;
+      --text: #111111;
+      --text-2: #555555;
+      --text-3: #999999;
+      --accent: #1B4D3E;
+      --accent-light: #E6F0EB;
+      --accent-hover: #143D31;
+      --border: #E5E4E0;
+      --warm: #F5F0E8;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-6: 24px;
+      --sp-8: 32px; --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+      --r-md: 12px; --r-lg: 16px;
+      --shadow-2: 0 4px 16px rgba(0,0,0,0.06);
+      --max-w: 1280px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* MASTHEAD */
+    .masthead {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .masthead-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--serif);
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+    }
+    .logo-type {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--text);
+    }
+    .back-link {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .back-link:hover { opacity: 0.7; }
+
+    /* HERO */
+    .about-hero {
+      background: var(--accent);
+      color: white;
+      padding: var(--sp-16) var(--sp-6);
+      text-align: center;
+    }
+    .about-hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .about-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      margin: 0 0 var(--sp-6);
+      line-height: 1.15;
+    }
+    .about-hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CONTENT */
+    .about-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--sp-12) var(--sp-6);
+    }
+
+    .about-section {
+      margin-bottom: var(--sp-12);
+    }
+    .about-section h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-6);
+    }
+    .about-section p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-4);
+    }
+
+    /* FOUNDER CARD */
+    .founder-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-8);
+      display: flex;
+      gap: var(--sp-8);
+      align-items: flex-start;
+      margin-bottom: var(--sp-12);
+    }
+    .founder-avatar {
+      width: 96px; height: 96px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-size: 40px;
+      color: white;
+      flex-shrink: 0;
+    }
+    .founder-info h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 4px;
+    }
+    .founder-info .role {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--sp-3);
+    }
+    .founder-info p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    /* TEAM GRID */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-6);
+    }
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: var(--sp-6);
+      transition: box-shadow 0.2s;
+    }
+    .team-card:hover {
+      box-shadow: var(--shadow-2);
+    }
+    .team-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+    .agent-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .agent-icon.scout { background: #DBEAFE; }
+    .agent-icon.editor { background: #FEF3C7; }
+    .agent-icon.compliance { background: #FCE7F3; }
+    .agent-icon.research { background: #E0E7FF; }
+    .agent-icon.guard { background: #FEE2E2; }
+    .agent-icon.photo { background: #D1FAE5; }
+    .agent-icon.headline { background: #F3E8FF; }
+    .agent-icon.tip { background: #FFEDD5; }
+    .agent-icon.interest { background: #CFFAFE; }
+
+    .team-card h4 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0;
+    }
+    .team-card .agent-role {
+      font-size: 12px;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .team-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: var(--sp-8) 0;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .founder-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a href="index.html" class="logo" aria-label="Home">
+        <div class="logo-mark">M</div>
+        <div class="logo-type">The Mold <i>Report</i></div>
+      </a>
+      <a href="index.html" class="back-link">&larr; Back to The Mold Report</a>
+    </div>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <h1>We built a newsroom that never sleeps, never gets tired, and never publishes without checking the science.</h1>
+      <p>The Mold Report is the first AI-curated mold news publication. We exist because finding accurate, evidence-based mold news shouldn't require a research degree.</p>
+    </div>
+  </section>
+
+  <div class="about-content">
+
+    <!-- MISSION -->
+    <section class="about-section">
+      <h2>Why This Exists</h2>
+      <p>Mold illness affects millions of people, but good information about it is buried. Research papers sit behind paywalls written in language nobody outside academia can parse. News coverage is scattered across local outlets that never connect the dots. And the stuff that does go viral is usually wrong, overhyped, or trying to sell you something.</p>
+      <p>We wanted to fix that. The Mold Report gathers mold-related news, research, and regulation from across the internet every day, runs it through a team of AI editorial agents, and publishes the stories that actually matter. Every article is rewritten for clarity, checked against medical compliance standards, and verified for scientific accuracy before it goes live.</p>
+      <p>No paywalls. No login gates. No ads disguised as articles. Just the news, the research, and the context you need to stay informed about mold exposure and your health.</p>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="about-section">
+      <h2>The Founder</h2>
+    </section>
+
+    <div class="founder-card">
+      <div class="founder-avatar">J</div>
+      <div class="founder-info">
+        <h3>Julien Lepleux</h3>
+        <div class="role">Founder</div>
+        <p>Julien runs growth at MoldCo, a clinician-led virtual clinic focused on mold toxicity treatment. After spending months watching good mold research get zero mainstream attention while misinformation spread unchecked, he decided to build something about it. The Mold Report started as an experiment: what if you gave a team of AI agents the same editorial standards as a real newsroom and pointed them at mold science? Turns out, they're pretty good at it. Julien handles the product, the strategy, and the occasional "please stop writing headlines with semicolons" feedback to the bots.</p>
+      </div>
+    </div>
+
+    <!-- THE TEAM -->
+    <section class="about-section">
+      <h2>The Team</h2>
+      <p>Every article on The Mold Report passes through a team of nine AI agents before publication. They don't sleep, they don't take PTO, and they have very strong opinions about headline length. Here's who does what:</p>
+    </section>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon scout">🔍</div>
+          <div>
+            <h4>The Scout</h4>
+            <span class="agent-role">Freshness Gate</span>
+          </div>
+        </div>
+        <p>First line of defense. Checks every incoming story's publish date and kills anything older than 90 days. Has no patience for "breaking news" from 2024.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon interest">📊</div>
+          <div>
+            <h4>The Critic</h4>
+            <span class="agent-role">Interest Scoring</span>
+          </div>
+        </div>
+        <p>Reads every article and scores it 1-10 on newsworthiness. If it doesn't hit a 7, it doesn't get published. Ruthless but fair. Rejected an article about "mold-inspired art installations" without hesitation.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon tip">📬</div>
+          <div>
+            <h4>The Bouncer</h4>
+            <span class="agent-role">Tip Screening</span>
+          </div>
+        </div>
+        <p>Screens reader-submitted tips for editorial validity and scientific alignment. Great at spotting spam, self-promotion, and that one guy who keeps submitting links to his ozone generator website.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon headline">✏️</div>
+          <div>
+            <h4>The Hook</h4>
+            <span class="agent-role">Headline Writer</span>
+          </div>
+        </div>
+        <p>Rewrites titles so actual humans want to read them. Turns "Combined toxicity prediction of deoxynivalenol and fumonisin B(1) by physiologically based toxicokinetic modelling" into something you'd actually click on. You're welcome.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon editor">📝</div>
+          <div>
+            <h4>The Writer</h4>
+            <span class="agent-role">Editorial Rewrite</span>
+          </div>
+        </div>
+        <p>Takes raw source material and rewrites it in plain, clear language. Trained to write like a smart journalist, not like an AI that just discovered em dashes. Keeps every summary between 150-250 words.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon compliance">⚖️</div>
+          <div>
+            <h4>The Lawyer</h4>
+            <span class="agent-role">Compliance Check</span>
+          </div>
+        </div>
+        <p>Makes sure nothing we publish makes a medical claim it shouldn't. Cross-references every article against MoldCo's compliance rules. Obsessed with the difference between "treatment" and "recovery." We let them be.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon research">🔬</div>
+          <div>
+            <h4>The Scientist</h4>
+            <span class="agent-role">Research Verification</span>
+          </div>
+        </div>
+        <p>Checks science articles against Shoemaker Protocol research and evidence-based mold literature. If a study's methodology is questionable or the claims don't hold up, this agent flags it before publication.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon guard">🛡️</div>
+          <div>
+            <h4>The Lie Detector</h4>
+            <span class="agent-role">Invention Guard</span>
+          </div>
+        </div>
+        <p>The last safety net. Re-reads every article specifically looking for anything that might have been fabricated, hallucinated, or embellished during the rewrite process. Trust, but verify.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="agent-icon photo">📸</div>
+          <div>
+            <h4>The Photographer</h4>
+            <span class="agent-role">Photo Agent</span>
+          </div>
+        </div>
+        <p>Finds the right image for every story. Pulls Open Graph images from source articles or assigns category-specific visuals. Won't stop asking when we're getting a real photo library.</p>
+      </div>
+    </div>
+
+    <section class="about-section" style="margin-top:var(--sp-12);">
+      <h2>Disclosure</h2>
+      <p>The Mold Report's founder is affiliated with MoldCo, a clinician-led virtual clinic that treats mold toxicity. Sponsored content on The Mold Report is always clearly labeled "From Our Partners." Our editorial coverage is independent and AI-curated from public sources. We don't let the business relationship influence what gets published or how it gets framed.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 The Mold Report. All rights reserved. <a href="index.html">Back to The Mold Report</a></p>
+  </footer>
+
+</body>
+</html>

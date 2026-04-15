@@ -1,0 +1,1411 @@
+#!/usr/bin/env python3
+"""
+The Mold Report — Fully Automated AI Editorial Pipeline
+=========================================================
+Runs hands-off. Fetches mold news from Google Alerts RSS feeds,
+processes each article through a 7-gate AI pipeline, and auto-publishes
+anything that scores 7+ on editorial interest. No human step required.
+
+Pipeline gates (in order):
+  1. FRESHNESS GATE     — Rejects articles older than 90 days
+  2. SOURCE GATE        — Rejects articles without valid source URLs (tips exempt)
+  2b. TIP SCREENING     — Reader tips: checks editorial validity + Shoemaker alignment
+  3. INTEREST AGENT     — Scores 1-10 on newsworthiness (must be >= 7)
+  4. HEADLINE AGENT     — Rewrites titles for clarity and reader engagement
+  5. EDITORIAL AGENT    — Rewrites summary in Mold Report voice
+  6. COMPLIANCE AGENT   — Checks against MoldCo claims rules (auto-corrects)
+  7. RESEARCH AGENT     — Verifies Shoemaker alignment for science articles
+  8. INVENTION GUARD    — AI checks for fabrication (70% confidence threshold)
+  9. PHOTO AGENT        — Assigns images (OG extraction or category fallback)
+
+Data storage:
+  articles.json — flat JSON file. This IS the database. No server needed.
+  index.html reads articles.json (or uses embedded fallback for file:// access).
+
+Usage:
+  # Default: full auto-publish pipeline
+  python editorial_pipeline.py
+
+  # Dry run (process but don't save)
+  python editorial_pipeline.py --dry-run
+
+  # Just compliance-check existing articles
+  python editorial_pipeline.py --compliance-check
+
+  # Override interest threshold (default 7)
+  python editorial_pipeline.py --min-score 6
+
+Requirements:
+  pip install anthropic feedparser requests beautifulsoup4
+"""
+
+import json
+import os
+import hashlib
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+
+# Load .env file if present
+_env_file = Path(__file__).parent / ".env"
+if _env_file.exists():
+    with open(_env_file) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith('#') and '=' in _line:
+                _k, _v = _line.split('=', 1)
+                os.environ.setdefault(_k.strip(), _v.strip())
+
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
+
+try:
+    import feedparser
+except ImportError:
+    feedparser = None
+
+try:
+    import requests
+except ImportError:
+    requests = None
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
+
+# =========================================
+# CONFIG
+# =========================================
+SCRIPT_DIR = Path(__file__).parent
+ARTICLES_FILE = SCRIPT_DIR / "articles.json"
+INDEX_FILE = SCRIPT_DIR / "index.html"
+MODEL = "claude-sonnet-4-6"
+DEFAULT_MIN_SCORE = 7       # Only publish articles scoring this or higher
+MAX_ARTICLES_PER_RUN = 5    # Cap per run to keep quality high
+MAX_TOTAL_ARTICLES = 200    # Trim old articles beyond this
+
+RSS_FEEDS = []
+for i in range(1, 20):
+    url = os.environ.get(f"MOLD_REPORT_RSS_{i}", "")
+    if url:
+        RSS_FEEDS.append(url)
+if not RSS_FEEDS:
+    single = os.environ.get("MOLD_REPORT_RSS", "")
+    if single and "YOUR_FEED_ID" not in single:
+        RSS_FEEDS.append(single)
+
+# PubMed eutils search queries (fetches recent peer-reviewed research)
+PUBMED_SEARCHES = [
+    "mold illness OR mold-related illness OR chronic inflammatory response syndrome",
+    "mycotoxin exposure health effects",
+    "indoor mold health OR water-damaged building illness",
+    "Stachybotrys OR Aspergillus fumigatus pathogenesis",
+    "TGF-beta1 mold OR MMP-9 biotoxin OR MSH mold",
+]
+PUBMED_DAYS_BACK = 30   # Only fetch articles from last 30 days
+PUBMED_MAX_PER_QUERY = 5
+
+# Government & institutional RSS feeds
+# NOTE: Most US gov sites (EPA, CDC, NIH) block automated RSS access.
+# For government sources, use Google Alerts instead. Add these alerts:
+#   - "EPA mold" (News sources only)
+#   - "CDC mold OR indoor air quality" (News sources only)
+#   - "mold remediation regulation" (News sources only)
+# Then add the feed URLs as MOLD_REPORT_RSS_4, _5, etc. in .env
+GOV_RSS_FEEDS = [
+    # Add working gov RSS feeds here as you find them
+    # Most gov feeds need to come through Google Alerts instead
+]
+# Keywords to filter government feeds (only keep mold-relevant articles)
+GOV_FILTER_KEYWORDS = [
+    "mold", "mould", "mycotoxin", "indoor air", "water damage",
+    "air quality", "remediation", "Stachybotrys", "Aspergillus",
+    "fungal", "fungi", "dampness", "moisture", "sick building",
+    "biotoxin", "environmental health", "housing safety",
+]
+
+# Fallback images: empty string signals the frontend to use CSS-generated
+# category backgrounds with gradient + icon (no text overlap).
+# The frontend's isFallbackImg() checks for empty or placehold.co URLs.
+FALLBACK_IMAGES = {
+    "research":     "",
+    "regulation":   "",
+    "news":         "",
+    "industry":     "",
+    "diagnostics":  "",
+    "default":      "",
+}
+
+# =========================================
+# COMPLIANCE RULES (from claims-compliance skill)
+# =========================================
+COMPLIANCE_RULES = """
+## MoldCo Claims Compliance Rules for The Mold Report
+
+These rules MUST be followed when writing or reviewing any article:
+
+### CRITICAL: Language Rules
+1. MoldCo does NOT diagnose anything. Never say "diagnostic criteria" or "comprehensive CIRS evaluation."
+2. Use "mold toxicity treatment" not "CIRS treatment"
+3. Use "guided by Shoemaker Protocol" not "following" it
+4. Use "may," "might," "research suggests" for health claims. Never state mold causes X as absolute fact.
+5. Use "mold-related illness" in patient-facing copy, not "CIRS"
+6. Never mention VCS testing
+7. Never say "Shoemaker-licensed" or "certified Shoemaker practitioner"
+8. Never use sensitivity/specificity stats applied to MoldCo
+9. Genetic susceptibility = 24% (never 25% or 30%)
+10. Commercial buildings with water damage = 85%. Residential = 50%.
+11. Mold growth timeline = 24-48 hours (not 24-72)
+12. Use "leading" or "dedicated" not "only" for MoldCo positioning
+13. No conspiratorial or accusatory framing about government agencies
+14. TGF-B1 is a cytokine/growth factor, NOT a hormone
+15. Use "treatment" or "improvement" not "recovery" (less definitive)
+16. Colesevelam (generic) before Welchol (brand) when mentioned
+17. Never recommend urine mycotoxin testing proactively
+18. Blood biomarker testing (TGF-B1, MMP-9, MSH) is the preferred approach
+
+### Shoemaker Alignment
+- Frame Shoemaker research positively as foundational, peer-reviewed science
+- Reference "30+ years of research" and "14,000+ patients" when relevant
+- Don't dismiss mainstream medicine. Frame it as "emerging awareness"
+- Position blood biomarkers as objective, evidence-based approach
+- Acknowledge that immune-mediated mold illness is distinct from direct toxicity
+
+### Article Tone
+- Authoritative but not alarmist
+- Data-driven: cite specific numbers, studies, sources
+- Never use fear-mongering language
+- Frame problems with solutions ("here's what the data shows" not "you're in danger")
+- Respect the reader's intelligence
+"""
+
+
+# =========================================
+# CLAUDE API WRAPPER
+# =========================================
+def call_claude(system_prompt, user_prompt, max_tokens=2000):
+    """Call Claude API as a sub-agent."""
+    if anthropic is None:
+        print("  ⚠ anthropic SDK not installed. Run: pip install anthropic")
+        return None
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        print("  ⚠ ANTHROPIC_API_KEY not set.")
+        return None
+    import time
+    client = anthropic.Anthropic(api_key=api_key)
+    for attempt in range(3):
+        try:
+            message = client.messages.create(
+                model=MODEL,
+                max_tokens=max_tokens,
+                system=system_prompt,
+                messages=[{"role": "user", "content": user_prompt}]
+            )
+            return message.content[0].text
+        except anthropic.APIStatusError as e:
+            if e.status_code == 529 and attempt < 2:
+                print(f"  ⚠ API overloaded, retrying ({attempt+1}/3)...")
+                time.sleep(2 * (attempt + 1))
+                continue
+            print(f"  ⚠ Claude API error: {e}")
+            return None
+        except Exception as e:
+            print(f"  ⚠ Claude API error: {e}")
+            return None
+
+
+# =========================================
+# GATE 1: FRESHNESS
+# =========================================
+def freshness_gate(article):
+    """Reject articles older than 90 days or with no verifiable date."""
+    pub = article.get('publishedAt', '')
+    if not pub:
+        print(f"    ✗ REJECTED: No publication date")
+        return False
+    try:
+        pub_dt = datetime.fromisoformat(pub.replace('Z', '+00:00'))
+        age_days = (datetime.now(timezone.utc) - pub_dt).days
+        if age_days > 90:
+            print(f"    ✗ REJECTED: Article is {age_days} days old (max 90)")
+            return False
+        if age_days < 0:
+            print(f"    ✗ REJECTED: Future date detected ({pub})")
+            return False
+        print(f"    ✓ Fresh: {age_days} days old")
+        return True
+    except (ValueError, TypeError):
+        print(f"    ✗ REJECTED: Invalid date format ({pub})")
+        return False
+
+
+# =========================================
+# GATE 2: SOURCE VERIFICATION
+# =========================================
+def source_verification_gate(article):
+    """Reject articles without a verifiable source URL."""
+    url = article.get('sourceUrl', '').strip()
+    if not url:
+        print(f"    ✗ REJECTED: No source URL")
+        return False
+    if not url.startswith('http'):
+        print(f"    ✗ REJECTED: Invalid source URL ({url})")
+        return False
+    blocked_domains = ['example.com', 'fake', 'placeholder', 'test.com']
+    from urllib.parse import urlparse
+    domain = urlparse(url).netloc.lower()
+    if any(b in domain for b in blocked_domains):
+        print(f"    ✗ REJECTED: Blocked domain ({domain})")
+        return False
+    print(f"    ✓ Source: {domain}")
+    return True
+
+
+# =========================================
+# GATE 3: INTEREST SCORING (auto-gate)
+# =========================================
+def interest_agent(article):
+    """Score how interesting/newsworthy an article is. Returns the article with _interest_score."""
+    print(f"  ★ Interest: {article['title'][:50]}...")
+
+    system = """You are the editorial judgment agent for The Mold Report, the first AI-curated mold news publication.
+
+Score how INTERESTING and NEWSWORTHY an article is for our audience: people concerned about mold exposure, mold illness patients, remediation professionals, researchers, and public health advocates.
+
+Score on a 1-10 scale:
+
+HIGHLY INTERESTING (8-10):
+- New peer-reviewed research with specific findings
+- Government regulation changes (new laws, standards, enforcement)
+- Large-scale health impacts (school closures, housing crises, class actions)
+- Breakthrough diagnostics or treatment data
+- Major funding or industry shifts
+
+MODERATELY INTERESTING (5-7):
+- Local mold news with broader implications
+- Conference findings or expert commentary
+- Industry reports with new data points
+- Updates to existing stories our audience follows
+
+LOW INTEREST (1-4):
+- Generic "mold is bad" articles with no new information
+- Promotional content disguised as news
+- Local stories with no broader relevance
+- Rehashed information without new data
+- Listicles ("10 signs of mold") with no original reporting
+
+Return ONLY valid JSON:
+{"score": 1-10, "reasoning": "one sentence why", "headline_hook": "suggested angle if score >= 6"}
+
+Be selective. A good publication says no more than it says yes."""
+
+    prompt = f"""Score this article's editorial interest:
+
+Title: {article['title']}
+Summary: {article['summary'][:400]}
+Source: {article['source']}
+Category: {article['category']}"""
+
+    result = call_claude(system, prompt, max_tokens=200)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                score = review.get('score', 5)
+                article['_interest_score'] = score
+                article['_interest_reasoning'] = review.get('reasoning', '')
+                article['_headline_hook'] = review.get('headline_hook', '')
+                print(f"    {'★' * min(score, 10)} {score}/10 — {review.get('reasoning', '')[:60]}")
+        except (json.JSONDecodeError, AttributeError):
+            article['_interest_score'] = 5
+    else:
+        article['_interest_score'] = 5
+    return article
+
+
+# =========================================
+# AGENT: TIP SCREENING (reader submissions)
+# =========================================
+def tip_screening_agent(article):
+    """Screen reader-submitted tips for editorial validity and Shoemaker/MoldCo alignment.
+    Tips without source URLs get extra scrutiny. Returns article with _tip_approved flag."""
+    if article.get('_source_type') != 'reader_tip':
+        article['_tip_approved'] = True
+        return article
+
+    print(f"  🔍 Tip screening: {article['title'][:50]}...")
+
+    system = f"""You are the tip screening agent for The Mold Report, the first AI-curated mold news publication.
+
+Your job is to evaluate reader-submitted news tips for:
+1. EDITORIAL VALIDITY — Is this a real, newsworthy development? Or is it spam, self-promotion, misinformation, or a personal anecdote that isn't news?
+2. SHOEMAKER/MOLDCO ALIGNMENT — Does this story align with or at least not contradict the Shoemaker Protocol framework and MoldCo's mission? We don't publish content that:
+   - Promotes urine mycotoxin testing as a primary diagnostic
+   - Pushes unproven "detox" products or supplements without clinical evidence
+   - Uses conspiratorial framing about government agencies
+   - Contradicts established Shoemaker Protocol research
+   - Promotes competing non-evidence-based mold illness frameworks
+3. VERIFIABILITY — Can the claims in this tip be verified? Tips with source URLs are easier to verify. Tips without URLs need stronger internal evidence (specific names, dates, institutions, data points).
+
+{COMPLIANCE_RULES}
+
+Return ONLY valid JSON:
+{{"approved": true/false, "confidence": 0.0-1.0, "reasoning": "one sentence", "concerns": ["concern 1", ...], "suggested_category": "research|regulation|news|industry|diagnostics"}}
+
+Be selective but fair. Reader tips are valuable — many great stories come from the community. But we must protect editorial standards."""
+
+    has_url = bool(article.get('sourceUrl', '').strip())
+    prompt = f"""Screen this reader-submitted tip:
+
+Title: {article['title']}
+Summary: {article['summary'][:500]}
+Category (submitter chose): {article['category']}
+Source URL: {article.get('sourceUrl', 'NONE PROVIDED')}
+Submitter: {article.get('_submitter_name', 'Anonymous')}
+
+{'Note: No source URL was provided. Apply extra scrutiny to verifiability.' if not has_url else 'Source URL provided — verify alignment and editorial value.'}"""
+
+    result = call_claude(system, prompt, max_tokens=300)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                approved = review.get('approved', False)
+                confidence = review.get('confidence', 0.5)
+                article['_tip_approved'] = approved and confidence >= 0.6
+                article['_tip_screening'] = review
+
+                # Update category if agent suggests a better one
+                if review.get('suggested_category'):
+                    article['category'] = review['suggested_category']
+
+                if article['_tip_approved']:
+                    print(f"    ✓ Tip approved (confidence: {confidence}) — {review.get('reasoning', '')[:60]}")
+                else:
+                    concerns = review.get('concerns', [])
+                    print(f"    ✗ Tip rejected (confidence: {confidence}) — {review.get('reasoning', '')[:60]}")
+                    if concerns:
+                        print(f"      Concerns: {', '.join(concerns[:3])}")
+        except (json.JSONDecodeError, AttributeError):
+            print("    ⚠ Could not parse screening response — rejecting tip by default")
+            article['_tip_approved'] = False
+    else:
+        article['_tip_approved'] = False
+    return article
+
+
+# =========================================
+# AGENT: HEADLINE REWRITE
+# =========================================
+def headline_agent(article):
+    """Rewrite article titles to be compelling and click-worthy, especially for research papers."""
+    print(f"  ✏ Headline: {article['title'][:50]}...")
+
+    original_title = article['title']
+
+    system = """You are the headline editor for The Mold Report, the first AI-curated mold news publication.
+
+Your job is to rewrite article titles to make people WANT to read. You're writing for a smart audience that cares about mold exposure, health, and science — but they still need a reason to click.
+
+RULES FOR GREAT HEADLINES:
+1. Lead with the most interesting finding or implication, not the method
+2. Use plain language. Never use academic jargon in the headline
+3. Be specific: include numbers, names, institutions when they add punch
+4. Keep it under 90 characters (strict limit)
+5. Never use clickbait ("You won't believe..."), all-caps, or exclamation marks
+6. Never misrepresent the content — accuracy is sacred
+7. Use active voice. "Study Finds X" not "X Was Found By Study"
+8. For research papers: translate the finding into what it MEANS for real people
+9. Drop unnecessary words (a, the, that) where it reads naturally
+
+EXAMPLES OF GOOD REWRITES:
+- BEFORE: "Combined toxicity prediction of deoxynivalenol and fumonisin B(1) by physiologically based toxicokinetic modelling"
+  AFTER: "Two Common Grain Mold Toxins Are More Dangerous Together, New Model Shows"
+
+- BEFORE: "Human Contact Frequency as a Dominant Ecological Driver of Fungal Community Assembly"
+  AFTER: "The Surfaces You Touch Most Are the Biggest Mold Highways, Study Finds"
+
+- BEFORE: "Indoor air bacterial and fungal burden in the environment of an atopic child"
+  AFTER: "Home Air Quality May Drive Measurable Mycotoxin Levels in Children With Allergies"
+
+- BEFORE: "EPA Issues Updated Guidelines for Mold Assessment in Schools"
+  AFTER: Same — this is already good. Don't rewrite headlines that already work.
+
+Return ONLY valid JSON:
+{"rewritten": "the new headline", "changed": true/false, "reasoning": "why you changed it or kept it"}
+
+If the original is already compelling and clear, set changed to false and return the original."""
+
+    prompt = f"""Rewrite this headline for The Mold Report:
+
+Original title: {article['title']}
+Category: {article['category']}
+Summary excerpt: {article['summary'][:300]}
+Source: {article['source']}"""
+
+    result = call_claude(system, prompt, max_tokens=200)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                if review.get('changed', False) and review.get('rewritten'):
+                    new_title = review['rewritten'].strip()
+                    if len(new_title) <= 100 and len(new_title) > 10:
+                        article['title'] = new_title
+                        article['_original_title'] = original_title
+                        print(f"    → \"{new_title}\"")
+                    else:
+                        print(f"    → Kept original (rewrite too {'long' if len(new_title) > 100 else 'short'})")
+                else:
+                    print(f"    → Kept original (already good)")
+        except (json.JSONDecodeError, AttributeError):
+            print("    ⚠ Could not parse headline response — keeping original")
+    return article
+
+
+# =========================================
+# AGENT: EDITORIAL REWRITE
+# =========================================
+def editorial_agent(article):
+    """Rewrite article summary in Mold Report editorial voice."""
+    print(f"  ✎ Editorial: {article['title'][:50]}...")
+
+    system = """You are the editorial voice of The Mold Report, the first AI-curated mold news publication.
+Your job is to rewrite article summaries in a clear, authoritative, data-driven voice.
+
+Style rules:
+- 2-3 paragraphs, 150-250 words total
+- Lead with the most important finding or development
+- Include specific data points (numbers, dates, institutions)
+- Neutral, journalistic tone. Not promotional. Not alarmist.
+- Short sentences. Clear structure. No jargon without explanation.
+- Never use em dashes. Use periods and commas.
+- End with context: why this matters for people concerned about mold exposure.
+
+IMPORTANT — Testing method editorial notes:
+When an article mentions urine mycotoxin testing, visual contrast sensitivity (VCS) testing, or other testing methods that are NOT aligned with the Shoemaker Protocol's blood biomarker approach:
+- Do NOT silently remove or censor the mention. Keep the article factual.
+- DO add a brief, light editorial note at the end of the relevant paragraph. Use this pattern:
+  "Editor's note: The Shoemaker Protocol, which underpins much of the peer-reviewed mold illness research, relies on blood biomarker testing (TGF-beta1, MMP-9, MSH) as the preferred evidence-based approach for assessing mold-related immune response."
+- Keep it informative, not dismissive. The goal is to educate readers about the evidence base, not to attack other methods.
+- Only add this note ONCE per article, even if multiple non-aligned methods are mentioned.
+
+Return ONLY the rewritten summary text. No headers, no formatting, no preamble."""
+
+    prompt = f"""Rewrite this article for The Mold Report:
+
+Title: {article['title']}
+Original summary: {article['summary']}
+Source: {article['source']}
+Category: {article['category']}"""
+
+    result = call_claude(system, prompt, max_tokens=500)
+    if result:
+        article['summary'] = result.strip()
+        article['readTime'] = max(2, round(len(result.split()) / 200) + 2)
+    return article
+
+
+# =========================================
+# AGENT: COMPLIANCE CHECK
+# =========================================
+def compliance_agent(article):
+    """Check article against MoldCo compliance rules. Auto-corrects issues."""
+    print(f"  ⚖ Compliance: {article['title'][:50]}...")
+
+    system = f"""You are the compliance reviewer for The Mold Report.
+Check the article against these rules and return a JSON response.
+
+{COMPLIANCE_RULES}
+
+Return ONLY valid JSON in this exact format:
+{{"pass": true/false, "issues": ["issue 1", "issue 2"], "corrected_summary": "..." }}
+
+If pass is true, corrected_summary should be empty string.
+If pass is false, provide the corrected summary with issues fixed."""
+
+    prompt = f"""Review this article for compliance:
+
+Title: {article['title']}
+Summary: {article['summary']}
+Category: {article['category']}
+Tags: {', '.join(article.get('tags', []))}"""
+
+    result = call_claude(system, prompt, max_tokens=800)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                if not review.get('pass', True):
+                    print(f"    ⚠ Issues found: {review.get('issues', [])}")
+                    if review.get('corrected_summary'):
+                        article['summary'] = review['corrected_summary']
+                        print("    ✓ Auto-corrected")
+                else:
+                    print("    ✓ Passed")
+                article['_compliance_pass'] = review.get('pass', True)
+                article['_compliance_issues'] = review.get('issues', [])
+        except (json.JSONDecodeError, AttributeError):
+            print("    ⚠ Could not parse compliance response")
+    return article
+
+
+# =========================================
+# AGENT: RESEARCH VERIFICATION
+# =========================================
+def research_agent(article):
+    """Verify Shoemaker alignment and scientific accuracy (research/diagnostics only)."""
+    if article['category'] not in ('research', 'diagnostics'):
+        article['_research_verified'] = True
+        return article
+
+    print(f"  🔬 Research: {article['title'][:50]}...")
+
+    system = """You are a scientific accuracy reviewer for The Mold Report.
+You specialize in mold illness research, particularly the Shoemaker Protocol, CIRS,
+and biotoxin-related inflammatory markers (TGF-B1, MMP-9, MSH, C4a, VIP, VEGF).
+
+Your job:
+1. Check if scientific claims in the article are accurate
+2. Check if the article aligns with or contradicts Shoemaker Protocol research
+3. Flag any claims that overstate evidence or misrepresent studies
+4. Verify biomarker descriptions are scientifically correct
+
+Return ONLY valid JSON:
+{"verified": true/false, "alignment": "shoemaker_aligned" | "neutral" | "contradicts", "notes": ["note 1"], "corrections": "..." }
+
+If corrections are needed, provide corrected text. Otherwise empty string."""
+
+    prompt = f"""Verify scientific accuracy and Shoemaker alignment:
+
+Title: {article['title']}
+Summary: {article['summary']}
+Tags: {', '.join(article.get('tags', []))}"""
+
+    result = call_claude(system, prompt, max_tokens=600)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                article['_research_verified'] = review.get('verified', True)
+                article['_shoemaker_alignment'] = review.get('alignment', 'neutral')
+                if review.get('corrections'):
+                    article['summary'] = review['corrections']
+                    print(f"    ✓ Corrected (alignment: {review.get('alignment')})")
+                else:
+                    print(f"    ✓ Verified (alignment: {review.get('alignment')})")
+        except (json.JSONDecodeError, AttributeError):
+            print("    ⚠ Could not parse research response")
+    return article
+
+
+# =========================================
+# AGENT: INVENTION GUARD
+# =========================================
+def invention_guard(article):
+    """Use Claude to verify the article isn't fabricated/hallucinated."""
+    if not anthropic:
+        return article
+    print(f"  🛡 Invention guard: {article['title'][:50]}...")
+
+    system = """You are a fact-checking agent for The Mold Report.
+Your ONLY job is to determine if this article summary appears to be based on a real, verifiable source or if it looks fabricated/hallucinated.
+
+Check for:
+1. Does the source URL match the claimed source?
+2. Are the specific claims plausible?
+3. Are there signs of fabrication (impossibly precise details, non-existent journals, fake organizations)?
+
+Return ONLY valid JSON:
+{"real": true/false, "confidence": 0.0-1.0, "concerns": ["concern 1", ...]}
+
+If confidence < 0.7, mark real as false."""
+
+    prompt = f"""Verify this article is based on real source material:
+
+Title: {article['title']}
+Source: {article['source']}
+Source URL: {article.get('sourceUrl', 'NONE')}
+Published: {article.get('publishedAt', 'NONE')}
+Summary: {article['summary'][:500]}"""
+
+    result = call_claude(system, prompt, max_tokens=300)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                review = json.loads(json_match.group())
+                article['_invention_check'] = review
+                if not review.get('real', True) or review.get('confidence', 1.0) < 0.7:
+                    print(f"    ⚠ FLAGGED: {review.get('concerns', [])}")
+                    article['_invention_pass'] = False
+                else:
+                    print(f"    ✓ Real (confidence: {review.get('confidence', 'N/A')})")
+                    article['_invention_pass'] = True
+        except (json.JSONDecodeError, AttributeError):
+            article['_invention_pass'] = True
+    return article
+
+
+# =========================================
+# AGENT: PHOTO
+# =========================================
+def photo_agent(article):
+    """Assign images via OG extraction or category fallback."""
+    if article.get('imageUrl') and 'unsplash' not in article.get('imageUrl', ''):
+        return article
+
+    print(f"  📷 Photo: {article['title'][:50]}...")
+
+    url = article.get('sourceUrl', '')
+    if url and requests and BeautifulSoup:
+        try:
+            headers = {"User-Agent": "TheMoldReport/1.0"}
+            resp = requests.get(url, headers=headers, timeout=5)
+            soup = BeautifulSoup(resp.text, "html.parser")
+            og = soup.find("meta", property="og:image")
+            if og and og.get("content"):
+                article['imageUrl'] = og["content"]
+                article['imageAlt'] = article['title'][:80]
+                print(f"    ✓ OG image found")
+                return article
+        except Exception:
+            pass
+
+    cat = article.get('category', 'default')
+    article['imageUrl'] = FALLBACK_IMAGES.get(cat, FALLBACK_IMAGES['default'])
+    article['imageAlt'] = f"{cat.title()} related image"
+    print(f"    → Fallback image ({cat})")
+    return article
+
+
+# =========================================
+# CLASSIFIER
+# =========================================
+def classify_article(title, summary):
+    """Auto-classify article category."""
+    text = (title + " " + summary).lower()
+    categories = {
+        "research": ["study", "research", "findings", "journal", "scientists",
+                      "clinical", "trial", "published", "university", "data shows"],
+        "regulation": ["law", "regulation", "epa", "legislation", "bill", "compliance",
+                        "policy", "government", "federal", "mandate", "guideline"],
+        "diagnostics": ["test", "biomarker", "blood test", "diagnostic", "screening",
+                         "panel", "lab", "mycotoxin", "assay", "TGF", "MMP", "MSH"],
+        "industry": ["company", "startup", "funding", "market", "business", "product",
+                      "launch", "investment", "revenue", "technology", "acquisition"],
+    }
+    scores = {cat: sum(1 for kw in kws if kw in text) for cat, kws in categories.items()}
+    best = max(scores, key=scores.get)
+    return best if scores[best] > 0 else "news"
+
+
+def extract_tags(text):
+    """Extract relevant tags."""
+    keywords = [
+        "EPA", "WHO", "CDC", "mold", "mycotoxin", "remediation",
+        "air quality", "biomarker", "Stachybotrys", "Aspergillus",
+        "CIRS", "brain fog", "inflammation", "housing", "school",
+        "insurance", "lawsuit", "testing", "treatment", "health",
+        "Shoemaker", "TGF", "MMP-9", "MSH", "flooding", "water damage",
+    ]
+    text_lower = text.lower()
+    return [t for t in keywords if t.lower() in text_lower][:6]
+
+
+def gen_id(title):
+    return hashlib.md5(title.lower().strip().encode()).hexdigest()[:12]
+
+
+# =========================================
+# DATA LAYER (articles.json IS the database)
+# =========================================
+def load_articles():
+    if ARTICLES_FILE.exists():
+        with open(ARTICLES_FILE) as f:
+            return json.load(f)
+    return {"lastUpdated": datetime.now(timezone.utc).isoformat(), "articles": []}
+
+
+def save_articles(data):
+    data["lastUpdated"] = datetime.now(timezone.utc).isoformat()
+    # Clean internal pipeline flags before saving
+    for a in data["articles"]:
+        for key in list(a.keys()):
+            if key.startswith('_'):
+                del a[key]
+    with open(ARTICLES_FILE, "w") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"\n✓ Saved {len(data['articles'])} articles to articles.json")
+
+
+def rebuild_embedded(data):
+    """Re-embed articles into index.html for local file:// access."""
+    if not INDEX_FILE.exists():
+        return
+    with open(INDEX_FILE) as f:
+        html = f.read()
+
+    marker = 'const EMBEDDED_ARTICLES = '
+    if marker not in html:
+        print("  ⚠ No EMBEDDED_ARTICLES marker in index.html")
+        return
+
+    minified = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
+
+    # Find the JSON object by counting braces (regex can't handle nested JSON)
+    start = html.index(marker) + len(marker)
+    depth = 0
+    end = start
+    for i, ch in enumerate(html[start:], start):
+        if ch == '{': depth += 1
+        elif ch == '}': depth -= 1
+        if depth == 0:
+            end = i + 1
+            break
+
+    html = html[:start] + minified + html[end:]
+
+    with open(INDEX_FILE, 'w') as f:
+        f.write(html)
+    print(f"  ✓ Re-embedded {len(data['articles'])} articles into index.html")
+
+
+def generate_article_pages(data):
+    """Generate individual HTML pages per article for social sharing (OG meta tags).
+    Each page at /a/{id}.html has proper OG tags and redirects to index.html?a={id}."""
+    articles_dir = SCRIPT_DIR / "a"
+    articles_dir.mkdir(exist_ok=True)
+
+    count = 0
+    for a in data.get("articles", []):
+        if a.get("status") != "published":
+            continue
+
+        aid = a["id"]
+        title = a["title"].replace('"', '&quot;').replace('<', '&lt;')
+        desc = a["summary"][:200].replace('"', '&quot;').replace('<', '&lt;').replace('\n', ' ')
+        img = a.get("imageUrl", "")
+        source = a.get("source", "The Mold Report")
+        pub_date = a.get("publishedAt", "")
+        category = a.get("category", "news")
+        tags_str = ", ".join(a.get("tags", []))
+
+        # Build the redirect URL (goes to main page with ?a=ID)
+        redirect_url = f"../index.html?a={aid}"
+
+        page_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — The Mold Report</title>
+  <meta name="description" content="{desc}">
+  <meta name="keywords" content="{tags_str}">
+
+  <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:site_name" content="The Mold Report">
+  <meta property="og:url" content="https://jlpxmoldco.github.io/the-mold-report/a/{aid}.html">
+  {f'<meta property="og:image" content="{img}">' if img else ''}
+  <meta property="article:published_time" content="{pub_date}">
+  <meta property="article:section" content="{category}">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{desc}">
+  {f'<meta name="twitter:image" content="{img}">' if img else ''}
+
+  <!-- Auto-redirect to full site with article open -->
+  <meta http-equiv="refresh" content="0;url={redirect_url}">
+  <link rel="canonical" href="https://jlpxmoldco.github.io/the-mold-report/a/{aid}.html">
+
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; color: #111; }}
+    h1 {{ font-size: 28px; line-height: 1.2; margin-bottom: 12px; }}
+    .meta {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
+    p {{ font-size: 16px; line-height: 1.7; color: #333; }}
+    a {{ color: #1B4D3E; }}
+    .back {{ display: inline-block; margin-top: 24px; font-weight: 600; }}
+  </style>
+</head>
+<body>
+  <h1>{title}</h1>
+  <div class="meta">{source} &middot; {category}</div>
+  <p>{desc}...</p>
+  <a class="back" href="{redirect_url}">Read full article on The Mold Report &rarr;</a>
+  <script>window.location.replace("{redirect_url}");</script>
+</body>
+</html>"""
+
+        page_path = articles_dir / f"{aid}.html"
+        with open(page_path, 'w') as f:
+            f.write(page_html)
+        count += 1
+
+    print(f"  ✓ Generated {count} article share pages in /a/")
+
+
+# =========================================
+# RSS FETCH
+# =========================================
+def fetch_rss():
+    if not feedparser:
+        print("⚠ feedparser not installed. Run: pip install feedparser")
+        return []
+
+    if not RSS_FEEDS:
+        print("⚠ No RSS feeds configured. Set MOLD_REPORT_RSS_1, _2, etc. in .env")
+        return []
+
+    articles = []
+    seen_titles = set()
+    for feed_url in RSS_FEEDS:
+        print(f"→ Fetching: {feed_url[:70]}...")
+        feed = feedparser.parse(feed_url)
+        print(f"  Found {len(feed.entries)} entries")
+        for entry in feed.entries:
+            title = entry.get("title", "")
+            if BeautifulSoup:
+                title = BeautifulSoup(title, "html.parser").get_text(strip=True)
+
+            title_key = title.lower().strip()
+            if title_key in seen_titles:
+                continue
+            seen_titles.add(title_key)
+
+            summary = entry.get("summary", entry.get("description", ""))
+            if BeautifulSoup:
+                summary = BeautifulSoup(summary, "html.parser").get_text(strip=True)
+            link = entry.get("link", "")
+
+            # Google Alerts wraps real URLs in redirects: extract the actual source
+            from urllib.parse import urlparse, parse_qs
+            if 'google.com/url' in link:
+                parsed_qs = parse_qs(urlparse(link).query)
+                real_url = parsed_qs.get('url', parsed_qs.get('q', ['']))[0]
+                if real_url:
+                    link = real_url
+
+            pub_date = datetime.now(timezone.utc).isoformat()
+            if entry.get("published"):
+                try:
+                    from email.utils import parsedate_to_datetime
+                    pub_date = parsedate_to_datetime(entry["published"]).isoformat()
+                except Exception:
+                    pass
+
+            domain = urlparse(link).netloc.replace("www.", "") if link else "Unknown"
+
+            articles.append({
+                "id": gen_id(title),
+                "title": title,
+                "summary": summary,
+                "source": domain.split(".")[0].title(),
+                "sourceUrl": link,
+                "author": domain.split(".")[0].title(),
+                "publishedAt": pub_date,
+                "category": classify_article(title, summary),
+                "imageUrl": "",
+                "imageAlt": "",
+                "status": "draft",
+                "qcReviewer": "",
+                "qcTimestamp": "",
+                "tags": extract_tags(title + " " + summary),
+                "featured": False,
+                "readTime": 3,
+            })
+
+    print(f"→ Fetched {len(articles)} articles from {len(RSS_FEEDS)} feeds (deduped)")
+    return articles
+
+
+# =========================================
+# PUBMED FETCH (peer-reviewed research via eutils API)
+# =========================================
+def fetch_pubmed():
+    """Fetch recent peer-reviewed research from PubMed using NCBI eutils API."""
+    if not requests:
+        print("⚠ requests not installed")
+        return []
+
+    print(f"\n→ Fetching PubMed research (last {PUBMED_DAYS_BACK} days)...")
+    all_ids = set()
+    for query in PUBMED_SEARCHES:
+        search_url = (
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+            f"?db=pubmed&term={query.replace(' ', '+')}"
+            f"&retmax={PUBMED_MAX_PER_QUERY}&sort=date"
+            f"&datetype=pdat&reldate={PUBMED_DAYS_BACK}&retmode=json"
+        )
+        try:
+            r = requests.get(search_url, timeout=10)
+            data = r.json()
+            ids = data.get("esearchresult", {}).get("idlist", [])
+            all_ids.update(ids)
+        except Exception as e:
+            print(f"  ⚠ PubMed search error: {e}")
+
+    if not all_ids:
+        print("  No new PubMed articles found")
+        return []
+
+    print(f"  Found {len(all_ids)} unique PubMed IDs")
+
+    # Fetch summaries for all IDs
+    id_str = ",".join(all_ids)
+    summary_url = (
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+        f"?db=pubmed&id={id_str}&retmode=json"
+    )
+    try:
+        r = requests.get(summary_url, timeout=15)
+        results = r.json().get("result", {})
+    except Exception as e:
+        print(f"  ⚠ PubMed summary error: {e}")
+        return []
+
+    articles = []
+    for pid in all_ids:
+        info = results.get(pid, {})
+        if not info:
+            continue
+
+        title = info.get("title", "").strip()
+        if not title:
+            continue
+
+        journal = info.get("source", "")
+        pubdate = info.get("pubdate", "")
+        authors = info.get("authors", [])
+        author_str = authors[0].get("name", "") if authors else ""
+
+        # Build summary from available fields
+        summary = f"Published in {journal}. " if journal else ""
+        if author_str:
+            summary += f"Lead author: {author_str}. "
+        summary += title
+
+        # Parse date
+        pub_iso = datetime.now(timezone.utc).isoformat()
+        if pubdate:
+            try:
+                # PubMed dates can be "2026 Apr 11" or "2026 Mar" or "2026"
+                for fmt in ["%Y %b %d", "%Y %b", "%Y"]:
+                    try:
+                        dt = datetime.strptime(pubdate, fmt)
+                        pub_iso = dt.replace(tzinfo=timezone.utc).isoformat()
+                        break
+                    except ValueError:
+                        continue
+            except Exception:
+                pass
+
+        source_url = f"https://pubmed.ncbi.nlm.nih.gov/{pid}/"
+
+        articles.append({
+            "id": gen_id(title),
+            "title": title,
+            "summary": summary,
+            "source": journal or "PubMed",
+            "sourceUrl": source_url,
+            "author": author_str or journal or "PubMed",
+            "publishedAt": pub_iso,
+            "category": "research",  # PubMed = always research
+            "imageUrl": "",
+            "imageAlt": "",
+            "status": "draft",
+            "qcReviewer": "",
+            "qcTimestamp": "",
+            "tags": extract_tags(title + " " + summary),
+            "featured": False,
+            "readTime": 3,
+        })
+
+    print(f"→ Fetched {len(articles)} PubMed articles")
+    return articles
+
+
+# =========================================
+# GOVERNMENT RSS FEEDS (EPA, CDC, HUD, NIH, NIOSH)
+# =========================================
+def fetch_gov_rss():
+    """Fetch government news feeds, filtered to mold-relevant articles only."""
+    if not feedparser:
+        print("⚠ feedparser not installed")
+        return []
+
+    print(f"\n→ Fetching government/institutional feeds...")
+    articles = []
+    seen_titles = set()
+
+    for feed_url in GOV_RSS_FEEDS:
+        try:
+            feed = feedparser.parse(feed_url)
+            source_name = feed_url.split("/")[2].replace("www.", "").split(".")[0].upper()
+            relevant = 0
+
+            for entry in feed.entries:
+                title = entry.get("title", "")
+                summary = entry.get("summary", entry.get("description", ""))
+
+                if BeautifulSoup:
+                    title = BeautifulSoup(title, "html.parser").get_text(strip=True)
+                    summary = BeautifulSoup(summary, "html.parser").get_text(strip=True)
+
+                # Filter: only keep mold-relevant articles
+                combined = (title + " " + summary).lower()
+                if not any(kw in combined for kw in GOV_FILTER_KEYWORDS):
+                    continue
+
+                title_key = title.lower().strip()
+                if title_key in seen_titles:
+                    continue
+                seen_titles.add(title_key)
+
+                link = entry.get("link", "")
+
+                pub_date = datetime.now(timezone.utc).isoformat()
+                if entry.get("published"):
+                    try:
+                        from email.utils import parsedate_to_datetime
+                        pub_date = parsedate_to_datetime(entry["published"]).isoformat()
+                    except Exception:
+                        pass
+
+                from urllib.parse import urlparse
+                domain = urlparse(link).netloc.replace("www.", "") if link else source_name
+
+                articles.append({
+                    "id": gen_id(title),
+                    "title": title,
+                    "summary": summary[:500],
+                    "source": source_name,
+                    "sourceUrl": link,
+                    "author": source_name,
+                    "publishedAt": pub_date,
+                    "category": classify_article(title, summary),
+                    "imageUrl": "",
+                    "imageAlt": "",
+                    "status": "draft",
+                    "qcReviewer": "",
+                    "qcTimestamp": "",
+                    "tags": extract_tags(title + " " + summary),
+                    "featured": False,
+                    "readTime": 3,
+                })
+                relevant += 1
+
+            print(f"  {source_name}: {relevant} relevant articles (from {len(feed.entries)} total)")
+        except Exception as e:
+            print(f"  ⚠ Error fetching {feed_url[:50]}: {e}")
+
+    print(f"→ Fetched {len(articles)} government/institutional articles")
+    return articles
+
+
+# =========================================
+# MAIN PIPELINE: Fully automated
+# =========================================
+def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
+    """
+    The full auto-publish pipeline. No human step.
+
+    1. Fetch RSS feeds
+    2. Dedup against existing articles
+    3. Run each article through all gates
+    4. Auto-publish anything scoring >= min_score that passes all checks
+    5. Re-embed into index.html
+    """
+    print("=" * 60)
+    print("  THE MOLD REPORT — Auto-Publish Pipeline")
+    print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M')} | Min score: {min_score}")
+    print("=" * 60)
+
+    # Load existing articles
+    data = load_articles()
+    existing_ids = {a["id"] for a in data["articles"]}
+    print(f"\n→ {len(existing_ids)} articles currently published")
+
+    # Fetch from all sources
+    raw = []
+    raw.extend(fetch_rss())        # Google Alerts RSS
+    raw.extend(fetch_pubmed())     # PubMed peer-reviewed research
+    raw.extend(fetch_gov_rss())    # EPA, CDC, HUD, NIH, NIOSH
+
+    # Dedup across all sources
+    seen = set()
+    deduped = []
+    for a in raw:
+        if a["id"] not in existing_ids and a["id"] not in seen:
+            seen.add(a["id"])
+            deduped.append(a)
+    fresh = deduped
+    print(f"\n→ {len(fresh)} new articles after dedup (from {len(raw)} raw)\n")
+
+    if not fresh:
+        print("✓ Nothing new. Site is up to date.")
+        return
+
+    published = []
+    rejected = []
+
+    for article in fresh:
+        print(f"\n{'─' * 56}")
+        print(f"  {article['title'][:65]}")
+        print(f"  {article['source']} | {article['category']}")
+        print(f"{'─' * 56}")
+
+        # Gate 1: Freshness
+        if not freshness_gate(article):
+            rejected.append(("freshness", article))
+            continue
+
+        # Gate 2: Source verification (reader tips without URLs skip this gate)
+        is_tip = article.get('_source_type') == 'reader_tip'
+        if not is_tip and not source_verification_gate(article):
+            rejected.append(("source", article))
+            continue
+
+        # Gate 2b: Tip screening (reader tips only — checks editorial validity + alignment)
+        if is_tip:
+            article = tip_screening_agent(article)
+            if not article.get('_tip_approved', False):
+                print(f"  ✗ REJECTED: Tip failed editorial screening")
+                rejected.append(("tip_screening", article))
+                continue
+
+        # Gate 3: Interest scoring (auto-gate)
+        article = interest_agent(article)
+        score = article.get('_interest_score', 5)
+        if score < min_score:
+            print(f"  ✗ SKIPPED: interest {score}/10 (need {min_score}+)")
+            rejected.append(("interest", article))
+            continue
+
+        # Passed the interest bar — run through full editorial pipeline
+        print(f"  ✓ INTERESTING ({score}/10) — running full pipeline...")
+
+        # Gate 4: Headline rewrite (make titles compelling)
+        article = headline_agent(article)
+
+        # Gate 5: Editorial rewrite
+        article = editorial_agent(article)
+
+        # Gate 6: Compliance check (auto-corrects)
+        article = compliance_agent(article)
+
+        # Gate 7: Research verification
+        article = research_agent(article)
+
+        # Gate 8: Invention guard
+        article = invention_guard(article)
+
+        # Gate 9: Photo assignment
+        article = photo_agent(article)
+
+        # Final check: all gates passed?
+        compliance_ok = article.get('_compliance_pass', True)
+        research_ok = article.get('_research_verified', True)
+        invention_ok = article.get('_invention_pass', True)
+
+        if compliance_ok and research_ok and invention_ok:
+            article['status'] = 'published'
+            article['qcReviewer'] = 'AI Editorial Pipeline v1.4'
+            article['qcTimestamp'] = datetime.now(timezone.utc).isoformat()
+            published.append(article)
+            print(f"  ✓ PUBLISHED (score: {score}/10)")
+        else:
+            reasons = []
+            if not compliance_ok: reasons.append("compliance")
+            if not research_ok: reasons.append("research")
+            if not invention_ok: reasons.append("invention")
+            print(f"  ✗ REJECTED ({', '.join(reasons)} failed)")
+            rejected.append(("pipeline", article))
+
+        # Cap articles per run
+        if len(published) >= MAX_ARTICLES_PER_RUN:
+            print(f"\n→ Hit max {MAX_ARTICLES_PER_RUN} articles per run. Stopping.")
+            break
+
+    # Save results
+    if published and not dry_run:
+        # Add new articles at the top
+        data["articles"] = published + data["articles"]
+
+        # Sort by date (newest first)
+        data["articles"].sort(key=lambda a: a.get("publishedAt", ""), reverse=True)
+
+        # Update featured (top 2)
+        for a in data["articles"]:
+            a["featured"] = False
+        for a in data["articles"][:2]:
+            a["featured"] = True
+
+        # Trim to max total
+        if len(data["articles"]) > MAX_TOTAL_ARTICLES:
+            trimmed = len(data["articles"]) - MAX_TOTAL_ARTICLES
+            data["articles"] = data["articles"][:MAX_TOTAL_ARTICLES]
+            print(f"  ✂ Trimmed {trimmed} oldest articles (max {MAX_TOTAL_ARTICLES})")
+
+        save_articles(data)
+        rebuild_embedded(data)
+        generate_article_pages(data)
+
+    # Summary
+    print(f"\n{'=' * 60}")
+    print(f"  RESULTS")
+    print(f"  Published: {len(published)}")
+    print(f"  Rejected:  {len(rejected)}")
+    if rejected:
+        reasons = {}
+        for reason, _ in rejected:
+            reasons[reason] = reasons.get(reason, 0) + 1
+        for reason, count in reasons.items():
+            print(f"    - {reason}: {count}")
+    print(f"  Total on site: {len(data['articles'])}")
+    if dry_run:
+        print(f"  (DRY RUN — nothing saved)")
+    print(f"{'=' * 60}")
+
+
+# =========================================
+# COMPLIANCE AUDIT (standalone)
+# =========================================
+def compliance_check_existing():
+    """Run compliance check on all existing published articles."""
+    print("=" * 60)
+    print("  Compliance Audit — Existing Articles")
+    print("=" * 60)
+
+    data = load_articles()
+    articles = data.get("articles", [])
+    print(f"\n→ Checking {len(articles)} articles\n")
+
+    issues_found = 0
+    for article in articles:
+        article = compliance_agent(article)
+        if not article.get('_compliance_pass', True):
+            issues_found += 1
+
+    save_articles(data)
+    rebuild_embedded(data)
+    generate_article_pages(data)
+    print(f"\n  {issues_found} articles had compliance issues (auto-corrected)")
+
+
+# =========================================
+# CLI
+# =========================================
+def main():
+    parser = argparse.ArgumentParser(
+        description="The Mold Report — Fully Automated AI Editorial Pipeline",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+How it works:
+  Run with no arguments for the full auto-publish pipeline.
+  Articles scoring 7+ that pass all safety gates get published automatically.
+  No human review step needed.
+
+  python editorial_pipeline.py              # Full auto-publish
+  python editorial_pipeline.py --dry-run    # Process but don't save
+  python editorial_pipeline.py --min-score 6  # Lower the bar
+  python editorial_pipeline.py --compliance-check  # Audit existing articles
+""")
+    parser.add_argument("--min-score", type=int, default=DEFAULT_MIN_SCORE,
+                        help=f"Minimum interest score to auto-publish (default: {DEFAULT_MIN_SCORE})")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Process but don't save anything")
+    parser.add_argument("--compliance-check", action="store_true",
+                        help="Run compliance audit on existing articles")
+    parser.add_argument("--deploy", action="store_true",
+                        help="Push to GitHub Pages after pipeline runs")
+    args = parser.parse_args()
+
+    if args.compliance_check:
+        compliance_check_existing()
+    else:
+        run_pipeline(min_score=args.min_score, dry_run=args.dry_run)
+
+    # Auto-deploy to GitHub Pages if --deploy flag is set
+    if args.deploy and not args.dry_run:
+        deploy_to_github()
+
+
+def deploy_to_github():
+    """Push updated files to GitHub Pages."""
+    import subprocess
+    repo_dir = Path(__file__).parent
+    token = os.environ.get("GITHUB_TOKEN", "")
+    repo_url = os.environ.get("GITHUB_REPO_URL", "")
+
+    if not token or not repo_url:
+        print("⚠ GITHUB_TOKEN or GITHUB_REPO_URL not set in .env — skipping deploy")
+        return
+
+    # Insert token into URL: https://x-access-token:TOKEN@github.com/user/repo.git
+    if "github.com" in repo_url and "@" not in repo_url:
+        auth_url = repo_url.replace("https://", f"https://x-access-token:{token}@")
+    else:
+        auth_url = repo_url
+
+    try:
+        # Check if git repo exists, if not init
+        git_dir = repo_dir / ".git"
+        if not git_dir.exists():
+            subprocess.run(["git", "init"], cwd=repo_dir, check=True, capture_output=True)
+            subprocess.run(["git", "checkout", "-b", "main"], cwd=repo_dir, check=True, capture_output=True)
+            subprocess.run(["git", "config", "user.email", "bot@themoldreport.com"], cwd=repo_dir, check=True, capture_output=True)
+            subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
+
+        # Stage only the files we want
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html"]
+        existing = [f for f in files_to_push if (repo_dir / f).exists()]
+        subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
+        # Also add article share pages directory
+        a_dir = repo_dir / "a"
+        if a_dir.exists():
+            subprocess.run(["git", "add", "a/"], cwd=repo_dir, check=True, capture_output=True)
+
+        # Check if there are changes to commit
+        result = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_dir, capture_output=True)
+        if result.returncode == 0:
+            print("✓ No changes to deploy")
+            return
+
+        # Commit and push
+        now = datetime.now().strftime("%Y-%m-%d %H:%M")
+        subprocess.run(["git", "commit", "-m", f"Auto-publish: {now}"], cwd=repo_dir, check=True, capture_output=True)
+
+        # Set remote
+        subprocess.run(["git", "remote", "remove", "origin"], cwd=repo_dir, capture_output=True)
+        subprocess.run(["git", "remote", "add", "origin", auth_url], cwd=repo_dir, check=True, capture_output=True)
+        subprocess.run(["git", "push", "-u", "origin", "main", "--force"], cwd=repo_dir, check=True, capture_output=True)
+
+        print("✓ Deployed to GitHub Pages")
+    except subprocess.CalledProcessError as e:
+        print(f"⚠ Deploy failed: {e}")
+        if e.stderr:
+            print(f"  stderr: {e.stderr.decode()[:200]}")
+
+
+if __name__ == "__main__":
+    main()
