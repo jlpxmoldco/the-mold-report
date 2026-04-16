@@ -841,23 +841,28 @@
     .pipeline-steps {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: var(--sp-3);
+      gap: var(--sp-5) var(--sp-3);
       position: relative;
-    }
-    .pipeline-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
     }
     .pipe-step {
       text-align: center;
       position: relative;
       z-index: 1;
+    }
+    /* Horizontal connector line between steps (not on last col of each row) */
+    .pipe-step::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(50% + 32px);
+      width: calc(100% - 64px);
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .pipe-step:nth-child(5n)::after,
+    .pipe-step:last-child::after {
+      display: none;
     }
     .pipe-icon {
       width: 56px; height: 56px;
@@ -870,6 +875,8 @@
       font-size: 22px;
       margin-bottom: var(--sp-3);
       border: 3px solid var(--surface);
+      position: relative;
+      z-index: 2;
     }
     .pipe-step h4 {
       font-size: 13px;
@@ -1459,7 +1466,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .edition-bar { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
       .pipeline-steps { grid-template-columns: 1fr; gap: var(--sp-4); }
-      .pipeline-steps::before { display: none; }
+      .pipe-step::after { display: none; }
       .pipe-step { display: flex; align-items: center; gap: var(--sp-4); text-align: left; }
       .pipe-icon { flex-shrink: 0; width: 44px; height: 44px; font-size: 18px; }
       .nl-form { flex-direction: column; }
