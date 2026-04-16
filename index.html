@@ -1641,13 +1641,20 @@
     <!-- AI TRANSPARENCY -->
     <section class="ai-transparency reveal" id="how-we-work" aria-label="How We Work">
       <h2>AI Journalism, Done Right</h2>
-      <p class="ai-sub">We don't hide behind AI. We lead with it. Every article passes through five AI sub-agents that source, rewrite, compliance-check, research-verify, and QC before anything goes live. No hallucinations. No fabricated sources. Just faster, more consistent, more comprehensive mold coverage than any human newsroom could deliver alone.</p>
+      <p class="ai-sub">We don't hide behind AI. We lead with it. Every article passes through six AI sub-agents that source, deduplicate, rewrite, compliance-check, research-verify, and QC before anything goes live. No hallucinations. No fabricated sources. Just faster, more consistent, more comprehensive mold coverage than any human newsroom could deliver alone.</p>
       <div class="pipeline-steps">
         <div class="pipe-step">
           <div class="pipe-icon">&#x1F4E1;</div>
           <div>
             <h4>Source</h4>
             <p>Google Alerts RSS + reader tips feed real-time mold news</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-icon">&#x1F9EC;</div>
+          <div>
+            <h4>Dedup</h4>
+            <p>Content-aware duplicate detection catches repeat stories before they publish</p>
           </div>
         </div>
         <div class="pipe-step">
@@ -1687,7 +1694,7 @@
         <div class="ai-wb-grid">
           <div class="wb-card">
             <h4>Model</h4>
-            <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, and invention checking.</p>
+            <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, invention checking, and duplicate detection.</p>
           </div>
           <div class="wb-card">
             <h4>Source Bias</h4>
@@ -1710,6 +1717,12 @@
             <p>Articles older than 90 days are rejected. No publication date = no publication. Future dates are flagged as suspicious. We only publish recent, verifiable news.</p>
           </div>
           <div class="wb-card">
+            <h4>Duplicate Detection</h4>
+            <p>Three-layer dedup: same source URL (instant reject), title similarity above 75% (reject), topic overlap with shared entities within 14 days (reject). Keeps the best version of each story.</p>
+            <div class="wb-meter"><div class="wb-meter-fill" style="width:75%;background:var(--cat-industry);"></div></div>
+            <p style="margin-top:4px;font-size:11px;">75% title similarity threshold</p>
+          </div>
+          <div class="wb-card">
             <h4>Invention Guard</h4>
             <p>Every article is checked by a dedicated AI agent for signs of fabrication: fake journals, impossible statistics, non-existent organizations. Confidence threshold: 70%. Below that, the article is flagged for manual review.</p>
             <div class="wb-meter"><div class="wb-meter-fill" style="width:70%;background:var(--cat-diagnostics);"></div></div>
@@ -1730,6 +1743,14 @@
       <div class="version-log">
         <h3>Pipeline Version History</h3>
         <p class="vl-desc">Every change to our AI editorial pipeline is logged here. You can see exactly what changed, when, and why.</p>
+        <div class="vl-entry">
+          <span class="vl-version">v1.4</span>
+          <div class="vl-body">
+            <strong>Duplicate Detection Agent</strong>
+            <span>April 16, 2026</span>
+            <p>New Gate 0 in pipeline: content-aware dedup with three detection layers — same URL (instant reject), title similarity above 75% via SequenceMatcher, and topic/entity overlap within 14-day window. Removed 14 duplicate articles from seed database. Also upgraded photo agent with topic-specific Unsplash matching and visually verified all fallback images.</p>
+          </div>
+        </div>
         <div class="vl-entry">
           <span class="vl-version">v1.3</span>
           <div class="vl-body">
@@ -1809,8 +1830,6 @@
           <a href="mold-101.html">Mold 101</a>
           <a href="#how-we-work">How We Work</a>
           <a href="#editorial-modal" onclick="openModal('editorial')">Editorial Standards</a>
-          <a href="mailto:advertise@themoldreport.com">Advertise</a>
-          <a href="mailto:hello@themoldreport.com">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
