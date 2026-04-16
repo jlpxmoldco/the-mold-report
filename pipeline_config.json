@@ -1,0 +1,171 @@
+{
+  "version": "1.4",
+  "version_date": "2026-04-16",
+  "pipeline_name": "AI Editorial Pipeline",
+  "agent_count": 6,
+  "gates": [
+    {
+      "id": "dedup",
+      "name": "Dedup",
+      "icon": "&#x1F9EC;",
+      "short_desc": "Content-aware duplicate detection catches repeat stories before they publish",
+      "wb_title": "Duplicate Detection",
+      "wb_desc": "Three-layer dedup: same source URL (instant reject), title similarity above 75% via SequenceMatcher, and topic/entity overlap within 14-day window. Keeps the best version of each story.",
+      "wb_meter_pct": 75,
+      "wb_meter_color": "var(--cat-industry)",
+      "wb_meter_label": "75% title similarity threshold"
+    },
+    {
+      "id": "freshness",
+      "name": "Freshness",
+      "icon": "&#x23F3;",
+      "short_desc": "Rejects stale content older than 90 days to keep the feed current"
+    },
+    {
+      "id": "source",
+      "name": "Source",
+      "icon": "&#x1F50D;",
+      "short_desc": "Verifies every article has a real, reachable source URL",
+      "wb_title": "Source Verification",
+      "wb_desc": "Validates that each article links to a live, reachable URL. Reader-submitted tips bypass this gate. HTTP status must be 2xx or 3xx.",
+      "wb_meter_pct": 100,
+      "wb_meter_color": "var(--accent)",
+      "wb_meter_label": "Pass/fail gate — binary check"
+    },
+    {
+      "id": "tip_screening",
+      "name": "Tip Screening",
+      "icon": "&#x1F4EC;",
+      "short_desc": "Reader tips are checked for editorial validity and Shoemaker alignment"
+    },
+    {
+      "id": "interest",
+      "name": "Interest",
+      "icon": "&#x2B50;",
+      "short_desc": "AI scores each story 1–10 on newsworthiness; must score 7+ to pass",
+      "wb_title": "Interest Scoring",
+      "wb_desc": "GPT-4o scores each article 1-10 on newsworthiness for the mold-affected community. Factors: severity, novelty, community impact, and scientific rigor. Only 7+ articles advance.",
+      "wb_meter_pct": 70,
+      "wb_meter_color": "var(--cat-news)",
+      "wb_meter_label": "7/10 minimum score threshold"
+    },
+    {
+      "id": "headline",
+      "name": "Headline",
+      "icon": "&#x270F;&#xFE0F;",
+      "short_desc": "Rewrites titles for clarity and reader engagement",
+      "wb_title": "Headline Rewriting",
+      "wb_desc": "Rewrites each article headline for clarity, accuracy, and engagement while preserving the factual core. Uses AP style guidance and avoids sensationalism.",
+      "wb_meter_pct": 85,
+      "wb_meter_color": "var(--cat-research)",
+      "wb_meter_label": "Avg 85% factual preservation"
+    },
+    {
+      "id": "editorial",
+      "name": "Rewrite",
+      "icon": "&#x1F4DD;",
+      "short_desc": "Rewrites each summary in Mold Report voice, adding expert context",
+      "wb_title": "Editorial Rewriting",
+      "wb_desc": "Rewrites each article's summary in the Mold Report's editorial voice: neutral, informative, and empowering. Adds Shoemaker Protocol context for research articles, hedges uncertain claims, and includes prevalence data.",
+      "wb_meter_pct": 90,
+      "wb_meter_color": "var(--accent)",
+      "wb_meter_label": "90% of articles pass first draft"
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "icon": "&#x2696;&#xFE0F;",
+      "short_desc": "Checks and auto-corrects against MoldCo claims compliance rules",
+      "wb_title": "Claims Compliance",
+      "wb_desc": "Scans for prohibited medical claims, treatment promises, and diagnostic language that violates MoldCo's compliance framework. Auto-corrects with approved alternatives.",
+      "wb_meter_pct": 100,
+      "wb_meter_color": "var(--cat-regulation)",
+      "wb_meter_label": "Zero tolerance — all claims checked"
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "icon": "&#x1F52C;",
+      "short_desc": "Verifies Shoemaker alignment and scientific accuracy for research articles",
+      "wb_title": "Research Verification",
+      "wb_desc": "For research-category articles, verifies alignment with Shoemaker Protocol science. Cross-references claims against known CIRS biomarkers and peer-reviewed literature.",
+      "wb_meter_pct": 80,
+      "wb_meter_color": "var(--cat-research)",
+      "wb_meter_label": "80% alignment threshold"
+    },
+    {
+      "id": "invention_guard",
+      "name": "Invention Guard",
+      "icon": "&#x1F6E1;&#xFE0F;",
+      "short_desc": "AI cross-checks for fabricated facts and hallucinated claims"
+    },
+    {
+      "id": "photo",
+      "name": "Photo",
+      "icon": "&#x1F4F7;",
+      "short_desc": "Assigns images: OG source → topic Unsplash → category fallback",
+      "wb_title": "Photo Assignment",
+      "wb_desc": "Three-tier image sourcing: first tries the original article's og:image, then searches Unsplash for topic-specific keywords, then falls back to category-themed gradient placeholders.",
+      "wb_meter_pct": 85,
+      "wb_meter_color": "var(--cat-diagnostics)",
+      "wb_meter_label": "85% real photo coverage"
+    }
+  ],
+  "static_wb_cards": [
+    {
+      "title": "Model",
+      "desc": "Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, invention checking, and duplicate detection."
+    },
+    {
+      "title": "Source Bias",
+      "desc": "Weighted toward peer-reviewed journals, government agencies (EPA, CDC), and established news organizations. We deprioritize press releases, affiliate content, and social media.",
+      "meter_pct": 85,
+      "meter_color": "var(--cat-research)",
+      "meter_label": "85% academic/gov sources"
+    },
+    {
+      "title": "Research Framework",
+      "desc": "Aligned with the Shoemaker Protocol research framework. Biomarker references prioritize TGF-B1, MMP-9, MSH, C4a, VIP. This is a known bias. We believe it's the most evidence-backed framework available."
+    },
+    {
+      "title": "Editorial Voice",
+      "desc": "Neutral, data-driven, journalistic. No em dashes. No alarmist language. No promotional framing. Lead with facts, end with context. 150-250 words per summary."
+    },
+    {
+      "title": "Known Limitations",
+      "desc": "AI cannot verify paywalled sources. Cannot access real-time lab data. Cannot interview human subjects. Cannot detect subtle p-hacking in cited studies. We acknowledge these limits openly."
+    }
+  ],
+  "version_log": [
+    {
+      "version": "v1.4",
+      "title": "Duplicate Detection Agent",
+      "date": "April 16, 2026",
+      "desc": "New Gate 0 in pipeline: content-aware dedup with three detection layers — same URL (instant reject), title similarity above 75% via SequenceMatcher, and topic/entity overlap within 14-day window. Removed 14 duplicate articles from seed database. Also upgraded photo agent with topic-specific Unsplash matching and visually verified all fallback images."
+    },
+    {
+      "version": "v1.3",
+      "title": "Full Auto-Publish Pipeline",
+      "date": "April 14, 2026",
+      "desc": "Fully autonomous pipeline: RSS fetch → 7-gate AI review → auto-publish. No human step. Added PubMed, EPA/CDC/HUD feeds, reader tip intake, and invention guard."
+    },
+    {
+      "version": "v1.2",
+      "title": "Claims Compliance + Research Gate",
+      "date": "April 13, 2026",
+      "desc": "Added compliance agent enforcing MoldCo claims rules, research verification agent for Shoemaker alignment, and headline rewriting agent."
+    },
+    {
+      "version": "v1.1",
+      "title": "Interest Scoring Agent",
+      "date": "April 12, 2026",
+      "desc": "Articles now scored 1-10 on newsworthiness. Only 7+ articles publish. Added source verification gate and category-based image fallbacks."
+    },
+    {
+      "version": "v1.0",
+      "title": "Launch",
+      "date": "April 10, 2026",
+      "desc": "Initial launch with seed articles, manual curation, and basic AI rewriting."
+    }
+  ]
+}
