@@ -252,10 +252,10 @@ def generate_newsletter(days=7):
 
   <!-- MOLDCO FOOTER -->
   <div style="border-top:1px solid #E5E4E0;padding-top:24px;text-align:center;">
-    <p style="font-size:13px;color:#999;margin:0 0 8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com" style="color:#1B4D3E;text-decoration:none;font-weight:500;">MoldCo</a>.</p>
+    <p style="font-size:13px;color:#999;margin:0 0 8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter_footer" style="color:#1B4D3E;text-decoration:none;font-weight:500;">MoldCo</a>.</p>
     <p style="font-size:12px;color:#BBB;margin:0 0 4px;">
-      <a href="https://www.moldco.com/care" style="color:#999;text-decoration:none;">Mold Toxicity Care</a> ·
-      <a href="https://www.moldco.com/labs" style="color:#999;text-decoration:none;">Blood Panel Testing</a>
+      <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter_care" style="color:#999;text-decoration:none;">Mold Toxicity Care</a> ·
+      <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter_panel" style="color:#999;text-decoration:none;">Blood Panel Testing</a>
     </p>
     <p style="font-size:11px;color:#CCC;margin:12px 0 0;">Every article AI-curated and compliance-checked. Not medical advice.</p>
   </div>
