@@ -852,7 +852,7 @@ def generate_article_pages(data):
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:site_name" content="The Mold Report">
-  <meta property="og:url" content="https://jlpxmoldco.github.io/the-mold-report/a/{aid}.html">
+  <meta property="og:url" content="https://themoldreport.org/a/{aid}.html">
   {f'<meta property="og:image" content="{img}">' if img else ''}
   <meta property="article:published_time" content="{pub_date}">
   <meta property="article:section" content="{category}">
@@ -865,7 +865,7 @@ def generate_article_pages(data):
 
   <!-- Auto-redirect to full site with article open -->
   <meta http-equiv="refresh" content="0;url={redirect_url}">
-  <link rel="canonical" href="https://jlpxmoldco.github.io/the-mold-report/a/{aid}.html">
+  <link rel="canonical" href="https://themoldreport.org/a/{aid}.html">
 
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; color: #111; }}
@@ -1574,7 +1574,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory

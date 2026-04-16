@@ -23,7 +23,7 @@ ARTICLES_FILE = SCRIPT_DIR / "articles.json"
 OUTPUT_FILE = SCRIPT_DIR / "newsletter.html"
 
 # Site URL for article links
-SITE_URL = "https://jlpxmoldco.github.io/the-mold-report"
+SITE_URL = "https://themoldreport.org"
 
 
 def load_articles():
