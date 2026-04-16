@@ -706,10 +706,14 @@
     }
     .list-item:first-child { padding-top: 0; }
     .list-item:hover { opacity: 0.85; }
-    .list-item img {
+    .list-item img,
+    .list-item .fallback-img {
       width: 100%; height: 150px;
       object-fit: cover;
       border-radius: var(--r-sm);
+    }
+    .list-item .fallback-img {
+      min-height: 150px;
     }
     .list-item-body {
       display: flex;
@@ -1450,7 +1454,7 @@
       .hero-card img { height: 180px; }
       .card-grid { grid-template-columns: 1fr; }
       .list-item { grid-template-columns: 1fr; }
-      .list-item img { height: 200px; }
+      .list-item img, .list-item .fallback-img { height: 200px; min-height: 200px; }
       .form-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .edition-bar { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
@@ -4074,8 +4078,8 @@ let listAll = [];
 
 function renderListItem(a) {
   const listImg = isFallbackImg(a.imageUrl)
-    ? fallbackHtml(a.category, 'width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;')
-    : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" data-fbstyle="width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;" onerror="imgErr(this)">`;
+    ? fallbackHtml(a.category)
+    : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" data-fbstyle="" onerror="imgErr(this)">`;
   return `
   <article class="list-item" onclick="openDetail('${a.id}')">
     ${listImg}
