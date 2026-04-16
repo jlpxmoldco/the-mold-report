@@ -1757,7 +1757,7 @@
         <input type="email" placeholder="your@email.com" required aria-label="Email">
         <button type="submit">Subscribe Free</button>
       </form>
-      <div class="nl-note">No spam. Unsubscribe anytime.</div>
+      <div class="nl-note">Delivered via Substack. No spam. Unsubscribe anytime.</div>
     </section>
   </main>
 
@@ -2338,14 +2338,16 @@ function setupForms() {
     e.preventDefault();
     const input = e.target.querySelector('input');
     const btn = e.target.querySelector('button');
-    const subs = JSON.parse(localStorage.getItem('tmr_nl') || '[]');
-    subs.push({ email: input.value, at: new Date().toISOString() });
-    localStorage.setItem('tmr_nl', JSON.stringify(subs));
-    input.value = '';
-    btn.textContent = 'Subscribed!';
+    const email = input.value.trim();
+    if (!email) return;
+    // Redirect to Substack subscribe with email pre-filled
+    btn.textContent = 'Redirecting...';
     btn.style.background = 'var(--accent)';
     btn.style.color = 'white';
-    setTimeout(() => { btn.textContent = 'Subscribe Free'; btn.style.background = 'white'; btn.style.color = 'var(--text)'; }, 3000);
+    window.open('https://themoldreport.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+    input.value = '';
+    btn.textContent = 'Check your email!';
+    setTimeout(() => { btn.textContent = 'Subscribe Free'; btn.style.background = 'white'; btn.style.color = 'var(--text)'; }, 4000);
   });
 }
 
