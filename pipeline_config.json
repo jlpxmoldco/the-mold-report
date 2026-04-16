@@ -3,6 +3,32 @@
   "version_date": "2026-04-16",
   "pipeline_name": "AI Editorial Pipeline",
   "agent_count": 6,
+  "phases": [
+    {
+      "num": 1,
+      "name": "Source & Filter",
+      "desc": "Monitor feeds, reject duplicates, verify sources, screen reader tips",
+      "gate_ids": ["dedup", "freshness", "source", "tip_screening"]
+    },
+    {
+      "num": 2,
+      "name": "Score",
+      "desc": "AI rates newsworthiness 1-10 for the mold community. Only 7+ advances.",
+      "gate_ids": ["interest"]
+    },
+    {
+      "num": 3,
+      "name": "Write",
+      "desc": "Rewrite headlines for clarity. Rewrite summaries in our editorial voice with expert context.",
+      "gate_ids": ["headline", "editorial"]
+    },
+    {
+      "num": 4,
+      "name": "Verify & Publish",
+      "desc": "Claims compliance, Shoemaker alignment, invention guard, photo assignment",
+      "gate_ids": ["compliance", "research", "invention_guard", "photo"]
+    }
+  ],
   "gates": [
     {
       "id": "dedup",

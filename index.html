@@ -838,68 +838,117 @@
       margin-bottom: var(--sp-8);
       max-width: 600px;
     }
-    .pipeline-steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: var(--sp-5) var(--sp-3);
-      position: relative;
+    /* ===== PIPELINE PHASES ===== */
+    .pipeline-phases {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-bottom: var(--sp-8);
     }
-    .pipe-step {
-      text-align: center;
-      position: relative;
-      z-index: 1;
+    .phase-card {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5) var(--sp-4);
     }
-    /* Horizontal connector line between steps (not on last col of each row) */
-    .pipe-step::after {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(50% + 32px);
-      width: calc(100% - 64px);
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
+    .phase-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--sp-2);
     }
-    .pipe-step:nth-child(5n)::after,
-    .pipe-step:last-child::after {
-      display: none;
+    .phase-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
-    .pipe-icon {
-      width: 56px; height: 56px;
+    .phase-card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    .phase-count {
+      display: inline-block;
+      margin-top: var(--sp-3);
+      font-size: 11px;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+    .phase-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 var(--sp-3);
+      color: var(--text-3);
+      font-size: 18px;
+    }
+
+    /* ===== COLLAPSIBLE DETAILS ===== */
+    .ai-details {
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      margin-bottom: var(--sp-4);
+      background: var(--bg);
+    }
+    .ai-details summary {
+      padding: var(--sp-4) var(--sp-5);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+    }
+    .ai-details summary::before {
+      content: '\25B8';
+      display: inline-block;
+      margin-right: var(--sp-2);
+      transition: transform 0.2s;
+    }
+    .ai-details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    .ai-details summary::-webkit-details-marker { display: none; }
+    .ai-details-body {
+      padding: 0 var(--sp-5) var(--sp-5);
+    }
+
+    /* Gate list inside collapsible */
+    .gate-list { display: grid; gap: 0; }
+    .gate-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      padding: var(--sp-3) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .gate-item:last-child { border-bottom: none; }
+    .gate-icon {
+      width: 32px; height: 32px;
       border-radius: 50%;
       background: var(--accent-light);
-      color: var(--accent);
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      margin-bottom: var(--sp-3);
-      border: 3px solid var(--surface);
-      position: relative;
-      z-index: 2;
+      font-size: 14px;
+      flex-shrink: 0;
     }
-    .pipe-step h4 {
+    .gate-info h5 {
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
-    .pipe-step p {
+    .gate-info p {
       font-size: 12px;
-      color: var(--text-3);
+      color: var(--text-2);
       line-height: 1.4;
     }
 
     /* ===== AI WEIGHTS & BIASES ===== */
-    .ai-wb-section {
-      margin-top: var(--sp-8);
-      border-top: 1px solid var(--border);
-      padding-top: var(--sp-8);
-    }
-    .ai-wb-section h3 {
-      font-size: 18px;
-      font-family: var(--serif);
-      margin-bottom: var(--sp-4);
-    }
     .ai-wb-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -945,21 +994,6 @@
     }
 
     /* Version log */
-    .version-log {
-      margin-top: var(--sp-8);
-      border-top: 1px solid var(--border);
-      padding-top: var(--sp-8);
-    }
-    .version-log h3 {
-      font-size: 18px;
-      font-family: var(--serif);
-      margin-bottom: var(--sp-4);
-    }
-    .version-log p.vl-desc {
-      font-size: 13px;
-      color: var(--text-3);
-      margin-bottom: var(--sp-4);
-    }
     .vl-entry {
       display: flex;
       gap: var(--sp-4);
@@ -1465,10 +1499,9 @@
       .form-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .edition-bar { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
-      .pipeline-steps { grid-template-columns: 1fr; gap: var(--sp-4); }
-      .pipe-step::after { display: none; }
-      .pipe-step { display: flex; align-items: center; gap: var(--sp-4); text-align: left; }
-      .pipe-icon { flex-shrink: 0; width: 44px; height: 44px; font-size: 18px; }
+      .pipeline-phases { flex-direction: column; gap: var(--sp-3); }
+      .phase-arrow { transform: rotate(90deg); padding: 0; justify-content: center; }
+      .phase-card { padding: var(--sp-4); }
       .nl-form { flex-direction: column; }
       .submit-section { padding: var(--sp-8) var(--sp-6); }
       .detail-body { padding: var(--sp-6); }
@@ -1648,216 +1681,145 @@
     <!-- AI TRANSPARENCY -->
     <section class="ai-transparency reveal" id="how-we-work" aria-label="How We Work">
       <h2>AI Journalism, Done Right</h2>
-      <p class="ai-sub">We don't hide behind AI. We lead with it. Every article passes through six AI sub-agents that source, deduplicate, rewrite, compliance-check, research-verify, and QC before anything goes live. No hallucinations. No fabricated sources. Just faster, more consistent, more comprehensive mold coverage than any human newsroom could deliver alone.</p>
-      <div class="pipeline-steps">
-                <!-- SYNC:PIPE_STEPS_START -->
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F9EC;</div>
-          <div>
-            <h4>Dedup</h4>
-            <p>Content-aware duplicate detection catches repeat stories before they publish</p>
-          </div>
+      <p class="ai-sub">Every article passes through an 11-gate pipeline powered by six specialized AI agents before anything goes live. No hallucinations. No fabricated sources. Full transparency below.</p>
+
+      <!-- PHASE CARDS -->
+      <!-- SYNC:PHASES_START -->
+      <div class="pipeline-phases">
+        <div class="phase-card">
+          <div class="phase-num">Phase 1</div>
+          <h4>Source & Filter</h4>
+          <p>Monitor feeds, reject duplicates, verify sources, screen reader tips</p>
+          <span class="phase-count">4 gates</span>
         </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x23F3;</div>
-          <div>
-            <h4>Freshness</h4>
-            <p>Rejects stale content older than 90 days to keep the feed current</p>
-          </div>
+        <div class="phase-arrow">&rarr;</div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 2</div>
+          <h4>Score</h4>
+          <p>AI rates newsworthiness 1-10 for the mold community. Only 7+ advances.</p>
+          <span class="phase-count">1 gate</span>
         </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F50D;</div>
-          <div>
-            <h4>Source</h4>
-            <p>Verifies every article has a real, reachable source URL</p>
-          </div>
+        <div class="phase-arrow">&rarr;</div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 3</div>
+          <h4>Write</h4>
+          <p>Rewrite headlines for clarity. Rewrite summaries in our editorial voice with expert context.</p>
+          <span class="phase-count">2 gates</span>
         </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F4EC;</div>
-          <div>
-            <h4>Tip Screening</h4>
-            <p>Reader tips are checked for editorial validity and Shoemaker alignment</p>
-          </div>
+        <div class="phase-arrow">&rarr;</div>
+        <div class="phase-card">
+          <div class="phase-num">Phase 4</div>
+          <h4>Verify & Publish</h4>
+          <p>Claims compliance, Shoemaker alignment, invention guard, photo assignment</p>
+          <span class="phase-count">4 gates</span>
         </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x2B50;</div>
-          <div>
-            <h4>Interest</h4>
-            <p>AI scores each story 1–10 on newsworthiness; must score 7+ to pass</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x270F;&#xFE0F;</div>
-          <div>
-            <h4>Headline</h4>
-            <p>Rewrites titles for clarity and reader engagement</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F4DD;</div>
-          <div>
-            <h4>Rewrite</h4>
-            <p>Rewrites each summary in Mold Report voice, adding expert context</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x2696;&#xFE0F;</div>
-          <div>
-            <h4>Compliance</h4>
-            <p>Checks and auto-corrects against MoldCo claims compliance rules</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F52C;</div>
-          <div>
-            <h4>Research</h4>
-            <p>Verifies Shoemaker alignment and scientific accuracy for research articles</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F6E1;&#xFE0F;</div>
-          <div>
-            <h4>Invention Guard</h4>
-            <p>AI cross-checks for fabricated facts and hallucinated claims</p>
-          </div>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-icon">&#x1F4F7;</div>
-          <div>
-            <h4>Photo</h4>
-            <p>Assigns images: OG source → topic Unsplash → category fallback</p>
-          </div>
-        </div>
-<!-- SYNC:PIPE_STEPS_END -->
       </div>
+      <!-- SYNC:PHASES_END -->
+
+      <!-- ALL 11 GATES -->
+      <details class="ai-details">
+        <summary>All 11 Pipeline Gates</summary>
+        <div class="ai-details-body">
+          <!-- SYNC:GATE_LIST_START -->
+          <div class="gate-list">
+            <div class="gate-item"><div class="gate-icon">&#x1F9EC;</div><div class="gate-info"><h5>1. Dedup</h5><p>Content-aware duplicate detection catches repeat stories before they publish</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x23F3;</div><div class="gate-info"><h5>2. Freshness</h5><p>Rejects stale content older than 90 days to keep the feed current</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F50D;</div><div class="gate-info"><h5>3. Source</h5><p>Verifies every article has a real, reachable source URL</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F4EC;</div><div class="gate-info"><h5>4. Tip Screening</h5><p>Reader tips are checked for editorial validity and Shoemaker alignment</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x2B50;</div><div class="gate-info"><h5>5. Interest</h5><p>AI scores each story 1-10 on newsworthiness; must score 7+ to pass</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x270F;&#xFE0F;</div><div class="gate-info"><h5>6. Headline</h5><p>Rewrites titles for clarity and reader engagement</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F4DD;</div><div class="gate-info"><h5>7. Rewrite</h5><p>Rewrites each summary in Mold Report voice, adding expert context</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x2696;&#xFE0F;</div><div class="gate-info"><h5>8. Compliance</h5><p>Checks and auto-corrects against MoldCo claims compliance rules</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F52C;</div><div class="gate-info"><h5>9. Research</h5><p>Verifies Shoemaker alignment and scientific accuracy for research articles</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F6E1;&#xFE0F;</div><div class="gate-info"><h5>10. Invention Guard</h5><p>AI cross-checks for fabricated facts and hallucinated claims</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F4F7;</div><div class="gate-info"><h5>11. Photo</h5><p>Assigns images: OG source, topic Unsplash, or category fallback</p></div></div>
+          </div>
+          <!-- SYNC:GATE_LIST_END -->
+        </div>
+      </details>
 
       <!-- WEIGHTS & BIASES -->
-      <div class="ai-wb-section">
-        <h3>Our Weights & Biases</h3>
-        <p class="ai-sub" style="margin-bottom:var(--sp-6);">Full transparency. Here's exactly how our AI editor thinks, what it prioritizes, and what it's biased toward. No black box.</p>
-        <div class="ai-wb-grid">
-                    <!-- SYNC:WB_CARDS_START -->
-          <div class="wb-card">
-            <h4>Model</h4>
-            <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, invention checking, and duplicate detection.</p>
+      <details class="ai-details">
+        <summary>Our Weights & Biases</summary>
+        <div class="ai-details-body">
+          <p class="ai-sub" style="margin-bottom:var(--sp-5);max-width:none;">Full transparency. Here's exactly how our AI editor thinks, what it prioritizes, and what it's biased toward.</p>
+          <div class="ai-wb-grid">
+            <!-- SYNC:WB_CARDS_START -->
+            <div class="wb-card">
+              <h4>Model</h4>
+              <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, invention checking, and duplicate detection.</p>
+            </div>
+            <div class="wb-card">
+              <h4>Source Bias</h4>
+              <p>Weighted toward peer-reviewed journals, government agencies (EPA, CDC), and established news organizations. We deprioritize press releases, affiliate content, and social media.</p>
+              <div class="wb-meter"><div class="wb-meter-fill" style="width:85%;background:var(--cat-research);"></div></div>
+              <p style="margin-top:4px;font-size:11px;">85% academic/gov sources</p>
+            </div>
+            <div class="wb-card">
+              <h4>Research Framework</h4>
+              <p>Aligned with the Shoemaker Protocol research framework. Biomarker references prioritize TGF-B1, MMP-9, MSH, C4a, VIP. This is a known bias. We believe it's the most evidence-backed framework available.</p>
+            </div>
+            <div class="wb-card">
+              <h4>Editorial Voice</h4>
+              <p>Neutral, data-driven, journalistic. No em dashes. No alarmist language. No promotional framing. Lead with facts, end with context. 150-250 words per summary.</p>
+            </div>
+            <div class="wb-card">
+              <h4>Known Limitations</h4>
+              <p>AI cannot verify paywalled sources. Cannot access real-time lab data. Cannot interview human subjects. Cannot detect subtle p-hacking in cited studies. We acknowledge these limits openly.</p>
+            </div>
+            <!-- SYNC:WB_CARDS_END -->
           </div>
-          <div class="wb-card">
-            <h4>Source Bias</h4>
-            <p>Weighted toward peer-reviewed journals, government agencies (EPA, CDC), and established news organizations. We deprioritize press releases, affiliate content, and social media.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:85%;background:var(--cat-research);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">85% academic/gov sources</p>
-          </div>
-          <div class="wb-card">
-            <h4>Research Framework</h4>
-            <p>Aligned with the Shoemaker Protocol research framework. Biomarker references prioritize TGF-B1, MMP-9, MSH, C4a, VIP. This is a known bias. We believe it's the most evidence-backed framework available.</p>
-          </div>
-          <div class="wb-card">
-            <h4>Editorial Voice</h4>
-            <p>Neutral, data-driven, journalistic. No em dashes. No alarmist language. No promotional framing. Lead with facts, end with context. 150-250 words per summary.</p>
-          </div>
-          <div class="wb-card">
-            <h4>Known Limitations</h4>
-            <p>AI cannot verify paywalled sources. Cannot access real-time lab data. Cannot interview human subjects. Cannot detect subtle p-hacking in cited studies. We acknowledge these limits openly.</p>
-          </div>
-          <div class="wb-card">
-            <h4>Duplicate Detection</h4>
-            <p>Three-layer dedup: same source URL (instant reject), title similarity above 75% via SequenceMatcher, and topic/entity overlap within 14-day window. Keeps the best version of each story.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:75%;background:var(--cat-industry);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">75% title similarity threshold</p>
-          </div>
-          <div class="wb-card">
-            <h4>Source Verification</h4>
-            <p>Validates that each article links to a live, reachable URL. Reader-submitted tips bypass this gate. HTTP status must be 2xx or 3xx.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:100%;background:var(--accent);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">Pass/fail gate — binary check</p>
-          </div>
-          <div class="wb-card">
-            <h4>Interest Scoring</h4>
-            <p>GPT-4o scores each article 1-10 on newsworthiness for the mold-affected community. Factors: severity, novelty, community impact, and scientific rigor. Only 7+ articles advance.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:70%;background:var(--cat-news);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">7/10 minimum score threshold</p>
-          </div>
-          <div class="wb-card">
-            <h4>Headline Rewriting</h4>
-            <p>Rewrites each article headline for clarity, accuracy, and engagement while preserving the factual core. Uses AP style guidance and avoids sensationalism.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:85%;background:var(--cat-research);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">Avg 85% factual preservation</p>
-          </div>
-          <div class="wb-card">
-            <h4>Editorial Rewriting</h4>
-            <p>Rewrites each article's summary in the Mold Report's editorial voice: neutral, informative, and empowering. Adds Shoemaker Protocol context for research articles, hedges uncertain claims, and includes prevalence data.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:90%;background:var(--accent);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">90% of articles pass first draft</p>
-          </div>
-          <div class="wb-card">
-            <h4>Claims Compliance</h4>
-            <p>Scans for prohibited medical claims, treatment promises, and diagnostic language that violates MoldCo's compliance framework. Auto-corrects with approved alternatives.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:100%;background:var(--cat-regulation);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">Zero tolerance — all claims checked</p>
-          </div>
-          <div class="wb-card">
-            <h4>Research Verification</h4>
-            <p>For research-category articles, verifies alignment with Shoemaker Protocol science. Cross-references claims against known CIRS biomarkers and peer-reviewed literature.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:80%;background:var(--cat-research);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">80% alignment threshold</p>
-          </div>
-          <div class="wb-card">
-            <h4>Photo Assignment</h4>
-            <p>Three-tier image sourcing: first tries the original article's og:image, then searches Unsplash for topic-specific keywords, then falls back to category-themed gradient placeholders.</p>
-            <div class="wb-meter"><div class="wb-meter-fill" style="width:85%;background:var(--cat-diagnostics);"></div></div>
-            <p style="margin-top:4px;font-size:11px;">85% real photo coverage</p>
-          </div>
-<!-- SYNC:WB_CARDS_END -->
         </div>
-      </div>
+      </details>
 
       <!-- VERSION LOG -->
-      <div class="version-log">
-        <h3>Pipeline Version History</h3>
-        <p class="vl-desc">Every change to our AI editorial pipeline is logged here. You can see exactly what changed, when, and why.</p>
-                <!-- SYNC:VERSION_LOG_START -->
-        <div class="vl-entry">
-          <span class="vl-version">v1.4</span>
-          <div class="vl-body">
-            <strong>Duplicate Detection Agent</strong>
-            <span>April 16, 2026</span>
-            <p>New Gate 0 in pipeline: content-aware dedup with three detection layers — same URL (instant reject), title similarity above 75% via SequenceMatcher, and topic/entity overlap within 14-day window. Removed 14 duplicate articles from seed database. Also upgraded photo agent with topic-specific Unsplash matching and visually verified all fallback images.</p>
+      <details class="ai-details">
+        <summary>Pipeline Version History</summary>
+        <div class="ai-details-body">
+          <!-- SYNC:VERSION_LOG_START -->
+          <div class="vl-entry">
+            <span class="vl-version">v1.4</span>
+            <div class="vl-body">
+              <strong>Duplicate Detection Agent</strong>
+              <span>April 16, 2026</span>
+              <p>New Gate 0 in pipeline: content-aware dedup with three detection layers. Removed 14 duplicate articles from seed database. Upgraded photo agent with topic-specific Unsplash matching.</p>
+            </div>
           </div>
-        </div>
-        <div class="vl-entry">
-          <span class="vl-version">v1.3</span>
-          <div class="vl-body">
-            <strong>Full Auto-Publish Pipeline</strong>
-            <span>April 14, 2026</span>
-            <p>Fully autonomous pipeline: RSS fetch → 7-gate AI review → auto-publish. No human step. Added PubMed, EPA/CDC/HUD feeds, reader tip intake, and invention guard.</p>
+          <div class="vl-entry">
+            <span class="vl-version">v1.3</span>
+            <div class="vl-body">
+              <strong>Full Auto-Publish Pipeline</strong>
+              <span>April 14, 2026</span>
+              <p>Fully autonomous pipeline: RSS fetch, 7-gate AI review, auto-publish. Added PubMed, EPA/CDC/HUD feeds, reader tip intake, and invention guard.</p>
+            </div>
           </div>
-        </div>
-        <div class="vl-entry">
-          <span class="vl-version">v1.2</span>
-          <div class="vl-body">
-            <strong>Claims Compliance + Research Gate</strong>
-            <span>April 13, 2026</span>
-            <p>Added compliance agent enforcing MoldCo claims rules, research verification agent for Shoemaker alignment, and headline rewriting agent.</p>
+          <div class="vl-entry">
+            <span class="vl-version">v1.2</span>
+            <div class="vl-body">
+              <strong>Claims Compliance + Research Gate</strong>
+              <span>April 13, 2026</span>
+              <p>Added compliance agent enforcing MoldCo claims rules, research verification agent for Shoemaker alignment, and headline rewriting agent.</p>
+            </div>
           </div>
-        </div>
-        <div class="vl-entry">
-          <span class="vl-version">v1.1</span>
-          <div class="vl-body">
-            <strong>Interest Scoring Agent</strong>
-            <span>April 12, 2026</span>
-            <p>Articles now scored 1-10 on newsworthiness. Only 7+ articles publish. Added source verification gate and category-based image fallbacks.</p>
+          <div class="vl-entry">
+            <span class="vl-version">v1.1</span>
+            <div class="vl-body">
+              <strong>Interest Scoring Agent</strong>
+              <span>April 12, 2026</span>
+              <p>Articles now scored 1-10 on newsworthiness. Only 7+ articles publish. Added source verification gate and category-based image fallbacks.</p>
+            </div>
           </div>
-        </div>
-        <div class="vl-entry">
-          <span class="vl-version">v1.0</span>
-          <div class="vl-body">
-            <strong>Launch</strong>
-            <span>April 10, 2026</span>
-            <p>Initial launch with seed articles, manual curation, and basic AI rewriting.</p>
+          <div class="vl-entry">
+            <span class="vl-version">v1.0</span>
+            <div class="vl-body">
+              <strong>Launch</strong>
+              <span>April 10, 2026</span>
+              <p>Initial launch with seed articles, manual curation, and basic AI rewriting.</p>
+            </div>
           </div>
+          <!-- SYNC:VERSION_LOG_END -->
         </div>
-<!-- SYNC:VERSION_LOG_END -->
-      </div>
+      </details>
     </section>
 
     <!-- NEWSLETTER -->
@@ -1970,7 +1932,7 @@
       <h3>Why AI Journalism</h3>
       <p>The Mold Report is the first AI-curated publication in the mold and indoor environmental health space. We built it this way on purpose. Mold news is fragmented across government agencies, academic journals, local news outlets, and industry publications. No single human editor could monitor all these sources daily, rewrite them for accessibility, fact-check every medical claim, and verify scientific alignment. AI can. We believe AI journalism done transparently produces more consistent, more compliant, and more comprehensive coverage than traditional editorial alone.</p>
       <h3>Our AI Pipeline</h3>
-      <p>Every article passes through six AI sub-agents before publication. The <strong>Source Agent</strong> monitors Google Alerts RSS feeds and reader-submitted tips in real time. The <strong>Editorial Agent</strong> rewrites raw headlines and abstracts into clear, accessible journalism. The <strong>Compliance Agent</strong> checks every claim against our medical compliance ruleset. The <strong>Research Agent</strong> verifies that science and diagnostics articles align with established Shoemaker Protocol research. The <strong>QC Agent</strong> runs final checks on title quality, relevance scoring, and spam filtering. Only articles that pass all five stages get published.</p>
+      <p>Every article passes through an 11-gate pipeline powered by six specialized AI agents before publication. The pipeline runs in four phases: <strong>Source & Filter</strong> (deduplication, freshness checks, source verification, tip screening), <strong>Score</strong> (AI-driven newsworthiness rating where only 7+ articles advance), <strong>Write</strong> (headline and summary rewriting in our editorial voice), and <strong>Verify & Publish</strong> (claims compliance, Shoemaker alignment, invention guard, and photo assignment). Only articles that pass all 11 gates get published.</p>
       <h3>What AI Does (and Doesn't Do)</h3>
       <p>AI writes the editorial summaries. AI checks the compliance. AI verifies the research alignment. AI does not fabricate sources, generate fake studies, or invent quotes. Every article on The Mold Report links back to its original source. We summarize and contextualize. If our AI pipeline cannot verify a claim, the article doesn't publish. That's the whole point.</p>
       <h3>Source Standards</h3>
