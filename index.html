@@ -1969,6 +1969,11 @@ function setupScroll() {
 // SCROLL REVEAL
 // ==========================================
 function observeReveal() {
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('visible'));
+    return;
+  }
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1976,8 +1981,12 @@ function observeReveal() {
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }, { threshold: 0.02, rootMargin: '200px 0px 200px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  // Safety net: reveal all after 3s in case observer doesn't fire
+  setTimeout(() => {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }, 3000);
 }
 
 // ==========================================
