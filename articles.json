@@ -1685,26 +1685,29 @@
     },
     {
       "id": "7800e6f545a6",
-      "title": "MoldCo Virtual Clinic Offers Remote Care for Mold-Related Illness",
+      "title": "MoldCo Drops Barriers to Mold Illness Care With Virtual Clinic Model",
       "originalTitle": "'MoldCo' virtual clinic treats mold-related illness",
-      "summary": "MoldCo has launched or expanded a virtual clinic focused on mold-related illness, allowing patients to receive care remotely without visiting a physical location. Reports indicate the clinic provides access to practitioners who work with patients experiencing symptoms potentially linked to mold exposure. Virtual care models like this have grown in prominence following broader telehealth adoption, and they may offer particular value for mold-affected patients who are too ill to travel or who live in areas without local specialists. MoldCo's approach appears centered on connecting patients with guided care options, likely including environmental assessment support and symptom management. The virtual format also removes geographic barriers that have historically limited access to mold-related illness care. Approximately 24% of the population carries a genetic predisposition that may make them more susceptible to mold-related health effects, according to research in this field, making accessible care options a meaningful development for a significant portion of patients.",
+      "summary": "MoldCo is a clinician-led virtual clinic built specifically for people dealing with mold-related illness. The model is simple: get tested, get data, and if the data shows a problem, start treatment with real clinicians who know what they're looking at. Everything is remote. No waiting six months for a specialist appointment. No flying across the country. No $10,000 intake process.\n\nThe clinical approach is guided by Dr. Ritchie Shoemaker's research, the physician who spent 25 years defining the field of mold-related illness and published the foundational peer-reviewed work on how biotoxins affect the immune system. MoldCo's team is trained under the Shoemaker and CIRSx programs, working under the guidance of Dr. Scott McMahon, who has treated thousands of mold-affected patients. This isn't a wellness brand selling supplements. It's a medical practice with real clinicians, real lab work, and a treatment protocol backed by decades of published research.\n\nThe entry point is a blood panel. The Starter Health Panel costs $56, sold at cost, no markup. It measures three biomarkers linked to mold-related illness: TGF-B1, MMP-9, and MSH. These markers show how mold exposure may be affecting inflammation, immune response, and hormone regulation. Patients order online, visit a nearby LabCorp location for a standard blood draw, and get results back. If the data indicates a problem, they can start care with MoldCo clinicians who build an individualized treatment plan.\n\nResearch suggests approximately 24% of the population carries a genetic predisposition that may make them more susceptible to mold-related health effects. For those people, conventional doctors often have no answers. Symptoms get attributed to anxiety, allergies, or aging. MoldCo exists because its founders went through exactly that experience and built the clinic they wished had existed when they were sick.\n\nThe virtual format removes geographic barriers that have historically kept mold illness care out of reach for most patients. Available in most U.S. states, with LabCorp's 2,000+ locations handling the blood work. No referral needed. No insurance gatekeeping for the panel.",
       "source": "MoldCo",
       "sourceUrl": "https://www.moldco.com",
       "author": "MoldCo",
       "publishedAt": "2026-01-14T12:00:00Z",
-      "category": "industry",
+      "category": "diagnostics",
       "imageUrl": "https://images.prismic.io/moldco/aby4ER5fn6DF3BEk_image.png?auto=format,compress",
-      "imageAlt": "",
+      "imageAlt": "MoldCo virtual clinic for mold-related illness care",
       "status": "published",
       "interestScore": 7,
       "qcReviewer": "seed-backlog",
       "qcTimestamp": "2026-04-16T13:42:16.107461+00:00",
       "tags": [
         "moldco",
-        "mold"
+        "telehealth",
+        "mold-illness",
+        "biomarkers",
+        "shoemaker"
       ],
       "featured": false,
-      "readTime": 3,
+      "readTime": 4,
       "_source_type": "seed_backlog"
     },
     {
