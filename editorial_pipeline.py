@@ -1574,7 +1574,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory
