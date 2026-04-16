@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15T20:22:51.810551+00:00",
+  "lastUpdated": "2026-04-16T12:50:30.041344+00:00",
   "articles": [
     {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
@@ -22,8 +22,7 @@
       ],
       "featured": true,
       "readTime": 3,
-      "author": "Environmental Protection",
-      "_original_title": "ISSA and NORMI Expand Indoor Health Alliance to Unify Cleaning and Mold Remediation Standards"
+      "author": "Environmental Protection"
     },
     {
       "title": "MoldCo Drops Mold Blood Test Price From $99 to $56",
@@ -48,12 +47,11 @@
       ],
       "featured": true,
       "readTime": 3,
-      "author": "MoldCo",
-      "_original_title": "MoldCo Drops Starter Health Panel Price to $56, Making Mold Biomarker Testing More Accessible"
+      "author": "MoldCo"
     },
     {
       "title": "120 Students in Limbo 7 Weeks After Mold Found at LA Elementary School",
-      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure \u2014 a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing \u2014 including markers such as TGF-B1, MMP-9, and MSH \u2014 as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
+      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
       "source": "CBS News",
       "sourceUrl": "https://www.cbsnews.com/losangeles/news/chatsworth-elementary-school-mold-exposure-concerns/",
       "publishedAt": "2026-04-10T15:00:00+00:00",
@@ -72,8 +70,7 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "CBS News",
-      "_original_title": "Chatsworth Elementary Parents Demand Answers After Months of Mold Exposure Concerns"
+      "author": "CBS News"
     },
     {
       "title": "Midea Recalls 1.7 Million Window AC Units After 152 Mold Reports",
@@ -94,8 +91,25 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "CPSC / ABC News",
-      "_original_title": "Midea Recalls 1.7 Million Window Air Conditioners Over Mold Growth Risk"
+      "author": "CPSC / ABC News"
+    },
+    {
+      "id": "4120eb485fb9",
+      "title": "Two Kidney-Damaging Mold Toxins Actually Cancel Each Other Out, Study Finds",
+      "summary": "A study published in the Journal of Agricultural and Food Chemistry found that two mold-derived toxins known to damage the kidneys, ochratoxin A and citrinin, appear to counteract each other's harmful effects when present together. Lead author Wu D. and colleagues used a three-dimensional renal microsphere model, a lab-engineered structure mimicking kidney tissue, to observe how the toxins behaved in combination rather than in isolation. The research identified an antagonistic interaction, meaning the combined toxic effect was less severe than what each compound would produce on its own.\n\nOchratoxin A and citrinin are both mycotoxins, toxic compounds produced by certain mold species commonly found in stored grains, coffee, and other food products. Most toxicological research evaluates these substances separately, but real-world exposure often involves multiple mycotoxins simultaneously. This study used the 3D microsphere model specifically because it more closely replicates the structural and functional complexity of kidney tissue than traditional flat cell cultures.\n\nFor people concerned about mold exposure and food safety, these findings add important nuance to how co-exposure to multiple mycotoxins is assessed. The results suggest that combined exposure does not always equal additive or compounded harm, a factor that may influence how regulatory limits and risk assessments are structured for mycotoxin contamination in food supplies.",
+      "source": "J Agric Food Chem",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41951248/",
+      "author": "Wu D",
+      "publishedAt": "2026-04-08T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "",
+      "imageAlt": "Research related image",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-16T12:49:37.826571+00:00",
+      "tags": [],
+      "featured": false,
+      "readTime": 3
     },
     {
       "title": "Mold Forces Closure of Wichita Fire Stations; Nearly 90% of Stations Affected",
@@ -119,6 +133,26 @@
       "featured": false,
       "readTime": 3,
       "author": "KSN / FireRescue1"
+    },
+    {
+      "id": "459ccc5eda3b",
+      "title": "Common Airborne Mold May Speed Lung Cancer Growth, Lab Study Finds",
+      "summary": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote tumor-friendly conditions in lung cancer cells. Led by researcher Bian X., the study examined how secreted compounds from A. fumigatus interact with lung cancer cells in vitro, meaning in a controlled lab setting outside a living organism. The findings showed activation of three key molecular pathways, NF-κB, AKT, and ERK, all of which are associated with cancer cell survival, growth, and spread.\n\nA. fumigatus is one of the most frequently inhaled mold species worldwide. It is already known to cause serious respiratory infections, particularly in immunocompromised individuals. This study adds a new dimension to that concern by suggesting its secreted compounds may also influence pro-tumor cellular behavior.\n\nFor people focused on mold exposure, this research raises questions about the potential intersection of chronic fungal exposure and lung health beyond infection. The findings are preliminary. In vitro results do not confirm the same effects occur in living humans, and no clinical conclusions can be drawn at this stage. Larger studies in animal models and human populations would be needed to establish any causal link.",
+      "source": "Arch Microbiol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944873/",
+      "author": "Bian X",
+      "publishedAt": "2026-04-07T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "",
+      "imageAlt": "Research related image",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-16T12:45:12.605523+00:00",
+      "tags": [
+        "Aspergillus"
+      ],
+      "featured": false,
+      "readTime": 3
     },
     {
       "title": "Dr. Ritchie Shoemaker to Host AMA on r/ToxicMoldExposure, Marking 25 Years of Mold Illness Research",
@@ -165,7 +199,7 @@
     },
     {
       "title": "USA Today: Doctors Blamed Her Symptoms on Motherhood. She Actually Had Mold Illness.",
-      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists \u2014 they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
+      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists — they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
       "source": "USA Today",
       "sourceUrl": "https://eu.usatoday.com/story/life/health-wellness/2026/04/02/mold-illness-motherhood-chronic-symptoms/89215085007/",
       "publishedAt": "2026-04-02T08:00:00+00:00",
@@ -201,8 +235,7 @@
       "qcTimestamp": "2026-04-15T18:34:13.945966+00:00",
       "tags": [],
       "featured": false,
-      "readTime": 3,
-      "_original_title": "Combined toxicity prediction of deoxynivalenol and fumonisin B(1) by physiologically based toxicokinetic modelling and in vitro toxicity mechanism study on astrocyte-like C6 cells."
+      "readTime": 3
     },
     {
       "title": "Congress Introduces MOLD Act to Fix Environmental Health Standards in Military Housing",
@@ -224,11 +257,29 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "Congress.gov",
-      "_original_title": "MOLD Act (H.R. 7188) Introduced in Congress to Reform Military Housing Environmental Standards"
+      "author": "Congress.gov"
     },
     {
-      "title": "Michigan Family Racked Up 100 Hospital Visits in 4 Years \u2014 They Blame Black Mold",
+      "id": "f0e9ccd067f9",
+      "title": "What Lives in Your Home's Air? New Review Maps Indoor Microbiome Science",
+      "summary": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample, analyze, and interpret the microbial communities living inside homes and buildings. Lead author I. Šunić and colleagues synthesized existing research on the methods used to detect bacteria, fungi, and other microorganisms in indoor air and on surfaces.\n\nThe review covers emerging trends in sampling techniques and analytical approaches, reflecting a growing scientific interest in how indoor microbial environments affect human health. Understanding what organisms are present, and in what quantities, is a foundational step before researchers can draw conclusions about exposure and disease risk.\n\nFor people concerned about mold exposure, this kind of methodological review matters because the reliability of any indoor air quality assessment depends heavily on how samples are collected and analyzed. Standardizing these approaches across studies is essential for building a clearer picture of which fungi and bacteria pose the greatest concern in residential and occupational settings.",
+      "source": "Environ Microbiol Rep",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41943876/",
+      "author": "Šunić I",
+      "publishedAt": "2026-04-01T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "",
+      "imageAlt": "Research related image",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-16T12:46:24.713565+00:00",
+      "tags": [],
+      "featured": false,
+      "readTime": 3,
+      "editorsNote": "The original article summary did not include specific findings, data points, or conclusions from the review. This summary reflects only what was reported in the source metadata. Readers seeking clinical guidance on mold-related illness should consult peer-reviewed studies on specific biomarkers or established clinical protocols."
+    },
+    {
+      "title": "Michigan Family Racked Up 100 Hospital Visits in 4 Years — They Blame Black Mold",
       "summary": "A Michigan family documented nearly 100 medical visits over four years they attribute to black mold exposure in their manufactured home. Brian Bartenbaker and his family lived at Oakland Estates in Auburn Hills, Michigan, where airborne testing confirmed extensive mold contamination throughout the residence. The property also showed deteriorated flooring with holes, absent insulation, and pest intrusion.\n\nDespite repeated maintenance requests to management, the family reported receiving no remediation assistance. Instead, they say they were told to either purchase the home or vacate. The family has since left the property. The case was reported by WDIV Click On Detroit.\n\nThe situation reflects a broader pattern in manufactured housing communities, where maintenance accountability structures can leave tenants with limited options. Residents in these communities often lack the legal standing of traditional renters or the financial resources to pursue independent remediation. When mold goes unaddressed for extended periods, as testing confirmed here, cumulative health effects can be significant. For anyone in similar housing circumstances, documenting medical visits, requesting inspections from local health authorities, and obtaining independent air quality testing are concrete steps toward establishing a record and pursuing remediation.",
       "source": "Click On Detroit / WDIV",
       "sourceUrl": "https://www.clickondetroit.com/news/local/2026/03/31/family-says-black-mold-in-auburn-hills-home-sent-kids-to-hospital-nearly-100-times/",
@@ -247,16 +298,15 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "Click On Detroit / WDIV",
-      "_original_title": "Auburn Hills Family Reports Nearly 100 Hospital Visits Linked to Black Mold in Manufactured Home"
+      "author": "Click On Detroit / WDIV"
     },
     {
       "id": "4c5cf73834bc",
       "title": "Indoor air bacterial and fungal burden in the environment of an atopic child: implications for elevated urine mycotoxin levels.",
-      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Maji\u0107 and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing\u2014including markers such as TGF-B1, MMP-9, and MSH\u2014represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
+      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Majić and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing—including markers such as TGF-B1, MMP-9, and MSH—represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
       "source": "Arh Hig Rada Toksikol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944406/",
-      "author": "Maji\u0107 I",
+      "author": "Majić I",
       "publishedAt": "2026-03-01T00:00:00+00:00",
       "category": "research",
       "imageUrl": "",
