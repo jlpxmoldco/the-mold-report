@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">All Articles — The Mold Report</title>
+<meta name="description" id="pageMeta" content="Browse all mold-related articles from The Mold Report, the first AI-curated mold news publication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231B4D3E'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='Georgia'>M</text></svg>">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #FAF9F6; --bg-card: #FFFFFF;
+    --text-1: #1A1A1A; --text-2: #555555; --text-3: #999999;
+    --accent: #1B4D3E; --accent-light: #E6F0EB; --accent-hover: #143D31;
+    --border: #E5E5E5;
+    --cat-research: #6366F1; --cat-regulation: #D97706;
+    --cat-news: #0EA5E9; --cat-industry: #8B5CF6;
+    --cat-diagnostics: #10B981;
+    --r-sm: 8px; --r-md: 12px; --r-lg: 16px;
+  }
+  body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text-1); line-height: 1.6; }
+
+  /* ===== HEADER ===== */
+  .header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-1); }
+  .logo-mark { width: 32px; height: 32px; background: var(--accent); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700; }
+  .logo-type { font-size: 20px; font-weight: 400; }
+  .logo-type i { font-style: italic; color: var(--accent); }
+  .header-nav { display: flex; gap: 24px; align-items: center; }
+  .header-nav a { text-decoration: none; color: var(--text-2); font-family: -apple-system, sans-serif; font-size: 14px; }
+  .header-nav a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent) !important; color: white !important; padding: 8px 18px; border-radius: var(--r-sm); font-weight: 600; }
+  .nav-cta:hover { background: var(--accent-hover) !important; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header { max-width: 1200px; margin: 0 auto; padding: 48px 24px 0; }
+  .page-header h1 { font-size: 36px; font-weight: 400; margin-bottom: 8px; }
+  .page-header h1 span { display: inline-block; padding: 4px 16px; border-radius: var(--r-sm); color: white; font-size: 32px; }
+  .page-header p { color: var(--text-2); font-family: -apple-system, sans-serif; font-size: 15px; max-width: 600px; margin-top: 8px; }
+  .page-header .cat-line { width: 48px; height: 3px; margin-top: 16px; border-radius: 2px; }
+
+  /* ===== CONTROLS ===== */
+  .controls { max-width: 1200px; margin: 0 auto; padding: 24px 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .search-box { font-family: -apple-system, sans-serif; font-size: 14px; padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--r-sm); width: 300px; background: var(--bg-card); outline: none; }
+  .search-box:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+  .sort-select { font-family: -apple-system, sans-serif; font-size: 14px; padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-card); cursor: pointer; outline: none; }
+  .result-count { font-family: -apple-system, sans-serif; font-size: 13px; color: var(--text-3); }
+
+  /* ===== CATEGORY TABS ===== */
+  .cat-tabs { max-width: 1200px; margin: 0 auto; padding: 20px 24px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+  .cat-tab { font-family: -apple-system, sans-serif; font-size: 13px; padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-card); cursor: pointer; text-decoration: none; color: var(--text-2); transition: all 0.2s; }
+  .cat-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .cat-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .cat-tab.active[data-cat="research"] { background: var(--cat-research); border-color: var(--cat-research); }
+  .cat-tab.active[data-cat="regulation"] { background: var(--cat-regulation); border-color: var(--cat-regulation); }
+  .cat-tab.active[data-cat="news"] { background: var(--cat-news); border-color: var(--cat-news); }
+  .cat-tab.active[data-cat="industry"] { background: var(--cat-industry); border-color: var(--cat-industry); }
+  .cat-tab.active[data-cat="diagnostics"] { background: var(--cat-diagnostics); border-color: var(--cat-diagnostics); }
+
+  /* ===== ARTICLE GRID ===== */
+  .article-grid { max-width: 1200px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+  .article-card { background: var(--bg-card); border-radius: var(--r-md); overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid var(--border); }
+  .article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .article-card img { width: 100%; height: 200px; object-fit: cover; }
+  .article-card .fallback-img { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; }
+  .article-card .fb-icon { font-size: 48px; opacity: 0.7; }
+  .card-body { padding: 20px; }
+  .card-cat { font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; display: inline-block; }
+  .card-body h3 { font-size: 18px; font-weight: 600; line-height: 1.35; margin-bottom: 8px; font-family: -apple-system, sans-serif; }
+  .card-body p { font-size: 14px; color: var(--text-2); line-height: 1.5; font-family: -apple-system, sans-serif; margin-bottom: 12px; }
+  .card-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-3); font-family: -apple-system, sans-serif; }
+  .card-meta .dot::before { content: '·'; margin: 0 4px; }
+
+  /* Fallback image gradients */
+  .fallback-img.research { background: linear-gradient(135deg, #EEF2FF, #C7D2FE); }
+  .fallback-img.regulation { background: linear-gradient(135deg, #FFFBEB, #FDE68A); }
+  .fallback-img.news { background: linear-gradient(135deg, #F0F9FF, #BAE6FD); }
+  .fallback-img.industry { background: linear-gradient(135deg, #F5F3FF, #DDD6FE); }
+  .fallback-img.diagnostics { background: linear-gradient(135deg, #ECFDF5, #A7F3D0); }
+
+  /* ===== EMPTY STATE ===== */
+  .empty-state { text-align: center; padding: 80px 24px; color: var(--text-3); font-family: -apple-system, sans-serif; }
+  .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+  .empty-state h3 { font-size: 18px; margin-bottom: 8px; color: var(--text-2); }
+
+  /* ===== FOOTER ===== */
+  .footer { margin-top: 64px; padding: 40px 24px; border-top: 1px solid var(--border); text-align: center; }
+  .footer a { color: var(--accent); text-decoration: none; font-family: -apple-system, sans-serif; font-size: 14px; }
+  .footer p { color: var(--text-3); font-family: -apple-system, sans-serif; font-size: 13px; margin-top: 8px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .article-grid { grid-template-columns: 1fr; }
+    .controls { flex-direction: column; align-items: stretch; }
+    .search-box { width: 100%; }
+    .page-header h1 { font-size: 28px; }
+    .header-nav { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">M</div>
+      <span class="logo-type">The Mold <i>Report</i></span>
+    </a>
+    <nav class="header-nav">
+      <a href="/">Today</a>
+      <a href="/category.html?cat=research">Research</a>
+      <a href="/category.html?cat=regulation">Regulation</a>
+      <a href="/category.html?cat=news">News</a>
+      <a href="/category.html?cat=industry">Industry</a>
+      <a href="/category.html?cat=diagnostics">Diagnostics</a>
+      <a href="/#howWeWork">How We Work</a>
+      <a href="/" class="nav-cta">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header" id="pageHeader">
+  <h1 id="headerTitle">All Articles</h1>
+  <p id="headerDesc">Every story we've published, organized and searchable.</p>
+  <div class="cat-line" id="catLine" style="background: var(--accent);"></div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="cat-tabs" id="catTabs">
+  <a class="cat-tab" data-cat="all" href="/category.html">All</a>
+  <a class="cat-tab" data-cat="research" href="/category.html?cat=research">Research</a>
+  <a class="cat-tab" data-cat="regulation" href="/category.html?cat=regulation">Regulation</a>
+  <a class="cat-tab" data-cat="news" href="/category.html?cat=news">News</a>
+  <a class="cat-tab" data-cat="industry" href="/category.html?cat=industry">Industry</a>
+  <a class="cat-tab" data-cat="diagnostics" href="/category.html?cat=diagnostics">Diagnostics</a>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <input type="text" class="search-box" id="searchBox" placeholder="Search articles...">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span class="result-count" id="resultCount"></span>
+    <select class="sort-select" id="sortSelect">
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+      <option value="source">By Source</option>
+    </select>
+  </div>
+</div>
+
+<!-- ARTICLE GRID -->
+<div class="article-grid" id="articleGrid"></div>
+
+<!-- EMPTY STATE -->
+<div class="empty-state" id="emptyState" style="display:none;">
+  <div class="icon">🔍</div>
+  <h3>No articles found</h3>
+  <p>Try adjusting your search or filter.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <a href="/">← Back to The Mold Report</a>
+  <p>The first AI-curated mold news publication. All content reviewed by our editorial pipeline.</p>
+</div>
+
+<script>
+// ==========================================
+// CONFIG
+// ==========================================
+const CAT_META = {
+  research: {
+    title: 'Research',
+    desc: 'Peer-reviewed studies, lab findings, and scientific developments in mold science.',
+    color: 'var(--cat-research)'
+  },
+  regulation: {
+    title: 'Regulation',
+    desc: 'Lawsuits, legislation, court rulings, and regulatory actions related to mold.',
+    color: 'var(--cat-regulation)'
+  },
+  news: {
+    title: 'News',
+    desc: 'Breaking stories about mold outbreaks, contamination events, and community impact.',
+    color: 'var(--cat-news)'
+  },
+  industry: {
+    title: 'Industry',
+    desc: 'Companies, products, standards, and business developments in the mold industry.',
+    color: 'var(--cat-industry)'
+  },
+  diagnostics: {
+    title: 'Diagnostics',
+    desc: 'Testing methods, diagnostic tools, and innovations in mold detection.',
+    color: 'var(--cat-diagnostics)'
+  }
+};
+
+const FB_ICONS = {
+  research: '&#x1F52C;', regulation: '&#x2696;', news: '&#x1F4F0;',
+  industry: '&#x1F3ED;', diagnostics: '&#x1F9EA;', default: '&#x1F343;'
+};
+
+// ==========================================
+// DATA LOADING
+// ==========================================
+let allArticles = [];
+let currentCat = null;
+
+async function loadArticles() {
+  // Try fetching from the main page's embedded data via articles.json
+  try {
+    const resp = await fetch('/articles.json');
+    if (resp.ok) {
+      const data = await resp.json();
+      allArticles = data.articles.filter(a => a.status === 'published');
+      return;
+    }
+  } catch(e) {}
+
+  // Fallback: fetch from the main page and extract EMBEDDED_ARTICLES
+  try {
+    const resp = await fetch('/');
+    const html = await resp.text();
+    const match = html.match(/const\s+EMBEDDED_ARTICLES\s*=\s*(\{[\s\S]*?\});?\s*\n/);
+    if (match) {
+      const data = JSON.parse(match[1]);
+      allArticles = data.articles.filter(a => a.status === 'published');
+    }
+  } catch(e) {
+    console.error('Failed to load articles', e);
+  }
+}
+
+// ==========================================
+// URL + INIT
+// ==========================================
+function getCatFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('cat') || 'all';
+}
+
+async function init() {
+  await loadArticles();
+  currentCat = getCatFromUrl();
+  setupPageHeader();
+  setupTabs();
+  setupControls();
+  renderArticles();
+}
+
+function setupPageHeader() {
+  const meta = CAT_META[currentCat];
+  if (meta) {
+    document.getElementById('headerTitle').innerHTML = meta.title;
+    document.getElementById('headerDesc').textContent = meta.desc;
+    document.getElementById('catLine').style.background = meta.color;
+    document.getElementById('pageTitle').textContent = `${meta.title} — The Mold Report`;
+    document.getElementById('pageMeta').content = meta.desc;
+  } else {
+    document.getElementById('headerTitle').textContent = 'All Articles';
+    document.getElementById('headerDesc').textContent = 'Every story we\'ve published, organized and searchable.';
+    document.getElementById('catLine').style.background = 'var(--accent)';
+  }
+}
+
+function setupTabs() {
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    if (tab.dataset.cat === currentCat) tab.classList.add('active');
+  });
+}
+
+function setupControls() {
+  document.getElementById('searchBox').addEventListener('input', renderArticles);
+  document.getElementById('sortSelect').addEventListener('change', renderArticles);
+}
+
+// ==========================================
+// RENDER
+// ==========================================
+function renderArticles() {
+  const searchTerm = document.getElementById('searchBox').value.toLowerCase().trim();
+  const sortBy = document.getElementById('sortSelect').value;
+
+  let filtered = currentCat === 'all'
+    ? [...allArticles]
+    : allArticles.filter(a => a.category === currentCat);
+
+  if (searchTerm) {
+    filtered = filtered.filter(a =>
+      a.title.toLowerCase().includes(searchTerm) ||
+      (a.summary || '').toLowerCase().includes(searchTerm) ||
+      (a.source || '').toLowerCase().includes(searchTerm) ||
+      (a.tags || []).some(t => t.toLowerCase().includes(searchTerm))
+    );
+  }
+
+  // Sort
+  if (sortBy === 'newest') {
+    filtered.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  } else if (sortBy === 'oldest') {
+    filtered.sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt));
+  } else if (sortBy === 'source') {
+    filtered.sort((a, b) => (a.source || '').localeCompare(b.source || ''));
+  }
+
+  const grid = document.getElementById('articleGrid');
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('resultCount');
+
+  count.textContent = `${filtered.length} article${filtered.length !== 1 ? 's' : ''}`;
+
+  if (!filtered.length) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(a => {
+    const imgHtml = isFallbackImg(a.imageUrl)
+      ? fallbackHtml(a.category)
+      : `<img src="${a.imageUrl}" alt="${a.imageAlt || ''}" loading="lazy" onerror="this.outerHTML=fallbackHtml('${a.category}')">`;
+
+    return `
+    <article class="article-card" onclick="window.location.href='/?a=${a.id}'">
+      ${imgHtml}
+      <div class="card-body">
+        <span class="card-cat" style="color:var(--cat-${a.category})">${a.category}</span>
+        <h3>${a.title}</h3>
+        <p>${truncate(a.summary ? a.summary.split('\n')[0] : '', 160)}</p>
+        <div class="card-meta">
+          <span>${a.source || ''}</span>
+          <span class="dot">${timeAgo(a.publishedAt)}</span>
+          <span class="dot">${a.readTime || 3} min read</span>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+// ==========================================
+// HELPERS
+// ==========================================
+function timeAgo(d) {
+  const s = Math.floor((Date.now() - new Date(d)) / 1000);
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+  if (s < 172800) return 'Yesterday';
+  return `${Math.floor(s / 86400)}d ago`;
+}
+
+function truncate(text, len) {
+  if (!text || text.length <= len) return text || '';
+  return text.substring(0, len).replace(/\s+\S*$/, '') + '...';
+}
+
+function isFallbackImg(url) {
+  if (!url) return true;
+  const bad = ['placehold.co', 'pubmed-meta-image', 'ncbi.nlm.nih.gov/pubmed/persistent'];
+  return bad.some(b => url.includes(b));
+}
+
+function fallbackHtml(cat, style) {
+  const icon = FB_ICONS[cat] || FB_ICONS['default'];
+  return `<div class="fallback-img ${cat}"${style ? ` style="${style}"` : ''}><span class="fb-icon">${icon}</span></div>`;
+}
+
+// ==========================================
+// GO
+// ==========================================
+init();
+</script>
+
+</body>
+</html>
