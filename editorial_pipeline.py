@@ -7,6 +7,7 @@ processes each article through a 7-gate AI pipeline, and auto-publishes
 anything that scores 7+ on editorial interest. No human step required.
 
 Pipeline gates (in order):
+  0. DEDUP AGENT        — Content-aware duplicate detection (URL, title, entity overlap)
   1. FRESHNESS GATE     — Rejects articles older than 90 days
   2. SOURCE GATE        — Rejects articles without valid source URLs (tips exempt)
   2b. TIP SCREENING     — Reader tips: checks editorial validity + Shoemaker alignment
@@ -16,7 +17,7 @@ Pipeline gates (in order):
   6. COMPLIANCE AGENT   — Checks against MoldCo claims rules (auto-corrects)
   7. RESEARCH AGENT     — Verifies Shoemaker alignment for science articles
   8. INVENTION GUARD    — AI checks for fabrication (70% confidence threshold)
-  9. PHOTO AGENT        — Assigns images (OG extraction or category fallback)
+  9. PHOTO AGENT        — Assigns images (OG → topic Unsplash → category fallback)
 
 Data storage:
   articles.json — flat JSON file. This IS the database. No server needed.
@@ -131,12 +132,34 @@ GOV_FILTER_KEYWORDS = [
 # category backgrounds with gradient + icon (no text overlap).
 # The frontend's isFallbackImg() checks for empty or placehold.co URLs.
 FALLBACK_IMAGES = {
-    "research":     "",
-    "regulation":   "",
-    "news":         "",
-    "industry":     "",
-    "diagnostics":  "",
-    "default":      "",
+    "research":     "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
+    "regulation":   "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
+    "news":         "https://images.unsplash.com/photo-1643906652169-a750f3f70848?w=800&q=80",
+    "industry":     "https://images.unsplash.com/photo-1511816120351-e2d275a814e3?w=800&q=80",
+    "diagnostics":  "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
+    "default":      "https://images.unsplash.com/photo-1649777882133-525e923fd5d7?w=800&q=80",
+}
+
+# Extended fallback map for more specific topics (used by photo_agent)
+TOPIC_IMAGES = {
+    "apartment":    ["https://images.unsplash.com/photo-1643906652169-a750f3f70848?w=800&q=80",
+                     "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
+                     "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"],
+    "school":       ["https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=800&q=80",
+                     "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80"],
+    "hospital":     ["https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800&q=80",
+                     "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"],
+    "courthouse":   ["https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
+                     "https://images.unsplash.com/photo-1623008946073-ad1c850ad0dd?w=800&q=80"],
+    "laboratory":   ["https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
+                     "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80"],
+    "government":   ["https://images.unsplash.com/photo-1611326268719-55a69e4316b9?w=800&q=80",
+                     "https://images.unsplash.com/photo-1580415742185-c068be2aaecd?w=800&q=80"],
+    "prison":       ["https://images.unsplash.com/photo-1627571615836-4948060412a9?w=800&q=80"],
+    "police":       ["https://images.unsplash.com/photo-1600081191763-05da665acf1a?w=800&q=80"],
+    "flooding":     ["https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=80"],
+    "military":     ["https://images.unsplash.com/photo-1580415742185-c068be2aaecd?w=800&q=80"],
+    "mold":         ["https://images.unsplash.com/photo-1649777882133-525e923fd5d7?w=800&q=80"],
 }
 
 # =========================================
@@ -692,15 +715,133 @@ Summary: {article['summary'][:500]}"""
 
 
 # =========================================
+# AGENT: DUPLICATE DETECTION
+# =========================================
+def _title_similarity(a, b):
+    """Quick title similarity using SequenceMatcher."""
+    from difflib import SequenceMatcher
+    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+
+
+def _extract_key_entities(text):
+    """Extract location names, org names, dollar amounts for comparison."""
+    import re
+    text_lower = text.lower()
+    entities = set()
+    # Dollar amounts
+    for m in re.findall(r'\$[\d,.]+[kmb]?', text_lower):
+        entities.add(m)
+    # Common named entities (states, cities mentioned in mold articles)
+    for word in text.split():
+        if len(word) > 3 and word[0].isupper():
+            entities.add(word.lower())
+    return entities
+
+
+def duplicate_detection_agent(article, existing_articles):
+    """
+    DEDUP AGENT — checks if a new article is a duplicate of an existing one.
+
+    Three-layer check:
+      1. Same source URL → definite duplicate
+      2. High title similarity (>0.7) → likely duplicate
+      3. Same topic + same location/entities + close dates → probable duplicate
+
+    Returns:
+      article with '_duplicate' flag and '_duplicate_of' ID if duplicate found.
+      article['_dedup_pass'] = True means it's NOT a duplicate (good to publish).
+    """
+    title = article.get('title', '')
+    url = article.get('sourceUrl', '')
+    summary = article.get('summary', '')
+    pub_date = article.get('publishedAt', '')[:10]  # YYYY-MM-DD
+
+    print(f"  🔍 Dedup: checking against {len(existing_articles)} articles...")
+
+    for existing in existing_articles:
+        ex_title = existing.get('title', '')
+        ex_url = existing.get('sourceUrl', '')
+        ex_summary = existing.get('summary', '')
+
+        # Layer 1: Same source URL
+        if url and ex_url and url == ex_url:
+            print(f"    ✗ DUPLICATE: Same source URL as '{ex_title[:50]}...'")
+            article['_dedup_pass'] = False
+            article['_duplicate_of'] = existing['id']
+            article['_duplicate_reason'] = 'same_url'
+            return article
+
+        # Layer 2: High title similarity
+        title_sim = _title_similarity(title, ex_title)
+        if title_sim > 0.75:
+            print(f"    ✗ DUPLICATE: Title {title_sim:.0%} similar to '{ex_title[:50]}...'")
+            article['_dedup_pass'] = False
+            article['_duplicate_of'] = existing['id']
+            article['_duplicate_reason'] = f'title_similarity_{title_sim:.2f}'
+            return article
+
+        # Layer 3: Moderate title similarity + overlapping entities + close dates
+        if title_sim > 0.5:
+            new_entities = _extract_key_entities(title + " " + summary[:200])
+            ex_entities = _extract_key_entities(ex_title + " " + ex_summary[:200])
+            overlap = new_entities & ex_entities
+            if len(overlap) >= 3:
+                # Check date proximity (within 7 days)
+                ex_date = existing.get('publishedAt', '')[:10]
+                try:
+                    from datetime import datetime
+                    d1 = datetime.strptime(pub_date, '%Y-%m-%d')
+                    d2 = datetime.strptime(ex_date, '%Y-%m-%d')
+                    days_apart = abs((d1 - d2).days)
+                except (ValueError, TypeError):
+                    days_apart = 999
+
+                if days_apart <= 14:
+                    print(f"    ✗ DUPLICATE: Similar topic ({title_sim:.0%}), "
+                          f"{len(overlap)} shared entities, {days_apart}d apart")
+                    print(f"      Existing: '{ex_title[:60]}...'")
+                    article['_dedup_pass'] = False
+                    article['_duplicate_of'] = existing['id']
+                    article['_duplicate_reason'] = f'topic_overlap_{len(overlap)}_entities'
+                    return article
+
+    print(f"    ✓ Unique article")
+    article['_dedup_pass'] = True
+    return article
+
+
+# =========================================
 # AGENT: PHOTO
 # =========================================
+def _detect_topic(title, summary=""):
+    """Detect the visual topic of an article for image selection."""
+    text = (title + " " + summary).lower()
+    topic_keywords = {
+        "school":      ["school", "elementary", "university", "college", "student", "campus"],
+        "apartment":   ["apartment", "tenant", "housing", "resident", "home", "condo", "cove"],
+        "hospital":    ["hospital", "doctor", "medical", "health", "asthma", "er visit", "clinic"],
+        "courthouse":  ["lawsuit", "sue", "court", "legal", "attorney", "ruling", "verdict"],
+        "laboratory":  ["study", "research", "lab", "toxin", "bacterial", "fungal", "microbiome"],
+        "government":  ["city hall", "council", "government", "museum", "oversight", "congress"],
+        "prison":      ["prison", "inmate", "prisoner", "correctional", "jail"],
+        "police":      ["police", "law enforcement", "precinct"],
+        "flooding":    ["flood", "water damage", "hurricane", "storm", "humidity"],
+        "military":    ["military", "base", "barracks", "army", "air force"],
+    }
+    for topic, keywords in topic_keywords.items():
+        if any(kw in text for kw in keywords):
+            return topic
+    return None
+
+
 def photo_agent(article):
-    """Assign images via OG extraction or category fallback."""
+    """Assign images via OG extraction → topic-specific Unsplash → category fallback."""
     if article.get('imageUrl') and 'unsplash' not in article.get('imageUrl', ''):
         return article
 
     print(f"  📷 Photo: {article['title'][:50]}...")
 
+    # Layer 1: Try OG image from source
     url = article.get('sourceUrl', '')
     if url and requests and BeautifulSoup:
         try:
@@ -716,6 +857,17 @@ def photo_agent(article):
         except Exception:
             pass
 
+    # Layer 2: Topic-specific Unsplash image
+    topic = _detect_topic(article.get('title', ''), article.get('summary', ''))
+    if topic and topic in TOPIC_IMAGES:
+        import random
+        imgs = TOPIC_IMAGES[topic]
+        article['imageUrl'] = random.choice(imgs)
+        article['imageAlt'] = article['title'][:80]
+        print(f"    → Topic image ({topic})")
+        return article
+
+    # Layer 3: Category fallback
     cat = article.get('category', 'default')
     article['imageUrl'] = FALLBACK_IMAGES.get(cat, FALLBACK_IMAGES['default'])
     article['imageAlt'] = f"{cat.title()} related image"
@@ -1365,6 +1517,14 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         print(f"  {article['title'][:65]}")
         print(f"  {article['source']} | {article['category']}")
         print(f"{'─' * 56}")
+
+        # Gate 0: Duplicate detection (content-aware)
+        all_existing = data["articles"] + published  # check against published + already-accepted this run
+        article = duplicate_detection_agent(article, all_existing)
+        if not article.get('_dedup_pass', True):
+            print(f"  ✗ REJECTED: duplicate of {article.get('_duplicate_of', '?')}")
+            rejected.append(("duplicate", article))
+            continue
 
         # Gate 1: Freshness
         if not freshness_gate(article):
