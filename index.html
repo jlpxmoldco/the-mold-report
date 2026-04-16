@@ -1482,10 +1482,23 @@
         position: absolute;
         top: 100%; left: 0; right: 0;
         background: var(--surface);
-        padding: var(--sp-6);
+        padding: var(--sp-4) var(--sp-6);
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow-3);
         z-index: 99;
+        gap: var(--sp-2);
+      }
+      .nav.open a {
+        padding: var(--sp-3) 0;
+        font-size: 15px;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .nav.open a:last-child { border-bottom: none; }
+      .nav.open .nav-cta {
+        margin-top: var(--sp-2);
+        text-align: center;
+        padding: var(--sp-3) var(--sp-4);
+        border-bottom: none;
       }
       .nav a.active::after { display: none; }
       .masthead-inner { position: relative; }
@@ -4365,9 +4378,18 @@ function setupFilters() {
 // MOBILE MENU
 // ==========================================
 function setupMobileMenu() {
-  document.getElementById('hamburger').addEventListener('click', () => {
-    const nav = document.getElementById('nav');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  // Close mobile menu when any nav link is tapped
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
