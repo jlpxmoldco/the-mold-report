@@ -2118,32 +2118,64 @@ function renderGrid(items) {
   `}).join('');
 }
 
+const LIST_PAGE_SIZE = 12;
+let listOffset = 0;
+let listAll = [];
+
+function renderListItem(a) {
+  const listImg = isFallbackImg(a.imageUrl)
+    ? fallbackHtml(a.category, 'width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;')
+    : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" data-fbstyle="width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;" onerror="imgErr(this)">`;
+  return `
+  <article class="list-item" onclick="openDetail('${a.id}')">
+    ${listImg}
+    <div class="list-item-body">
+      <span class="list-item-cat" style="color:var(--cat-${a.category})">${a.category}</span>
+      <h3>${a.title}</h3>
+      <p>${truncate(a.summary.split('\n')[0], 180)}</p>
+      <div class="meta">
+        <span>${a.source}</span>
+        <span class="meta-dot">${timeAgo(a.publishedAt)}</span>
+        <span class="meta-dot">${a.readTime} min read</span>
+      </div>
+    </div>
+  </article>`;
+}
+
 function renderList(items) {
   const el = document.getElementById('articleList');
-  const rest = items.slice(7);
-  if (!rest.length) {
+  listAll = items.slice(7);
+  listOffset = 0;
+  if (!listAll.length) {
     el.innerHTML = '<p style="text-align:center;color:var(--text-3);padding:40px 0;">That\'s all for today. Check back tomorrow.</p>';
     return;
   }
-  el.innerHTML = rest.map(a => {
-    const listImg = isFallbackImg(a.imageUrl)
-      ? fallbackHtml(a.category, 'width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;')
-      : `<img src="${a.imageUrl}" alt="${a.imageAlt}" loading="lazy" data-cat="${a.category}" data-fbstyle="width:160px;min-height:120px;border-radius:var(--r-sm);flex-shrink:0;" onerror="imgErr(this)">`;
-    return `
-    <article class="list-item" onclick="openDetail('${a.id}')">
-      ${listImg}
-      <div class="list-item-body">
-        <span class="list-item-cat" style="color:var(--cat-${a.category})">${a.category}</span>
-        <h3>${a.title}</h3>
-        <p>${truncate(a.summary.split('\n')[0], 180)}</p>
-        <div class="meta">
-          <span>${a.source}</span>
-          <span class="meta-dot">${timeAgo(a.publishedAt)}</span>
-          <span class="meta-dot">${a.readTime} min read</span>
-        </div>
-      </div>
-    </article>
-  `}).join('');
+  const page = listAll.slice(0, LIST_PAGE_SIZE);
+  listOffset = page.length;
+  el.innerHTML = page.map(renderListItem).join('');
+  appendLoadMore(el);
+}
+
+function appendLoadMore(el) {
+  const existing = el.querySelector('.load-more-btn');
+  if (existing) existing.remove();
+  if (listOffset >= listAll.length) return;
+  const remaining = listAll.length - listOffset;
+  const btn = document.createElement('button');
+  btn.className = 'load-more-btn';
+  btn.textContent = `Load More Stories (${remaining} remaining)`;
+  btn.style.cssText = 'display:block;margin:32px auto;padding:12px 32px;background:var(--forest);color:#fff;border:none;border-radius:var(--r-sm);font:600 0.95rem/1 var(--sans);cursor:pointer;transition:opacity 0.2s;';
+  btn.onmouseenter = () => btn.style.opacity = '0.85';
+  btn.onmouseleave = () => btn.style.opacity = '1';
+  btn.onclick = (e) => {
+    e.stopPropagation();
+    const next = listAll.slice(listOffset, listOffset + LIST_PAGE_SIZE);
+    listOffset += next.length;
+    btn.remove();
+    el.insertAdjacentHTML('beforeend', next.map(renderListItem).join(''));
+    appendLoadMore(el);
+  };
+  el.appendChild(btn);
 }
 
 // ==========================================
