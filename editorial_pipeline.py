@@ -1374,8 +1374,11 @@ How it works:
     else:
         run_pipeline(min_score=args.min_score, dry_run=args.dry_run)
 
-    # Auto-deploy to GitHub Pages if --deploy flag is set
-    if args.deploy and not args.dry_run:
+    # Auto-deploy to GitHub Pages
+    # Deploy if: (a) --deploy flag is set, OR (b) GITHUB_TOKEN is present in env
+    # This ensures scheduled tasks auto-deploy without needing the flag
+    has_credentials = bool(os.environ.get("GITHUB_TOKEN")) and bool(os.environ.get("GITHUB_REPO_URL"))
+    if not args.dry_run and (args.deploy or has_credentials):
         deploy_to_github()
 
 
@@ -1402,8 +1405,10 @@ def deploy_to_github():
         if not git_dir.exists():
             subprocess.run(["git", "init"], cwd=repo_dir, check=True, capture_output=True)
             subprocess.run(["git", "checkout", "-b", "main"], cwd=repo_dir, check=True, capture_output=True)
-            subprocess.run(["git", "config", "user.email", "bot@themoldreport.com"], cwd=repo_dir, check=True, capture_output=True)
-            subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
+
+        # Always set git identity (may be a fresh clone without global config)
+        subprocess.run(["git", "config", "user.email", "bot@themoldreport.com"], cwd=repo_dir, check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
         files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html"]
