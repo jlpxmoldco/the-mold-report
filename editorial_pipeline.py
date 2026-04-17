@@ -56,7 +56,10 @@ if _env_file.exists():
             _line = _line.strip()
             if _line and not _line.startswith('#') and '=' in _line:
                 _k, _v = _line.split('=', 1)
-                os.environ.setdefault(_k.strip(), _v.strip())
+                _k, _v = _k.strip(), _v.strip()
+                # Override empty env vars (some environments pre-set keys to "")
+                if _v and (not os.environ.get(_k)):
+                    os.environ[_k] = _v
 
 try:
     import anthropic
