@@ -1813,11 +1813,17 @@ def seo_backfill():
         return
 
     updated = 0
+    batch_size = 10
     for i, article in enumerate(needs_seo):
         print(f"\n[{i+1}/{len(needs_seo)}]")
         article = seo_agent(article)
         if article.get('seoTitle') and article.get('seoDescription'):
             updated += 1
+
+        # Save progress every batch_size articles
+        if (i + 1) % batch_size == 0:
+            print(f"\n  💾 Saving batch ({i+1}/{len(needs_seo)})...")
+            save_articles(data)
 
     if updated:
         save_articles(data)
