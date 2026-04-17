@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-16T20:00:00Z",
+  "lastUpdated": "2026-04-17T13:37:58.000174+00:00",
   "articles": [
     {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
@@ -22,7 +22,9 @@
       ],
       "featured": true,
       "readTime": 3,
-      "author": "Environmental Protection"
+      "author": "Environmental Protection",
+      "seoTitle": "ISSA and NORMI Expand Alliance to Bridge Clea | The Mold Report",
+      "seoDescription": "ISSA and NORMI have expanded their Indoor Health Alliance, a partnership first established in 2018, to more formally connect the cleaning and mold..."
     },
     {
       "title": "MoldCo Drops Mold Blood Test Price From $99 to $56",
@@ -47,11 +49,13 @@
       ],
       "featured": true,
       "readTime": 3,
-      "author": "MoldCo"
+      "author": "MoldCo",
+      "seoTitle": "MoldCo Drops Mold Blood Test Price From $99 t | The Mold Report",
+      "seoDescription": "MoldCo has reduced the price of its Starter Health Panel from $99 to $56, lowering the cost of blood-based mold illness screening for consumers without..."
     },
     {
       "title": "120 Students in Limbo 7 Weeks After Mold Found at LA Elementary School",
-      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure \u2014 a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing \u2014 including markers such as TGF-B1, MMP-9, and MSH \u2014 as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
+      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
       "source": "CBS News",
       "sourceUrl": "https://www.cbsnews.com/losangeles/news/chatsworth-elementary-school-mold-exposure-concerns/",
       "publishedAt": "2026-04-10T15:00:00+00:00",
@@ -70,7 +74,9 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "CBS News"
+      "author": "CBS News",
+      "seoTitle": "120 Students in Limbo 7 Weeks After Mold Foun | The Mold Report",
+      "seoDescription": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was..."
     },
     {
       "title": "Midea Recalls 1.7 Million Window AC Units After 152 Mold Reports",
@@ -91,7 +97,9 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "CPSC / ABC News"
+      "author": "CPSC / ABC News",
+      "seoTitle": "Midea Recalls 1.7 Million Window AC Units Aft | The Mold Report",
+      "seoDescription": "Midea has voluntarily recalled approximately 1.7 million U-shaped window air conditioners due to a drainage design flaw that allows water to pool inside..."
     },
     {
       "id": "4120eb485fb9",
@@ -109,7 +117,9 @@
       "qcTimestamp": "2026-04-16T12:49:37.826571+00:00",
       "tags": [],
       "featured": false,
-      "readTime": 3
+      "readTime": 3,
+      "seoTitle": "Two Kidney-Damaging Mold Toxins Actually Canc | The Mold Report",
+      "seoDescription": "A study published in the Journal of Agricultural and Food Chemistry found that two mold-derived toxins known to damage the kidneys, ochratoxin A and..."
     },
     {
       "id": "7e7fd51b5f16",
@@ -132,7 +142,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Cleveland Drug Rehab Facility Hit With Crimin | The Mold Report",
+      "seoDescription": "A drug rehabilitation facility in Cleveland is facing criminal charges tied to mold violations, according to local news reports. Authorities allege the..."
     },
     {
       "title": "Mold Forces Closure of Wichita Fire Stations; Nearly 90% of Stations Affected",
@@ -155,12 +166,14 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "KSN / FireRescue1"
+      "author": "KSN / FireRescue1",
+      "seoTitle": "Mold Forces Closure of Wichita Fire Stations; | The Mold Report",
+      "seoDescription": "Mold contamination has been identified in approximately 19 of Wichita's 22 fire stations, representing nearly 90% of the city's fire infrastructure...."
     },
     {
       "id": "459ccc5eda3b",
       "title": "Common Airborne Mold May Speed Lung Cancer Growth, Lab Study Finds",
-      "summary": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote tumor-friendly conditions in lung cancer cells. Led by researcher Bian X., the study examined how secreted compounds from A. fumigatus interact with lung cancer cells in vitro, meaning in a controlled lab setting outside a living organism. The findings showed activation of three key molecular pathways, NF-\u03baB, AKT, and ERK, all of which are associated with cancer cell survival, growth, and spread.\n\nA. fumigatus is one of the most frequently inhaled mold species worldwide. It is already known to cause serious respiratory infections, particularly in immunocompromised individuals. This study adds a new dimension to that concern by suggesting its secreted compounds may also influence pro-tumor cellular behavior.\n\nFor people focused on mold exposure, this research raises questions about the potential intersection of chronic fungal exposure and lung health beyond infection. The findings are preliminary. In vitro results do not confirm the same effects occur in living humans, and no clinical conclusions can be drawn at this stage. Larger studies in animal models and human populations would be needed to establish any causal link.",
+      "summary": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote tumor-friendly conditions in lung cancer cells. Led by researcher Bian X., the study examined how secreted compounds from A. fumigatus interact with lung cancer cells in vitro, meaning in a controlled lab setting outside a living organism. The findings showed activation of three key molecular pathways, NF-κB, AKT, and ERK, all of which are associated with cancer cell survival, growth, and spread.\n\nA. fumigatus is one of the most frequently inhaled mold species worldwide. It is already known to cause serious respiratory infections, particularly in immunocompromised individuals. This study adds a new dimension to that concern by suggesting its secreted compounds may also influence pro-tumor cellular behavior.\n\nFor people focused on mold exposure, this research raises questions about the potential intersection of chronic fungal exposure and lung health beyond infection. The findings are preliminary. In vitro results do not confirm the same effects occur in living humans, and no clinical conclusions can be drawn at this stage. Larger studies in animal models and human populations would be needed to establish any causal link.",
       "source": "Arch Microbiol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944873/",
       "author": "Bian X",
@@ -175,7 +188,9 @@
         "Aspergillus"
       ],
       "featured": false,
-      "readTime": 3
+      "readTime": 3,
+      "seoTitle": "Common Airborne Mold May Speed Lung Cancer Gr | The Mold Report",
+      "seoDescription": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote..."
     },
     {
       "title": "Dr. Ritchie Shoemaker to Host AMA on r/ToxicMoldExposure, Marking 25 Years of Mold Illness Research",
@@ -200,7 +215,9 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "Reddit / r/ToxicMoldExposure"
+      "author": "Reddit / r/ToxicMoldExposure",
+      "seoTitle": "Dr. Ritchie Shoemaker to Host AMA on r/ToxicM | The Mold Report",
+      "seoDescription": "Dr. Ritchie Shoemaker, the physician credited with establishing the medical framework for mold-related illness, will participate in an Ask Me Anything..."
     },
     {
       "id": "93dccf1b2f86",
@@ -218,11 +235,13 @@
       "qcTimestamp": "2026-04-15T18:35:49.978614+00:00",
       "tags": [],
       "featured": false,
-      "readTime": 3
+      "readTime": 3,
+      "seoTitle": "Human Contact Frequency as a Dominant Ecologi | The Mold Report",
+      "seoDescription": "A study published in the Journal of Microbiology and Biotechnology identifies human contact frequency as the primary factor shaping fungal communities in..."
     },
     {
       "title": "USA Today: Doctors Blamed Her Symptoms on Motherhood. She Actually Had Mold Illness.",
-      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists \u2014 they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
+      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists — they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
       "source": "USA Today",
       "sourceUrl": "https://eu.usatoday.com/story/life/health-wellness/2026/04/02/mold-illness-motherhood-chronic-symptoms/89215085007/",
       "publishedAt": "2026-04-02T08:00:00+00:00",
@@ -240,7 +259,9 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "USA Today"
+      "author": "USA Today",
+      "seoTitle": "USA Today: Doctors Blamed Her Symptoms on Mot | The Mold Report",
+      "seoDescription": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years..."
     },
     {
       "id": "bba0d96d84f3",
@@ -258,7 +279,9 @@
       "qcTimestamp": "2026-04-15T18:34:13.945966+00:00",
       "tags": [],
       "featured": false,
-      "readTime": 3
+      "readTime": 3,
+      "seoTitle": "Two Common Grain Mold Toxins Damage Brain Cel | The Mold Report",
+      "seoDescription": "Researchers have developed a physiologically based toxicokinetic model to predict the combined toxic effects of two common mold-derived contaminants,..."
     },
     {
       "title": "Congress Introduces MOLD Act to Fix Environmental Health Standards in Military Housing",
@@ -280,15 +303,17 @@
       ],
       "featured": false,
       "readTime": 3,
-      "author": "Congress.gov"
+      "author": "Congress.gov",
+      "seoTitle": "Congress Introduces MOLD Act to Fix Environme | The Mold Report",
+      "seoDescription": "Federal lawmakers have introduced the Military Occupancy Living Defense Act, or MOLD Act (H.R. 7188), in the 119th Congress to address environmental..."
     },
     {
       "id": "f0e9ccd067f9",
       "title": "What Lives in Your Home's Air? New Review Maps Indoor Microbiome Science",
-      "summary": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample, analyze, and interpret the microbial communities living inside homes and buildings. Lead author I. \u0160uni\u0107 and colleagues synthesized existing research on the methods used to detect bacteria, fungi, and other microorganisms in indoor air and on surfaces.\n\nThe review covers emerging trends in sampling techniques and analytical approaches, reflecting a growing scientific interest in how indoor microbial environments affect human health. Understanding what organisms are present, and in what quantities, is a foundational step before researchers can draw conclusions about exposure and disease risk.\n\nFor people concerned about mold exposure, this kind of methodological review matters because the reliability of any indoor air quality assessment depends heavily on how samples are collected and analyzed. Standardizing these approaches across studies is essential for building a clearer picture of which fungi and bacteria pose the greatest concern in residential and occupational settings.",
+      "summary": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample, analyze, and interpret the microbial communities living inside homes and buildings. Lead author I. Šunić and colleagues synthesized existing research on the methods used to detect bacteria, fungi, and other microorganisms in indoor air and on surfaces.\n\nThe review covers emerging trends in sampling techniques and analytical approaches, reflecting a growing scientific interest in how indoor microbial environments affect human health. Understanding what organisms are present, and in what quantities, is a foundational step before researchers can draw conclusions about exposure and disease risk.\n\nFor people concerned about mold exposure, this kind of methodological review matters because the reliability of any indoor air quality assessment depends heavily on how samples are collected and analyzed. Standardizing these approaches across studies is essential for building a clearer picture of which fungi and bacteria pose the greatest concern in residential and occupational settings.",
       "source": "Environ Microbiol Rep",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41943876/",
-      "author": "\u0160uni\u0107 I",
+      "author": "Šunić I",
       "publishedAt": "2026-04-01T00:00:00+00:00",
       "category": "research",
       "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
@@ -299,7 +324,9 @@
       "tags": [],
       "featured": false,
       "readTime": 3,
-      "editorsNote": "The original article summary did not include specific findings, data points, or conclusions from the review. This summary reflects only what was reported in the source metadata. Readers seeking clinical guidance on mold-related illness should consult peer-reviewed studies on specific biomarkers or established clinical protocols."
+      "editorsNote": "The original article summary did not include specific findings, data points, or conclusions from the review. This summary reflects only what was reported in the source metadata. Readers seeking clinical guidance on mold-related illness should consult peer-reviewed studies on specific biomarkers or established clinical protocols.",
+      "seoTitle": "What Lives in Your Home's Air? New Review Map | The Mold Report",
+      "seoDescription": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample,..."
     },
     {
       "id": "f69c3eb744a9",
@@ -323,7 +350,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Auburn Hills Family Links Black Mold Exposure | The Mold Report",
+      "seoDescription": "An Auburn Hills family is speaking out about what they say was a prolonged black mold problem in their home that resulted in their children requiring..."
     },
     {
       "id": "6a96fe388474",
@@ -348,7 +376,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Indoor Mold Exposure Tied to Higher Childhood | The Mold Report",
+      "seoDescription": "New research is strengthening the connection between indoor mold exposure and asthma development in children, with the findings drawing attention in..."
     },
     {
       "id": "a56f4459b8f5",
@@ -372,7 +401,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Spring Hill College Alum Details Mold Complai | The Mold Report",
+      "seoDescription": "A former Spring Hill College student has come forward with accounts of seeking help from the institution before ultimately filing a lawsuit over mold..."
     },
     {
       "id": "c8b8834c193f",
@@ -393,7 +423,8 @@
       "tags": [],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold Outbreak at Sydney's RPA Hospital Tied t | The Mold Report",
+      "seoDescription": "A mold outbreak at Royal Prince Alfred Hospital (RPA) in Sydney has been linked to nearby construction activity, reports indicate. Construction sites are..."
     },
     {
       "id": "b8ea489c6a33",
@@ -418,7 +449,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Midcoast School Faces $4M Bill to Address Bla | The Mold Report",
+      "seoDescription": "A midcoast school is confronting a potentially massive remediation bill after black mold was discovered on the property, with preliminary estimates..."
     },
     {
       "id": "7b8ec64195d0",
@@ -442,7 +474,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Oxford Parents Demand Better Communication Af | The Mold Report",
+      "seoDescription": "Parents in Oxford are pressing school officials for greater transparency after mold was discovered at Quaker Farms School, reports indicate. The discovery..."
     },
     {
       "id": "f34c303dca30",
@@ -466,7 +499,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Slidell Homeowners Report Mold and Constructi | The Mold Report",
+      "seoDescription": "Residents of a D.R. Horton subdivision in Slidell, Louisiana, have raised complaints about mold growth and broader construction deficiencies in their..."
     },
     {
       "id": "5e2ddaa1769c",
@@ -490,7 +524,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Biloxi's Bolton Building Reopens to Tenants A | The Mold Report",
+      "seoDescription": "Residents displaced from the Bolton Building in Biloxi, Mississippi, are beginning to return after mold was removed from the property, according to local..."
     },
     {
       "id": "1ea59ddb0ae0",
@@ -515,7 +550,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "NC Supreme Court Bars Mold Damage Claims Citi | The Mold Report",
+      "seoDescription": "The North Carolina Supreme Court has ruled against plaintiffs seeking damages related to mold exposure, upholding contractual liability limitations that..."
     },
     {
       "id": "f73e359e71d8",
@@ -539,7 +575,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Residents Battle Uncontrollable Mold Growth T | The Mold Report",
+      "seoDescription": "Residents in an unspecified location are dealing with severe mold growth linked to dangerous underlying conditions, reports indicate. The situation likely..."
     },
     {
       "id": "18f74272a805",
@@ -563,7 +600,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Connecticut Elementary School Closes After Mo | The Mold Report",
+      "seoDescription": "Quaker Farms School in Oxford, Connecticut was temporarily closed after mold was discovered in two classrooms, reports indicate. School officials ordered..."
     },
     {
       "id": "ff1523c6af46",
@@ -588,7 +626,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Temple Residents Report Months of Illness Lin | The Mold Report",
+      "seoDescription": "Tenants at a residential property in Temple say they have been living with mold contamination for several months and that the conditions have affected..."
     },
     {
       "id": "16962afb59bd",
@@ -612,7 +651,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Parents and Students Protest Mold Conditions  | The Mold Report",
+      "seoDescription": "Families and students at Chatsworth Park Elementary School staged a public protest over what they describe as unacceptable mold conditions inside the..."
     },
     {
       "id": "4b8d21beed03",
@@ -635,7 +675,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Sarpy County Museum Found to Have Visible Mol | The Mold Report",
+      "seoDescription": "An environmental report has identified visible mold growth inside the Sarpy County Museum in Nebraska, according to local news. Reports indicate the..."
     },
     {
       "id": "b45fa3ba61af",
@@ -660,7 +701,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mount Pleasant Apartment Complex Owes $1M Aft | The Mold Report",
+      "seoDescription": "A Mount Pleasant apartment complex has lost its appeal of a $1 million damages verdict stemming from a black mold case, reports indicate. The ruling means..."
     },
     {
       "id": "f514d2fd1f62",
@@ -683,7 +725,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold Found During Homeless Shelter Conversion | The Mold Report",
+      "seoDescription": "A mold infestation has been discovered during renovation work to convert a former hotel into a homeless shelter, reports indicate. The find is likely to..."
     },
     {
       "id": "551140c5d07c",
@@ -708,7 +751,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Crystal Lake Residents Demand County Action O | The Mold Report",
+      "seoDescription": "Residents of Crystal Lake are living under dangerous conditions, with mold growth, structural deterioration, and safety concerns pushing the community to..."
     },
     {
       "id": "21bbaa20e44d",
@@ -732,7 +776,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Garibaldi City Hall Shut Down Indefinitely Ov | The Mold Report",
+      "seoDescription": "Garibaldi City Hall has been closed indefinitely after mold was discovered in the building, according to local reports. Officials have not announced a..."
     },
     {
       "id": "5de633d4b5c8",
@@ -756,7 +801,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Aurora Navigation Campus Clears Mold Testing  | The Mold Report",
+      "seoDescription": "Officials in Aurora have released mold testing results for occupied areas of the city's navigation campus, stating that levels came back within safe..."
     },
     {
       "id": "78c05b488338",
@@ -780,7 +826,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Rising Heat and Humidity Fuel Mold Public Hea | The Mold Report",
+      "seoDescription": "Warmer temperatures and increased rainfall across the southern United States are creating conditions that accelerate mold growth in homes, schools, and..."
     },
     {
       "id": "a3c24de5bd06",
@@ -804,15 +851,16 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold Discovered at 20 Wichita Fire Stations A | The Mold Report",
+      "seoDescription": "Mold has been found at 20 fire stations across Wichita, Kansas, raising serious concerns about air quality and the health of firefighters who live and..."
     },
     {
       "id": "4c5cf73834bc",
       "title": "Indoor air bacterial and fungal burden in the environment of an atopic child: implications for elevated urine mycotoxin levels.",
-      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Maji\u0107 and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing\u2014including markers such as TGF-B1, MMP-9, and MSH\u2014represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
+      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Majić and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing—including markers such as TGF-B1, MMP-9, and MSH—represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
       "source": "Arh Hig Rada Toksikol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944406/",
-      "author": "Maji\u0107 I",
+      "author": "Majić I",
       "publishedAt": "2026-03-01T00:00:00+00:00",
       "category": "research",
       "imageUrl": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=800&q=80",
@@ -824,7 +872,9 @@
         "mycotoxin"
       ],
       "featured": false,
-      "readTime": 3
+      "readTime": 3,
+      "seoTitle": "Indoor air bacterial and fungal burden in the | The Mold Report",
+      "seoDescription": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable..."
     },
     {
       "id": "462dcae3299b",
@@ -849,7 +899,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold and Maintenance Failures Drive Health Co | The Mold Report",
+      "seoDescription": "Residents of Evans Manor, a housing unit managed by the Berkeley Student Cooperative, are dealing with persistent mold growth linked to unaddressed..."
     },
     {
       "id": "82acf796811f",
@@ -875,7 +926,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Tenant Reports Chronic Health Problems After  | The Mold Report",
+      "seoDescription": "A residential tenant is reporting persistent health problems they attribute to mold exposure inside an apartment that has since been condemned by local..."
     },
     {
       "id": "6089df71039f",
@@ -899,7 +951,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Michigan Women's Prison Faces Allegations of  | The Mold Report",
+      "seoDescription": "Serious allegations have emerged against a Michigan women's correctional facility, with reports indicating that incarcerated women have been exposed to..."
     },
     {
       "id": "6782e5a1aaa6",
@@ -923,7 +976,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Northshore Homeowners Take HOA to Federal Cou | The Mold Report",
+      "seoDescription": "A group of homeowners in the Northshore community has filed a federal lawsuit against their homeowners association, alleging the HOA failed to address..."
     },
     {
       "id": "c0e35b0198f1",
@@ -947,7 +1001,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "House Oversight Committee Presses Michigan Pr | The Mold Report",
+      "seoDescription": "The House Oversight Committee has demanded answers from officials responsible for Huron Valley Correctional Facility in Michigan following reports of mold..."
     },
     {
       "id": "1502b3c4ef22",
@@ -970,7 +1025,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Advocates Demand Greater Oversight at Michiga | The Mold Report",
+      "seoDescription": "Advocates and oversight groups are pressing for stronger accountability measures at a Michigan women's correctional facility, reports indicate. The push..."
     },
     {
       "id": "5fa83f82f934",
@@ -993,7 +1049,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Woodland Park Business Shutters After Mold Co | The Mold Report",
+      "seoDescription": "A business in Woodland Park was forced to close its doors after mold contamination was discovered on the property, according to local news reports. The..."
     },
     {
       "id": "6f975340feaa",
@@ -1019,7 +1076,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Lawsuit Alleges Toxic Mold Contamination at O | The Mold Report",
+      "seoDescription": "A lawsuit filed against the Oxford Police Department alleges that officers and staff were exposed to toxic mold within the facility, according to local..."
     },
     {
       "id": "22f302562aef",
@@ -1044,7 +1102,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "KPRC 2 Journalist Shares Her Story After Toxi | The Mold Report",
+      "seoDescription": "A journalist at Houston NBC affiliate KPRC 2 has gone public with her personal experience battling illness she attributes to toxic black mold exposure,..."
     },
     {
       "id": "fe9aedc6c1da",
@@ -1069,7 +1128,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold Removal in Public Housing Cuts Asthma ER | The Mold Report",
+      "seoDescription": "A study published in early 2026 found that targeted mold remediation in public housing units led to a measurable reduction in asthma-related emergency..."
     },
     {
       "id": "6a9ae119a261",
@@ -1094,7 +1154,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Las Vegas Senior Reports Mold and Pest Proble | The Mold Report",
+      "seoDescription": "A senior resident at a 55-plus apartment community in Las Vegas has raised concerns about what appears to be mold growth and roach infestations inside the..."
     },
     {
       "id": "ee84a4612015",
@@ -1117,7 +1178,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Pittsburgh Subway Restaurant Closed After Mol | The Mold Report",
+      "seoDescription": "A Subway sandwich location in Pittsburgh was temporarily shut down following a health inspection that flagged mold contamination and improperly stored..."
     },
     {
       "id": "b752ddb9d945",
@@ -1140,7 +1202,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "OU Delta Gamma Sorority House Keeps Upper Flo | The Mold Report",
+      "seoDescription": "A mold discovery at the Delta Gamma sorority house at the University of Oklahoma has forced the chapter to keep its upper floors closed to residents,..."
     },
     {
       "id": "032b05a2eb4d",
@@ -1163,7 +1226,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Admirals Cove Residents Speak Out Over Mold a | The Mold Report",
+      "seoDescription": "Residents of Admirals Cove, a luxury condominium complex, are coming forward in growing numbers to describe deteriorating living conditions that reports..."
     },
     {
       "id": "38d8f7a5997a",
@@ -1190,7 +1254,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Alabama Military Spouse Takes Mold-Related He | The Mold Report",
+      "seoDescription": "An Alabama military spouse traveled to Washington, D.C., to advocate for stronger housing protections after reportedly suffering health problems linked to..."
     },
     {
       "id": "33e1934187e3",
@@ -1215,7 +1280,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Military Family Pushes for Mold Safety Laws F | The Mold Report",
+      "seoDescription": "A military family is calling on lawmakers to strengthen mold safety regulations after experiencing a significant health crisis they attribute to mold..."
     },
     {
       "id": "17963710d8e5",
@@ -1238,12 +1304,13 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "N.J. Teacher Reports Witchcraft Threats After | The Mold Report",
+      "seoDescription": "A New Jersey teacher has come forward with allegations that a supervisor threatened her with witchcraft after she repeatedly raised concerns about mold in..."
     },
     {
       "id": "6a18e9374816",
       "title": "NSW Health Minister Apologizes Over Bird Lice and Mold Outbreaks in Public Hospitals",
-      "originalTitle": "'Sorry' \u2013 Health Minister on bird lice and mold outbreaks in NSW hospitals",
+      "originalTitle": "'Sorry' – Health Minister on bird lice and mold outbreaks in NSW hospitals",
       "summary": "New South Wales Health Minister issued a public apology following reports of bird lice infestations and mold outbreaks discovered in NSW public hospitals, according to local news. The incidents appear to have raised serious concerns about maintenance standards and patient safety across the state's health infrastructure. Reports indicate the outbreaks affected multiple facilities, prompting government accountability questions. Mold in hospital environments poses particular risks, as research suggests exposure may contribute to respiratory issues and other health complications, especially for patients who are already immunocompromised. The minister's apology signals acknowledgment of systemic failures in building upkeep and infection control protocols. Authorities are expected to outline remediation plans, though critics may argue the response came too slowly. The dual nature of the problem, combining pest infestation with mold contamination, points to broader infrastructure neglect in public health facilities. NSW hospital administrators are likely under pressure to conduct audits of other facilities to determine whether similar conditions exist elsewhere in the network.",
       "source": "2GB",
       "sourceUrl": "https://www.2gb.com/bird-lice-maintenance-failures-impacting-nsw-health-facilities/",
@@ -1263,7 +1330,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "NSW Health Minister Apologizes Over Bird Lice | The Mold Report",
+      "seoDescription": "New South Wales Health Minister issued a public apology following reports of bird lice infestations and mold outbreaks discovered in NSW public hospitals,..."
     },
     {
       "id": "3e32c7e06105",
@@ -1287,7 +1355,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "New York AG Moves to Force Repairs at Mold-Ri | The Mold Report",
+      "seoDescription": "New York Attorney General Letitia James has taken legal action against the operators of a Newburgh apartment complex over what officials describe as..."
     },
     {
       "id": "288b78e919a3",
@@ -1311,7 +1380,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Baltimore Students Relocated After Mold Found | The Mold Report",
+      "seoDescription": "Students at Francis Scott Key Elementary/Middle School in Baltimore were temporarily displaced after mold was discovered inside the walls of the building,..."
     },
     {
       "id": "2fef21c32bbb",
@@ -1335,7 +1405,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Canyon Country Residents Report Widespread Mo | The Mold Report",
+      "seoDescription": "Residents of Canyon Country are raising concerns about mold growth in their homes, according to local news reports. The complaints suggest that multiple..."
     },
     {
       "id": "7230ddad5b60",
@@ -1360,7 +1431,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Illinois School District Faces Insurer Lawsui | The Mold Report",
+      "seoDescription": "An Illinois school district is facing a lawsuit filed by its own insurance carrier over costs related to a mold contamination case, according to local..."
     },
     {
       "id": "7181dda0a367",
@@ -1387,7 +1459,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Congress Takes Aim at Military Housing Mold W | The Mold Report",
+      "seoDescription": "Representative Jimmy Panetta has introduced the MOLD Act, a piece of federal legislation aimed at addressing mold contamination problems in military..."
     },
     {
       "id": "bc9c7ab9ca7d",
@@ -1411,7 +1484,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Mold Found at Multiple CVUSD Schools as Distr | The Mold Report",
+      "seoDescription": "The Conejo Valley Unified School District has reported mold contamination at additional school sites, expanding what appears to be a growing facilities..."
     },
     {
       "id": "774723a6f070",
@@ -1435,7 +1509,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Scotlandville Tenant to Be Relocated After Mo | The Mold Report",
+      "seoDescription": "A woman living in a Scotlandville apartment complex says management has agreed to move her out of her unit after mold was discovered inside her home...."
     },
     {
       "id": "b64cf4095cc8",
@@ -1460,7 +1535,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Ohio State Mold Lawsuit Shifts Focus to Stude | The Mold Report",
+      "seoDescription": "A mold-related lawsuit against Ohio State University has taken an unexpected legal turn, with the dispute now centering on access to students' medical..."
     },
     {
       "id": "34bf0e09c79d",
@@ -1485,7 +1561,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "East Lyme Tenants Organize Union and Rent Boy | The Mold Report",
+      "seoDescription": "Tenants in East Lyme, Connecticut have formed a tenant union and launched a rent boycott against their landlord, citing unresolved mold problems alongside..."
     },
     {
       "id": "5772096f0b9e",
@@ -1509,7 +1586,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Owasso Family Fights Apartment Complex Over U | The Mold Report",
+      "seoDescription": "An Owasso family is facing a prolonged dispute with their apartment complex over a mold problem that has gone unaddressed, according to local news..."
     },
     {
       "id": "f3f7c057bfad",
@@ -1534,7 +1612,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Chattanooga Police Department Limits Public A | The Mold Report",
+      "seoDescription": "The Chattanooga Police Department has announced reduced front counter hours as crews work to address a mold problem at one of its facilities. Reports..."
     },
     {
       "id": "7e44228d05eb",
@@ -1559,7 +1638,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "West Palm Beach Police Station Renovation Cos | The Mold Report",
+      "seoDescription": "A renovation project at the West Palm Beach police station has seen costs balloon to nearly $20 million, with mold contamination cited as a major driver..."
     },
     {
       "id": "5a36bfc72f0c",
@@ -1585,7 +1665,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "South Carolina Ranks 7th Nationally for Water | The Mold Report",
+      "seoDescription": "A new study has ranked South Carolina seventh in the country for online searches related to water damage and mold in housing, signaling widespread..."
     },
     {
       "id": "29258bffa917",
@@ -1608,7 +1689,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Ocean County Investigates Mold Reports at Whi | The Mold Report",
+      "seoDescription": "Ocean County officials have launched a formal investigation into mold conditions at a 55-and-over residential community in Whiting, New Jersey, following..."
     },
     {
       "id": "8e32b753bf09",
@@ -1632,7 +1714,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Atlanta Council Committee Eyes Ordinance Upda | The Mold Report",
+      "seoDescription": "An Atlanta city council committee is reviewing a proposed ordinance change that would strengthen the city's response to mold problems in residential..."
     },
     {
       "id": "6b624cae7194",
@@ -1657,13 +1740,14 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Cleveland Healthcare Facility Fails Mold Insp | The Mold Report",
+      "seoDescription": "A Cleveland healthcare facility has failed a mold inspection after nursing staff raised concerns about potential mold contamination on the premises,..."
     },
     {
       "id": "c18a9bff2811",
-      "title": "Espa\u00f1ola Middle School Closes Classrooms After Mold Found Linked to Aging Roof",
-      "originalTitle": "Espa\u00f1ola middle school battling mold problem due to leaky old roof",
-      "summary": "A middle school in Espa\u00f1ola, New Mexico is dealing with a mold outbreak traced to a leaking roof, according to local news reports. Aging infrastructure is a common driver of indoor mold growth, as persistent moisture from roof failures creates conditions where mold colonies can establish and spread quickly through walls, ceilings, and ventilation systems. Reports indicate the school has been managing the problem, though the extent of the contamination and any classroom closures have not been fully detailed in available coverage. School administrators are likely working with remediation contractors to assess the damage and develop a plan to restore safe conditions for students and staff. Mold exposure in school environments is a recognized public health concern, as children spend significant hours indoors and may be more vulnerable to air quality issues than adults. Research suggests that prolonged exposure to mold in indoor settings may contribute to respiratory symptoms, headaches, and other health complaints. Older school buildings across the country face similar infrastructure challenges, and deferred maintenance on roofing systems is frequently cited as a root cause.",
+      "title": "Española Middle School Closes Classrooms After Mold Found Linked to Aging Roof",
+      "originalTitle": "Española middle school battling mold problem due to leaky old roof",
+      "summary": "A middle school in Española, New Mexico is dealing with a mold outbreak traced to a leaking roof, according to local news reports. Aging infrastructure is a common driver of indoor mold growth, as persistent moisture from roof failures creates conditions where mold colonies can establish and spread quickly through walls, ceilings, and ventilation systems. Reports indicate the school has been managing the problem, though the extent of the contamination and any classroom closures have not been fully detailed in available coverage. School administrators are likely working with remediation contractors to assess the damage and develop a plan to restore safe conditions for students and staff. Mold exposure in school environments is a recognized public health concern, as children spend significant hours indoors and may be more vulnerable to air quality issues than adults. Research suggests that prolonged exposure to mold in indoor settings may contribute to respiratory symptoms, headaches, and other health complaints. Older school buildings across the country face similar infrastructure challenges, and deferred maintenance on roofing systems is frequently cited as a root cause.",
       "source": "Santa Fe New Mexican",
       "sourceUrl": "https://www.santafenewmexican.com/news/local_news/espa-ola-middle-school-battling-mold-problem-due-to-leaky-old-roof/article_5a51af12-0d03-4d38-a120-1cf21123e6d4.html",
       "author": "Local News",
@@ -1681,7 +1765,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Española Middle School Closes Classrooms Afte | The Mold Report",
+      "seoDescription": "A middle school in Española, New Mexico is dealing with a mold outbreak traced to a leaking roof, according to local news reports. Aging infrastructure is..."
     },
     {
       "id": "7800e6f545a6",
@@ -1708,7 +1793,8 @@
       ],
       "featured": false,
       "readTime": 4,
-      "_source_type": "seed_backlog"
+      "seoTitle": "MoldCo Drops Barriers to Mold Illness Care Wi | The Mold Report",
+      "seoDescription": "MoldCo is a clinician-led virtual clinic built specifically for people dealing with mold-related illness. The model is simple: get tested, get data, and..."
     },
     {
       "id": "1b2c8b23c0d2",
@@ -1733,7 +1819,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Parents Sue California School District Over B | The Mold Report",
+      "seoDescription": "Families in the Conejo Valley Unified School District are preparing to file multiple lawsuits against the district over alleged black mold exposure..."
     },
     {
       "id": "439f1fee582f",
@@ -1754,7 +1841,8 @@
       "tags": [],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Washington Flooding Causes at Least $40M in R | The Mold Report",
+      "seoDescription": "Severe flooding in Washington state has left an estimated $40 million or more in road damage, according to early assessments from state or local..."
     },
     {
       "id": "d1dcf9de76ff",
@@ -1779,7 +1867,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Parents and Officials to Hold Press Conferenc | The Mold Report",
+      "seoDescription": "A press conference is scheduled to address concerns about toxic mold exposure at John Kelly Elementary School, reports indicate. Community members, likely..."
     },
     {
       "id": "aecf27f2fbda",
@@ -1803,7 +1892,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Students Sue Lipscomb University for $14.5M O | The Mold Report",
+      "seoDescription": "A group of students has filed a $14.5 million lawsuit against Lipscomb University, a private Christian university in Nashville, Tennessee, according to..."
     },
     {
       "id": "6e5cb7b54b25",
@@ -1827,7 +1917,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Detroit Family Blames Mold at Alden Towers fo | The Mold Report",
+      "seoDescription": "A family living at Alden Towers, a residential building in Detroit, says prolonged mold exposure left them with serious health problems and ultimately..."
     },
     {
       "id": "7d839adc2682",
@@ -1852,13 +1943,14 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Manatee County's New Schools Superintendent F | The Mold Report",
+      "seoDescription": "The incoming superintendent of Manatee County schools is stepping into a role complicated by unresolved mold problems and broader student safety concerns..."
     },
     {
       "id": "a21a7575d5a1",
       "title": "Louisiana Ranked Most At-Risk State for Mold Growth in New Analysis",
       "originalTitle": "Louisiana tops list as highest risk state for mold growth",
-      "summary": "Louisiana has been identified as the highest-risk state for mold growth in the United States, according to a recent analysis. The ranking likely reflects the state's combination of high humidity, frequent rainfall, warm temperatures, and vulnerability to flooding \u2014 conditions that create near-ideal environments for mold proliferation year-round. Louisiana's Gulf Coast location and history of major storm events, including hurricanes that cause widespread water damage to homes and buildings, further compound the risk. Reports indicate the findings draw on climate and environmental data to rank states by mold growth potential. For residents, the implications are significant. Mold exposure in homes and workplaces may contribute to respiratory issues, allergic reactions, and other health concerns. Research suggests that a subset of the population carries a genetic susceptibility, estimated at around 24%, that may make them more vulnerable to mold-related illness. Experts generally recommend regular home inspections, prompt water damage remediation, and proper ventilation as key preventive measures. The ranking serves as a reminder that in high-humidity states like Louisiana, mold awareness is a year-round public health consideration.",
+      "summary": "Louisiana has been identified as the highest-risk state for mold growth in the United States, according to a recent analysis. The ranking likely reflects the state's combination of high humidity, frequent rainfall, warm temperatures, and vulnerability to flooding — conditions that create near-ideal environments for mold proliferation year-round. Louisiana's Gulf Coast location and history of major storm events, including hurricanes that cause widespread water damage to homes and buildings, further compound the risk. Reports indicate the findings draw on climate and environmental data to rank states by mold growth potential. For residents, the implications are significant. Mold exposure in homes and workplaces may contribute to respiratory issues, allergic reactions, and other health concerns. Research suggests that a subset of the population carries a genetic susceptibility, estimated at around 24%, that may make them more vulnerable to mold-related illness. Experts generally recommend regular home inspections, prompt water damage remediation, and proper ventilation as key preventive measures. The ranking serves as a reminder that in high-humidity states like Louisiana, mold awareness is a year-round public health consideration.",
       "source": "American Home Shield",
       "sourceUrl": "https://www.ahs.com/home-matters/lifestyle/moldiest-homes-in-america-ranking/",
       "author": "Local News",
@@ -1875,7 +1967,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Louisiana Ranked Most At-Risk State for Mold  | The Mold Report",
+      "seoDescription": "Louisiana has been identified as the highest-risk state for mold growth in the United States, according to a recent analysis. The ranking likely reflects..."
     },
     {
       "id": "44c3c3791182",
@@ -1899,7 +1992,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Tenant Files Complaint Over Mold Conditions a | The Mold Report",
+      "seoDescription": "A tenant at Grahamwood Place Apartments has come forward with allegations of a mold problem at the residential complex, according to local news reports...."
     },
     {
       "id": "6468cf60fc95",
@@ -1923,7 +2017,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Birmingham Public Housing Resident Reports Ra | The Mold Report",
+      "seoDescription": "A Birmingham public housing resident has come forward with complaints about severe living conditions, including infestations of rats and mice alongside..."
     },
     {
       "id": "d6229c4357b1",
@@ -1947,7 +2042,8 @@
       ],
       "featured": false,
       "readTime": 3,
-      "_source_type": "seed_backlog"
+      "seoTitle": "Michigan Prisoner Says Mold Exposure Is Killi | The Mold Report",
+      "seoDescription": "A Michigan inmate is reportedly suffering from a serious mold-related illness and has made a direct appeal to Governor Gretchen Whitmer, asking for..."
     }
   ]
 }

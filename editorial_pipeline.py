@@ -18,6 +18,7 @@ Pipeline gates (in order):
   7. RESEARCH AGENT     — Verifies Shoemaker alignment for science articles
   8. INVENTION GUARD    — AI checks for fabrication (70% confidence threshold)
   9. PHOTO AGENT        — Assigns images (OG → topic Unsplash → category fallback)
+ 10. SEO AGENT          — Generates search-optimized meta title + description per article
 
 Data storage:
   articles.json — flat JSON file. This IS the database. No server needed.
@@ -876,6 +877,97 @@ def photo_agent(article):
 
 
 # =========================================
+# AGENT: SEO OPTIMIZATION
+# =========================================
+def seo_agent(article):
+    """Generate search-optimized meta title and description for each article."""
+    print(f"  🔎 SEO: {article['title'][:50]}...")
+
+    system = """You are an SEO specialist for The Mold Report, the first AI-curated mold news publication.
+Your job is to generate search-optimized meta titles and descriptions for individual article pages.
+
+These meta tags determine how articles appear in Google search results, social shares, and browser tabs.
+
+META TITLE RULES:
+1. 50-60 characters max (Google truncates at ~60)
+2. Front-load the primary keyword or most searchable phrase
+3. Include a secondary keyword if space allows
+4. Do NOT just copy the article headline — optimize for search intent
+5. Include "Mold" or mold-related terms when natural (people searching for this)
+6. Use pipe | or dash — to separate title from brand: "Title | The Mold Report"
+7. The brand suffix " | The Mold Report" counts toward the 60-char limit
+8. Make it compelling for click-through from search results
+
+META DESCRIPTION RULES:
+1. 150-160 characters max (Google truncates at ~160)
+2. Summarize the article's key finding or news in 1-2 sentences
+3. Include relevant keywords naturally (mold, health, exposure, testing, etc.)
+4. Include a subtle call to action or value proposition ("Learn why..." "See what...")
+5. Don't start with "This article" or "In this article"
+6. Be specific — use numbers, names, findings when available
+7. Match search intent: if someone googled a related term, would this description make them click?
+
+KEYWORD STRATEGY FOR MOLD ARTICLES:
+- Research: focus on the finding, biomarker names, health condition
+- Regulation: focus on the agency, the action, who it affects
+- News: focus on the location, the event, the impact
+- Industry: focus on the company, the product, the market change
+- Diagnostics: focus on the test type, biomarker, what patients learn
+
+Return ONLY valid JSON:
+{"seoTitle": "the optimized meta title (with | The Mold Report suffix)", "seoDescription": "the optimized meta description", "primaryKeyword": "the main keyword targeted"}"""
+
+    prompt = f"""Generate SEO meta title and description for this article:
+
+Title: {article['title']}
+Summary: {article['summary'][:400]}
+Category: {article['category']}
+Tags: {', '.join(article.get('tags', []))}
+Source: {article['source']}"""
+
+    result = call_claude(system, prompt, max_tokens=300)
+    if result:
+        try:
+            import re
+            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            if json_match:
+                parsed = json.loads(json_match.group())
+                seo_title = parsed.get('seoTitle', '').strip()
+                seo_desc = parsed.get('seoDescription', '').strip()
+
+                # Validate lengths — fall back to defaults if too long
+                if seo_title and len(seo_title) <= 70:
+                    article['seoTitle'] = seo_title
+                else:
+                    # Fallback: truncated article title + brand
+                    article['seoTitle'] = article['title'][:45] + ' | The Mold Report'
+                    print(f"    ⚠ Title too long, using fallback")
+
+                if seo_desc and len(seo_desc) <= 170:
+                    article['seoDescription'] = seo_desc
+                else:
+                    # Fallback: first 155 chars of summary
+                    article['seoDescription'] = article['summary'][:155].rsplit(' ', 1)[0] + '...'
+                    print(f"    ⚠ Description too long, using fallback")
+
+                if parsed.get('primaryKeyword'):
+                    article['_seo_keyword'] = parsed['primaryKeyword']
+
+                print(f"    → Title: {article['seoTitle'][:55]}...")
+                print(f"    → Desc: {article['seoDescription'][:55]}...")
+        except (json.JSONDecodeError, AttributeError):
+            print("    ⚠ Could not parse SEO response — using defaults")
+
+    # Always ensure fallback values exist
+    if 'seoTitle' not in article:
+        article['seoTitle'] = article['title'][:45] + ' | The Mold Report'
+    if 'seoDescription' not in article:
+        article['seoDescription'] = article['summary'][:155].rsplit(' ', 1)[0] + '...'
+
+    return article
+
+
+# =========================================
 # CLASSIFIER
 # =========================================
 def classify_article(title, summary):
@@ -980,6 +1072,9 @@ def generate_article_pages(data):
 
         aid = a["id"]
         title = a["title"].replace('"', '&quot;').replace('<', '&lt;')
+        # Use SEO-optimized fields if available, fall back to defaults
+        seo_title = a.get("seoTitle", title + " | The Mold Report").replace('"', '&quot;').replace('<', '&lt;')
+        seo_desc = a.get("seoDescription", a["summary"][:155]).replace('"', '&quot;').replace('<', '&lt;').replace('\n', ' ')
         desc = a["summary"][:200].replace('"', '&quot;').replace('<', '&lt;').replace('\n', ' ')
         img = a.get("imageUrl", "")
         source = a.get("source", "The Mold Report")
@@ -995,14 +1090,14 @@ def generate_article_pages(data):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} — The Mold Report</title>
-  <meta name="description" content="{desc}">
+  <title>{seo_title}</title>
+  <meta name="description" content="{seo_desc}">
   <meta name="keywords" content="{tags_str}">
 
   <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="{title}">
-  <meta property="og:description" content="{desc}">
+  <meta property="og:description" content="{seo_desc}">
   <meta property="og:site_name" content="The Mold Report">
   <meta property="og:url" content="https://themoldreport.org/a/{aid}.html">
   {f'<meta property="og:image" content="{img}">' if img else ''}
@@ -1012,8 +1107,35 @@ def generate_article_pages(data):
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
-  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:description" content="{seo_desc}">
   {f'<meta name="twitter:image" content="{img}">' if img else ''}
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{title}",
+    "description": "{seo_desc}",
+    "image": "{img}",
+    "datePublished": "{pub_date}",
+    "author": {{
+      "@type": "Organization",
+      "name": "The Mold Report"
+    }},
+    "publisher": {{
+      "@type": "Organization",
+      "name": "The Mold Report",
+      "url": "https://themoldreport.org"
+    }},
+    "mainEntityOfPage": {{
+      "@type": "WebPage",
+      "@id": "https://themoldreport.org/a/{aid}.html"
+    }},
+    "articleSection": "{category}",
+    "keywords": "{tags_str}"
+  }}
+  </script>
 
   <!-- Auto-redirect to full site with article open -->
   <meta http-equiv="refresh" content="0;url={redirect_url}">
@@ -1574,6 +1696,9 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         # Gate 9: Photo assignment
         article = photo_agent(article)
 
+        # Gate 10: SEO optimization (meta title + description)
+        article = seo_agent(article)
+
         # Final check: all gates passed?
         compliance_ok = article.get('_compliance_pass', True)
         research_ok = article.get('_research_verified', True)
@@ -1665,6 +1790,44 @@ def compliance_check_existing():
 
 
 # =========================================
+# SEO BACKFILL (standalone)
+# =========================================
+def seo_backfill():
+    """Generate SEO meta titles and descriptions for all existing articles that don't have them."""
+    print("=" * 60)
+    print("  SEO Backfill — Generating Meta Tags")
+    print("=" * 60)
+
+    data = load_articles()
+    articles = data.get("articles", [])
+
+    # Find articles missing SEO fields
+    needs_seo = [a for a in articles if not a.get('seoTitle') or not a.get('seoDescription')]
+    print(f"\n→ {len(needs_seo)} of {len(articles)} articles need SEO metadata\n")
+
+    if not needs_seo:
+        print("✓ All articles already have SEO metadata.")
+        return
+
+    updated = 0
+    for i, article in enumerate(needs_seo):
+        print(f"\n[{i+1}/{len(needs_seo)}]")
+        article = seo_agent(article)
+        if article.get('seoTitle') and article.get('seoDescription'):
+            updated += 1
+
+    if updated:
+        save_articles(data)
+        rebuild_embedded(data)
+        generate_article_pages(data)
+
+    print(f"\n{'=' * 60}")
+    print(f"  SEO Backfill Complete")
+    print(f"  Updated: {updated} articles")
+    print(f"{'=' * 60}")
+
+
+# =========================================
 # CLI
 # =========================================
 def main():
@@ -1688,11 +1851,15 @@ How it works:
                         help="Process but don't save anything")
     parser.add_argument("--compliance-check", action="store_true",
                         help="Run compliance audit on existing articles")
+    parser.add_argument("--seo-backfill", action="store_true",
+                        help="Generate SEO meta titles/descriptions for existing articles")
     parser.add_argument("--deploy", action="store_true",
                         help="Push to GitHub Pages after pipeline runs")
     args = parser.parse_args()
 
-    if args.compliance_check:
+    if args.seo_backfill:
+        seo_backfill()
+    elif args.compliance_check:
         compliance_check_existing()
     else:
         run_pipeline(min_score=args.min_score, dry_run=args.dry_run)
