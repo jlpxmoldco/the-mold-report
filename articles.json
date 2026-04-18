@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T16:19:28.922174+00:00",
+  "lastUpdated": "2026-04-18T16:20:16.657421+00:00",
   "articles": [
     {
       "id": "4f6462b3ce58",
@@ -300,6 +300,27 @@
       "seoDescription": "Uponor faces lawsuits over defective AquaPEX pipes (2010-2021) causing moisture intrusion and mold growth in homes.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:19:28.921971+00:00",
+      "featured": false
+    },
+    {
+      "id": "4d8221b1cef8",
+      "title": "Advocates Seek Clemency for Michigan Inmate Sickened by Prison Mold",
+      "summary": "Advocates are calling for clemency on behalf of a Michigan inmate who developed serious health complications following documented mold exposure at the state's sole women's correctional facility. At a press conference, speakers presented what they described as a growing body of allegations pointing to hazardous environmental conditions within the institution. The case raises urgent questions about the duty of care owed to incarcerated individuals facing preventable, environment-driven illness.",
+      "source": "www.google.com",
+      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://bridgemi.com/michigan-government/advocates-seek-clemency-for-michigan-inmate-allegedly-sickened-by-mold-in-prison/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw0oPev6BcweB4DwIHvc6HfT",
+      "publishedAt": "2026-04-17T22:14:43+00:00",
+      "category": "news",
+      "tags": [
+        "mold"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?newspaper",
+      "readTime": 2,
+      "editorsNote": "Incarcerated populations remain among the most vulnerable and least-heard victims of toxic mold exposure \u2014 their health outcomes deserve the same rigorous attention as any other patient population.",
+      "seoTitle": "Michigan Inmate Mold Exposure Clemency Case | The Mold Report",
+      "seoDescription": "Advocates seek clemency for Michigan inmate sickened by mold at women's prison. Health issues from documented mold exposure raise growing concerns.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:20:16.657195+00:00",
       "featured": false
     },
     {
