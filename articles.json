@@ -1,6 +1,53 @@
 {
-  "lastUpdated": "2026-04-18T16:12:52.855998+00:00",
+  "lastUpdated": "2026-04-18T16:14:17.657985+00:00",
   "articles": [
+    {
+      "id": "00639faab62a",
+      "title": "Mold and Dampness Linked to Fatigue, Study Review Shows",
+      "summary": "A systematic review of peer-reviewed literature published between 2011 and 2018 found consistent associations between exposure to mold or damp indoor environments and the experience of fatigue. The review, conducted by Dooley and McMahon and published in Environmental Analysis, Health and Toxicology, adds to a growing body of evidence that indoor mold and dampness carry meaningful health consequences beyond respiratory symptoms. Clinicians and patients investigating unexplained fatigue should consider the indoor environment as a contributing factor worth thorough evaluation.",
+      "source": "PubMed / Environ Anal Health Toxicol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41265402/",
+      "publishedAt": "2026-04-18T16:10:12.309810+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "health",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Systematic reviews synthesize multiple studies, making their findings more reliable than any single study alone \u2014 this one deserves attention from both clinicians and building professionals.",
+      "seoTitle": "Mold & Dampness Linked to Fatigue | The Mold Report",
+      "seoDescription": "Study review reveals consistent associations between mold exposure and damp indoor environments with fatigue symptoms in peer-reviewed research.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:14:17.657792+00:00",
+      "featured": true
+    },
+    {
+      "id": "90199dfcbc42",
+      "title": "Hospitals Combat Mold Infestations to Protect Patient Safety",
+      "summary": "A peer-reviewed paper in GMS Hygiene and Infection Control examines how hospitals and medical facilities identify and manage mold infestations, with a focus on protecting vulnerable patients from fungal exposure risks. The authors outline practical approaches to remediation and prevention within clinical environments where immunocompromised individuals face the greatest harm.",
+      "source": "PubMed / GMS Hyg Infect Control",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41438831/",
+      "publishedAt": "2026-04-18T16:10:12.309753+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Mold management in healthcare settings carries higher stakes than in residential or commercial buildings \u2014 infection risk for at-risk patients makes prompt, methodical response essential.",
+      "seoTitle": "Hospital Mold Control & Patient Safety | The Mold Report",
+      "seoDescription": "Learn how hospitals identify, manage, and prevent mold infestations to protect vulnerable patients from fungal exposure risks.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:13:29.594734+00:00",
+      "featured": true
+    },
     {
       "id": "7c20d4d71ec0",
       "title": "Chronic Inflammatory Response Syndrome: Evidence for Treatment Efficacy",
@@ -22,7 +69,7 @@
       "seoDescription": "Peer-reviewed research on Chronic Inflammatory Response Syndrome treatment efficacy, examining mold and biotoxin exposure connections.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:12:52.855837+00:00",
-      "featured": true
+      "featured": false
     },
     {
       "id": "b189bcd1c2a4",
@@ -41,7 +88,7 @@
       "tags": [
         "mold"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "editorsNote": "The original source provided minimal detail about specific mold species, location within the facility, or documented health effects. No medical evaluation or environmental testing data was cited in the summary provided.",
       "seoTitle": "Michigan Prison Mold Exposure | Inmate Health Crisis",
