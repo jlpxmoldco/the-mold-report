@@ -1,6 +1,31 @@
 {
-  "lastUpdated": "2026-04-18T16:17:08.168328+00:00",
+  "lastUpdated": "2026-04-18T16:17:53.001187+00:00",
   "articles": [
+    {
+      "id": "4f6462b3ce58",
+      "title": "Mold Species Identified Through Volatile Compound Analysis",
+      "summary": "A 2025 study published in an indoor environment journal identified consistent volatile chemical markers for the mold species Aspergillus versicolor across different building materials, including pine and gypsum. These biomarkers held up regardless of the surface the mold was growing on, which could help investigators identify this species even when the substrate in a contaminated space is unknown. For occupants and clinicians, this type of research moves the field closer to more reliable, non-invasive mold identification methods.",
+      "source": "Scholar / Wiley Online Library",
+      "sourceUrl": "https://onlinelibrary.wiley.com/doi/abs/10.1155/ina/9350601",
+      "publishedAt": "2026-04-18T16:10:15.959065+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "biomarker",
+        "study",
+        "peer-reviewed",
+        "Google Scholar"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Aspergillus versicolor is a common indoor mold associated with moisture damage and is a known mycotoxin producer; accurate identification matters for remediation planning and patient exposure assessment.",
+      "seoTitle": "Aspergillus Versicolor Volatile Markers | The Mold Report",
+      "seoDescription": "2025 study reveals consistent volatile biomarkers for Aspergillus versicolor identification across building materials like pine and gypsum.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:17:53.000948+00:00",
+      "featured": true
+    },
     {
       "id": "4f57d9fad231",
       "title": "Novel Biomarkers Help Assess Mold Exposure in Asthmatic Children",
@@ -46,7 +71,7 @@
       "seoDescription": "Research reveals how nitrogen and carbon sources impact mycotoxin production in Stachybotrys chartarum mold and trichothecene biosynthesis.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:16:17.206521+00:00",
-      "featured": true
+      "featured": false
     },
     {
       "id": "7b761cfcb022",
