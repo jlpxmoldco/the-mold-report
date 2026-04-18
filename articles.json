@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T16:18:40.968664+00:00",
+  "lastUpdated": "2026-04-18T16:19:28.922174+00:00",
   "articles": [
     {
       "id": "4f6462b3ce58",
@@ -278,6 +278,28 @@
       "seoDescription": "Former ANU student sues over black mold contamination at Lena Karmel Lodge. Learn about mold exposure health risks and institutional accountability.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:18:40.968464+00:00",
+      "featured": false
+    },
+    {
+      "id": "2928828c5dbc",
+      "title": "Uponor Faces Lawsuits Over Defective PEX Pipe Sales (2010-2021)",
+      "summary": "Uponor faces multiple lawsuits alleging that its AquaPEX pipes, sold between 2010 and 2021, are defective in ways that may contribute to moisture intrusion and mold growth on walls and other structural surfaces. Homeowners and building occupants are at the center of these claims, as hidden pipe failures can create the persistent damp conditions mold requires to establish and spread. Those living or working in affected structures should be aware that unexplained wall discoloration or musty odors may warrant a professional inspection of both plumbing integrity and indoor air quality.",
+      "source": "www.google.com",
+      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://www.plasticsnews.com/end-markets/construction/pn-uponor-pex-pipe-lawsuits/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw306lcQFj8sT17f_wuOuhwc",
+      "publishedAt": "2026-04-17T22:21:37+00:00",
+      "category": "regulation",
+      "tags": [
+        "mold",
+        "lawsuit"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?government+building",
+      "readTime": 2,
+      "editorsNote": "Plumbing defect litigation is an important upstream factor in mold prevention \u2014 pipe failures are a leading cause of the chronic moisture conditions that drive indoor mold growth.",
+      "seoTitle": "Uponor PEX Pipe Lawsuits & Mold Growth | The Mold Report",
+      "seoDescription": "Uponor faces lawsuits over defective AquaPEX pipes (2010-2021) causing moisture intrusion and mold growth in homes.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:19:28.921971+00:00",
       "featured": false
     },
     {
