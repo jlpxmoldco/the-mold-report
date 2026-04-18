@@ -102,6 +102,28 @@ if not RSS_FEEDS:
     if single and "YOUR_FEED_ID" not in single:
         RSS_FEEDS.append(single)
 
+# =========================================
+# KNOWLEDGE CORPUS (loaded once at startup)
+# =========================================
+# Compact corpus injected into every agent system prompt.
+# Full corpus (knowledge_corpus.json) available for deep reference.
+# Authority: MoldCo Master Claims > Shoemaker Research > CIRS Framework > General news
+_CORPUS_COMPACT = ""
+_corpus_file = SCRIPT_DIR / "knowledge_compact.json"
+if _corpus_file.exists():
+    with open(_corpus_file) as _f:
+        _corpus_data = json.load(_f)
+        _CORPUS_COMPACT = json.dumps(_corpus_data, separators=(',', ':'))
+    print(f"✓ Knowledge corpus loaded ({len(_CORPUS_COMPACT)} chars)")
+else:
+    print("⚠ knowledge_compact.json not found — agents will use built-in rules only")
+
+def get_corpus_context():
+    """Return the compact knowledge corpus as a system prompt injection."""
+    if _CORPUS_COMPACT:
+        return f"\n\nKNOWLEDGE CORPUS (authority hierarchy — Master Claims > Shoemaker Research > CIRS Framework):\n{_CORPUS_COMPACT}\n"
+    return ""
+
 # PubMed eutils search queries (fetches recent peer-reviewed research)
 PUBMED_SEARCHES = [
     "mold illness OR mold-related illness OR chronic inflammatory response syndrome",
@@ -390,7 +412,7 @@ Summary: {article['summary'][:400]}
 Source: {article['source']}
 Category: {article['category']}"""
 
-    result = call_claude(system, prompt, max_tokens=200)
+    result = call_claude(system + get_corpus_context(), prompt, max_tokens=200)
     if result:
         try:
             import re
@@ -531,7 +553,7 @@ Category: {article['category']}
 Summary excerpt: {article['summary'][:300]}
 Source: {article['source']}"""
 
-    result = call_claude(system, prompt, max_tokens=200)
+    result = call_claude(system + get_corpus_context(), prompt, max_tokens=200)
     if result:
         try:
             import re
@@ -593,7 +615,7 @@ Original summary: {article['summary']}
 Source: {article['source']}
 Category: {article['category']}"""
 
-    result = call_claude(system, prompt, max_tokens=300)
+    result = call_claude(system + get_corpus_context(), prompt, max_tokens=300)
     if result:
         try:
             import re
@@ -763,7 +785,7 @@ Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}
 Source: {article['source']}"""
 
-    result = call_claude(system, prompt, max_tokens=600)
+    result = call_claude(system + get_corpus_context(), prompt, max_tokens=600)
     if result:
         try:
             import re
@@ -2095,7 +2117,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory

@@ -1,0 +1,226 @@
+{
+  "authority": "MoldCo Master Claims > Shoemaker Research > CIRS Framework > General news",
+  "cirs_model": "CIRS is an innate immune response to biotoxin exposure in genetically susceptible individuals (24% carry HLA-DR genes). It is NOT fungal infection, NOT allergy, NOT respiratory irritant. Biotoxin pathway: exposure → innate immune activation → cytokine storm → multi-system inflammation.",
+  "biomarkers": {
+    "MMP-9": "matrix metalloproteinase, elevated = tissue destruction",
+    "TGF-beta1": "cytokine/growth factor (NOT hormone), elevated = active inflammation",
+    "MSH": "melanocyte-stimulating hormone, LOW in 94% of CIRS patients",
+    "C4a": "complement, elevated = biotoxin exposure",
+    "VIP": "vasoactive intestinal peptide, LOW = final stage marker",
+    "VEGF": "vascular endothelial growth factor, affects capillary perfusion"
+  },
+  "immune_fingerprint": "MMP-9 + TGF-beta1 elevated while MSH low. Almost no other disease raises both while driving MSH down.",
+  "key_stats": {
+    "genetic_susceptibility": "24% (never 25% or 30%)",
+    "commercial_water_damage": "85%",
+    "residential_water_damage": "50%",
+    "hertsmi2_safe": "<11",
+    "mold_growth": "24-48 hours (not 72)"
+  },
+  "language_rules": {
+    "never_say": [
+      "diagnostic criteria",
+      "CIRS treatment",
+      "lab improvements",
+      "follow protocol",
+      "recovery",
+      "hormone (for TGF-beta1)",
+      "toxic mold (without clarifying immune-mediated)"
+    ],
+    "say_instead": [
+      "guided by",
+      "mold toxicity treatment",
+      "symptom improvements",
+      "mold-related illness",
+      "cytokine/growth factor",
+      "research suggests/may"
+    ]
+  },
+  "publish_if": [
+    "Water-damaged building health effects",
+    "Inflammatory biomarker research",
+    "Indoor environmental quality / remediation",
+    "Mold exposure in any setting (homes, schools, farms, workplaces, prisons)",
+    "Multi-system illness from environmental exposure",
+    "Genetic susceptibility research",
+    "Patient advocacy / housing safety / institutional accountability",
+    "Building science (moisture, HVAC, ventilation)",
+    "Occupational mold exposure",
+    "Mycotoxin research framed as immune activation",
+    "Chronic fatigue / ME/CFS overlap",
+    "Brain/neurological effects of environmental exposure",
+    "Remediation standards and enforcement"
+  ],
+  "reject_if": [
+    "Fungal infections (aspergillosis, invasive fungal disease, antifungals, candida)",
+    "Mold allergy / allergic rhinitis / IgE-mediated response",
+    "Food mold / food safety",
+    "Antifungal drug development / nanoparticle antifungals",
+    "Agricultural/crop mold or plant pathology",
+    "General microbiology with no building/human health connection",
+    "Immunocompromised patients getting fungal infections (infectious disease, not CIRS)"
+  ],
+  "key_papers": [
+    {
+      "title": "Diagnostic Process for Chronic Inflammatory Response Syndrome (CIRS): A Consensu",
+      "authors": [
+        "Shoemaker RC",
+        "Johnson K",
+        "Jim L",
+        "Berry Y",
+        "Dooley M",
+        "Ryan JC",
+        "McMahon S"
+      ],
+      "year": 2018,
+      "finding": "Establishes a formal consensus diagnostic protocol for CIRS requiring abnormalities in innate immune responses, reduced MSH and VIP, elevated C4a, MMP9, and TGF beta-1, supported by transcriptomics."
+    },
+    {
+      "title": "Inflammation Induced Chronic Fatiguing Illnesses: A Steady March Towards Underst",
+      "authors": [
+        "Shoemaker RC",
+        "Heyman A",
+        "Mancia A",
+        "Ryan JC"
+      ],
+      "year": 2017,
+      "finding": "CIRS biomarkers (TGF beta-1, VIP, MSH, C4a, NeuroQuant) and transcriptomics can objectively define Post-Lyme Syndrome, enabling targeted therapy rather than reliance on symptoms and antibody testing alone."
+    },
+    {
+      "title": "Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment ",
+      "authors": [
+        "Shoemaker RC",
+        "Heyman A",
+        "Lark D"
+      ],
+      "year": 2023,
+      "finding": "Combined transcriptomic testing and NeuroQuant brain volumetrics identify specific causation of cognitive impairment from WDB exposure, including cortical grey matter injury, ventricular enlargement, and grey matter nuclear atrophy."
+    },
+    {
+      "title": "A Transcriptomic Fingerprint for Parkinson's Disease Found in Patients with Chro",
+      "authors": [
+        "Shoemaker RC",
+        "Ryan Z",
+        "Heyman A",
+        "McMahon S",
+        "Lark D"
+      ],
+      "year": 2024,
+      "finding": "A unique transcriptomic fingerprint including TUBA4A, TUBB1, clusterin (CLU), and coagulation genes ('Triple Positives') is found in both symptomatic PD patients and younger CIRS patients, suggesting WDB exposure may contribute to PD pathogenesis."
+    },
+    {
+      "title": "Moldy Buildings, CIRS, Sick People and Damaged Brains: 25 Years of Research Brou",
+      "authors": [
+        "Shoemaker RC"
+      ],
+      "year": 2019,
+      "finding": "25-year retrospective describing the evolution from identifying WDB illness through biotoxin paradigm, biomarker development, and transcriptomics to a point where CIRS can be characterized as curable through gene-level correction."
+    },
+    {
+      "title": "Statement on CIRS for Australian Parliament",
+      "authors": [
+        "Shoemaker RC",
+        "Lark D"
+      ],
+      "year": 2018,
+      "finding": "Comprehensive overview of CIRS for policymakers, describing the 2008 GAO case definition, biomarker-based diagnosis, HERTSMI-2 environmental testing, and the treatment protocol validated across 10,000+ patients."
+    },
+    {
+      "title": "Exposure to the Interior Environment of Water-Damaged Buildings Can Activate HIF",
+      "authors": [
+        "Shoemaker RC",
+        "Heyman A",
+        "Lark D"
+      ],
+      "year": 2024,
+      "finding": "HIF 1A pathway overexpression in CIRS patients drives proliferative physiology and pulmonary artery hypertension (PAH); VIP therapy reduces HIF 1A by resolving aberrant mitochondrial transcriptomics."
+    },
+    {
+      "title": "Diagnostic Process for Chronic Inflammatory Response Syndrome (CIRS): A Consensu",
+      "authors": [
+        "Shoemaker RC",
+        "Johnson K",
+        "Jim L",
+        "Berry Y",
+        "Dooley M",
+        "Ryan JC",
+        "McMahon S"
+      ],
+      "year": 2018,
+      "finding": "Consensus statement defining CIRS diagnostic criteria including multisystem symptoms, abnormal innate immune markers (C4a, MMP9, TGF beta-1), reduced MSH and VIP, with transcriptomic confirmation."
+    },
+    {
+      "title": "Inflammatory Responses Acquired Following Environmental Exposures Are Involved i",
+      "authors": [
+        "Shoemaker RC",
+        "Ryan JC"
+      ],
+      "year": 2018,
+      "finding": "Pain syndromes in 85%+ of CIRS patients are driven by innate immune inflammatory mediators from environmental biotoxin exposure, with the same inflammatory pathways involved in musculoskeletal pain as in WDB illness."
+    },
+    {
+      "title": "Ohio State Legislature CIRS Study Proposal",
+      "authors": [
+        "Heyman A",
+        "Shoemaker RC"
+      ],
+      "year": 2021,
+      "finding": "Proposal for state-funded study of WDB health effects using NGS and transcriptomics, arguing that current fungi-only assessments are obsolete now that actinobacteria and endotoxins are identified as major illness causes."
+    },
+    {
+      "title": "The Art and Science of CIRS Medicine",
+      "authors": [
+        "Shoemaker RC",
+        "McMahon S",
+        "Heyman A"
+      ],
+      "year": 2020,
+      "finding": "Comprehensive compendium covering CIRS diagnostics, treatment protocol, transcriptomics, and case studies, designed as an advanced training resource for CIRS practitioners."
+    },
+    {
+      "title": "Urinary Mycotoxins: A Review of Contaminated Buildings and Food in Search of a B",
+      "authors": [
+        "Shoemaker RC",
+        "Lark D"
+      ],
+      "year": 2019,
+      "finding": "Comprehensive review demonstrating that urinary mycotoxin testing lacks validated case definitions, control groups, and case-control studies; dietary mycotoxins confound results; and the CDC has repudiated this practice."
+    },
+    {
+      "title": "Intranasal VIP Safely Restores Volume to Multiple Grey Matter Nuclei in Patients",
+      "authors": [
+        "Shoemaker RC",
+        "Katz D",
+        "Ackerley M",
+        "Rapaport S",
+        "McMahon S",
+        "Berndtson K",
+        "Ryan JC"
+      ],
+      "year": 2017,
+      "finding": "Intranasal VIP treatment (>12 weeks, >6 doses/day) safely corrected multinuclear grey matter atrophy in CIRS patients, while also reducing MMP9, TGF beta-1, C4a, raising VEGF, and normalizing clotting abnormalities."
+    },
+    {
+      "title": "Actinobacteria Eradication Study",
+      "authors": [
+        "Shoemaker RC",
+        "Dooley M",
+        "McMahon S",
+        "Johnson J",
+        "Smith J",
+        "Vukelic A"
+      ],
+      "year": 2023,
+      "finding": "Actinobacteria in WDB respond to eradication with Fantastik after 4 rounds, but endotoxins do not respond; transcriptomics remains the only way to support specific causation of immune injury."
+    },
+    {
+      "title": "Chronic Fatigue: A condition of reversible hypometabolism in many cases as shown",
+      "authors": [
+        "Ryan JC",
+        "Shoemaker RC"
+      ],
+      "year": 2018,
+      "finding": "CIRS patients show suppression of ribosomal and mitochondrial gene expression (molecular hypometabolism) that reverses during treatment, with VIP therapy correcting overshoot via insulin signaling mechanisms."
+    }
+  ]
+}
