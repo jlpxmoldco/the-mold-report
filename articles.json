@@ -1,6 +1,31 @@
 {
-  "lastUpdated": "2026-04-18T16:16:17.206611+00:00",
+  "lastUpdated": "2026-04-18T16:17:08.168328+00:00",
   "articles": [
+    {
+      "id": "4f57d9fad231",
+      "title": "Novel Biomarkers Help Assess Mold Exposure in Asthmatic Children",
+      "summary": "A 2025 study published in Pediatric Allergy and Immunology examined biological markers that may help clinicians more accurately assess mold exposure in children with asthma. Researchers found that no single biomarker is sufficient on its own; rather, a combined mVOC biomarker index offers a stronger, more reliable indication of mold exposure. These findings suggest that a multi-marker approach may give healthcare providers a clearer picture of environmental mold burden in vulnerable pediatric patients.",
+      "source": "Scholar / Wiley Online Library",
+      "sourceUrl": "https://onlinelibrary.wiley.com/doi/abs/10.1111/pai.70173",
+      "publishedAt": "2026-04-18T16:10:15.958970+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "biomarker",
+        "study",
+        "peer-reviewed",
+        "Google Scholar"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "This study underscores why thorough environmental and clinical assessment\u2014not a single test\u2014remains the standard for evaluating mold-related illness in children.",
+      "seoTitle": "Mold Biomarkers for Asthmatic Children | The Mold Report",
+      "seoDescription": "2025 study reveals how combined biomarkers help assess mold exposure in asthmatic children, improving clinical diagnosis and patient care.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:17:08.168207+00:00",
+      "featured": true
+    },
     {
       "id": "ae8317d213fc",
       "title": "Researchers Identify Nitrogen and Carbon Sources That Boost Mycotoxin Production in Mold",
@@ -45,7 +70,7 @@
       "seoDescription": "National Toxicology Program study reveals health effects of inhaled Stachybotrys chartarum in mice. Key findings on black mold toxicity.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:15:41.319777+00:00",
-      "featured": true
+      "featured": false
     },
     {
       "id": "4977bfb7b6f7",
