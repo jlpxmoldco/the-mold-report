@@ -1169,90 +1169,6 @@
   ],
   "scored": [
     {
-      "id": "90199dfcbc42",
-      "title": "Dealing with mold infestation in hospitals and medical practices.",
-      "summary": "Dealing with mold infestation in hospitals and medical practices. (by Hurra\u00df J, Kruse-Wehner EB, Engelhart S) Published in GMS Hyg Infect Control.",
-      "source": "PubMed / GMS Hyg Infect Control",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41438831/",
-      "publishedAt": "2026-04-18T16:10:12.309753+00:00",
-      "category": "research",
-      "tags": [
-        "mold",
-        "PubMed",
-        "peer-reviewed"
-      ],
-      "status": "candidate",
-      "imageUrl": "",
-      "_source_type": "pubmed",
-      "_days_old": 0,
-      "_interest_score": 8,
-      "_interest_reasoning": "Peer-reviewed guidance on hospital mold control; high relevance for healthcare settings and infection prevention"
-    },
-    {
-      "id": "00639faab62a",
-      "title": "Fatigue and exposure to mold and/or dampness: A systematic review of the literature from 2011-2018.",
-      "summary": "Fatigue and exposure to mold and/or dampness: A systematic review of the literature from 2011-2018. (by Dooley M, McMahon SW) Published in Environ Anal Health Toxicol.",
-      "source": "PubMed / Environ Anal Health Toxicol",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41265402/",
-      "publishedAt": "2026-04-18T16:10:12.309810+00:00",
-      "category": "research",
-      "tags": [
-        "mold",
-        "health",
-        "PubMed",
-        "peer-reviewed"
-      ],
-      "status": "candidate",
-      "imageUrl": "",
-      "_source_type": "pubmed",
-      "_days_old": 0,
-      "_interest_score": 8,
-      "_interest_reasoning": "Peer-reviewed systematic review directly linking mold/dampness exposure to fatigue\u2014core concern for patients and environmental health researchers. Covers 7-year literature synthesis."
-    },
-    {
-      "id": "4977bfb7b6f7",
-      "title": "Health and social impacts of exposure to mould-affected housing in Australia: a qualitative study.",
-      "summary": "Health and social impacts of exposure to mould-affected housing in Australia: a qualitative study. (by Gatto MR, Li A, Bentley R) Published in Public Health Res Pract.",
-      "source": "PubMed / Public Health Res Pract",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40479519/",
-      "publishedAt": "2026-04-18T16:10:12.309880+00:00",
-      "category": "research",
-      "tags": [
-        "housing",
-        "health",
-        "study",
-        "PubMed",
-        "peer-reviewed"
-      ],
-      "status": "candidate",
-      "imageUrl": "",
-      "_source_type": "pubmed",
-      "_days_old": 0,
-      "_interest_score": 8,
-      "_interest_reasoning": "Qualitative health and social impact study of mold-affected housing in Australia. Direct patient experience documentation with public health relevance. Strong for advocacy and policy discussion."
-    },
-    {
-      "id": "7b761cfcb022",
-      "title": "Toxicity study of Stachybotrys chartarum (CASRN 67892-26-6) administered by inhalation to B6C3F1/N mice.",
-      "summary": "Toxicity study of Stachybotrys chartarum (CASRN 67892-26-6) administered by inhalation to B6C3F1/N mice. (by National Toxicology Program) Published in Toxic Rep Ser.",
-      "source": "PubMed / Toxic Rep Ser",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39441587/",
-      "publishedAt": "2026-04-18T16:10:12.310141+00:00",
-      "category": "research",
-      "tags": [
-        "Stachybotrys",
-        "study",
-        "PubMed",
-        "peer-reviewed"
-      ],
-      "status": "candidate",
-      "imageUrl": "",
-      "_source_type": "pubmed",
-      "_days_old": 0,
-      "_interest_score": 8,
-      "_interest_reasoning": "NTP peer-reviewed inhalation toxicity study on Stachybotrys chartarum - direct relevance to health impacts and exposure routes for patients and researchers"
-    },
-    {
       "id": "ae8317d213fc",
       "title": "A Chemically Defined Medium That Supports Mycotoxin Production by Stachybotrys chartarum Enabled Analysis of the Impact of Nitrogen and Carbon Sources on the Biosynthesis of Macrocyclic Trichothecenes and Stachybotrylactam.",
       "summary": "A Chemically Defined Medium That Supports Mycotoxin Production by Stachybotrys chartarum Enabled Analysis of the Impact of Nitrogen and Carbon Sources on the Biosynthesis of Macrocyclic Trichothecenes and Stachybotrylactam. (by Tribelhorn K, Twaru\u017cek M, Kosicki R) Published in Appl Environ Microbiol.",
@@ -2297,6 +2213,6 @@
     }
   ],
   "fetched_at": "2026-04-18T16:10:18.237266+00:00",
-  "updated_at": "2026-04-18T16:12:52.871142+00:00",
+  "updated_at": "2026-04-18T16:15:41.330353+00:00",
   "scored_at": "2026-04-18T16:12:20.492635+00:00"
 }

@@ -1,6 +1,77 @@
 {
-  "lastUpdated": "2026-04-18T16:14:17.657985+00:00",
+  "lastUpdated": "2026-04-18T16:16:17.206611+00:00",
   "articles": [
+    {
+      "id": "ae8317d213fc",
+      "title": "Researchers Identify Nitrogen and Carbon Sources That Boost Mycotoxin Production in Mold",
+      "summary": "A Chemically Defined Medium That Supports Mycotoxin Production by Stachybotrys chartarum Enabled Analysis of the Impact of Nitrogen and Carbon Sources on the Biosynthesis of Macrocyclic Trichothecenes and Stachybotrylactam. (by Tribelhorn K, Twaru\u017cek M, Kosicki R) Published in Appl Environ Microbiol.",
+      "source": "PubMed / Appl Environ Microbiol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37338364/",
+      "publishedAt": "2026-04-18T16:10:12.310182+00:00",
+      "category": "research",
+      "tags": [
+        "mycotoxin",
+        "Stachybotrys",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "seoTitle": "Nitrogen & Carbon Sources Boost Mycotoxin | The Mold Report",
+      "seoDescription": "Research reveals how nitrogen and carbon sources impact mycotoxin production in Stachybotrys chartarum mold and trichothecene biosynthesis.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:16:17.206521+00:00",
+      "featured": true
+    },
+    {
+      "id": "7b761cfcb022",
+      "title": "Inhaled Black Mold Toxicity Study in Mice Reveals Health Effects",
+      "summary": "A National Toxicology Program study examined the health effects of inhaled Stachybotrys chartarum \u2014 commonly known as black mold \u2014 in a mouse model. Researchers administered the mold by inhalation to B6C3F1/N mice and documented the resulting toxic responses. The findings contribute to the foundational science needed to better understand human health risks from mold exposure.",
+      "source": "PubMed / Toxic Rep Ser",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39441587/",
+      "publishedAt": "2026-04-18T16:10:12.310141+00:00",
+      "category": "research",
+      "tags": [
+        "Stachybotrys",
+        "study",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Stachybotrys chartarum is among the most clinically significant indoor molds and has been a focus of occupant health concerns for decades.",
+      "seoTitle": "Black Mold Toxicity Study in Mice | The Mold Report",
+      "seoDescription": "National Toxicology Program study reveals health effects of inhaled Stachybotrys chartarum in mice. Key findings on black mold toxicity.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:15:41.319777+00:00",
+      "featured": true
+    },
+    {
+      "id": "4977bfb7b6f7",
+      "title": "Mold in Australian Homes Linked to Health and Social Problems",
+      "summary": "An Australian qualitative study examined the health and social consequences experienced by residents living in mold-affected homes, finding that exposure extends well beyond physical symptoms to affect daily functioning and quality of life. Researchers Gatto, Li, and Bentley documented how mold-compromised housing creates compounding burdens for occupants, underscoring the need for housing policy and clinical practice to treat mold exposure as a serious public health concern.",
+      "source": "PubMed / Public Health Res Pract",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40479519/",
+      "publishedAt": "2026-04-18T16:10:12.309880+00:00",
+      "category": "research",
+      "tags": [
+        "housing",
+        "health",
+        "study",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Published in Public Health Research & Practice, this study adds to a growing body of international evidence that mold in residential settings carries meaningful human costs beyond property damage.",
+      "seoTitle": "Mold in Australian Homes: Health & Social Problems | The Mold Report",
+      "seoDescription": "Australian study reveals how mold exposure affects health, daily functioning, and quality of life in residential homes. Research findings by Gatto, Li, and Bentley.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:15:11.328205+00:00",
+      "featured": false
+    },
     {
       "id": "00639faab62a",
       "title": "Mold and Dampness Linked to Fatigue, Study Review Shows",
@@ -23,7 +94,7 @@
       "seoDescription": "Study review reveals consistent associations between mold exposure and damp indoor environments with fatigue symptoms in peer-reviewed research.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:14:17.657792+00:00",
-      "featured": true
+      "featured": false
     },
     {
       "id": "90199dfcbc42",
@@ -46,7 +117,7 @@
       "seoDescription": "Learn how hospitals identify, manage, and prevent mold infestations to protect vulnerable patients from fungal exposure risks.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:13:29.594734+00:00",
-      "featured": true
+      "featured": false
     },
     {
       "id": "7c20d4d71ec0",
