@@ -1,6 +1,28 @@
 {
-  "lastUpdated": "2026-04-17T14:18:25.808912+00:00",
+  "lastUpdated": "2026-04-18T09:54:59.622333+00:00",
   "articles": [
+    {
+      "id": "769f7f5e7364",
+      "title": "Michigan Prison Inmate Claims Mold Is Making Her Sick. Lawmakers Push Governor",
+      "summary": "Krystal Clark, an inmate at Huron Valley Correctional Facility in Michigan, has reported that mold exposure inside the prison is causing serious health problems after 16 years of incarceration. Clark's claims have prompted state lawmakers to pressure Governor Gretchen Whitmer's administration to address facility conditions. The case highlights broader concerns about indoor air quality and mold contamination in Michigan's correctional system. Prison conditions, including moisture control and ventilation, have come under scrutiny as potential public health issues affecting both inmates and staff. The incident reflects growing awareness of mold-related health complaints in institutional settings, though specific medical documentation and testing results were not detailed in available reports. This case matters because it raises questions about environmental health standards in correctional facilities, where vulnerable populations spend extended periods in potentially contaminated spaces with limited control over their surroundings.",
+      "source": "Clickondetroit",
+      "sourceUrl": "https://www.clickondetroit.com/news/local/2026/04/17/michigan-inmate-says-toxic-mold-is-making-her-sick-lawmakers-urge-gov-whitmer-to-take-action/",
+      "author": "Clickondetroit",
+      "publishedAt": "2026-04-18T09:54:31.502813+00:00",
+      "category": "regulation",
+      "imageUrl": "https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/4EBUnZ0BdFUvoNnVooJn/1776461216860_1920x1080_thumbnail.jpg?_a=DATAg1fkZAA0",
+      "imageAlt": "Michigan Prison Inmate Claims Mold Is Making Her Sick. Lawmakers Push Governor",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-18T09:54:59.622000+00:00",
+      "tags": [
+        "mold"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Michigan Prison Mold: Inmate's Health Claims | The Mold Report",
+      "seoDescription": "Krystal Clark, an inmate at Huron Valley Correctional Facility in Michigan, has reported that mold exposure inside the prison is causing serious health..."
+    },
     {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
       "summary": "ISSA and NORMI have expanded their Indoor Health Alliance, a partnership first established in 2018, to more formally connect the cleaning and mold remediation industries under shared standards and education. The renewed agreement covers four areas: cross-disciplinary certification access, reciprocal membership benefits, coordinated advocacy with media and government bodies on indoor air quality, and unified professional standards. Cleanfax has been named the official publication of NORMI as part of the arrangement.\n\nUnder the expanded terms, ISSA members can access NORMI's mold assessment training at member pricing. NORMI members gain access to trade show resources through ISSA. Both organizations represent large professional networks, with ISSA serving the broader cleaning industry and NORMI focusing on mold inspection and remediation credentialing.\n\nThe alliance reflects a shift in how the industry understands building health. Routine cleaning and mold remediation have historically operated in separate professional silos. Bringing them into closer alignment means inspectors and cleaners may increasingly share protocols and training frameworks. For building occupants and property managers concerned about mold exposure, this coordination could lead to more consistent identification and response to indoor mold problems, particularly in commercial and institutional settings where cleaning staff are often first to encounter visible growth.",
@@ -47,7 +69,7 @@
         "Shoemaker",
         "TGF"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "author": "MoldCo",
       "seoTitle": "Mold Blood Test Now $56 at LabCorp | The Mold Report",
