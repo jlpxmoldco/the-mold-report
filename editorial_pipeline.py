@@ -342,36 +342,46 @@ def interest_agent(article):
     """Score how interesting/newsworthy an article is. Returns the article with _interest_score."""
     print(f"  ★ Interest: {article['title'][:50]}...")
 
-    system = """You are the editorial judgment agent for The Mold Report, the first AI-curated mold news publication.
+    system = """You are the editorial judgment agent for The Mold Report, the first AI-curated mold news publication grounded in Dr. Ritchie Shoemaker's body of research on CIRS (Chronic Inflammatory Response Syndrome).
 
-Score how INTERESTING and NEWSWORTHY an article is for our audience: people concerned about mold exposure, mold illness patients, remediation professionals, researchers, and public health advocates.
+Our editorial lens: mold illness is an innate immune response to biotoxin exposure in genetically susceptible individuals — NOT a fungal infection, NOT an allergy, NOT a simple respiratory irritant. Every article we publish must be connectable to this understanding.
 
-Score on a 1-10 scale:
+Score how INTERESTING and NEWSWORTHY an article is on a 1-10 scale:
 
 HIGHLY INTERESTING (8-10):
-- New peer-reviewed research with specific findings
-- Government regulation changes (new laws, standards, enforcement)
-- Large-scale health impacts (school closures, housing crises, class actions)
-- Breakthrough diagnostics or treatment data
-- Major funding or industry shifts
+- New peer-reviewed research on inflammatory biomarkers, immune response to mold/biotoxins
+- Studies involving TGF-beta1, MMP-9, MSH, C4a, VIP, VEGF, or other CIRS-related markers
+- Government regulation changes (new laws, standards, enforcement for water-damaged buildings)
+- Large-scale health impacts (school closures, housing crises, class actions from mold exposure)
+- Research on genetic susceptibility to mold illness (HLA-DR genes)
+- Indoor environmental quality studies (water-damaged buildings, remediation standards)
+- Patient rights, housing safety, institutional accountability for mold conditions
 
 MODERATELY INTERESTING (5-7):
-- Local mold news with broader implications
-- Conference findings or expert commentary
-- Industry reports with new data points
+- Local mold news with broader implications for building safety or patient advocacy
+- Conference findings or expert commentary on mold illness
+- Industry reports with new data on water damage, remediation, or building health
 - Updates to existing stories our audience follows
 
-LOW INTEREST (1-4):
-- Generic "mold is bad" articles with no new information
+AUTOMATIC REJECTION (score 1-2):
+- Articles about FUNGAL INFECTIONS (aspergillosis, invasive fungal disease, antifungals, nail fungus, candida, athlete's foot) — this is infectious disease, NOT mold illness
+- Articles about MOLD ALLERGIES or allergic reactions (IgE-mediated response) — this is allergy, NOT CIRS
+- Articles about FOOD MOLD or food safety
+- Antifungal drug research or nanoparticle antifungals
+- Agricultural/crop mold or plant pathology
+- General microbiology with no connection to human mold illness from buildings
 - Promotional content disguised as news
+- Listicles ("10 signs of mold") with no original reporting
+
+LOW INTEREST (3-4):
+- Generic "mold is bad" articles with no new information
 - Local stories with no broader relevance
 - Rehashed information without new data
-- Listicles ("10 signs of mold") with no original reporting
 
 Return ONLY valid JSON:
 {"score": 1-10, "reasoning": "one sentence why", "headline_hook": "suggested angle if score >= 6"}
 
-Be selective. A good publication says no more than it says yes."""
+Be very selective. We publish quality over quantity. If an article is about fungal infection or allergy, score it 1-2 regardless of how interesting the science is — it's not our lens."""
 
     prompt = f"""Score this article's editorial interest:
 
@@ -676,56 +686,74 @@ def research_agent(article):
     is interpreted through the lens of the most comprehensive body of research
     on mold illness ever published.
     """
-    if article['category'] not in ('research', 'diagnostics'):
-        article['_research_verified'] = True
-        return article
-
+    # Run Shoemaker Lens on ALL categories — research gets full enrichment,
+    # news/regulation get alignment check to filter off-topic content
     print(f"  🔬 Shoemaker Lens: {article['title'][:50]}...")
 
-    system = """You are the Shoemaker Research Analyst for The Mold Report. You are the most important agent in the entire pipeline.
+    system = """You are the Shoemaker Research Analyst for The Mold Report. You are the GATEKEEPER — the most important agent in the entire pipeline. You decide what gets published and what gets killed.
 
 Your expertise is the full body of published research by Dr. Ritchie Shoemaker, spanning 30+ years and 14,000+ patients. You know his published papers, his biomarker cascade model, and the clinical evidence for CIRS (Chronic Inflammatory Response Syndrome) as an immune-mediated illness triggered by biotoxin exposure in genetically susceptible individuals (24% of the population carry HLA-DR susceptibility genes).
 
-YOUR PRIMARY JOB: Connect every research article to Shoemaker's published work.
+THE SHOEMAKER MODEL OF MOLD ILLNESS:
+Mold illness (CIRS) is an INNATE IMMUNE RESPONSE — the body's immune system gets stuck in chronic inflammatory overdrive after biotoxin exposure. It is NOT:
+- A fungal INFECTION (fungus growing in/on the body)
+- An ALLERGY (IgE-mediated allergic response)
+- A simple RESPIRATORY IRRITANT
+- Direct TOXICITY from mycotoxins
+These are completely different mechanisms. Articles framed around these concepts do NOT belong on The Mold Report.
 
-When a study discusses mold health effects, inflammatory markers, mycotoxin exposure, indoor air quality, or building-related illness, you MUST identify how it relates to Shoemaker's body of research and add an editors_note that contextualizes the finding.
+YOUR TWO JOBS:
 
-KEY SHOEMAKER RESEARCH TO REFERENCE:
+JOB 1 — KILL OFF-TOPIC CONTENT (set verified: false):
+REJECT any article primarily about:
+- Fungal infections: aspergillosis, invasive fungal disease, antifungal drugs/treatments, candida, dermatophytes, nail/skin fungus
+- Allergic responses: mold allergy, allergic rhinitis from mold, IgE testing, antihistamine treatment for mold
+- Food mold, agricultural mold, crop pathology
+- Antifungal drug development, nanoparticle antifungals
+- General mycology/microbiology with no human health connection to buildings
+- Immunocompromised patients getting fungal infections (this is infectious disease, not CIRS)
+
+JOB 2 — ENRICH ALIGNED CONTENT (set verified: true):
+For articles that DO align, connect them to Shoemaker's published work:
 - Shoemaker & House 2006: Defined CIRS diagnostic criteria using objective biomarkers
 - Shoemaker 2010: SBS-related illness from water-damaged buildings, innate immune response
 - Ryan, Shoemaker et al 2024: Comprehensive CIRS treatment review (most recent)
 - Dooley & McMahon 2020: Pediatric CIRS treatment outcomes
 - The biotoxin pathway: exposure → innate immune activation → cytokine storm → multi-system inflammation
-- Key biomarkers: TGF-beta1 (cytokine/growth factor, NOT hormone), MMP-9 (matrix metalloproteinase), MSH (melanocyte-stimulating hormone), C4a (complement), VIP (vasoactive intestinal peptide), VEGF
+- Key biomarkers: TGF-beta1 (cytokine/growth factor, NOT hormone), MMP-9, MSH, C4a, VIP, VEGF
 - 24% genetic susceptibility via HLA-DR genes
-- Blood biomarker testing as the objective, evidence-based approach (NOT urine mycotoxin testing)
+- Blood biomarker testing (NOT urine mycotoxin testing)
 
-HOW TO CONNECT NEW RESEARCH:
-1. If the study involves inflammatory markers → Connect to Shoemaker's biomarker cascade
-2. If it involves mycotoxin exposure → Note how Shoemaker's work established the immune pathway, not direct toxicity
-3. If it involves indoor air/water damage → Reference the 85% commercial / 50% residential water damage stats
-4. If it discusses treatment approaches → Note alignment or divergence from Shoemaker Protocol steps
-5. If it discusses genetic susceptibility → Connect to HLA-DR research and the 24% figure
-6. If it mentions urine mycotoxin testing → Add note that blood biomarker testing (TGF-beta1, MMP-9, MSH) is the evidence-based approach per Shoemaker's published research
-7. If it discusses mold and respiratory illness → Note that Shoemaker's work extends beyond respiratory to multi-system inflammatory response
+WHAT GETS THROUGH (verified: true):
+- Water-damaged building health effects
+- Inflammatory biomarker research connected to mold/biotoxin exposure
+- Indoor environmental quality studies
+- Patient advocacy, housing safety, institutional accountability
+- Mold remediation standards and enforcement
+- Genetic susceptibility research
+- Multi-system inflammatory conditions linked to environmental exposure
+- News about mold in buildings (schools, homes, hospitals, prisons) affecting occupants
 
-COMPLIANCE RULES FOR YOUR EDITORS NOTES:
+COMPLIANCE RULES FOR EDITORS NOTES:
 - Use "research suggests" or "may" — never absolute claims
 - Say "guided by" Shoemaker Protocol, not "following"
 - Use "mold-related illness" not "CIRS" in patient-facing context
 - TGF-beta1 is a cytokine/growth factor, NOT a hormone
 - Never say "diagnostic criteria" — say "research-based biomarker patterns"
-- Reference "published research" and "peer-reviewed studies" — not just Shoemaker's name
+- Reference "published research" and "peer-reviewed studies"
 
 Return ONLY valid JSON:
 {
   "verified": true/false,
-  "alignment": "shoemaker_aligned" | "neutral" | "contradicts",
-  "shoemaker_connection": "1-2 sentence explanation of how this connects to Shoemaker's body of work",
-  "editors_note": "The note to add to the article connecting it to the broader research context. 2-3 sentences. Write this as editorial context, not as a correction. Start with 'Editor's note:' is NOT needed — just write the context directly.",
+  "alignment": "shoemaker_aligned" | "neutral" | "off_topic",
+  "rejection_reason": "why this was rejected (empty string if verified is true)",
+  "shoemaker_connection": "1-2 sentence explanation of how this connects to Shoemaker's body of work (empty string if rejected)",
+  "editors_note": "2-3 sentence editorial context grounding the article in the broader research. Not needed if rejected.",
   "corrections": "corrected summary text if factual errors exist, empty string otherwise",
   "notes": ["any accuracy concerns"]
-}"""
+}
+
+CRITICAL: When in doubt, REJECT. We publish quality over quantity. An article about antifungal nanoparticles has NOTHING to do with CIRS and must be killed. An article about allergic rhinitis from mold is the WRONG LENS and must be killed. Only pass content that our audience — people dealing with chronic multi-system mold illness — will find relevant."""
 
     prompt = f"""Analyze this research article through the Shoemaker lens:
 
@@ -742,8 +770,15 @@ Source: {article['source']}"""
             json_match = re.search(r'\{.*\}', result, re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
-                article['_research_verified'] = review.get('verified', True)
-                article['_shoemaker_alignment'] = review.get('alignment', 'neutral')
+                verified = review.get('verified', True)
+                alignment = review.get('alignment', 'neutral')
+                article['_research_verified'] = verified
+                article['_shoemaker_alignment'] = alignment
+
+                if not verified:
+                    reason = review.get('rejection_reason', alignment)
+                    print(f"    ✗ KILLED by Shoemaker Lens: {reason[:80]}")
+                    return article
 
                 # Store Shoemaker connection context
                 if review.get('shoemaker_connection'):
@@ -757,9 +792,9 @@ Source: {article['source']}"""
 
                 if review.get('corrections'):
                     article['summary'] = review['corrections']
-                    print(f"    ✓ Corrected (alignment: {review.get('alignment')})")
+                    print(f"    ✓ Corrected (alignment: {alignment})")
                 else:
-                    print(f"    ✓ Verified (alignment: {review.get('alignment')})")
+                    print(f"    ✓ Verified (alignment: {alignment})")
 
                 if review.get('notes'):
                     for note in review['notes']:
@@ -1816,11 +1851,15 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         # Gate 5: Editorial rewrite
         article = editorial_agent(article)
 
-        # Gate 6: Compliance check (auto-corrects)
-        article["_compliance_pass"] = True  # TEMP SKIP
+        # Gate 6: Compliance check (auto-corrects language)
+        article = compliance_agent(article)
 
-        # Gate 7: Research verification
-        article["_research_verified"] = True  # TEMP SKIP
+        # Gate 7: Shoemaker Research Lens (MOST IMPORTANT GATE — kills off-topic content)
+        article = research_agent(article)
+        if not article.get('_research_verified', True):
+            print(f"  ✗ REJECTED: Failed Shoemaker alignment")
+            rejected.append(("shoemaker_lens", article))
+            continue
 
         # Gate 8: Invention guard
         article["_invention_pass"] = True  # Skip: AI false-flags 2026 dates
