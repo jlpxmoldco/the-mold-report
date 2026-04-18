@@ -87,9 +87,9 @@ except ImportError:
 SCRIPT_DIR = Path(__file__).parent
 ARTICLES_FILE = SCRIPT_DIR / "articles.json"
 INDEX_FILE = SCRIPT_DIR / "index.html"
-MODEL = "claude-haiku-4-5-20251001"
+MODEL = "claude-sonnet-4-6"
 DEFAULT_MIN_SCORE = 7       # Only publish articles scoring this or higher
-MAX_ARTICLES_PER_RUN = 3    # Cap per run to keep quality high
+MAX_ARTICLES_PER_RUN = 5    # Cap per run to keep quality high
 MAX_TOTAL_ARTICLES = 200    # Trim old articles beyond this
 
 RSS_FEEDS = []
