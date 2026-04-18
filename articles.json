@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T16:24:29.050591+00:00",
+  "lastUpdated": "2026-04-18T16:26:17.603404+00:00",
   "articles": [
     {
       "id": "4f6462b3ce58",
@@ -50,6 +50,57 @@
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:17:08.168207+00:00",
       "featured": true
+    },
+    {
+      "id": "fe754ecd550b",
+      "title": "Mold Volatile Compounds Trigger Toxicity in Office Building",
+      "summary": "A peer-reviewed case report documents a 43-year-old man with health symptoms following mold exposure in an office building. The case suggests volatile organic compounds emitted by mold may warrant investigation alongside more commonly studied exposures like spores, hyphal fragments, or mycotoxins. Research exploring mold-related health impacts continues to examine multiple exposure pathways. This account has not been independently verified by The Mold Report.",
+      "source": "Scholar / probiologists.com",
+      "sourceUrl": "https://www.probiologists.com/article/role-of-microbial-volatile-compounds-mvocs-in-toxicity-from-molds-infested-buildings-a-case-report",
+      "publishedAt": "2026-04-18T16:10:13.973695+00:00",
+      "category": "research",
+      "tags": [
+        "WHO",
+        "mold",
+        "mycotoxin",
+        "health",
+        "peer-reviewed",
+        "Google Scholar"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "This case underscores why thorough environmental and toxicological workups matter \u2014 source attribution in mold illness is rarely straightforward.",
+      "seoTitle": "Mold VOCs & Toxicity in Office Buildings | The Mold Report",
+      "seoDescription": "Case report on mold volatile organic compounds causing health symptoms in office buildings. Explore VOC toxicity beyond spores and mycotoxins.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:26:17.602933+00:00",
+      "featured": false
+    },
+    {
+      "id": "b0faf593934a",
+      "title": "Indoor Mold and Mycotoxins: Health Risks Explained",
+      "summary": "A 2025 review published in the Archives of Clinical Toxicology examines the specific molds, mycotoxins, and bacteria most commonly found in buildings and most relevant to occupant health. The authors identify the primary fungal species and their toxic byproducts that clinicians and building investigators should understand when assessing indoor exposure risk. This peer-reviewed work provides a structured reference for evaluating mold-related health concerns in residential and commercial environments.",
+      "source": "Scholar / probiologists.com",
+      "sourceUrl": "https://www.probiologists.com/article/molds-and-mycotoxins-indoors-ii-toxicological-perspective",
+      "publishedAt": "2026-04-18T16:10:13.973524+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "mycotoxin",
+        "health",
+        "peer-reviewed",
+        "Google Scholar"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Peer-reviewed toxicology literature on mycotoxin exposure remains an important foundation for informed clinical and remediation decisions.",
+      "seoTitle": "Indoor Mold and Mycotoxins: Health Risks | The Mold Report",
+      "seoDescription": "2025 review of indoor mold, mycotoxins, and bacteria in buildings. Learn about toxic fungal species and health risks for occupants.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:25:17.613341+00:00",
+      "featured": false
     },
     {
       "id": "ae8317d213fc",
