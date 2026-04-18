@@ -132,6 +132,49 @@ GOV_FILTER_KEYWORDS = [
     "biotoxin", "environmental health", "housing safety",
 ]
 
+# =========================================
+# IMAGE URL VALIDATION
+# =========================================
+# Dead image domains — services that have shut down or changed their API.
+# Any URL matching these gets replaced with a category fallback automatically.
+BLOCKED_IMAGE_DOMAINS = [
+    "source.unsplash.com",     # Shut down 2023 — use images.unsplash.com instead
+    "placehold.co",            # Placeholder service, not real images
+    "placeholder.com",         # Placeholder service
+    "via.placeholder.com",     # Placeholder service
+    "dummyimage.com",          # Placeholder service
+    "placekitten.com",         # Placeholder service
+]
+
+def validate_image_url(url, category="default"):
+    """Validate an image URL. Returns the URL if valid, or a category fallback if not.
+
+    Catches:
+    - Dead/blocked domains (source.unsplash.com, placeholder services)
+    - Empty or malformed URLs
+    - Non-HTTP URLs
+
+    This is the single chokepoint — every image URL passes through here
+    before being saved to articles.json.
+    """
+    if not url or not isinstance(url, str):
+        return FALLBACK_IMAGES.get(category, FALLBACK_IMAGES.get("default", ""))
+
+    url = url.strip()
+
+    # Must be a real HTTP(S) URL
+    if not url.startswith("http://") and not url.startswith("https://"):
+        return FALLBACK_IMAGES.get(category, FALLBACK_IMAGES.get("default", ""))
+
+    # Block known-dead domains
+    for domain in BLOCKED_IMAGE_DOMAINS:
+        if domain in url:
+            print(f"    ⚠ Blocked dead image domain: {domain}")
+            return FALLBACK_IMAGES.get(category, FALLBACK_IMAGES.get("default", ""))
+
+    return url
+
+
 # Fallback images: empty string signals the frontend to use CSS-generated
 # category backgrounds with gradient + icon (no text overlap).
 # The frontend's isFallbackImg() checks for empty or placehold.co URLs.
@@ -897,8 +940,17 @@ def _detect_topic(title, summary=""):
 
 
 def photo_agent(article):
-    """Assign images via OG extraction → topic-specific Unsplash → category fallback."""
-    if article.get('imageUrl') and 'unsplash' not in article.get('imageUrl', ''):
+    """Assign images via OG extraction → topic-specific Unsplash → category fallback.
+
+    Every image URL is validated through validate_image_url() before assignment,
+    which blocks dead domains (source.unsplash.com etc.) and malformed URLs.
+    """
+    cat = article.get('category', 'default')
+
+    # If article already has a valid non-Unsplash image, keep it
+    existing = article.get('imageUrl', '')
+    if existing and 'unsplash' not in existing:
+        article['imageUrl'] = validate_image_url(existing, cat)
         return article
 
     print(f"  📷 Photo: {article['title'][:50]}...")
@@ -912,7 +964,8 @@ def photo_agent(article):
             soup = BeautifulSoup(resp.text, "html.parser")
             og = soup.find("meta", property="og:image")
             if og and og.get("content"):
-                article['imageUrl'] = og["content"]
+                validated = validate_image_url(og["content"], cat)
+                article['imageUrl'] = validated
                 article['imageAlt'] = article['title'][:80]
                 print(f"    ✓ OG image found")
                 return article
@@ -930,7 +983,6 @@ def photo_agent(article):
         return article
 
     # Layer 3: Category fallback
-    cat = article.get('category', 'default')
     article['imageUrl'] = FALLBACK_IMAGES.get(cat, FALLBACK_IMAGES['default'])
     article['imageAlt'] = f"{cat.title()} related image"
     print(f"    → Fallback image ({cat})")
@@ -1078,11 +1130,20 @@ def load_articles():
 
 def save_articles(data):
     data["lastUpdated"] = datetime.now(timezone.utc).isoformat()
-    # Clean internal pipeline flags before saving
+    fixed_count = 0
     for a in data["articles"]:
+        # Clean internal pipeline flags before saving
         for key in list(a.keys()):
             if key.startswith('_'):
                 del a[key]
+        # Validate every image URL before it hits disk (last line of defense)
+        img = a.get("imageUrl", "")
+        validated = validate_image_url(img, a.get("category", "default"))
+        if validated != img:
+            a["imageUrl"] = validated
+            fixed_count += 1
+    if fixed_count:
+        print(f"  ⚠ Fixed {fixed_count} invalid image URLs during save")
     with open(ARTICLES_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f"\n✓ Saved {len(data['articles'])} articles to articles.json")
