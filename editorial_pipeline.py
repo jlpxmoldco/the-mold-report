@@ -1630,6 +1630,16 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
     fresh = deduped
     print(f"\n→ {len(fresh)} new articles after dedup (from {len(raw)} raw)\n")
 
+    # Load rejection cache to skip already-scored articles
+    _reject_cache_file = SCRIPT_DIR / ".rejected_cache.json"
+    _rejected_ids = set()
+    if _reject_cache_file.exists():
+        try:
+            _rejected_ids = set(json.load(open(_reject_cache_file)))
+        except: pass
+    fresh = [a for a in fresh if a["id"] not in _rejected_ids]
+    print(f"→ {len(_rejected_ids)} cached rejections skipped")
+
     if not fresh:
         print("✓ Nothing new. Site is up to date.")
         return
@@ -1760,6 +1770,12 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         save_articles(data)
         rebuild_embedded(data)
         generate_article_pages(data)
+
+    # Save rejection cache
+    for reason, art in rejected:
+        _rejected_ids.add(art["id"])
+    with open(_reject_cache_file, "w") as _f:
+        json.dump(list(_rejected_ids), _f)
 
     # Summary
     print(f"\n{'=' * 60}")
