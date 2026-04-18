@@ -619,38 +619,80 @@ Tags: {', '.join(article.get('tags', []))}"""
 
 
 # =========================================
-# AGENT: RESEARCH VERIFICATION
+# AGENT: SHOEMAKER RESEARCH LENS (most important gate)
 # =========================================
 def research_agent(article):
-    """Verify Shoemaker alignment and scientific accuracy (research/diagnostics only)."""
+    """The Shoemaker Research Lens — the most critical gate in the pipeline.
+
+    Every research/diagnostics article gets contextualized through the body of work
+    Dr. Ritchie Shoemaker published over 30+ years. This agent doesn't just verify —
+    it actively connects new findings to Shoemaker's published research, adding
+    editor's notes that ground each article in the foundational science.
+
+    This is what makes The Mold Report unique: every piece of mold science news
+    is interpreted through the lens of the most comprehensive body of research
+    on mold illness ever published.
+    """
     if article['category'] not in ('research', 'diagnostics'):
         article['_research_verified'] = True
         return article
 
-    print(f"  🔬 Research: {article['title'][:50]}...")
+    print(f"  🔬 Shoemaker Lens: {article['title'][:50]}...")
 
-    system = """You are a scientific accuracy reviewer for The Mold Report.
-You specialize in mold illness research, particularly the Shoemaker Protocol, CIRS,
-and biotoxin-related inflammatory markers (TGF-B1, MMP-9, MSH, C4a, VIP, VEGF).
+    system = """You are the Shoemaker Research Analyst for The Mold Report. You are the most important agent in the entire pipeline.
 
-Your job:
-1. Check if scientific claims in the article are accurate
-2. Check if the article aligns with or contradicts Shoemaker Protocol research
-3. Flag any claims that overstate evidence or misrepresent studies
-4. Verify biomarker descriptions are scientifically correct
+Your expertise is the full body of published research by Dr. Ritchie Shoemaker, spanning 30+ years and 14,000+ patients. You know his published papers, his biomarker cascade model, and the clinical evidence for CIRS (Chronic Inflammatory Response Syndrome) as an immune-mediated illness triggered by biotoxin exposure in genetically susceptible individuals (24% of the population carry HLA-DR susceptibility genes).
+
+YOUR PRIMARY JOB: Connect every research article to Shoemaker's published work.
+
+When a study discusses mold health effects, inflammatory markers, mycotoxin exposure, indoor air quality, or building-related illness, you MUST identify how it relates to Shoemaker's body of research and add an editors_note that contextualizes the finding.
+
+KEY SHOEMAKER RESEARCH TO REFERENCE:
+- Shoemaker & House 2006: Defined CIRS diagnostic criteria using objective biomarkers
+- Shoemaker 2010: SBS-related illness from water-damaged buildings, innate immune response
+- Ryan, Shoemaker et al 2024: Comprehensive CIRS treatment review (most recent)
+- Dooley & McMahon 2020: Pediatric CIRS treatment outcomes
+- The biotoxin pathway: exposure → innate immune activation → cytokine storm → multi-system inflammation
+- Key biomarkers: TGF-beta1 (cytokine/growth factor, NOT hormone), MMP-9 (matrix metalloproteinase), MSH (melanocyte-stimulating hormone), C4a (complement), VIP (vasoactive intestinal peptide), VEGF
+- 24% genetic susceptibility via HLA-DR genes
+- Blood biomarker testing as the objective, evidence-based approach (NOT urine mycotoxin testing)
+
+HOW TO CONNECT NEW RESEARCH:
+1. If the study involves inflammatory markers → Connect to Shoemaker's biomarker cascade
+2. If it involves mycotoxin exposure → Note how Shoemaker's work established the immune pathway, not direct toxicity
+3. If it involves indoor air/water damage → Reference the 85% commercial / 50% residential water damage stats
+4. If it discusses treatment approaches → Note alignment or divergence from Shoemaker Protocol steps
+5. If it discusses genetic susceptibility → Connect to HLA-DR research and the 24% figure
+6. If it mentions urine mycotoxin testing → Add note that blood biomarker testing (TGF-beta1, MMP-9, MSH) is the evidence-based approach per Shoemaker's published research
+7. If it discusses mold and respiratory illness → Note that Shoemaker's work extends beyond respiratory to multi-system inflammatory response
+
+COMPLIANCE RULES FOR YOUR EDITORS NOTES:
+- Use "research suggests" or "may" — never absolute claims
+- Say "guided by" Shoemaker Protocol, not "following"
+- Use "mold-related illness" not "CIRS" in patient-facing context
+- TGF-beta1 is a cytokine/growth factor, NOT a hormone
+- Never say "diagnostic criteria" — say "research-based biomarker patterns"
+- Reference "published research" and "peer-reviewed studies" — not just Shoemaker's name
 
 Return ONLY valid JSON:
-{"verified": true/false, "alignment": "shoemaker_aligned" | "neutral" | "contradicts", "notes": ["note 1"], "corrections": "..." }
+{
+  "verified": true/false,
+  "alignment": "shoemaker_aligned" | "neutral" | "contradicts",
+  "shoemaker_connection": "1-2 sentence explanation of how this connects to Shoemaker's body of work",
+  "editors_note": "The note to add to the article connecting it to the broader research context. 2-3 sentences. Write this as editorial context, not as a correction. Start with 'Editor's note:' is NOT needed — just write the context directly.",
+  "corrections": "corrected summary text if factual errors exist, empty string otherwise",
+  "notes": ["any accuracy concerns"]
+}"""
 
-If corrections are needed, provide corrected text. Otherwise empty string."""
-
-    prompt = f"""Verify scientific accuracy and Shoemaker alignment:
+    prompt = f"""Analyze this research article through the Shoemaker lens:
 
 Title: {article['title']}
 Summary: {article['summary']}
-Tags: {', '.join(article.get('tags', []))}"""
+Category: {article['category']}
+Tags: {', '.join(article.get('tags', []))}
+Source: {article['source']}"""
 
-    result = call_claude(system, prompt, max_tokens=300)
+    result = call_claude(system, prompt, max_tokens=600)
     if result:
         try:
             import re
@@ -659,11 +701,27 @@ Tags: {', '.join(article.get('tags', []))}"""
                 review = json.loads(json_match.group())
                 article['_research_verified'] = review.get('verified', True)
                 article['_shoemaker_alignment'] = review.get('alignment', 'neutral')
+
+                # Store Shoemaker connection context
+                if review.get('shoemaker_connection'):
+                    article['shoemakerConnection'] = review['shoemaker_connection']
+
+                # Store editor's note grounding article in Shoemaker research
+                if review.get('editors_note'):
+                    existing = article.get('editorsNote', '')
+                    note = review['editors_note'].strip()
+                    article['editorsNote'] = (existing + ' ' + note).strip() if existing else note
+
                 if review.get('corrections'):
                     article['summary'] = review['corrections']
                     print(f"    ✓ Corrected (alignment: {review.get('alignment')})")
                 else:
                     print(f"    ✓ Verified (alignment: {review.get('alignment')})")
+
+                if review.get('notes'):
+                    for note in review['notes']:
+                        if note:
+                            print(f"    📝 {note}")
         except (json.JSONDecodeError, AttributeError):
             print("    ⚠ Could not parse research response")
     return article

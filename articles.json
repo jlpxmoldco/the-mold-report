@@ -17,14 +17,15 @@
         "Google Scholar"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Aspergillus versicolor is a common indoor mold associated with moisture damage and is a known mycotoxin producer; accurate identification matters for remediation planning and patient exposure assessment.",
       "seoTitle": "Aspergillus Versicolor Volatile Markers | The Mold Report",
       "seoDescription": "2025 study reveals consistent volatile biomarkers for Aspergillus versicolor identification across building materials like pine and gypsum.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:17:53.000948+00:00",
-      "featured": true
+      "featured": true,
+      "imageAlt": "Mold Species Identified Through Volatile Compound Analysis"
     },
     {
       "id": "4f57d9fad231",
@@ -42,14 +43,15 @@
         "Google Scholar"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
       "readTime": 2,
       "editorsNote": "This study underscores why thorough environmental and clinical assessment\u2014not a single test\u2014remains the standard for evaluating mold-related illness in children.",
       "seoTitle": "Mold Biomarkers for Asthmatic Children | The Mold Report",
       "seoDescription": "2025 study reveals how combined biomarkers help assess mold exposure in asthmatic children, improving clinical diagnosis and patient care.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:17:08.168207+00:00",
-      "featured": true
+      "featured": true,
+      "imageAlt": "Novel Biomarkers Help Assess Mold Exposure in Asthmatic Children"
     },
     {
       "id": "fe754ecd550b",
@@ -68,14 +70,15 @@
         "Google Scholar"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
       "readTime": 2,
       "editorsNote": "This case underscores why thorough environmental and toxicological workups matter \u2014 source attribution in mold illness is rarely straightforward.",
       "seoTitle": "Mold VOCs & Toxicity in Office Buildings | The Mold Report",
       "seoDescription": "Case report on mold volatile organic compounds causing health symptoms in office buildings. Explore VOC toxicity beyond spores and mycotoxins.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:26:17.602933+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Mold Volatile Compounds Trigger Toxicity in Office Building"
     },
     {
       "id": "b0faf593934a",
@@ -93,14 +96,15 @@
         "Google Scholar"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Peer-reviewed toxicology literature on mycotoxin exposure remains an important foundation for informed clinical and remediation decisions.",
       "seoTitle": "Indoor Mold and Mycotoxins: Health Risks | The Mold Report",
       "seoDescription": "2025 review of indoor mold, mycotoxins, and bacteria in buildings. Learn about toxic fungal species and health risks for occupants.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:25:17.613341+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Indoor Mold and Mycotoxins: Health Risks Explained"
     },
     {
       "id": "ae8317d213fc",
@@ -117,12 +121,13 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
       "seoTitle": "Nitrogen & Carbon Sources Boost Mycotoxin | The Mold Report",
       "seoDescription": "Research reveals how nitrogen and carbon sources impact mycotoxin production in Stachybotrys chartarum mold and trichothecene biosynthesis.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:16:17.206521+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Researchers Identify Nitrogen and Carbon Sources That Boost Mycotoxin Production"
     },
     {
       "id": "7b761cfcb022",
@@ -139,14 +144,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Stachybotrys chartarum is among the most clinically significant indoor molds and has been a focus of occupant health concerns for decades.",
       "seoTitle": "Black Mold Toxicity Study in Mice | The Mold Report",
       "seoDescription": "National Toxicology Program study reveals health effects of inhaled Stachybotrys chartarum in mice. Key findings on black mold toxicity.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:15:41.319777+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Inhaled Black Mold Toxicity Study in Mice Reveals Health Effects"
     },
     {
       "id": "9d03b2bbfe76",
@@ -163,14 +169,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Antifungal resistance among Aspergillus species is an area of active concern; patients managing chronic mold exposure should discuss species-specific risks with their treating physician.",
       "seoTitle": "Aspergillus Species Health Risks Study | The Mold Report",
       "seoDescription": "Research reveals growing health risks from Aspergillus fumigatus, flavus, and niger. Study examines disease mechanisms and antifungal resistance patterns.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:24:29.050431+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Aspergillus Species Pose Growing Health Risks, Study Finds"
     },
     {
       "id": "4977bfb7b6f7",
@@ -188,14 +195,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Published in Public Health Research & Practice, this study adds to a growing body of international evidence that mold in residential settings carries meaningful human costs beyond property damage.",
       "seoTitle": "Mold in Australian Homes: Health & Social Problems | The Mold Report",
       "seoDescription": "Australian study reveals how mold exposure affects health, daily functioning, and quality of life in residential homes. Research findings by Gatto, Li, and Bentley.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:15:11.328205+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Mold in Australian Homes Linked to Health and Social Problems"
     },
     {
       "id": "52e57df145ca",
@@ -211,14 +219,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Proper diagnosis is the foundation of effective treatment \u2014 work like this moves us closer to giving patients the right answer, not just an answer.",
       "seoTitle": "ME/CFS vs CIRS Biomarkers | The Mold Report",
       "seoDescription": "Study reveals biomarkers distinguishing ME/CFS from Chronic Inflammatory Response Syndrome using contrast sensitivity and transcriptomic analysis.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:23:28.555940+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Biomarkers Distinguish ME/CFS From Chronic Inflammatory Response Syndrome"
     },
     {
       "id": "00639faab62a",
@@ -235,14 +244,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Systematic reviews synthesize multiple studies, making their findings more reliable than any single study alone \u2014 this one deserves attention from both clinicians and building professionals.",
       "seoTitle": "Mold & Dampness Linked to Fatigue | The Mold Report",
       "seoDescription": "Study review reveals consistent associations between mold exposure and damp indoor environments with fatigue symptoms in peer-reviewed research.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:14:17.657792+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Mold and Dampness Linked to Fatigue, Study Review Shows"
     },
     {
       "id": "77c239915579",
@@ -259,14 +269,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Microbiome engineering for mold control is still in early stages; homeowners should continue relying on established remediation standards while this research matures.",
       "seoTitle": "Mold Microbiome Engineering | The Mold Report",
       "seoDescription": "Explore how homeowners combat mold using microbiome engineering. Research insights on household mold mitigation strategies.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:22:40.342932+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Homeowners Combat Mold With Microbiome Engineering"
     },
     {
       "id": "90199dfcbc42",
@@ -282,14 +293,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Mold management in healthcare settings carries higher stakes than in residential or commercial buildings \u2014 infection risk for at-risk patients makes prompt, methodical response essential.",
       "seoTitle": "Hospital Mold Control & Patient Safety | The Mold Report",
       "seoDescription": "Learn how hospitals identify, manage, and prevent mold infestations to protect vulnerable patients from fungal exposure risks.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:13:29.594734+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Hospitals Combat Mold Infestations to Protect Patient Safety"
     },
     {
       "id": "501d423ae23f",
@@ -304,14 +316,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Nanoparticle-based antifungals are still largely in early research stages; patients should consult their treating physician before drawing conclusions about treatment implications.",
       "seoTitle": "Metallic Nanoparticles for Fungal Infections | The Mold Report",
       "seoDescription": "Explore how metallic nanoparticles show promise as antifungal treatments for human fungal infections according to recent pharmaceutical research.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:21:53.655245+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Metallic Nanoparticles Show Promise Against Human Fungal Infections"
     },
     {
       "id": "7c20d4d71ec0",
@@ -327,14 +340,15 @@
         "peer-reviewed"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80",
       "readTime": 2,
       "editorsNote": "CIRS treatment protocols continue to gain peer-reviewed scrutiny, which is an important step toward broader medical recognition of biotoxin-related illness.",
       "seoTitle": "CIRS Treatment Efficacy Research | The Mold Report",
       "seoDescription": "Peer-reviewed research on Chronic Inflammatory Response Syndrome treatment efficacy, examining mold and biotoxin exposure connections.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:12:52.855837+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Chronic Inflammatory Response Syndrome: Evidence for Treatment Efficacy"
     },
     {
       "id": "b189bcd1c2a4",
@@ -372,14 +386,15 @@
         "inflammation"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?newspaper",
+      "imageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Hypersensitivity Pneumonitis is frequently misdiagnosed; tools that center environmental exposure history are a welcome development for both clinicians and patients seeking answers.",
       "seoTitle": "Jaipur Doctor Creates Diagnostic Tool for Hypersensitiv | The Mold Report",
       "seoDescription": "Jaipur physician develops diagnostic tool for Hypersensitivity Pneumonitis, a lung inflammation triggered by mold, bird droppings, and animal dander exposure.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:12:39.405718+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Jaipur Doctor Creates Diagnostic Tool for Hypersensitivity Pneumonitis"
     },
     {
       "id": "769f7f5e7364",
@@ -415,14 +430,15 @@
         "CIRS"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?newspaper",
+      "imageUrl": "https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=80",
       "readTime": 2,
       "editorsNote": "CIRS litigation against housing providers is an emerging area of law that may set important precedents for tenant protections in mold-contaminated environments.",
       "seoTitle": "ANU Student Housing Toxic Black Mold Case | The Mold Report",
       "seoDescription": "Former ANU student sues over black mold contamination at Lena Karmel Lodge. Learn about mold exposure health risks and institutional accountability.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:18:40.968464+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "ANU Student Housing Found Contaminated With Toxic Black Mold"
     },
     {
       "id": "2928828c5dbc",
@@ -437,14 +453,15 @@
         "lawsuit"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?government+building",
+      "imageUrl": "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Plumbing defect litigation is an important upstream factor in mold prevention \u2014 pipe failures are a leading cause of the chronic moisture conditions that drive indoor mold growth.",
       "seoTitle": "Uponor PEX Pipe Lawsuits & Mold Growth | The Mold Report",
       "seoDescription": "Uponor faces lawsuits over defective AquaPEX pipes (2010-2021) causing moisture intrusion and mold growth in homes.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:19:28.921971+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Uponor Faces Lawsuits Over Defective PEX Pipe Sales (2010-2021)"
     },
     {
       "id": "4d8221b1cef8",
@@ -458,14 +475,15 @@
         "mold"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?newspaper",
+      "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Incarcerated populations remain among the most vulnerable and least-heard victims of toxic mold exposure \u2014 their health outcomes deserve the same rigorous attention as any other patient population.",
       "seoTitle": "Michigan Inmate Mold Exposure Clemency Case | The Mold Report",
       "seoDescription": "Advocates seek clemency for Michigan inmate sickened by mold at women's prison. Health issues from documented mold exposure raise growing concerns.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:20:16.657195+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Advocates Seek Clemency for Michigan Inmate Sickened by Prison Mold"
     },
     {
       "id": "0ebe20a6b520",
@@ -479,14 +497,15 @@
         "mold"
       ],
       "status": "published",
-      "imageUrl": "https://source.unsplash.com/800x400/?government+building",
+      "imageUrl": "https://images.unsplash.com/photo-1611326268719-55a69e4316b9?w=800&q=80",
       "readTime": 2,
       "editorsNote": "Mold exposure in institutional settings carries well-documented health consequences, and incarcerated individuals remain among the most vulnerable and least-heard populations affected.",
       "seoTitle": "Mold Exposure & Prison Health | The Mold Report",
       "seoDescription": "Krystal Clark denied release despite serious illness linked to mold exposure at Women's Huron Valley prison. Advocates urge Governor Whitmer for compassionate release.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:21:05.129748+00:00",
-      "featured": false
+      "featured": false,
+      "imageAlt": "Woman with serious illness denied release from prison, advocates urge Whitmer"
     },
     {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
