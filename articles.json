@@ -1,6 +1,29 @@
 {
-  "lastUpdated": "2026-04-18T09:54:59.622333+00:00",
+  "lastUpdated": "2026-04-18T14:58:08.784519+00:00",
   "articles": [
+    {
+      "id": "b189bcd1c2a4",
+      "title": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick—Lawmakers Demand Action",
+      "summary": "A Michigan inmate has reported that mold exposure at her correctional facility is causing illness, prompting state lawmakers to call for immediate intervention from Governor Gretchen Whitmer. The case highlights ongoing concerns about indoor environmental conditions in state-operated facilities and the health risks posed to incarcerated populations with limited ability to relocate or seek medical care. Lawmakers have demanded that the governor's office investigate the reported contamination and take corrective action. The incident underscores a broader issue: many U.S. correctional facilities operate with aging infrastructure and inadequate ventilation systems that can support mold growth. Prisoners typically have no choice in their living environment and may face barriers to accessing medical evaluation for mold-related symptoms. This case may prompt Michigan officials to conduct facility-wide environmental assessments and establish maintenance protocols to prevent future mold proliferation. For individuals concerned about mold exposure, this case demonstrates that documentation and escalation through official channels remains essential to triggering institutional response.",
+      "source": "Clickondetroit",
+      "sourceUrl": "https://www.clickondetroit.com/video/news/2026/04/17/dangerous-conditions-at-clinton-river/",
+      "author": "Clickondetroit",
+      "publishedAt": "2026-04-18T14:57:28.808850+00:00",
+      "category": "regulation",
+      "imageUrl": "https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/WkAxm50BdFUvoNnVe4KO/1776425260084_608x1080_thumbnail.jpg?_a=DATAg1fkZAA0",
+      "imageAlt": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick—Lawmakers Demand Ac",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-18T14:58:08.782268+00:00",
+      "tags": [
+        "mold"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "editorsNote": "The original source provided minimal detail about specific mold species, location within the facility, or documented health effects. No medical evaluation or environmental testing data was cited in the summary provided.",
+      "seoTitle": "Michigan Prison Mold Exposure | Inmate Health Crisis",
+      "seoDescription": "A Michigan inmate has reported that mold exposure at her correctional facility is causing illness, prompting state lawmakers to call for immediate..."
+    },
     {
       "id": "769f7f5e7364",
       "title": "Michigan Prison Inmate Claims Mold Is Making Her Sick. Lawmakers Push Governor",
@@ -42,7 +65,7 @@
         "air quality",
         "health"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "author": "Environmental Protection",
       "seoTitle": "ISSA and NORMI Expand Alliance to Bridge Clea | The Mold Report",
