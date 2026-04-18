@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T16:21:05.129878+00:00",
+  "lastUpdated": "2026-04-18T16:21:53.655354+00:00",
   "articles": [
     {
       "id": "4f6462b3ce58",
@@ -167,6 +167,28 @@
       "seoDescription": "Learn how hospitals identify, manage, and prevent mold infestations to protect vulnerable patients from fungal exposure risks.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:13:29.594734+00:00",
+      "featured": false
+    },
+    {
+      "id": "501d423ae23f",
+      "title": "Metallic Nanoparticles Show Promise Against Human Fungal Infections",
+      "summary": "A review published in the Saudi Pharmaceutical Journal examines the potential of metallic nanoparticles as antifungal treatments for human fungal infections. The research surveys current evidence on how these materials may work against fungal pathogens, offering a possible avenue for addressing infections that remain difficult to treat with existing therapies. Clinicians and researchers tracking emerging antifungal strategies will want to follow this area as findings mature toward clinical application.",
+      "source": "PubMed / Saudi Pharm J",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37649674/",
+      "publishedAt": "2026-04-18T16:10:12.309711+00:00",
+      "category": "research",
+      "tags": [
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Nanoparticle-based antifungals are still largely in early research stages; patients should consult their treating physician before drawing conclusions about treatment implications.",
+      "seoTitle": "Metallic Nanoparticles for Fungal Infections | The Mold Report",
+      "seoDescription": "Explore how metallic nanoparticles show promise as antifungal treatments for human fungal infections according to recent pharmaceutical research.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:21:53.655245+00:00",
       "featured": false
     },
     {
