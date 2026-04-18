@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T16:21:53.655354+00:00",
+  "lastUpdated": "2026-04-18T16:23:28.556024+00:00",
   "articles": [
     {
       "id": "4f6462b3ce58",
@@ -123,6 +123,29 @@
       "featured": false
     },
     {
+      "id": "52e57df145ca",
+      "title": "Biomarkers Distinguish ME/CFS From Chronic Inflammatory Response Syndrome",
+      "summary": "A study published in the International Journal of Molecular Sciences examines how researchers are investigating specific biomarkers \u2014 ranging from visual contrast sensitivity testing to transcriptomic analysis \u2014 as potential tools to help differentiate between Chronic Inflammatory Response Syndrome (CIRS), a condition studied by researchers, and Myalgic Encephalomyelitis/Chronic Fatigue Syndrome (ME/CFS). Research suggests that accurate differentiation between these two conditions may be important because they appear to involve different physiological mechanisms. This research adds to a field where researchers continue to seek improved diagnostic clarity for both patients and providers. Note: This account has not been independently verified by The Mold Report.",
+      "source": "PubMed / Int J Mol Sci",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40806417/",
+      "publishedAt": "2026-04-18T16:10:12.309828+00:00",
+      "category": "research",
+      "tags": [
+        "biomarker",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Proper diagnosis is the foundation of effective treatment \u2014 work like this moves us closer to giving patients the right answer, not just an answer.",
+      "seoTitle": "ME/CFS vs CIRS Biomarkers | The Mold Report",
+      "seoDescription": "Study reveals biomarkers distinguishing ME/CFS from Chronic Inflammatory Response Syndrome using contrast sensitivity and transcriptomic analysis.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:23:28.555940+00:00",
+      "featured": false
+    },
+    {
       "id": "00639faab62a",
       "title": "Mold and Dampness Linked to Fatigue, Study Review Shows",
       "summary": "A systematic review of peer-reviewed literature published between 2011 and 2018 found consistent associations between exposure to mold or damp indoor environments and the experience of fatigue. The review, conducted by Dooley and McMahon and published in Environmental Analysis, Health and Toxicology, adds to a growing body of evidence that indoor mold and dampness carry meaningful health consequences beyond respiratory symptoms. Clinicians and patients investigating unexplained fatigue should consider the indoor environment as a contributing factor worth thorough evaluation.",
@@ -144,6 +167,30 @@
       "seoDescription": "Study review reveals consistent associations between mold exposure and damp indoor environments with fatigue symptoms in peer-reviewed research.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:14:17.657792+00:00",
+      "featured": false
+    },
+    {
+      "id": "77c239915579",
+      "title": "Homeowners Combat Mold With Microbiome Engineering",
+      "summary": "A study published in Frontiers in Public Health examined how homeowners experience household mold problems and what they think about using microbiome engineering as a potential mitigation strategy. Researchers Barry N, Landreville KD, and Blackwood D gathered perspectives from residents navigating mold in their homes, offering insight into both the human toll of mold exposure and openness to emerging biological interventions. Understanding how affected individuals perceive new approaches is an important step in developing solutions that are trustworthy and practical for real households.",
+      "source": "PubMed / Front Public Health",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41674531/",
+      "publishedAt": "2026-04-18T16:10:12.309775+00:00",
+      "category": "research",
+      "tags": [
+        "mold",
+        "health",
+        "PubMed",
+        "peer-reviewed"
+      ],
+      "status": "published",
+      "imageUrl": "https://source.unsplash.com/800x400/?laboratory+science",
+      "readTime": 2,
+      "editorsNote": "Microbiome engineering for mold control is still in early stages; homeowners should continue relying on established remediation standards while this research matures.",
+      "seoTitle": "Mold Microbiome Engineering | The Mold Report",
+      "seoDescription": "Explore how homeowners combat mold using microbiome engineering. Research insights on household mold mitigation strategies.",
+      "qcReviewer": "AI Editorial Pipeline v2.0",
+      "qcTimestamp": "2026-04-18T16:22:40.342932+00:00",
       "featured": false
     },
     {
