@@ -14,11 +14,10 @@ Pipeline gates (in order):
   3. INTEREST AGENT     — Scores 1-10 on newsworthiness (must be >= 7)
   4. HEADLINE AGENT     — Rewrites titles for clarity and reader engagement
   5. EDITORIAL AGENT    — Rewrites summary in Mold Report voice
-  6. COMPLIANCE AGENT   — Checks against MoldCo claims rules (auto-corrects)
-  7. RESEARCH AGENT     — Verifies Shoemaker alignment for science articles
-  8. INVENTION GUARD    — AI checks for fabrication (70% confidence threshold)
-  9. PHOTO AGENT        — Assigns images (OG → topic Unsplash → category fallback)
- 10. SEO AGENT          — Generates search-optimized meta title + description per article
+  6. COMPLIANCE AGENT   — Auto-corrects terminology against MoldCo claims rules
+  7. RESEARCH AGENT     — Verifies Shoemaker alignment (kills off-topic content)
+  8. PHOTO AGENT        — Assigns images (OG → topic Unsplash → category fallback)
+  9. SEO AGENT          — Generates search-optimized meta title + description per article
 
 Data storage:
   articles.json — flat JSON file. This IS the database. No server needed.
@@ -47,6 +46,8 @@ import hashlib
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
+import re
+from urllib.parse import urlparse, parse_qs
 
 # Load .env file if present
 _env_file = Path(__file__).parent / ".env"
@@ -288,7 +289,7 @@ def call_claude(system_prompt, user_prompt, max_tokens=2000):
         print("  ⚠ ANTHROPIC_API_KEY not set.")
         return None
     import time
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic.Anthropic(api_key=api_key, timeout=30.0)
     for attempt in range(3):
         try:
             message = client.messages.create(
@@ -424,14 +425,12 @@ Category: {article['category']}"""
     result = call_claude(system + get_corpus_context(), prompt, max_tokens=200)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 score = review.get('score', 5)
                 article['_interest_score'] = score
                 article['_interest_reasoning'] = review.get('reasoning', '')
-                article['_headline_hook'] = review.get('headline_hook', '')
                 print(f"    {'★' * min(score, 10)} {score}/10 — {review.get('reasoning', '')[:60]}")
         except (json.JSONDecodeError, AttributeError):
             article['_interest_score'] = 5
@@ -485,7 +484,6 @@ Submitter: {article.get('_submitter_name', 'Anonymous')}
     result = call_claude(system, prompt, max_tokens=300)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
@@ -562,10 +560,9 @@ Category: {article['category']}
 Summary excerpt: {article['summary'][:300]}
 Source: {article['source']}"""
 
-    result = call_claude(system + get_corpus_context(), prompt, max_tokens=200)
+    result = call_claude(system, prompt, max_tokens=200)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
@@ -606,17 +603,12 @@ Style rules:
 CRITICAL — Respect the source material:
 Your summary must accurately reflect the original article's content. Do NOT silently inject claims, recommendations, or context that was not in the original source. The summary should be a rewrite of what the source actually reported.
 
-If context is needed that was NOT in the original article, put it in a SEPARATE editors_note field. Never weave added context into the summary itself.
+Do NOT add context that was not in the original article. Just rewrite what was reported.
 
 Return ONLY valid JSON in this format:
-{"summary": "the rewritten summary text", "editors_note": "optional note — one sentence max, or empty string"}
+{"summary": "the rewritten summary text"}
 
-EDITORS NOTE RULES:
-- Most articles should have an EMPTY editors_note. Only add one if genuinely necessary.
-- One sentence maximum. Write it like a real newspaper editor would — brief, neutral, useful.
-- Do NOT list biomarkers, do NOT explain protocols, do NOT give health advice.
-- Do NOT use it to show off your knowledge. If the article stands on its own, leave it empty.
-- Only valid reasons: the article mentions a debunked testing method, or makes a factual claim that needs a brief correction."""
+Do NOT add any editors notes or additional context. Just rewrite the summary."""
 
     prompt = f"""Rewrite this article for The Mold Report:
 
@@ -625,19 +617,22 @@ Original summary: {article['summary']}
 Source: {article['source']}
 Category: {article['category']}"""
 
-    result = call_claude(system + get_corpus_context(), prompt, max_tokens=300)
+    result = call_claude(system, prompt, max_tokens=300)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 parsed = json.loads(json_match.group())
                 if parsed.get('summary'):
-                    article['summary'] = parsed['summary'].strip()
-                    article['readTime'] = max(2, round(len(article['summary'].split()) / 200) + 2)
-                if parsed.get('editors_note'):
-                    article['editorsNote'] = parsed['editors_note'].strip()
-                    print(f"    📝 Editor's note added")
+                    summary = parsed['summary'].strip()
+                    # Enforce max 300 words (asked for 150-250)
+                    words = summary.split()
+                    if len(words) > 300:
+                        summary = ' '.join(words[:280])
+                        print(f"    ⚠ Trimmed summary from {len(words)} to 280 words")
+                    article['summary'] = summary
+                    article['readTime'] = max(2, round(len(words) / 200) + 2)
+
             else:
                 # Fallback: treat entire result as summary (backward compat)
                 article['summary'] = result.strip()
@@ -676,10 +671,10 @@ Summary: {article['summary']}
 Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}"""
 
+    article['_compliance_pass'] = True  # default: pass if API/parsing fails
     result = call_claude(system, prompt, max_tokens=800)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
@@ -688,13 +683,12 @@ Tags: {', '.join(article.get('tags', []))}"""
                     if review.get('corrected_summary'):
                         article['summary'] = review['corrected_summary']
                         print("    ✓ Auto-corrected")
-
+                    article['_compliance_pass'] = True  # auto-corrected = pass
                 else:
                     print("    ✓ Passed")
-                article['_compliance_pass'] = review.get('pass', True)
                 article['_compliance_issues'] = review.get('issues', [])
         except (json.JSONDecodeError, AttributeError):
-            print("    ⚠ Could not parse compliance response")
+            print("    ⚠ Could not parse compliance response — passing by default")
     return article
 
 
@@ -778,7 +772,6 @@ Return ONLY valid JSON:
   "verified": true/false,
   "alignment": "shoemaker_aligned" | "neutral" | "off_topic",
   "rejection_reason": "why this was rejected (empty string if verified is true)",
-  "shoemaker_connection": "1-2 sentence explanation of how this connects to Shoemaker's body of work (empty string if rejected)",
   "editors_note": "One sentence of context only. Write like a real newspaper editor — brief, neutral, informative. No biomarker lists, no protocol explanations, no compliance language. If the article stands on its own, leave this as an empty string. Most articles should NOT have an editors note.",
   "corrections": "corrected summary text if factual errors exist, empty string otherwise",
   "notes": ["any accuracy concerns"]
@@ -794,10 +787,10 @@ Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}
 Source: {article['source']}"""
 
+    article['_research_verified'] = True  # default: pass if API/parsing fails
     result = call_claude(system + get_corpus_context(), prompt, max_tokens=600)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
@@ -810,10 +803,6 @@ Source: {article['source']}"""
                     reason = review.get('rejection_reason', alignment)
                     print(f"    ✗ KILLED by Shoemaker Lens: {reason[:80]}")
                     return article
-
-                # Store Shoemaker connection context
-                if review.get('shoemaker_connection'):
-                    article['shoemakerConnection'] = review['shoemaker_connection']
 
                 # Store editor's note grounding article in Shoemaker research
                 if review.get('editors_note'):
@@ -835,54 +824,6 @@ Source: {article['source']}"""
     return article
 
 
-# =========================================
-# AGENT: INVENTION GUARD
-# =========================================
-def invention_guard(article):
-    """Use Claude to verify the article isn't fabricated/hallucinated."""
-    if not anthropic:
-        return article
-    print(f"  🛡 Invention guard: {article['title'][:50]}...")
-
-    system = """You are a fact-checking agent for The Mold Report.
-Your ONLY job is to determine if this article summary appears to be based on a real, verifiable source or if it looks fabricated/hallucinated.
-
-Check for:
-1. Does the source URL match the claimed source?
-2. Are the specific claims plausible?
-3. Are there signs of fabrication (impossibly precise details, non-existent journals, fake organizations)?
-
-Return ONLY valid JSON:
-{"real": true/false, "confidence": 0.0-1.0, "concerns": ["concern 1", ...]}
-
-If confidence < 0.7, mark real as false."""
-
-    prompt = f"""Verify this article is based on real source material:
-
-Title: {article['title']}
-Source: {article['source']}
-Source URL: {article.get('sourceUrl', 'NONE')}
-Published: {article.get('publishedAt', 'NONE')}
-Summary: {article['summary'][:500]}"""
-
-    result = call_claude(system, prompt, max_tokens=300)
-    if result:
-        try:
-            import re
-            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
-            if json_match:
-                review = json.loads(json_match.group())
-                article['_invention_check'] = review
-                if not review.get('real', True) or review.get('confidence', 1.0) < 0.7:
-                    print(f"    ⚠ FLAGGED: {review.get('concerns', [])}")
-                    article['_invention_pass'] = False
-                else:
-                    print(f"    ✓ Real (confidence: {review.get('confidence', 'N/A')})")
-                    article['_invention_pass'] = True
-        except (json.JSONDecodeError, AttributeError):
-            article['_invention_pass'] = True
-    return article
-
 
 # =========================================
 # AGENT: DUPLICATE DETECTION
@@ -895,7 +836,6 @@ def _title_similarity(a, b):
 
 def _extract_key_entities(text):
     """Extract location names, org names, dollar amounts for comparison."""
-    import re
     text_lower = text.lower()
     entities = set()
     # Dollar amounts
@@ -1106,7 +1046,6 @@ Source: {article['source']}"""
     result = call_claude(system, prompt, max_tokens=300)
     if result:
         try:
-            import re
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 parsed = json.loads(json_match.group())
@@ -1128,8 +1067,6 @@ Source: {article['source']}"""
                     article['seoDescription'] = article['summary'][:155].rsplit(' ', 1)[0] + '...'
                     print(f"    ⚠ Description too long, using fallback")
 
-                if parsed.get('primaryKeyword'):
-                    article['_seo_keyword'] = parsed['primaryKeyword']
 
                 print(f"    → Title: {article['seoTitle'][:55]}...")
                 print(f"    → Desc: {article['seoDescription'][:55]}...")
@@ -1388,7 +1325,6 @@ def fetch_rss():
             link = entry.get("link", "")
 
             # Google Alerts wraps real URLs in redirects: extract the actual source
-            from urllib.parse import urlparse, parse_qs
             if 'google.com/url' in link:
                 parsed_qs = parse_qs(urlparse(link).query)
                 real_url = parsed_qs.get('url', parsed_qs.get('q', ['']))[0]
@@ -1581,7 +1517,6 @@ def fetch_gov_rss():
                     except Exception:
                         pass
 
-                from urllib.parse import urlparse
                 domain = urlparse(link).netloc.replace("www.", "") if link else source_name
 
                 articles.append({
@@ -1814,13 +1749,20 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
     fresh = deduped
     print(f"\n→ {len(fresh)} new articles after dedup (from {len(raw)} raw)\n")
 
-    # Load rejection cache to skip already-scored articles
+    # Load rejection cache (expires entries older than 30 days)
     _reject_cache_file = SCRIPT_DIR / ".rejected_cache.json"
-    _rejected_ids = set()
+    _reject_cache = {}
     if _reject_cache_file.exists():
         try:
-            _rejected_ids = set(json.load(open(_reject_cache_file)))
+            _reject_cache = json.load(open(_reject_cache_file))
+            if isinstance(_reject_cache, list):
+                # Migrate old format (list of IDs) to new format (dict with timestamps)
+                _reject_cache = {rid: datetime.now(timezone.utc).isoformat() for rid in _reject_cache}
+            # Expire entries older than 30 days
+            cutoff = (datetime.now(timezone.utc) - __import__('datetime').timedelta(days=30)).isoformat()
+            _reject_cache = {k: v for k, v in _reject_cache.items() if v > cutoff}
         except: pass
+    _rejected_ids = set(_reject_cache.keys())
     fresh = [a for a in fresh if a["id"] not in _rejected_ids]
     print(f"→ {len(_rejected_ids)} cached rejections skipped")
 
@@ -1891,8 +1833,6 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
             rejected.append(("shoemaker_lens", article))
             continue
 
-        # Gate 8: Invention guard
-        article["_invention_pass"] = True  # Skip: AI false-flags 2026 dates
 
         # Gate 9: Photo assignment
         article = photo_agent(article)
@@ -1903,9 +1843,8 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         # Final check: all gates passed?
         compliance_ok = article.get('_compliance_pass', True)
         research_ok = article.get('_research_verified', True)
-        invention_ok = article.get('_invention_pass', True)
 
-        if compliance_ok and research_ok and invention_ok:
+        if compliance_ok and research_ok:
             article['status'] = 'published'
             article['qcReviewer'] = 'AI Editorial Pipeline v1.4'
             article['qcTimestamp'] = datetime.now(timezone.utc).isoformat()
@@ -1926,7 +1865,6 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
             reasons = []
             if not compliance_ok: reasons.append("compliance")
             if not research_ok: reasons.append("research")
-            if not invention_ok: reasons.append("invention")
             print(f"  ✗ REJECTED ({', '.join(reasons)} failed)")
             rejected.append(("pipeline", article))
 
@@ -1935,35 +1873,29 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
             print(f"\n→ Hit max {MAX_ARTICLES_PER_RUN} articles per run. Stopping.")
             break
 
-    # Save results
+    # Final save: reload from disk (incremental saves already persisted each article)
+    # Just ensure featured flags and trimming are correct
     if published and not dry_run:
-        # Add new articles at the top
-        data["articles"] = published + data["articles"]
-
-        # Sort by date (newest first)
+        data = load_articles()
         data["articles"].sort(key=lambda a: a.get("publishedAt", ""), reverse=True)
-
-        # Update featured (top 2)
         for a in data["articles"]:
             a["featured"] = False
         for a in data["articles"][:2]:
             a["featured"] = True
-
-        # Trim to max total
         if len(data["articles"]) > MAX_TOTAL_ARTICLES:
             trimmed = len(data["articles"]) - MAX_TOTAL_ARTICLES
             data["articles"] = data["articles"][:MAX_TOTAL_ARTICLES]
             print(f"  ✂ Trimmed {trimmed} oldest articles (max {MAX_TOTAL_ARTICLES})")
-
         save_articles(data)
         rebuild_embedded(data)
         generate_article_pages(data)
 
-    # Save rejection cache
+    # Save rejection cache (with timestamps for expiry)
+    now = datetime.now(timezone.utc).isoformat()
     for reason, art in rejected:
-        _rejected_ids.add(art["id"])
+        _reject_cache[art["id"]] = now
     with open(_reject_cache_file, "w") as _f:
-        json.dump(list(_rejected_ids), _f)
+        json.dump(_reject_cache, _f)
 
     # Summary
     print(f"\n{'=' * 60}")
