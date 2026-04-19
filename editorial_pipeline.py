@@ -1792,9 +1792,9 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
     # Fetch from all sources
     raw = []
     raw.extend(fetch_rss())        # Google Alerts RSS
-    #raw.extend(fetch_pubmed())  # TEMP SKIP     # PubMed peer-reviewed research
-    #raw.extend(fetch_gov_rss())  # TEMP SKIP    # EPA, CDC, HUD, NIH, NIOSH
-    #raw.extend(fetch_tips())  # TEMP SKIP       # Reader-submitted tips
+    raw.extend(fetch_pubmed())     # PubMed peer-reviewed research
+    raw.extend(fetch_gov_rss())    # EPA, CDC, HUD, NIH, NIOSH
+    raw.extend(fetch_tips())       # Reader-submitted tips
 
     # Dedup across all sources
     seen = set()
