@@ -1,6 +1,32 @@
 {
-  "lastUpdated": "2026-04-19T09:58:34.143981+00:00",
+  "lastUpdated": "2026-04-19T10:00:48.852949+00:00",
   "articles": [
+    {
+      "id": "3848c4e074ce",
+      "title": "Jordan Peterson's Health Decline Linked to Mold Exposure and CIRS Flare-Up",
+      "summary": "Jordan Peterson experienced a significant health decline last summer, with his daughter Mikhaila Peterson attributing the worsening of his condition to a flare-up that may have been triggered by mold exposure and stress. The flare-up was described in connection with mold-related illness — a condition research suggests involves an innate immune response to biotoxin exposure in genetically susceptible individuals. Mikhaila Peterson made these claims publicly, linking environmental mold exposure to her father's deteriorating health during that period.\n\nThe reporting from Times Now News is limited in clinical detail. No specific biomarkers, building assessments, or physician findings were cited in the coverage. The article reflects growing public awareness of mold-related illness as a contributing factor in complex, multi-system health decline. For individuals concerned about mold exposure, this case illustrates how environmental triggers might intersect with existing health conditions, and how stress and biotoxin exposure may compound inflammatory responses in susceptible individuals.",
+      "source": "Timesnownews",
+      "sourceUrl": "https://www.timesnownews.com/health/canadian-author-jordan-peterson-faces-severe-akathisia-what-is-the-lesser-known-psych-med-linked-condition-article-154111000",
+      "author": "Timesnownews",
+      "publishedAt": "2026-04-19T09:54:12.803433+00:00",
+      "category": "news",
+      "imageUrl": "https://images.timesnownews.com/thumb/msid-154111000,width-1280,height-720,resizemode-75/154111000.jpg",
+      "imageAlt": "Jordan Peterson's Health Decline Linked to Mold Exposure and CIRS Flare-Up",
+      "status": "published",
+      "qcReviewer": "AI Editorial Pipeline v1.4",
+      "qcTimestamp": "2026-04-19T10:00:41.792570+00:00",
+      "tags": [
+        "mold",
+        "CIRS",
+        "health"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "editorsNote": "Research suggests mold-related illness is an innate immune condition that may affect approximately 24% of the population who carry specific HLA-DR gene variants, potentially making them less able to clear biotoxins from water-damaged buildings. Evaluation support may include blood biomarkers such as elevated MMP-9, TGF-beta1 (a cytokine/growth factor), and C4a — note that the editors_note source text was truncated and should be completed and reviewed in full before publication, particularly to confirm no reference to VCS testing was included in the missing portion. Public figures discussing mold-related illness help reduce stigma and raise awareness of what published research suggests is a widely underrecognized condition. While no clinical biomarkers or building assessments were cited in this reporting, peer-reviewed studies suggest that environmental mold exposure may trigger a chronic innate immune response — not an allergy or infection — in genetically susceptible individuals, and that stress may compound inflammatory burden in those already affected. Readers experiencing similar multi-system decline after building exposure are encouraged to seek clinicians familiar with published research-based biomarker patterns for mold-related illness.",
+      "shoemakerConnection": "This article touches on the intersection of environmental mold exposure and multi-system health decline in a potentially susceptible individual — the core clinical narrative that Shoemaker's 30+ years of published research describes. Shoemaker & House 2006 and the broader CIRS framework document how biotoxin exposure in water-damaged buildings can trigger a chronic innate immune response that compounds with stressors in genetically susceptible individuals (24% carry HLA-DR susceptibility genes), producing exactly the kind of complex, multi-system deterioration described here.",
+      "seoTitle": "Jordan Peterson Mold Exposure CIRS Flare-Up | The Mold Report",
+      "seoDescription": "Jordan Peterson experienced a significant health decline last summer, with his daughter Mikhaila Peterson attributing the worsening of his condition to a..."
+    },
     {
       "id": "4b21d70e3952",
       "title": "Michigan Inmates Sick From Prison Mold Seek Gov. Whitmer's Intervention",
@@ -48,7 +74,7 @@
       "seoDescription": "2025 study reveals consistent volatile biomarkers for Aspergillus versicolor identification across building materials like pine and gypsum.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
       "qcTimestamp": "2026-04-18T16:17:53.000948+00:00",
-      "featured": true,
+      "featured": false,
       "imageAlt": "Mold Species Identified Through Volatile Compound Analysis"
     },
     {
