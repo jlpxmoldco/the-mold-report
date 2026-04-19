@@ -310,6 +310,15 @@ def call_claude(system_prompt, user_prompt, max_tokens=2000):
             return None
 
 
+def strip_json_fences(text):
+    """Strip markdown code fences from AI responses before JSON parsing."""
+    import re
+    if text:
+        text = re.sub(r'^```\w*\s*', '', text.strip())
+        text = re.sub(r'\s*```\s*$', '', text)
+    return text
+
+
 # =========================================
 # GATE 1: FRESHNESS
 # =========================================
@@ -416,7 +425,7 @@ Category: {article['category']}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 score = review.get('score', 5)
@@ -477,7 +486,7 @@ Submitter: {article.get('_submitter_name', 'Anonymous')}
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 approved = review.get('approved', False)
@@ -557,7 +566,7 @@ Source: {article['source']}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 if review.get('changed', False) and review.get('rewritten'):
@@ -620,7 +629,7 @@ Category: {article['category']}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 parsed = json.loads(json_match.group())
                 if parsed.get('summary'):
@@ -671,7 +680,7 @@ Tags: {', '.join(article.get('tags', []))}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 if not review.get('pass', True):
@@ -789,7 +798,7 @@ Source: {article['source']}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 verified = review.get('verified', True)
@@ -860,7 +869,7 @@ Summary: {article['summary'][:500]}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 review = json.loads(json_match.group())
                 article['_invention_check'] = review
@@ -1098,7 +1107,7 @@ Source: {article['source']}"""
     if result:
         try:
             import re
-            json_match = re.search(r'\{.*\}', result, re.DOTALL)
+            json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
                 parsed = json.loads(json_match.group())
                 seo_title = parsed.get('seoTitle', '').strip()
