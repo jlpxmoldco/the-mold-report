@@ -751,6 +751,10 @@ WHAT GETS THROUGH (verified: true):
 - Genetic susceptibility research
 - Multi-system inflammatory conditions linked to environmental exposure
 - News about mold in buildings (schools, homes, hospitals, prisons) affecting occupants
+- Public figures or celebrities discussing mold illness, CIRS, or biotoxin exposure — these raise awareness and ALWAYS get through
+- Personal stories of mold illness that align with the innate immune model — thin sourcing is NOT a reason to reject awareness content
+
+IMPORTANT: Your job is topic alignment, not source quality. If an article is ABOUT mold illness / CIRS / biotoxin exposure and frames it correctly, let it through. Do not reject articles for thin sourcing, celebrity framing, or lack of clinical data. The interest agent already scored relevance — you are checking ALIGNMENT only.
 
 COMPLIANCE RULES FOR EDITORS NOTES:
 - Use "research suggests" or "may" — never absolute claims
