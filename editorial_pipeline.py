@@ -597,16 +597,17 @@ Style rules:
 CRITICAL — Respect the source material:
 Your summary must accurately reflect the original article's content. Do NOT silently inject claims, recommendations, or context that was not in the original source. The summary should be a rewrite of what the source actually reported.
 
-If context is needed (e.g., about testing methods, biomarkers, the Shoemaker Protocol, or mold illness background that was NOT in the original article), put it in a SEPARATE editors_note field. Never weave it into the summary itself.
+If context is needed that was NOT in the original article, put it in a SEPARATE editors_note field. Never weave added context into the summary itself.
 
 Return ONLY valid JSON in this format:
-{"summary": "the rewritten summary text", "editors_note": "optional note if you added context not in the original, or empty string if none needed"}
+{"summary": "the rewritten summary text", "editors_note": "optional note — one sentence max, or empty string"}
 
-When to include an editors_note:
-- The article mentions urine mycotoxin testing, VCS testing, or methods not aligned with Shoemaker Protocol blood biomarkers
-- You want to add biomarker context (TGF-beta1, MMP-9, MSH) not present in the original
-- The article makes claims that need qualification from an evidence-based perspective
-- Keep notes brief (1-2 sentences), informative, not dismissive"""
+EDITORS NOTE RULES:
+- Most articles should have an EMPTY editors_note. Only add one if genuinely necessary.
+- One sentence maximum. Write it like a real newspaper editor would — brief, neutral, useful.
+- Do NOT list biomarkers, do NOT explain protocols, do NOT give health advice.
+- Do NOT use it to show off your knowledge. If the article stands on its own, leave it empty.
+- Only valid reasons: the article mentions a debunked testing method, or makes a factual claim that needs a brief correction."""
 
     prompt = f"""Rewrite this article for The Mold Report:
 
@@ -652,13 +653,12 @@ Check the article against these rules and return a JSON response.
 {COMPLIANCE_RULES}
 
 Return ONLY valid JSON in this exact format:
-{{"pass": true/false, "issues": ["issue 1", "issue 2"], "corrected_summary": "...", "editors_note": "..." }}
+{{"pass": true/false, "issues": ["issue 1", "issue 2"], "corrected_summary": "..."}}
 
-If pass is true, corrected_summary and editors_note should be empty strings.
-If pass is false:
-- For factual/terminology corrections (wrong stats, wrong terms): fix them directly in corrected_summary
-- For added context or qualifications NOT in the original source (e.g. biomarker recommendations, protocol context): put them in editors_note instead
-- The editors_note should be brief (1-2 sentences), clearly framing additional context as The Mold Report's editorial perspective"""
+If pass is true, corrected_summary should be an empty string.
+If pass is false, fix terminology and compliance issues directly in corrected_summary.
+Do NOT add editorial context, biomarker recommendations, or protocol explanations. Just fix the language."""
+
 
     prompt = f"""Review this article for compliance:
 
@@ -679,11 +679,7 @@ Tags: {', '.join(article.get('tags', []))}"""
                     if review.get('corrected_summary'):
                         article['summary'] = review['corrected_summary']
                         print("    ✓ Auto-corrected")
-                    if review.get('editors_note'):
-                        existing = article.get('editorsNote', '')
-                        note = review['editors_note'].strip()
-                        article['editorsNote'] = (existing + ' ' + note).strip() if existing else note
-                        print(f"    📝 Editor's note: {note[:60]}...")
+
                 else:
                     print("    ✓ Passed")
                 article['_compliance_pass'] = review.get('pass', True)
@@ -770,7 +766,7 @@ Return ONLY valid JSON:
   "alignment": "shoemaker_aligned" | "neutral" | "off_topic",
   "rejection_reason": "why this was rejected (empty string if verified is true)",
   "shoemaker_connection": "1-2 sentence explanation of how this connects to Shoemaker's body of work (empty string if rejected)",
-  "editors_note": "2-3 sentence editorial context grounding the article in the broader research. Not needed if rejected.",
+  "editors_note": "One sentence of context only. Write like a real newspaper editor — brief, neutral, informative. No biomarker lists, no protocol explanations, no compliance language. If the article stands on its own, leave this as an empty string. Most articles should NOT have an editors note.",
   "corrections": "corrected summary text if factual errors exist, empty string otherwise",
   "notes": ["any accuracy concerns"]
 }
@@ -808,9 +804,8 @@ Source: {article['source']}"""
 
                 # Store editor's note grounding article in Shoemaker research
                 if review.get('editors_note'):
-                    existing = article.get('editorsNote', '')
                     note = review['editors_note'].strip()
-                    article['editorsNote'] = (existing + ' ' + note).strip() if existing else note
+                    article['editorsNote'] = note
 
                 if review.get('corrections'):
                     article['summary'] = review['corrections']
