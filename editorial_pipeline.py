@@ -1275,6 +1275,7 @@ def generate_article_pages(data):
   <meta name="description" content="{seo_desc}">
   <meta name="keywords" content="{tags_escaped}">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="article:primary_keyword" content="{primary_kw}">
   <link rel="canonical" href="https://themoldreport.org/a/{aid}.html">
 
   <!-- Open Graph -->
