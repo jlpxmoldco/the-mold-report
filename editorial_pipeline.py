@@ -526,14 +526,17 @@ Your job is to rewrite article titles to make people WANT to read. You're writin
 
 RULES FOR GREAT HEADLINES:
 1. Lead with the most interesting finding or implication, not the method
-2. Use plain language. Never use academic jargon in the headline
-3. Be specific: include numbers, names, institutions when they add punch
-4. Keep it under 90 characters (strict limit)
-5. Never use clickbait ("You won't believe..."), all-caps, or exclamation marks
-6. Never misrepresent the content — accuracy is sacred
-7. Use active voice. "Study Finds X" not "X Was Found By Study"
-8. For research papers: translate the finding into what it MEANS for real people
-9. Drop unnecessary words (a, the, that) where it reads naturally
+2. Include the core searchable term naturally — if the article is about black mold, say "black mold" not just "mold"
+3. Use plain language. Never use academic jargon in the headline
+4. Be specific: include numbers, names, biomarkers, institutions when they add punch
+5. Keep it under 90 characters (strict limit)
+6. Never use clickbait ("You won't believe..."), all-caps, or exclamation marks
+7. Never misrepresent the content — accuracy is sacred
+8. Use active voice. "Study Finds X" not "X Was Found By Study"
+9. For research papers: translate the finding into what it MEANS for real people
+10. Drop unnecessary words (a, the, that) where it reads naturally
+11. Front-load searchable terms: put the keyword phrase in the first half of the headline
+12. Include condition/symptom names when relevant: "fatigue", "brain fog", "respiratory illness"
 
 EXAMPLES OF GOOD REWRITES:
 - BEFORE: "Combined toxicity prediction of deoxynivalenol and fumonisin B(1) by physiologically based toxicokinetic modelling"
@@ -1002,38 +1005,46 @@ def seo_agent(article):
     print(f"  🔎 SEO: {article['title'][:50]}...")
 
     system = """You are an SEO specialist for The Mold Report, the first AI-curated mold news publication.
-Your job is to generate search-optimized meta titles and descriptions for individual article pages.
+Your job: generate search-optimized metadata that makes each article rank for its topic.
 
-These meta tags determine how articles appear in Google search results, social shares, and browser tabs.
+META TITLE (50-60 chars max, including " | The Mold Report" suffix):
+- Front-load the primary search keyword
+- Optimize for what real people Google, not the academic title
+- Include "mold" or a mold-related term when natural
+- Use pipe: "Topic Phrase Here | The Mold Report"
 
-META TITLE RULES:
-1. 50-60 characters max (Google truncates at ~60)
-2. Front-load the primary keyword or most searchable phrase
-3. Include a secondary keyword if space allows
-4. Do NOT just copy the article headline — optimize for search intent
-5. Include "Mold" or mold-related terms when natural (people searching for this)
-6. Use pipe | or dash — to separate title from brand: "Title | The Mold Report"
-7. The brand suffix " | The Mold Report" counts toward the 60-char limit
-8. Make it compelling for click-through from search results
+META DESCRIPTION (150-160 chars max):
+- Summarize the key finding in 1-2 punchy sentences
+- Include primary + secondary keywords naturally
+- Use specifics: numbers, names, locations, biomarkers
+- End with implicit value: why should I click this?
+- Never start with "This article" or "In this article"
 
-META DESCRIPTION RULES:
-1. 150-160 characters max (Google truncates at ~160)
-2. Summarize the article's key finding or news in 1-2 sentences
-3. Include relevant keywords naturally (mold, health, exposure, testing, etc.)
-4. Include a subtle call to action or value proposition ("Learn why..." "See what...")
-5. Don't start with "This article" or "In this article"
-6. Be specific — use numbers, names, findings when available
-7. Match search intent: if someone googled a related term, would this description make them click?
+PRIMARY KEYWORD (2-4 words, the exact phrase you want to rank for):
+- This is the #1 search query this article should capture
+- Must be something real people actually search for
+- Examples: "mold exposure symptoms", "black mold health risks", "mycotoxin testing", "CIRS diagnosis"
 
-KEYWORD STRATEGY FOR MOLD ARTICLES:
-- Research: focus on the finding, biomarker names, health condition
-- Regulation: focus on the agency, the action, who it affects
-- News: focus on the location, the event, the impact
-- Industry: focus on the company, the product, the market change
-- Diagnostics: focus on the test type, biomarker, what patients learn
+SECONDARY KEYWORDS (3-5 phrases, related search queries):
+- Long-tail variations and related queries
+- Include condition names, biomarkers, locations, people when relevant
+- These become the article's HTML meta keywords
+
+SEO TAGS (4-8 specific, searchable tags):
+- Replace generic tags like "mold" or "health" with specific searchable phrases
+- Good: "black mold", "mycotoxin exposure", "TGF-beta", "indoor air quality", "CIRS symptoms"
+- Bad: "mold", "health", "research", "news"
+- Each tag should be a phrase someone might search for
+
+KEYWORD STRATEGY BY CATEGORY:
+- Research: biomarker names, health conditions, "mold + [symptom]", study institution
+- Regulation: agency name, law/bill name, affected group, "mold regulations [state/country]"
+- News: person/company name, location, "mold [event type]", impact
+- Industry: company/product, market segment, "mold testing [type]"
+- Diagnostics: test name, biomarker, "mold blood test", "mycotoxin urine test"
 
 Return ONLY valid JSON:
-{"seoTitle": "the optimized meta title (with | The Mold Report suffix)", "seoDescription": "the optimized meta description", "primaryKeyword": "the main keyword targeted"}"""
+{"seoTitle": "optimized title | The Mold Report", "seoDescription": "the meta description", "primaryKeyword": "2-4 word target phrase", "secondaryKeywords": ["phrase 1", "phrase 2", "phrase 3"], "seoTags": ["specific tag 1", "specific tag 2", "specific tag 3", "specific tag 4"]}"""
 
     prompt = f"""Generate SEO meta title and description for this article:
 
@@ -1068,8 +1079,22 @@ Source: {article['source']}"""
                     print(f"    ⚠ Description too long, using fallback")
 
 
+                # Save keyword data
+                primary_kw = parsed.get('primaryKeyword', '').strip()
+                if primary_kw:
+                    article['primaryKeyword'] = primary_kw
+
+                secondary_kws = parsed.get('secondaryKeywords', [])
+                if secondary_kws and isinstance(secondary_kws, list):
+                    article['secondaryKeywords'] = secondary_kws[:5]
+
+                seo_tags = parsed.get('seoTags', [])
+                if seo_tags and isinstance(seo_tags, list):
+                    article['tags'] = seo_tags[:8]
+
                 print(f"    → Title: {article['seoTitle'][:55]}...")
-                print(f"    → Desc: {article['seoDescription'][:55]}...")
+                print(f"    → KW: {article.get('primaryKeyword', 'none')}")
+                print(f"    → Tags: {article.get('tags', [])}")
         except (json.JSONDecodeError, AttributeError):
             print("    ⚠ Could not parse SEO response — using defaults")
 
@@ -1078,6 +1103,8 @@ Source: {article['source']}"""
         article['seoTitle'] = article['title'][:45] + ' | The Mold Report'
     if 'seoDescription' not in article:
         article['seoDescription'] = article['summary'][:155].rsplit(' ', 1)[0] + '...'
+    if 'primaryKeyword' not in article:
+        article['primaryKeyword'] = 'mold exposure'
 
     return article
 
@@ -1184,8 +1211,10 @@ def rebuild_embedded(data):
 
 
 def generate_article_pages(data):
-    """Generate individual HTML pages per article for social sharing (OG meta tags).
-    Each page at /a/{id}.html has proper OG tags and redirects to index.html?a={id}."""
+    """Generate full standalone HTML article pages for SEO indexing.
+    Each page at /a/{id}.html is a complete, indexable article page with
+    full content, structured data, and a link back to the main site."""
+    import html as html_module
     articles_dir = SCRIPT_DIR / "a"
     articles_dir.mkdir(exist_ok=True)
 
@@ -1195,19 +1224,47 @@ def generate_article_pages(data):
             continue
 
         aid = a["id"]
-        title = a["title"].replace('"', '&quot;').replace('<', '&lt;')
-        # Use SEO-optimized fields if available, fall back to defaults
-        seo_title = a.get("seoTitle", title + " | The Mold Report").replace('"', '&quot;').replace('<', '&lt;')
-        seo_desc = a.get("seoDescription", a["summary"][:155]).replace('"', '&quot;').replace('<', '&lt;').replace('\n', ' ')
-        desc = a["summary"][:200].replace('"', '&quot;').replace('<', '&lt;').replace('\n', ' ')
-        img = a.get("imageUrl", "")
-        source = a.get("source", "The Mold Report")
-        pub_date = a.get("publishedAt", "")
-        category = a.get("category", "news")
-        tags_str = ", ".join(a.get("tags", []))
+        title_raw = a["title"]
+        title = html_module.escape(title_raw)
+        seo_title = html_module.escape(a.get("seoTitle", title_raw + " | The Mold Report"))
+        seo_desc = html_module.escape(a.get("seoDescription", a["summary"][:155])).replace("\n", " ")
+        summary_raw = a["summary"]
+        # Convert summary paragraphs to HTML paragraphs
+        summary_paras = [f"<p>{html_module.escape(p.strip())}</p>" for p in summary_raw.split("\n\n") if p.strip()]
+        if not summary_paras:
+            summary_paras = [f"<p>{html_module.escape(summary_raw)}</p>"]
+        article_body_html = "\n    ".join(summary_paras)
 
-        # Build the redirect URL (goes to main page with ?a=ID)
-        redirect_url = f"../index.html?a={aid}"
+        img = a.get("imageUrl", "")
+        img_alt = html_module.escape(a.get("imageAlt", title_raw))
+        source = html_module.escape(a.get("source", "The Mold Report"))
+        source_url = a.get("sourceUrl", "")
+        pub_date = a.get("publishedAt", "")
+        pub_display = pub_date[:10] if pub_date else ""
+        category = html_module.escape(a.get("category", "news"))
+        tags = a.get("tags", [])
+        tags_str = ", ".join(tags)
+        tags_escaped = html_module.escape(tags_str)
+        read_time = a.get("readTime", "3 min read")
+        word_count = len(summary_raw.split())
+        editors_note = a.get("editorsNote", "")
+        primary_kw = html_module.escape(a.get("primaryKeyword", tags[0] if tags else "mold"))
+
+        # JSON-LD articleBody (plain text, escaped for JSON)
+        article_body_text = summary_raw.replace('"', '\\"').replace("\n", " ")
+
+        # Editor's note HTML
+        editors_note_html = ""
+        if editors_note and len(editors_note.strip()) > 10:
+            editors_note_html = f'<aside class="editors-note"><strong>Editor\'s Note:</strong> {html_module.escape(editors_note)}</aside>'
+
+        # Hero image HTML
+        hero_html = ""
+        if img:
+            hero_html = f'<img class="hero" src="{img}" alt="{img_alt}" loading="eager">'
+
+        # Source link
+        source_html = f'<a href="{source_url}" rel="noopener" target="_blank">{source}</a>' if source_url else source
 
         page_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1216,19 +1273,24 @@ def generate_article_pages(data):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{seo_title}</title>
   <meta name="description" content="{seo_desc}">
-  <meta name="keywords" content="{tags_str}">
+  <meta name="keywords" content="{tags_escaped}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://themoldreport.org/a/{aid}.html">
 
-  <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{seo_desc}">
   <meta property="og:site_name" content="The Mold Report">
   <meta property="og:url" content="https://themoldreport.org/a/{aid}.html">
+  <meta property="og:locale" content="en_US">
   {f'<meta property="og:image" content="{img}">' if img else ''}
+  {f'<meta property="og:image:alt" content="{img_alt}">' if img else ''}
   <meta property="article:published_time" content="{pub_date}">
   <meta property="article:section" content="{category}">
+  {"".join(f'<meta property="article:tag" content="{html_module.escape(t)}">' for t in tags)}
 
-  <!-- Twitter/X Card -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{seo_desc}">
@@ -1243,43 +1305,90 @@ def generate_article_pages(data):
     "description": "{seo_desc}",
     "image": "{img}",
     "datePublished": "{pub_date}",
+    "wordCount": {word_count},
+    "articleBody": "{article_body_text[:500]}",
     "author": {{
       "@type": "Organization",
-      "name": "The Mold Report"
+      "name": "The Mold Report",
+      "url": "https://themoldreport.org"
     }},
     "publisher": {{
       "@type": "Organization",
       "name": "The Mold Report",
-      "url": "https://themoldreport.org"
+      "url": "https://themoldreport.org",
+      "logo": {{
+        "@type": "ImageObject",
+        "url": "https://themoldreport.org/logo.png"
+      }}
     }},
     "mainEntityOfPage": {{
       "@type": "WebPage",
       "@id": "https://themoldreport.org/a/{aid}.html"
     }},
     "articleSection": "{category}",
-    "keywords": "{tags_str}"
+    "keywords": "{tags_escaped}",
+    "isAccessibleForFree": true
   }}
   </script>
 
-  <!-- Auto-redirect to full site with article open -->
-  <meta http-equiv="refresh" content="0;url={redirect_url}">
-  <link rel="canonical" href="https://themoldreport.org/a/{aid}.html">
-
   <style>
-    body {{ font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 20px; color: #111; }}
-    h1 {{ font-size: 28px; line-height: 1.2; margin-bottom: 12px; }}
-    .meta {{ color: #666; font-size: 14px; margin-bottom: 24px; }}
-    p {{ font-size: 16px; line-height: 1.7; color: #333; }}
-    a {{ color: #1B4D3E; }}
-    .back {{ display: inline-block; margin-top: 24px; font-weight: 600; }}
+    *,*::before,*::after{{box-sizing:border-box}}
+    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:720px;margin:0 auto;padding:20px;color:#1a1a1a;line-height:1.7;background:#fafaf8}}
+    .site-header{{padding:16px 0;border-bottom:2px solid #1B4D3E;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between}}
+    .site-header a{{color:#1B4D3E;text-decoration:none;font-weight:700;font-size:18px}}
+    .site-header .home{{font-size:14px;color:#666}}
+    .category-badge{{display:inline-block;background:#1B4D3E;color:#fff;padding:3px 10px;border-radius:3px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}}
+    h1{{font-size:32px;line-height:1.2;margin:0 0 16px;color:#111}}
+    .article-meta{{color:#666;font-size:14px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:8px 16px}}
+    .article-meta a{{color:#1B4D3E}}
+    .hero{{width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:24px}}
+    .article-body p{{font-size:17px;line-height:1.8;color:#333;margin-bottom:16px}}
+    .editors-note{{background:#f0f7f4;border-left:3px solid #1B4D3E;padding:12px 16px;margin:24px 0;font-size:15px;color:#444;border-radius:0 6px 6px 0}}
+    .tags{{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0e0}}
+    .tags span{{display:inline-block;background:#f0f0f0;padding:4px 10px;border-radius:4px;font-size:13px;margin:4px 4px 4px 0;color:#555}}
+    .source-link{{margin-top:24px;padding:16px;background:#f8f8f6;border-radius:8px;font-size:15px}}
+    .source-link a{{color:#1B4D3E;font-weight:600}}
+    .site-footer{{margin-top:48px;padding:24px 0;border-top:2px solid #1B4D3E;font-size:13px;color:#888;text-align:center}}
+    .site-footer a{{color:#1B4D3E}}
+    @media(max-width:600px){{h1{{font-size:24px}}body{{padding:16px}}.article-body p{{font-size:16px}}}}
   </style>
 </head>
 <body>
-  <h1>{title}</h1>
-  <div class="meta">{source} &middot; {category}</div>
-  <p>{desc}...</p>
-  <a class="back" href="{redirect_url}">Read full article on The Mold Report &rarr;</a>
-  <script>window.location.replace("{redirect_url}");</script>
+  <header class="site-header">
+    <a href="https://themoldreport.org">The Mold Report</a>
+    <a class="home" href="https://themoldreport.org">&#8592; All Articles</a>
+  </header>
+
+  <article>
+    <span class="category-badge">{category}</span>
+    <h1>{title}</h1>
+    <div class="article-meta">
+      <span>Source: {source_html}</span>
+      <span>{pub_display}</span>
+      <span>{read_time}</span>
+    </div>
+
+    {hero_html}
+
+    <div class="article-body">
+      {article_body_html}
+    </div>
+
+    {editors_note_html}
+
+    <div class="source-link">
+      &#128279; <a href="{source_url}" target="_blank" rel="noopener">Read original source</a>
+    </div>
+
+    <div class="tags">
+      {"".join(f'<span>{html_module.escape(t)}</span>' for t in tags)}
+    </div>
+  </article>
+
+  <footer class="site-footer">
+    <p><a href="https://themoldreport.org">The Mold Report</a> &mdash; AI-curated mold &amp; indoor health news</p>
+    <p>&copy; 2026 The Mold Report. All rights reserved.</p>
+  </footer>
 </body>
 </html>"""
 
@@ -1288,7 +1397,8 @@ def generate_article_pages(data):
             f.write(page_html)
         count += 1
 
-    print(f"  ✓ Generated {count} article share pages in /a/")
+    print(f"  ✓ Generated {count} standalone article pages in /a/")
+
 
 
 # =========================================
@@ -2028,6 +2138,78 @@ How it works:
         deploy_to_github()
 
 
+def generate_sitemap(data):
+    """Generate sitemap.xml for search engine discovery."""
+    from datetime import datetime
+    site_url = "https://themoldreport.org"
+    
+    urls = []
+    # Homepage — highest priority
+    urls.append(f"""  <url>
+    <loc>{site_url}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+    
+    # About page
+    urls.append(f"""  <url>
+    <loc>{site_url}/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>""")
+    
+    # Mold 101
+    urls.append(f"""  <url>
+    <loc>{site_url}/mold-101.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>""")
+
+    # Category page
+    urls.append(f"""  <url>
+    <loc>{site_url}/category.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    # Individual article pages — high priority, they carry the SEO weight
+    for a in data.get("articles", []):
+        if a.get("status") != "published":
+            continue
+        aid = a["id"]
+        pub_date = a.get("publishedAt", "")[:10]  # YYYY-MM-DD
+        lastmod = f"<lastmod>{pub_date}</lastmod>" if pub_date else ""
+        urls.append(f"""  <url>
+    <loc>{site_url}/a/{aid}.html</loc>
+    {lastmod}
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>""")
+
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>"""
+
+    sitemap_path = SCRIPT_DIR / "sitemap.xml"
+    with open(sitemap_path, 'w') as f:
+        f.write(sitemap)
+    print(f"  ✓ Generated sitemap.xml with {len(urls)} URLs")
+
+
+def generate_robots_txt():
+    """Generate robots.txt allowing full indexing."""
+    robots = """User-agent: *
+Allow: /
+
+Sitemap: https://themoldreport.org/sitemap.xml
+"""
+    robots_path = SCRIPT_DIR / "robots.txt"
+    with open(robots_path, 'w') as f:
+        f.write(robots)
+    print("  ✓ Generated robots.txt")
+
+
 def deploy_to_github():
     """Push updated files to GitHub Pages."""
     import subprocess
@@ -2057,7 +2239,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json", "sitemap.xml", "robots.txt", "category.html"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory
