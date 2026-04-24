@@ -1650,19 +1650,19 @@
         <form id="submitForm" class="form-grid">
           <div class="field">
             <label for="sName">Your Name</label>
-            <input type="text" id="sName" placeholder="Jane Doe" required>
+            <input type="text" id="sName" name="name" placeholder="Jane Doe" required>
           </div>
           <div class="field">
             <label for="sEmail">Email</label>
-            <input type="email" id="sEmail" placeholder="jane@email.com" required>
+            <input type="email" id="sEmail" name="email" placeholder="jane@email.com" required>
           </div>
           <div class="field form-full">
             <label for="sTitle">Headline</label>
-            <input type="text" id="sTitle" placeholder="What's the story?" required>
+            <input type="text" id="sTitle" name="title" placeholder="What's the story?" required>
           </div>
           <div class="field">
             <label for="sCat">Category</label>
-            <select id="sCat">
+            <select id="sCat" name="category">
               <option value="news">News</option>
               <option value="research">Research</option>
               <option value="regulation">Regulation</option>
@@ -1672,12 +1672,12 @@
           </div>
           <div class="field">
             <label for="sUrl">Source URL <span style="font-weight:400;color:var(--text-3);">(optional)</span></label>
-            <input type="url" id="sUrl" placeholder="https://...">
+            <input type="url" id="sUrl" name="url" placeholder="https://...">
             <span style="font-size:11px;color:var(--text-3);margin-top:2px;">Including a link helps us verify faster, but isn't required. We'll research it either way.</span>
           </div>
           <div class="field form-full">
             <label for="sSum">Summary</label>
-            <textarea id="sSum" placeholder="Key details in a few sentences..." required></textarea>
+            <textarea id="sSum" name="summary" placeholder="Key details in a few sentences..." required></textarea>
           </div>
           <div class="form-full" style="text-align:center;">
             <button type="submit" class="btn-primary">Submit for Review</button>
@@ -2444,29 +2444,49 @@ function setupMobileMenu() {
 // FORMS
 // ==========================================
 function setupForms() {
-  document.getElementById('submitForm').addEventListener('submit', (e) => {
+  document.getElementById('submitForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
     const data = {
       name: form.querySelector('#sName').value,
+      _replyto: form.querySelector('#sEmail').value,
       email: form.querySelector('#sEmail').value,
       title: form.querySelector('#sTitle').value,
       url: form.querySelector('#sUrl').value,
       category: form.querySelector('#sCat').value,
       summary: form.querySelector('#sSum').value,
-      submittedAt: new Date().toISOString(),
-      status: 'pending_review'
+      submittedAt: new Date().toISOString()
     };
-    const q = JSON.parse(localStorage.getItem('tmr_subs') || '[]');
-    q.push(data);
-    localStorage.setItem('tmr_subs', JSON.stringify(q));
-    form.style.display = 'none';
-    document.getElementById('submitOk').classList.add('show');
-    setTimeout(() => {
-      form.style.display = '';
-      form.reset();
-      document.getElementById('submitOk').classList.remove('show');
-    }, 4000);
+    try {
+      const resp = await fetch('https://formspree.io/f/mwvalpzg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (resp.ok) {
+        form.style.display = 'none';
+        document.getElementById('submitOk').classList.add('show');
+        setTimeout(() => {
+          form.style.display = '';
+          form.reset();
+          document.getElementById('submitOk').classList.remove('show');
+        }, 4000);
+      } else {
+        btn.textContent = 'Error — try again';
+        btn.style.background = '#c0392b';
+        setTimeout(() => { btn.textContent = origText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }
+    } catch (err) {
+      btn.textContent = 'Network error — try again';
+      btn.style.background = '#c0392b';
+      setTimeout(() => { btn.textContent = origText; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
+    btn.textContent = origText;
+    btn.disabled = false;
   });
 
   document.getElementById('nlForm').addEventListener('submit', (e) => {
