@@ -2,6 +2,31 @@
   "lastUpdated": "2026-04-19T15:13:09.491608+00:00",
   "articles": [
     {
+      "id": "0d71278385f7",
+      "title": "New Study: MARCoNS Bacteria Directly Suppress Alpha-MSH, Confirming Key Step in Shoemaker's Biotoxin Pathway",
+      "summary": "A new peer-reviewed study published in Frontiers in Endocrinology provides the first direct evidence that MARCoNS (Multiple Antibiotic Resistant Coagulase Negative Staphylococci) bacteria suppress alpha-MSH production through specific enzymatic degradation. The research identifies the molecular mechanism by which these nasal biofilm-forming bacteria break down alpha-MSH, a key regulatory peptide in the hypothalamic-pituitary axis. This finding validates a critical node in Dr. Ritchie Shoemaker's biotoxin pathway model, which has long proposed that MARCoNS colonization in mold-exposed patients leads to MSH suppression, driving downstream dysregulation of cytokines, hormones, and immune function. The study's authors note that this mechanism may explain why MARCoNS-positive patients often present with treatment-resistant symptoms including fatigue, cognitive impairment, and hormonal imbalances.",
+      "source": "frontiersin.org",
+      "sourceUrl": "https://doi.org/10.3389/fendo.2026.1728408",
+      "author": "Frontiers in Endocrinology",
+      "publishedAt": "2026-04-22T00:00:00Z",
+      "category": "Research",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800",
+      "imageAlt": "Microscopic view of bacterial biofilm formation relevant to MARCoNS research",
+      "status": "published",
+      "qcReviewer": "editorial_pipeline_v3",
+      "qcTimestamp": "2026-04-22T12:00:00Z",
+      "tags": [
+        "MARCoNS",
+        "alpha-MSH",
+        "Shoemaker Protocol",
+        "CIRS",
+        "biotoxin pathway",
+        "research"
+      ],
+      "featured": true,
+      "editorsNote": "Editor's Note: This study provides direct molecular evidence for a mechanism long proposed by Dr. Ritchie Shoemaker \u2014 that MARCoNS bacteria in the nasal passages of mold-exposed patients actively degrade alpha-MSH, a master regulatory peptide. In the Shoemaker biotoxin pathway, MSH suppression is a critical downstream effect of biotoxin exposure in genetically susceptible individuals (HLA-DR positive), leading to dysregulated cytokines (TGF-\u03b21, MMP-9, C4a), hormonal disruption, and chronic inflammation. This is the first peer-reviewed confirmation of the specific enzymatic pathway by which MARCoNS achieve this suppression. For patients currently in the Shoemaker Protocol, this research reinforces why MARCoNS eradication (typically via BEG spray) is an essential early step before VIP nasal spray can be effective."
+    },
+    {
       "id": "3848c4e074ce",
       "title": "Jordan Peterson's Health Decline Linked to Mold Exposure and CIRS Flare-Up",
       "summary": "Jordan Peterson experienced a health decline last summer following what his family describes as a flare-up likely triggered by mold exposure and stress. The condition referenced is mold-related illness involving an innate immune response that may be activated in genetically susceptible individuals following exposure to water-damaged buildings. The information was shared publicly by Peterson's family to explain the worsening of his condition.\n\nMold-related illness is not a mold allergy or fungal infection. It may involve activation of the innate immune system in response to biotoxins found in water-damaged environments. The family's account links both environmental exposure and physiological stress as contributing factors to the flare-up.\n\nFor people managing mold-related illness, this case draws public attention to the possibility that symptoms may worsen following re-exposure or significant stress. The Peterson family's disclosure may help others recognize that multi-system health decline, when linked to building exposure, may have a documented biological basis.",
@@ -384,30 +409,6 @@
       "primaryKeyword": "mold remediation"
     },
     {
-      "id": "501d423ae23f",
-      "title": "Metallic Nanoparticles Show Promise Against Human Fungal Infections",
-      "summary": "A review published in the Saudi Pharmaceutical Journal examines the potential of metallic nanoparticles as antifungal treatments for human fungal infections. The research surveys current evidence on how these materials may work against fungal pathogens, offering a possible avenue for addressing infections that remain difficult to treat with existing therapies. Clinicians and researchers tracking emerging antifungal strategies will want to follow this area as findings mature toward clinical application.",
-      "source": "PubMed / Saudi Pharm J",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37649674/",
-      "publishedAt": "2026-04-18T16:10:12.309711+00:00",
-      "category": "research",
-      "tags": [
-        "mold research",
-        "mold health study"
-      ],
-      "status": "published",
-      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
-      "readTime": 2,
-      "editorsNote": "Nanoparticle-based antifungals are still largely in early research stages; patients should consult their treating physician before drawing conclusions about treatment implications.",
-      "seoTitle": "Metallic Nanoparticles for Fungal Infections | The Mold Report",
-      "seoDescription": "Explore how metallic nanoparticles show promise as antifungal treatments for human fungal infections according to recent pharmaceutical research.",
-      "qcReviewer": "AI Editorial Pipeline v2.0",
-      "qcTimestamp": "2026-04-18T16:21:53.655245+00:00",
-      "featured": false,
-      "imageAlt": "Metallic Nanoparticles Show Promise Against Human Fungal Infections",
-      "primaryKeyword": "metallic nanoparticles show mold"
-    },
-    {
       "id": "7c20d4d71ec0",
       "title": "Chronic Inflammatory Response Syndrome: Evidence for Treatment Efficacy",
       "summary": "A peer-reviewed paper published in Annals of Medicine and Surgery examines research on treatments related to Chronic Inflammatory Response Syndrome (CIRS), a condition studied by researchers in connection with mold and biotoxin exposure. Authors Dooley, Vukelic, and Jim review what current research suggests regarding therapeutic approaches. For readers interested in this emerging area of study, this kind of evidence-based analysis presents how researchers are evaluating various interventions. This account has not been independently verified by The Mold Report.",
@@ -464,8 +465,8 @@
       "id": "7ce707367a11",
       "title": "Jaipur Doctor Creates Diagnostic Tool for Hypersensitivity Pneumonitis",
       "summary": "A physician in Jaipur has developed a structured diagnostic tool designed to identify Hypersensitivity Pneumonitis, a lung inflammation condition triggered by repeated exposure to organic antigens such as mold, bird droppings, or animal dander. The tool, which focuses on systematically evaluating a patient's exposure history, has received recognition from pulmonology experts internationally. For patients experiencing unexplained respiratory symptoms, this kind of standardized approach to diagnosis can be a meaningful step toward identifying an environmental cause and beginning appropriate treatment.",
-      "source": "www.google.com",
-      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://www.etvbharat.com/en/health/dr-sheetu-singh-a-respiratory-disease-specialist-from-jaipur-has-developed-a-new-tool-for-the-identification-of-hypersensitivity-pneumonitis-enn26041802596&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw2xpFszZ9AvXhpsQXzzGzFk",
+      "source": "etvbharat.com",
+      "sourceUrl": "https://www.etvbharat.com/en/health/dr-sheetu-singh-a-respiratory-disease-specialist-from-jaipur-has-developed-a-new-tool-for-the-identification-of-hypersensitivity-pneumonitis-enn26041802596",
       "publishedAt": "2026-04-18T11:51:38+00:00",
       "category": "news",
       "tags": [
@@ -484,40 +485,15 @@
       "qcTimestamp": "2026-04-18T16:12:39.405718+00:00",
       "featured": false,
       "imageAlt": "Jaipur Doctor Creates Diagnostic Tool for Hypersensitivity Pneumonitis",
-      "primaryKeyword": "mold respiratory illness"
-    },
-    {
-      "id": "769f7f5e7364",
-      "title": "Michigan Prison Inmate Claims Mold Is Making Her Sick. Lawmakers Push Governor",
-      "summary": "Krystal Clark, an inmate at Huron Valley Correctional Facility in Michigan, has reported that mold exposure inside the prison is causing serious health problems after 16 years of incarceration. Clark's claims have prompted state lawmakers to pressure Governor Gretchen Whitmer's administration to address facility conditions. The case highlights broader concerns about indoor air quality and mold contamination in Michigan's correctional system. Prison conditions, including moisture control and ventilation, have come under scrutiny as potential public health issues affecting both inmates and staff. The incident reflects growing awareness of mold-related health complaints in institutional settings, though specific medical documentation and testing results were not detailed in available reports. This case matters because it raises questions about environmental health standards in correctional facilities, where vulnerable populations spend extended periods in potentially contaminated spaces with limited control over their surroundings.",
-      "source": "Clickondetroit",
-      "sourceUrl": "https://www.clickondetroit.com/news/local/2026/04/17/michigan-inmate-says-toxic-mold-is-making-her-sick-lawmakers-urge-gov-whitmer-to-take-action/",
-      "author": "Clickondetroit",
-      "publishedAt": "2026-04-18T09:54:31.502813+00:00",
-      "category": "regulation",
-      "imageUrl": "https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/4EBUnZ0BdFUvoNnVooJn/1776461216860_1920x1080_thumbnail.jpg?_a=DATAg1fkZAA0",
-      "imageAlt": "Michigan Prison Inmate Claims Mold Is Making Her Sick. Lawmakers Push Governor",
-      "status": "published",
-      "qcReviewer": "AI Editorial Pipeline v1.4",
-      "qcTimestamp": "2026-04-18T09:54:59.622000+00:00",
-      "tags": [
-        "mold testing",
-        "mold policy",
-        "indoor air quality",
-        "mold regulations"
-      ],
-      "featured": false,
-      "readTime": 3,
-      "seoTitle": "Michigan Prison Mold: Inmate's Health Claims | The Mold Report",
-      "seoDescription": "Krystal Clark, an inmate at Huron Valley Correctional Facility in Michigan, has reported that mold exposure inside the prison is causing serious health...",
-      "primaryKeyword": "indoor air quality mold"
+      "primaryKeyword": "mold respiratory illness",
+      "author": "etvbharat.com"
     },
     {
       "id": "20a8089be859",
       "title": "ANU Student Housing Found Contaminated With Toxic Black Mold",
       "summary": "A former student has filed suit against the Australian National University following her stay at Lena Karmel Lodge, alleging that prolonged mold exposure contributed to health concerns. The case highlights ongoing concerns about indoor air quality standards and institutional accountability in student housing. Research suggests some individuals report health symptoms they associate with mold exposure. Residents concerned about mold in university or shared housing should consult with healthcare providers and document their living conditions. This account has not been independently verified by The Mold Report.",
-      "source": "www.google.com",
-      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://www.canberratimes.com.au/story/8552395/anu-x-unilodge-lena-karmel-lodge-filled-with-toxic-black-mould-student/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw1BZbIeBqmg1kqwwmGXcB8n",
+      "source": "canberratimes.com.au",
+      "sourceUrl": "https://www.canberratimes.com.au/story/8552395/anu-x-unilodge-lena-karmel-lodge-filled-with-toxic-black-mould-student/",
       "publishedAt": "2026-04-18T07:30:56+00:00",
       "category": "news",
       "tags": [
@@ -537,14 +513,15 @@
       "qcTimestamp": "2026-04-18T16:18:40.968464+00:00",
       "featured": false,
       "imageAlt": "ANU Student Housing Found Contaminated With Toxic Black Mold",
-      "primaryKeyword": "black mold health risks"
+      "primaryKeyword": "black mold health risks",
+      "author": "canberratimes.com.au"
     },
     {
       "id": "2928828c5dbc",
       "title": "Uponor Faces Lawsuits Over Defective PEX Pipe Sales (2010-2021)",
       "summary": "Uponor faces multiple lawsuits alleging that its AquaPEX pipes, sold between 2010 and 2021, are defective in ways that may contribute to moisture intrusion and mold growth on walls and other structural surfaces. Homeowners and building occupants are at the center of these claims, as hidden pipe failures can create the persistent damp conditions mold requires to establish and spread. Those living or working in affected structures should be aware that unexplained wall discoloration or musty odors may warrant a professional inspection of both plumbing integrity and indoor air quality.",
-      "source": "www.google.com",
-      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://www.plasticsnews.com/end-markets/construction/pn-uponor-pex-pipe-lawsuits/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw306lcQFj8sT17f_wuOuhwc",
+      "source": "plasticsnews.com",
+      "sourceUrl": "https://www.plasticsnews.com/end-markets/construction/pn-uponor-pex-pipe-lawsuits/",
       "publishedAt": "2026-04-17T22:21:37+00:00",
       "category": "regulation",
       "tags": [
@@ -564,55 +541,8 @@
       "qcTimestamp": "2026-04-18T16:19:28.921971+00:00",
       "featured": false,
       "imageAlt": "Uponor Faces Lawsuits Over Defective PEX Pipe Sales (2010-2021)",
-      "primaryKeyword": "indoor air quality mold"
-    },
-    {
-      "id": "4d8221b1cef8",
-      "title": "Advocates Seek Clemency for Michigan Inmate Sickened by Prison Mold",
-      "summary": "Advocates are calling for clemency on behalf of a Michigan inmate who developed serious health complications following documented mold exposure at the state's sole women's correctional facility. At a press conference, speakers presented what they described as a growing body of allegations pointing to hazardous environmental conditions within the institution. The case raises urgent questions about the duty of care owed to incarcerated individuals facing preventable, environment-driven illness.",
-      "source": "www.google.com",
-      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://bridgemi.com/michigan-government/advocates-seek-clemency-for-michigan-inmate-allegedly-sickened-by-mold-in-prison/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw0oPev6BcweB4DwIHvc6HfT",
-      "publishedAt": "2026-04-17T22:14:43+00:00",
-      "category": "news",
-      "tags": [
-        "WHO",
-        "mold news"
-      ],
-      "status": "published",
-      "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
-      "readTime": 2,
-      "editorsNote": "Incarcerated populations remain among the most vulnerable and least-heard victims of toxic mold exposure \u2014 their health outcomes deserve the same rigorous attention as any other patient population.",
-      "seoTitle": "Michigan Inmate Mold Exposure Clemency Case | The Mold Report",
-      "seoDescription": "Advocates seek clemency for Michigan inmate sickened by mold at women's prison. Health issues from documented mold exposure raise growing concerns.",
-      "qcReviewer": "AI Editorial Pipeline v2.0",
-      "qcTimestamp": "2026-04-18T16:20:16.657195+00:00",
-      "featured": false,
-      "imageAlt": "Advocates Seek Clemency for Michigan Inmate Sickened by Prison Mold",
-      "primaryKeyword": "advocates seek clemency mold"
-    },
-    {
-      "id": "0ebe20a6b520",
-      "title": "Woman with serious illness denied release from prison, advocates urge Whitmer",
-      "summary": "Krystal Clark, a 41-year-old mother of four incarcerated at Women's Huron Valley Correctional Facility, is facing a serious illness that some advocates have attributed to mold exposure within the facility. Advocates are urging Governor Whitmer to grant her compassionate release. This account has not been independently verified by The Mold Report. The case highlights concerns some have raised about mold in correctional facilities and inmate health protections. Note: The Mold Report does not diagnose, treat, or confirm mold-related illnesses.",
-      "source": "www.google.com",
-      "sourceUrl": "https://www.google.com/url?rct=j&sa=t&url=https://www.metrotimes.com/news/lawmakers-activists-call-on-gov-whitmer-to-free-woman-they-say-is-gravely-ill-from-prison-mold/&ct=ga&cd=CAIyGjgxNTMxMTc4Yzk0ZjE1MTk6Y29tOmVuOlVT&usg=AOvVaw3jMEx8py19jllJzKZdwHaa",
-      "publishedAt": "2026-04-17T18:31:25+00:00",
-      "category": "regulation",
-      "tags": [
-        "mold policy",
-        "mold regulations"
-      ],
-      "status": "published",
-      "imageUrl": "https://images.unsplash.com/photo-1611326268719-55a69e4316b9?w=800&q=80",
-      "readTime": 2,
-      "editorsNote": "Mold exposure in institutional settings carries well-documented health consequences, and incarcerated individuals remain among the most vulnerable and least-heard populations affected.",
-      "seoTitle": "Mold Exposure & Prison Health | The Mold Report",
-      "seoDescription": "Krystal Clark denied release despite serious illness linked to mold exposure at Women's Huron Valley prison. Advocates urge Governor Whitmer for compassionate release.",
-      "qcReviewer": "AI Editorial Pipeline v2.0",
-      "qcTimestamp": "2026-04-18T16:21:05.129748+00:00",
-      "featured": false,
-      "imageAlt": "Woman with serious illness denied release from prison, advocates urge Whitmer",
-      "primaryKeyword": "woman serious illness mold"
+      "primaryKeyword": "indoor air quality mold",
+      "author": "plasticsnews.com"
     },
     {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
@@ -1788,64 +1718,6 @@
       "seoTitle": "Northshore HOA Mold Lawsuit | The Mold Report",
       "seoDescription": "Northshore homeowners sue their HOA in federal court over unaddressed mold growth and property damage. See what ignored complaints led to legal action.",
       "primaryKeyword": "sick building syndrome"
-    },
-    {
-      "id": "c0e35b0198f1",
-      "title": "House Oversight Committee Presses Michigan Prison Over Mold and Safety Hazards",
-      "originalTitle": "House Oversight Committee demands answers on mold, safety concerns at Huron Valley prison facility",
-      "summary": "The House Oversight Committee has demanded answers from officials responsible for Huron Valley Correctional Facility in Michigan following reports of mold contamination and related safety concerns at the prison. Legislative oversight bodies typically issue such demands when internal complaints or inspections have failed to produce adequate remediation. Reports indicate the committee is seeking documentation on the extent of mold growth, the timeline of known contamination, and what steps facility management has taken to protect incarcerated individuals and staff. Mold exposure in enclosed institutional settings may cause respiratory problems, chronic fatigue, and other health issues, particularly among individuals with underlying conditions. Research suggests that roughly 24% of the population carries a genetic susceptibility that limits the body's ability to clear mold-related toxins, making exposure in confined facilities a significant health concern. This development follows a broader national pattern of aging correctional infrastructure drawing legislative scrutiny. The committee's inquiry may result in mandatory remediation orders, facility inspections, or budget allocations for repairs. No timeline for a formal response from prison officials has been publicly announced.",
-      "source": "Michigan Advance",
-      "sourceUrl": "https://michiganadvance.com/2026/02/24/house-oversight-committee-demands-answers-on-mold-safety-concerns-at-huron-valley-prison-facility/",
-      "author": "Local News",
-      "publishedAt": "2026-02-24T12:00:00Z",
-      "category": "regulation",
-      "imageUrl": "https://images.unsplash.com/photo-1627571615836-4948060412a9?w=800&q=80",
-      "imageAlt": "",
-      "status": "published",
-      "interestScore": 7,
-      "qcReviewer": "seed-backlog",
-      "qcTimestamp": "2026-04-16T13:52:40.783492+00:00",
-      "tags": [
-        "mold remediation",
-        "respiratory illness",
-        "mold policy",
-        "EPA",
-        "mold regulations",
-        "chronic fatigue",
-        "prisons"
-      ],
-      "featured": false,
-      "readTime": 3,
-      "seoTitle": "Congress Demands Answers on Michigan Prison Mold | The Mold Report",
-      "seoDescription": "The House Oversight Committee has demanded answers from officials responsible for Huron Valley Correctional Facility in Michigan following reports of mold...",
-      "primaryKeyword": "mold exposure fatigue"
-    },
-    {
-      "id": "1502b3c4ef22",
-      "title": "Advocates Demand Greater Oversight at Michigan Women's Prison",
-      "originalTitle": "New push for accountability at Michigan women's prison",
-      "summary": "Advocates and oversight groups are pressing for stronger accountability measures at a Michigan women's correctional facility, reports indicate. The push likely follows concerns about conditions inside the institution, which may include issues related to facility maintenance, inmate welfare, or environmental health. Mold and poor air quality are recurring problems in aging correctional facilities across the United States, and reports of substandard living conditions in women's prisons have drawn increased scrutiny from legislators and civil rights organizations in recent years. According to local news, the renewed pressure may stem from complaints filed by incarcerated women or their families, or from findings by an independent inspection. Accountability campaigns of this kind typically call for independent audits, improved reporting requirements, and direct remediation of hazardous conditions. The story reflects a broader national conversation about the responsibility of state governments to maintain safe and habitable environments for incarcerated people, including addressing environmental health risks that disproportionately affect vulnerable populations in institutional settings.",
-      "source": "Click on Detroit",
-      "sourceUrl": "https://www.clickondetroit.com/news/local/2026/02/23/state-hearing-aims-to-address-care-safety-concerns-at-huron-valley-correctional-facility/",
-      "author": "Local News",
-      "publishedAt": "2026-02-23T12:00:00Z",
-      "category": "news",
-      "imageUrl": "https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/EhiIjJwB356Tr5xQ17H9/1771884456947_1920x1080_thumbnail.jpg?_a=DATAg1fkZAA0",
-      "imageAlt": "",
-      "status": "published",
-      "interestScore": 7,
-      "qcReviewer": "seed-backlog",
-      "qcTimestamp": "2026-04-16T13:52:15.992874+00:00",
-      "tags": [
-        "mold remediation",
-        "prisons",
-        "mold news"
-      ],
-      "featured": false,
-      "readTime": 3,
-      "seoTitle": "Mold & Conditions at Michigan Women's Prison | The Mold Report",
-      "seoDescription": "Advocates and oversight groups are pressing for stronger accountability measures at a Michigan women's correctional facility, reports indicate. The push...",
-      "primaryKeyword": "mold remediation"
     },
     {
       "id": "5fa83f82f934",
@@ -3030,35 +2902,6 @@
       "seoTitle": "Mold & Rodents in Birmingham Public Housing | The Mold Report",
       "seoDescription": "A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.",
       "primaryKeyword": "mold exposure fatigue"
-    },
-    {
-      "id": "d6229c4357b1",
-      "title": "Michigan Prisoner Says Mold Exposure Is Killing Her, Pleads for Governor's Help",
-      "originalTitle": "Michigan inmate with mold illness begs Gov. Whitmer to save her life",
-      "summary": "A Michigan inmate is reportedly suffering from a serious mold-related illness and has made a direct appeal to Governor Gretchen Whitmer, asking for intervention that she says could save her life. Reports indicate the woman believes her condition stems from mold exposure within the correctional facility where she is housed. The case draws attention to ongoing concerns about air quality and environmental health conditions inside Michigan's prison system, where inmates have limited ability to remove themselves from harmful environments. Mold exposure in institutional settings can be particularly dangerous for individuals with genetic susceptibility to mold-related illness, as research suggests their immune systems may struggle to clear biotoxins that others process without symptoms. The inmate's appeal to the governor suggests she has likely exhausted other avenues for relief, including requests through prison medical staff or facility administrators. As of the report's publication, it was not clear whether Whitmer's office had responded. The case may add pressure on state officials to inspect and remediate mold conditions in Michigan correctional facilities.",
-      "source": "Detroit Metro Times",
-      "sourceUrl": "https://www.metrotimes.com/news/michigan-news/michigan-inmate-with-mold-illness-begs-gov-whitmer-to-save-her-life/",
-      "author": "Local News",
-      "publishedAt": "2026-01-05T12:00:00Z",
-      "category": "news",
-      "imageUrl": "https://images.unsplash.com/photo-1627571615836-4948060412a9?w=800&q=80",
-      "imageAlt": "",
-      "status": "published",
-      "interestScore": 7,
-      "qcReviewer": "seed-backlog",
-      "qcTimestamp": "2026-04-16T13:40:15.401138+00:00",
-      "tags": [
-        "office mold",
-        "immune dysfunction",
-        "biotoxin illness",
-        "mold news",
-        "prisons"
-      ],
-      "featured": false,
-      "readTime": 3,
-      "seoTitle": "Michigan Prisoner: Mold Exposure Is Killing Me | The Mold Report",
-      "seoDescription": "A Michigan inmate is pleading with Gov. Gretchen Whitmer to intervene, saying mold exposure inside her correctional facility is causing a life-threatening illness.",
-      "primaryKeyword": "biotoxin illness"
     }
   ]
 }
