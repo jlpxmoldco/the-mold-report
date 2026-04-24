@@ -88,10 +88,12 @@ except ImportError:
 SCRIPT_DIR = Path(__file__).parent
 ARTICLES_FILE = SCRIPT_DIR / "articles.json"
 INDEX_FILE = SCRIPT_DIR / "index.html"
-MODEL = "claude-sonnet-4-6"
+MODEL = "claude-sonnet-4-6"             # Nuanced gates (editorial, research lens)
+MODEL_FAST = "claude-haiku-4-5-20251001" # Fast gates (interest, headline, compliance, SEO)
 DEFAULT_MIN_SCORE = 7       # Only publish articles scoring this or higher
 MAX_ARTICLES_PER_RUN = 5    # Cap per run to keep quality high
 MAX_TOTAL_ARTICLES = 200    # Trim old articles beyond this
+PIPELINE_TIMEOUT_SECONDS = 420  # 7 minutes — stop processing new articles after this
 
 RSS_FEEDS = []
 for i in range(1, 20):
@@ -127,11 +129,8 @@ def get_corpus_context():
 
 # PubMed eutils search queries (fetches recent peer-reviewed research)
 PUBMED_SEARCHES = [
-    "mold illness OR mold-related illness OR chronic inflammatory response syndrome",
-    "mycotoxin exposure health effects",
-    "indoor mold health OR water-damaged building illness",
-    "Stachybotrys OR Aspergillus fumigatus pathogenesis",
-    "TGF-beta1 mold OR MMP-9 biotoxin OR MSH mold",
+    "mold illness OR mycotoxin exposure OR chronic inflammatory response syndrome OR water-damaged building",
+    "TGF-beta1 mold OR MMP-9 biotoxin OR MSH mold OR Stachybotrys health",
 ]
 PUBMED_DAYS_BACK = 30   # Only fetch articles from last 30 days
 PUBMED_MAX_PER_QUERY = 5
@@ -279,8 +278,8 @@ These rules MUST be followed when writing or reviewing any article:
 # =========================================
 # CLAUDE API WRAPPER
 # =========================================
-def call_claude(system_prompt, user_prompt, max_tokens=2000):
-    """Call Claude API as a sub-agent."""
+def call_claude(system_prompt, user_prompt, max_tokens=2000, model=None):
+    """Call Claude API as a sub-agent. Pass model=MODEL_FAST for cheap/fast gates."""
     if anthropic is None:
         print("  ⚠ anthropic SDK not installed. Run: pip install anthropic")
         return None
@@ -289,11 +288,12 @@ def call_claude(system_prompt, user_prompt, max_tokens=2000):
         print("  ⚠ ANTHROPIC_API_KEY not set.")
         return None
     import time
+    use_model = model or MODEL
     client = anthropic.Anthropic(api_key=api_key, timeout=30.0)
     for attempt in range(3):
         try:
             message = client.messages.create(
-                model=MODEL,
+                model=use_model,
                 max_tokens=max_tokens,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}]
@@ -422,7 +422,7 @@ Summary: {article['summary'][:400]}
 Source: {article['source']}
 Category: {article['category']}"""
 
-    result = call_claude(system + get_corpus_context(), prompt, max_tokens=200)
+    result = call_claude(system + get_corpus_context(), prompt, max_tokens=200, model=MODEL_FAST)
     if result:
         try:
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
@@ -563,7 +563,7 @@ Category: {article['category']}
 Summary excerpt: {article['summary'][:300]}
 Source: {article['source']}"""
 
-    result = call_claude(system, prompt, max_tokens=200)
+    result = call_claude(system, prompt, max_tokens=200, model=MODEL_FAST)
     if result:
         try:
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
@@ -675,7 +675,7 @@ Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}"""
 
     article['_compliance_pass'] = True  # default: pass if API/parsing fails
-    result = call_claude(system, prompt, max_tokens=800)
+    result = call_claude(system, prompt, max_tokens=800, model=MODEL_FAST)
     if result:
         try:
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
@@ -1054,7 +1054,7 @@ Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}
 Source: {article['source']}"""
 
-    result = call_claude(system, prompt, max_tokens=300)
+    result = call_claude(system, prompt, max_tokens=300, model=MODEL_FAST)
     if result:
         try:
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
@@ -1451,14 +1451,16 @@ def fetch_rss():
                     pass
 
             domain = urlparse(link).netloc.replace("www.", "") if link else "Unknown"
+            # Use full domain for source name (e.g. "canberratimes.com.au") not truncated
+            source_name = domain if domain != "Unknown" else "Unknown"
 
             articles.append({
                 "id": gen_id(title),
                 "title": title,
                 "summary": summary,
-                "source": domain.split(".")[0].title(),
+                "source": source_name,
                 "sourceUrl": link,
-                "author": domain.split(".")[0].title(),
+                "author": source_name,
                 "publishedAt": pub_date,
                 "category": classify_article(title, summary),
                 "imageUrl": "",
@@ -1883,8 +1885,18 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
 
     published = []
     rejected = []
+    import time as _time
+    _pipeline_start = _time.monotonic()
 
     for article in fresh:
+        # Check timeout before starting a new article
+        elapsed = _time.monotonic() - _pipeline_start
+        if elapsed > PIPELINE_TIMEOUT_SECONDS:
+            print(f"\n⏱ Pipeline timeout ({int(elapsed)}s > {PIPELINE_TIMEOUT_SECONDS}s). "
+                  f"Stopping with {len(published)} published, {len(rejected)} rejected.")
+            print(f"  Remaining {len(fresh) - len(published) - len(rejected)} articles deferred to next run.")
+            break
+
         print(f"\n{'─' * 56}")
         print(f"  {article['title'][:65]}")
         print(f"  {article['source']} | {article['category']}")
