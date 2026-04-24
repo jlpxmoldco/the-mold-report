@@ -2103,9 +2103,11 @@ function renderHero(items) {
     el.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-3);padding:60px 0;">No articles in this category yet.</p>';
     return;
   }
-  const lead = items[0];
+  // Featured articles float to the top of the hero
+  const sorted = [...items].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  const lead = sorted[0];
   // Show up to 3 side articles to fill the right column
-  const sides = items.slice(1, Math.min(4, items.length));
+  const sides = sorted.slice(1, Math.min(4, sorted.length));
   const leadImg = isFallbackImg(lead.imageUrl)
     ? fallbackHtml(lead.category, 'position:absolute;inset:0;')
     : `<img src="${lead.imageUrl}" alt="${lead.imageAlt}" loading="eager" data-cat="${lead.category}" data-fbstyle="position:absolute;inset:0;" onerror="imgErr(this)">`;
