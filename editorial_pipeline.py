@@ -2038,6 +2038,237 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
 
 
 # =========================================
+# FETCH-ONLY MODE (no API key needed)
+# =========================================
+def fetch_only_pipeline():
+    """
+    Fetch-only mode: gather candidates WITHOUT needing an API key.
+
+    Runs: RSS fetch → PubMed fetch → Gov feeds → Tips → Dedup → Freshness gate →
+          Source verification gate → Output candidates.json
+
+    The Claude session then evaluates each candidate (interest, headline, editorial,
+    compliance, research alignment, SEO) and writes approved articles to approved.json.
+    Finally, --publish mode takes approved.json and deploys.
+
+    This is the secure pattern: the pipeline script never touches the API key.
+    """
+    print("=" * 60)
+    print("  THE MOLD REPORT — Fetch-Only Mode")
+    print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("=" * 60)
+
+    # Load existing articles
+    data = load_articles()
+    existing_ids = {a["id"] for a in data["articles"]}
+    existing_articles = data["articles"]
+    print(f"\n→ {len(existing_ids)} articles currently published")
+
+    # Fetch from all sources
+    raw = []
+    raw.extend(fetch_rss())
+    raw.extend(fetch_pubmed())
+    raw.extend(fetch_gov_rss())
+    raw.extend(fetch_tips())
+
+    # Dedup across all sources
+    seen = set()
+    deduped = []
+    for a in raw:
+        if a["id"] not in existing_ids and a["id"] not in seen:
+            seen.add(a["id"])
+            deduped.append(a)
+    fresh = deduped
+    print(f"\n→ {len(fresh)} new articles after dedup (from {len(raw)} raw)\n")
+
+    # Load rejection cache
+    _reject_cache_file = SCRIPT_DIR / ".rejected_cache.json"
+    _reject_cache = {}
+    if _reject_cache_file.exists():
+        try:
+            _reject_cache = json.load(open(_reject_cache_file))
+            if isinstance(_reject_cache, list):
+                _reject_cache = {rid: datetime.now(timezone.utc).isoformat() for rid in _reject_cache}
+            cutoff = (datetime.now(timezone.utc) - __import__('datetime').timedelta(days=30)).isoformat()
+            _reject_cache = {k: v for k, v in _reject_cache.items() if v > cutoff}
+        except: pass
+    _rejected_ids = set(_reject_cache.keys())
+    fresh = [a for a in fresh if a["id"] not in _rejected_ids]
+    print(f"→ {len(_rejected_ids)} cached rejections skipped")
+
+    if not fresh:
+        print("✓ Nothing new. Site is up to date.")
+        # Write empty candidates file so the caller knows
+        candidates_file = SCRIPT_DIR / "candidates.json"
+        with open(candidates_file, "w") as f:
+            json.dump([], f, indent=2, ensure_ascii=False)
+        print(f"✓ Wrote 0 candidates to candidates.json")
+        return
+
+    candidates = []
+    rejected = []
+
+    for article in fresh:
+        print(f"\n{'─' * 56}")
+        print(f"  {article['title'][:65]}")
+        print(f"  {article['source']} | {article['category']}")
+        print(f"{'─' * 56}")
+
+        # Gate 0: Duplicate detection (content-aware, no API)
+        all_existing = existing_articles + candidates
+        article = duplicate_detection_agent(article, all_existing)
+        if not article.get('_dedup_pass', True):
+            print(f"  ✗ REJECTED: duplicate of {article.get('_duplicate_of', '?')}")
+            rejected.append(("duplicate", article))
+            continue
+
+        # Gate 1: Freshness (no API)
+        if not freshness_gate(article):
+            rejected.append(("freshness", article))
+            continue
+
+        # Gate 2: Source verification (no API, tips exempt)
+        is_tip = article.get('_source_type') == 'reader_tip'
+        if not is_tip and not source_verification_gate(article):
+            rejected.append(("source", article))
+            continue
+
+        # Passed all non-API gates — this is a candidate
+        print(f"  ✓ CANDIDATE (passed dedup + freshness + source)")
+        candidates.append(article)
+
+    # Cache rejections
+    now = datetime.now(timezone.utc).isoformat()
+    for reason, art in rejected:
+        _reject_cache[art["id"]] = now
+    with open(_reject_cache_file, "w") as _f:
+        json.dump(_reject_cache, _f)
+
+    # Write candidates
+    candidates_file = SCRIPT_DIR / "candidates.json"
+    # Clean internal flags for output (keep raw data for Claude to evaluate)
+    output = []
+    for c in candidates:
+        clean = {k: v for k, v in c.items() if not k.startswith('_')}
+        output.append(clean)
+    with open(candidates_file, "w") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print(f"\n{'=' * 60}")
+    print(f"  FETCH-ONLY RESULTS")
+    print(f"  Candidates: {len(candidates)}")
+    print(f"  Rejected:   {len(rejected)}")
+    if rejected:
+        reasons = {}
+        for reason, _ in rejected:
+            reasons[reason] = reasons.get(reason, 0) + 1
+        for reason, count in reasons.items():
+            print(f"    - {reason}: {count}")
+    print(f"  Output: candidates.json")
+    print(f"{'=' * 60}")
+
+
+# =========================================
+# PUBLISH MODE (no API key needed)
+# =========================================
+def publish_approved(approved_file):
+    """
+    Publish mode: take pre-scored/approved articles and deploy them.
+
+    Reads approved articles from a JSON file (written by the Claude session),
+    runs photo_agent (no API), saves to articles.json, rebuilds index.html,
+    generates share pages, and deploys to GitHub.
+
+    Expected input format: list of article objects, each with all required fields
+    (id, title, summary, source, sourceUrl, category, publishedAt, imageUrl)
+    plus optional pipeline metadata (interest_score, seoTitle, seoDescription).
+    """
+    print("=" * 60)
+    print("  THE MOLD REPORT — Publish Mode")
+    print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"  Input: {approved_file}")
+    print("=" * 60)
+
+    approved_path = Path(approved_file)
+    if not approved_path.exists():
+        print(f"⚠ File not found: {approved_file}")
+        return
+
+    try:
+        with open(approved_path) as f:
+            content = f.read().strip()
+            if not content:
+                print("✓ Empty file — nothing to publish.")
+                return
+            approved = json.loads(content)
+    except (json.JSONDecodeError, ValueError) as e:
+        print(f"⚠ Invalid JSON in {approved_file}: {e}")
+        return
+
+    if not approved:
+        print("✓ No approved articles to publish.")
+        return
+
+    print(f"\n→ {len(approved)} approved articles to publish")
+
+    data = load_articles()
+    existing_ids = {a["id"] for a in data["articles"]}
+    published = []
+
+    for article in approved:
+        aid = article.get("id", "?")
+        if aid in existing_ids:
+            print(f"  ⚠ Skipping {aid} — already published")
+            continue
+
+        print(f"\n  Publishing: {article['title'][:65]}")
+
+        # Run photo agent (no API needed — just OG/Unsplash URL assignment)
+        article = photo_agent(article)
+
+        # Set publish metadata
+        article['status'] = 'published'
+        article['qcReviewer'] = 'AI Editorial Pipeline v1.4 (session-scored)'
+        article['qcTimestamp'] = datetime.now(timezone.utc).isoformat()
+        if not article.get('publishedAt'):
+            article['publishedAt'] = datetime.now(timezone.utc).isoformat()
+
+        published.append(article)
+        print(f"  ✓ PUBLISHED")
+
+    if not published:
+        print("\n✓ No new articles to publish (all already on site).")
+        return
+
+    # Merge into existing articles
+    data["articles"] = published + data["articles"]
+    data["articles"].sort(key=lambda a: a.get("publishedAt", ""), reverse=True)
+
+    # Set featured flags
+    for a in data["articles"]:
+        a["featured"] = False
+    for a in data["articles"][:2]:
+        a["featured"] = True
+
+    # Trim if over max
+    if len(data["articles"]) > MAX_TOTAL_ARTICLES:
+        trimmed = len(data["articles"]) - MAX_TOTAL_ARTICLES
+        data["articles"] = data["articles"][:MAX_TOTAL_ARTICLES]
+        print(f"  ✂ Trimmed {trimmed} oldest articles (max {MAX_TOTAL_ARTICLES})")
+
+    # Save everything
+    save_articles(data)
+    rebuild_embedded(data)
+    generate_article_pages(data)
+
+    print(f"\n{'=' * 60}")
+    print(f"  PUBLISH RESULTS")
+    print(f"  New articles published: {len(published)}")
+    print(f"  Total on site: {len(data['articles'])}")
+    print(f"{'=' * 60}")
+
+
+# =========================================
 # COMPLIANCE AUDIT (standalone)
 # =========================================
 def compliance_check_existing():
@@ -2115,11 +2346,15 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 How it works:
-  Run with no arguments for the full auto-publish pipeline.
-  Articles scoring 7+ that pass all safety gates get published automatically.
-  No human review step needed.
+  Run with no arguments for the full auto-publish pipeline (needs API key).
 
-  python editorial_pipeline.py              # Full auto-publish
+  Scheduled task mode (no API key needed):
+  python editorial_pipeline.py --fetch-only        # Step 1: fetch + filter → candidates.json
+  # Claude session scores candidates here
+  python editorial_pipeline.py --publish approved.json  # Step 2: publish + deploy
+
+  Other modes:
+  python editorial_pipeline.py              # Full auto-publish (needs ANTHROPIC_API_KEY)
   python editorial_pipeline.py --dry-run    # Process but don't save
   python editorial_pipeline.py --min-score 6  # Lower the bar
   python editorial_pipeline.py --compliance-check  # Audit existing articles
@@ -2134,21 +2369,30 @@ How it works:
                         help="Generate SEO meta titles/descriptions for existing articles")
     parser.add_argument("--deploy", action="store_true",
                         help="Push to GitHub Pages after pipeline runs")
+    parser.add_argument("--fetch-only", action="store_true",
+                        help="Fetch and filter candidates only (no API key needed). Outputs candidates.json")
+    parser.add_argument("--publish", type=str, metavar="FILE",
+                        help="Publish pre-approved articles from FILE (no API key needed). Deploys to GitHub.")
     args = parser.parse_args()
 
-    if args.seo_backfill:
+    if args.fetch_only:
+        fetch_only_pipeline()
+    elif args.publish:
+        publish_approved(args.publish)
+        # Auto-deploy after publishing
+        has_credentials = bool(os.environ.get("GITHUB_TOKEN")) and bool(os.environ.get("GITHUB_REPO_URL"))
+        if args.deploy or has_credentials:
+            deploy_to_github()
+    elif args.seo_backfill:
         seo_backfill()
     elif args.compliance_check:
         compliance_check_existing()
     else:
         run_pipeline(min_score=args.min_score, dry_run=args.dry_run)
-
-    # Auto-deploy to GitHub Pages
-    # Deploy if: (a) --deploy flag is set, OR (b) GITHUB_TOKEN is present in env
-    # This ensures scheduled tasks auto-deploy without needing the flag
-    has_credentials = bool(os.environ.get("GITHUB_TOKEN")) and bool(os.environ.get("GITHUB_REPO_URL"))
-    if not args.dry_run and (args.deploy or has_credentials):
-        deploy_to_github()
+        # Auto-deploy to GitHub Pages
+        has_credentials = bool(os.environ.get("GITHUB_TOKEN")) and bool(os.environ.get("GITHUB_REPO_URL"))
+        if not args.dry_run and (args.deploy or has_credentials):
+            deploy_to_github()
 
 
 def generate_sitemap(data):
