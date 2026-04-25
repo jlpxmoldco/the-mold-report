@@ -197,38 +197,121 @@ def validate_image_url(url, category="default"):
     return url
 
 
-# Fallback images: empty string signals the frontend to use CSS-generated
-# category backgrounds with gradient + icon (no text overlap).
-# The frontend's isFallbackImg() checks for empty or placehold.co URLs.
-FALLBACK_IMAGES = {
-    "research":     "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
-    "regulation":   "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
-    "news":         "https://images.unsplash.com/photo-1643906652169-a750f3f70848?w=800&q=80",
-    "industry":     "https://images.unsplash.com/photo-1511816120351-e2d275a814e3?w=800&q=80",
-    "diagnostics":  "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
-    "default":      "https://images.unsplash.com/photo-1649777882133-525e923fd5d7?w=800&q=80",
+# Image pools: each category and topic has a pool of validated Unsplash
+# photo URLs. The picker (see _pick_image) chooses the least-used URL in the
+# pool given existing articles, with a deterministic tiebreak by article id.
+# This avoids the "9 articles share the same apartment photo" pattern.
+#
+# All photo IDs in these pools have been validated as live in the corpus or
+# confirmed via Unsplash. Adding a brand-new ID without verification is the
+# main way these pools degrade over time.
+
+_UNSPLASH = "https://images.unsplash.com/photo-{}?w=800&q=80"
+
+FALLBACK_POOLS = {
+    "research": [
+        _UNSPLASH.format(s) for s in [
+            "1614935151651-0bea6508db6b", "1602052577122-f73b9710adba",
+            "1576086213369-97a306d36557", "1576091160550-2173dba999ef",
+            "1579154204601-01588f351e67", "1518152006812-edab29b069ac",
+            "1532187863486-abf9dbad1b69", "1486825586573-7131f7991bdd",
+        ]
+    ],
+    "regulation": [
+        _UNSPLASH.format(s) for s in [
+            "1636652966850-5ac4d02370e9", "1623008946073-ad1c850ad0dd",
+            "1611326268719-55a69e4316b9", "1688417486337-b089fa4ee670",
+            "1592066575517-58df903152f2", "1586773860418-d37222d8fce3",
+            "1475875518799-44f63f828ab8",
+        ]
+    ],
+    "news": [
+        _UNSPLASH.format(s) for s in [
+            "1460317442991-0ec209397118", "1475875518799-44f63f828ab8",
+            "1498811008858-d95a730b2ffc", "1545324418-cc1a3fa10c00",
+            "1586773860418-d37222d8fce3", "1636409305041-3bd4fe738236",
+            "1727767579106-c30a4c1c74c5", "1592066575517-58df903152f2",
+        ]
+    ],
+    "industry": [
+        _UNSPLASH.format(s) for s in [
+            "1479839672679-a46483c0e7c8", "1518152006812-edab29b069ac",
+            "1727767579106-c30a4c1c74c5", "1664190052947-c436bf0d9719",
+            "1664190053321-4ef213299eec", "1532187863486-abf9dbad1b69",
+            "1545324418-cc1a3fa10c00", "1636409305041-3bd4fe738236",
+        ]
+    ],
+    "diagnostics": [
+        _UNSPLASH.format(s) for s in [
+            "1602052577122-f73b9710adba", "1576091160550-2173dba999ef",
+            "1486825586573-7131f7991bdd", "1614935151651-0bea6508db6b",
+            "1576086213369-97a306d36557", "1579154204601-01588f351e67",
+        ]
+    ],
+    "default": [
+        _UNSPLASH.format(s) for s in [
+            "1649777882133-525e923fd5d7", "1651752523215-9bf678c29355",
+            "1664190053321-4ef213299eec", "1664190052947-c436bf0d9719",
+        ]
+    ],
 }
 
-# Extended fallback map for more specific topics (used by photo_agent)
+# Back-compat alias: callers expecting a string get the first entry.
+FALLBACK_IMAGES = {k: v[0] for k, v in FALLBACK_POOLS.items()}
+
+# Topic-specific pools. Topic detection (_detect_topic) maps article keywords
+# to one of these. Pools should be 4+ entries to avoid duplication.
 TOPIC_IMAGES = {
-    "apartment":    ["https://images.unsplash.com/photo-1643906652169-a750f3f70848?w=800&q=80",
-                     "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
-                     "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"],
-    "school":       ["https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=800&q=80",
-                     "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80"],
-    "hospital":     ["https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800&q=80",
-                     "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"],
-    "courthouse":   ["https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
-                     "https://images.unsplash.com/photo-1623008946073-ad1c850ad0dd?w=800&q=80"],
-    "laboratory":   ["https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80",
-                     "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80"],
-    "government":   ["https://images.unsplash.com/photo-1611326268719-55a69e4316b9?w=800&q=80",
-                     "https://images.unsplash.com/photo-1580415742185-c068be2aaecd?w=800&q=80"],
-    "prison":       ["https://images.unsplash.com/photo-1627571615836-4948060412a9?w=800&q=80"],
-    "police":       ["https://images.unsplash.com/photo-1600081191763-05da665acf1a?w=800&q=80"],
-    "flooding":     ["https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=80"],
-    "military":     ["https://images.unsplash.com/photo-1580415742185-c068be2aaecd?w=800&q=80"],
-    "mold":         ["https://images.unsplash.com/photo-1649777882133-525e923fd5d7?w=800&q=80"],
+    "apartment":  [_UNSPLASH.format(s) for s in [
+        "1651752523215-9bf678c29355", "1512917774080-9991f1c4c750",
+        "1545324418-cc1a3fa10c00", "1460317442991-0ec209397118",
+        "1498811008858-d95a730b2ffc", "1664190053321-4ef213299eec",
+    ]],
+    "school":     [_UNSPLASH.format(s) for s in [
+        "1591123120675-6f7f1aae0e5b", "1498243691581-b145c3f54a5a",
+        "1592066575517-58df903152f2", "1586773860418-d37222d8fce3",
+    ]],
+    "hospital":   [_UNSPLASH.format(s) for s in [
+        "1479839672679-a46483c0e7c8", "1519494026892-80bbd2d6fd0d",
+        "1576091160550-2173dba999ef", "1486825586573-7131f7991bdd",
+    ]],
+    "courthouse": [_UNSPLASH.format(s) for s in [
+        "1636652966850-5ac4d02370e9", "1623008946073-ad1c850ad0dd",
+        "1688417486337-b089fa4ee670",
+    ]],
+    "laboratory": [_UNSPLASH.format(s) for s in [
+        "1614935151651-0bea6508db6b", "1602052577122-f73b9710adba",
+        "1576086213369-97a306d36557", "1518152006812-edab29b069ac",
+        "1579154204601-01588f351e67",
+    ]],
+    "government": [_UNSPLASH.format(s) for s in [
+        "1611326268719-55a69e4316b9", "1580415742185-c068be2aaecd",
+        "1592066575517-58df903152f2", "1475875518799-44f63f828ab8",
+    ]],
+    "prison":     [_UNSPLASH.format(s) for s in [
+        "1627571615836-4948060412a9", "1611326268719-55a69e4316b9",
+    ]],
+    "police":     [_UNSPLASH.format(s) for s in [
+        "1600081191763-05da665acf1a", "1611326268719-55a69e4316b9",
+    ]],
+    "flooding":   [_UNSPLASH.format(s) for s in [
+        "1547683905-f686c993aae5", "1592066575517-58df903152f2",
+    ]],
+    "military":   [_UNSPLASH.format(s) for s in [
+        "1580415742185-c068be2aaecd", "1611326268719-55a69e4316b9",
+    ]],
+    "mold":       [_UNSPLASH.format(s) for s in [
+        "1649777882133-525e923fd5d7", "1664190052947-c436bf0d9719",
+        "1664190053321-4ef213299eec", "1576086213369-97a306d36557",
+    ]],
+    "office":     [_UNSPLASH.format(s) for s in [
+        "1518152006812-edab29b069ac", "1727767579106-c30a4c1c74c5",
+        "1532187863486-abf9dbad1b69", "1664190052947-c436bf0d9719",
+    ]],
+    "conference": [_UNSPLASH.format(s) for s in [
+        "1727767579106-c30a4c1c74c5", "1545324418-cc1a3fa10c00",
+        "1636409305041-3bd4fe738236",
+    ]],
 }
 
 # =========================================
@@ -1087,21 +1170,70 @@ def _detect_topic(title, summary=""):
     return None
 
 
-def photo_agent(article):
+def _pick_image(pool, existing_articles, article_id):
+    """Pick the least-used image in `pool` given what's already in articles.json.
+
+    Tiebreak deterministically by hashing article_id, so the same article always
+    receives the same image even across re-runs.
+    """
+    if not pool:
+        return ""
+    if not isinstance(pool, list):
+        return pool
+
+    # Count uses per base URL (strip query string for stable comparison)
+    def _base(u):
+        return (u or "").split("?")[0]
+
+    used = {}
+    for a in existing_articles or []:
+        b = _base(a.get("imageUrl", ""))
+        if b:
+            used[b] = used.get(b, 0) + 1
+
+    counted = [(used.get(_base(u), 0), u) for u in pool]
+    min_count = min(c for c, _ in counted)
+    candidates = [u for c, u in counted if c == min_count]
+
+    if len(candidates) == 1:
+        return candidates[0]
+
+    # Deterministic tiebreak: hash article_id and index into candidates
+    seed = (article_id or "") + "|imgpick"
+    h = sum(ord(c) for c in seed)
+    return candidates[h % len(candidates)]
+
+
+def photo_agent(article, existing_articles=None):
     """Assign images via OG extraction → topic-specific Unsplash → category fallback.
+
+    Picks the least-used image in each pool to avoid the "9 articles share one
+    photo" repetition pattern. Pass `existing_articles` (typically
+    load_articles()["articles"]) to give the picker visibility into what's
+    already on the site. If omitted, the picker loads the corpus itself.
 
     Every image URL is validated through validate_image_url() before assignment,
     which blocks dead domains (source.unsplash.com etc.) and malformed URLs.
     """
     cat = article.get('category', 'default')
 
-    # If article already has a valid non-Unsplash image, keep it
+    # If article already has a valid non-Unsplash image (e.g. set by a prior
+    # OG fetch), keep it — repetition only matters for fallback pool picks.
     existing = article.get('imageUrl', '')
     if existing and 'unsplash' not in existing:
         article['imageUrl'] = validate_image_url(existing, cat)
         return article
 
     print(f"  📷 Photo: {article['title'][:50]}...")
+
+    # Lazily load corpus if caller didn't pass one
+    if existing_articles is None:
+        try:
+            existing_articles = load_articles().get("articles", [])
+        except Exception:
+            existing_articles = []
+
+    aid = article.get("id", "")
 
     # Layer 1: Try OG image from source
     url = article.get('sourceUrl', '')
@@ -1120,20 +1252,23 @@ def photo_agent(article):
         except Exception:
             pass
 
-    # Layer 2: Topic-specific Unsplash image
+    # Layer 2: Topic-specific Unsplash image (least-used in its pool)
     topic = _detect_topic(article.get('title', ''), article.get('summary', ''))
     if topic and topic in TOPIC_IMAGES:
-        import random
-        imgs = TOPIC_IMAGES[topic]
-        article['imageUrl'] = random.choice(imgs)
+        pool = TOPIC_IMAGES[topic]
+        article['imageUrl'] = _pick_image(pool, existing_articles, aid)
         article['imageAlt'] = article['title'][:80]
-        print(f"    → Topic image ({topic})")
+        print(f"    → Topic image ({topic}, pool={len(pool)})")
         return article
 
-    # Layer 3: Category fallback
-    article['imageUrl'] = FALLBACK_IMAGES.get(cat, FALLBACK_IMAGES['default'])
+    # Layer 3: Category fallback (least-used in pool)
+    pool = FALLBACK_POOLS.get(cat, FALLBACK_POOLS.get('default', []))
+    if pool:
+        article['imageUrl'] = _pick_image(pool, existing_articles, aid)
+    else:
+        article['imageUrl'] = FALLBACK_IMAGES.get(cat, FALLBACK_IMAGES.get('default', ''))
     article['imageAlt'] = f"{cat.title()} related image"
-    print(f"    → Fallback image ({cat})")
+    print(f"    → Fallback pool ({cat}, pool={len(pool)})")
     return article
 
 
