@@ -90,8 +90,8 @@
     {
       "id": "ac44f44af113",
       "title": "Mycotoxin Testing Market Set to Nearly Double by 2034, Hitting $2.78 Billion",
-      "summary": "The global mycotoxin testing market is projected to grow from $1.53 billion in 2026 to $2.78 billion by 2034 \u2014 a compound annual growth rate of 7.73% \u2014 according to industry forecasts. The figures cover the full breadth of mycotoxin assay use, including food and feed safety, agricultural trade, and clinical diagnostics, with growth driven by tightening regulatory frameworks and rising awareness of indoor mold exposure.\n\nWithin the clinical segment, demand is being shaped by direct-to-consumer expansion. RealTime Laboratories announced in January 2026 that its 16-mycotoxin at-home panel was now available for direct consumer purchase. Mosaic Diagnostics \u2014 formerly Great Plains Laboratory \u2014 continues to run its 11-mycotoxin MycoTOX Profile through practitioner channels. The two competing approaches show the segment is mature enough to support both gated and open-access distribution.\n\nWhere food and feed testing is anchored by regulatory mandates such as FDA action levels and EU maximum allowable concentrations, clinical testing remains a more contested space. Major medical bodies have not formally endorsed urinary mycotoxin testing as a standalone diagnostic for human exposure, though it is widely used by integrative and functional medicine practitioners working with chronic mold-illness patients.",
-      "editorsNote": "The clinical mycotoxin testing segment is growing faster than its evidence base. Patients should treat any single biomarker as one data point, not a diagnosis \u2014 particularly when deciding whether removing exposure from a water-damaged building will resolve symptoms.",
+      "summary": "The global mycotoxin testing market is projected to grow from $1.53 billion in 2026 to $2.78 billion by 2034 \u2014 a compound annual growth rate of 7.73% \u2014 according to industry forecasts. The figures cover the full breadth of mycotoxin assay use, including food and feed safety, agricultural trade, and clinical diagnostics, with growth driven by tightening regulatory frameworks and rising awareness of indoor mold exposure.\n\nWithin the clinical segment, demand is being shaped by direct-to-consumer expansion. RealTime Laboratories announced in January 2026 that its 16-mycotoxin at-home urine panel was now available for direct consumer purchase. Mosaic Diagnostics \u2014 formerly Great Plains Laboratory \u2014 continues to run its 11-mycotoxin MycoTOX Profile through practitioner channels.\n\nThe growth comes despite serious unresolved problems with what urine mycotoxin testing actually measures in a clinical context. Urinary panels cannot distinguish between mycotoxins ingested from food \u2014 corn, peanuts, coffee, grains \u2014 and mycotoxins metabolized after inhaling spores from a water-damaged building. The tests lack validated clinical reference ranges, are not diagnostic for Chronic Inflammatory Response Syndrome (CIRS), and have drawn caution from the CDC. Where food and feed testing is anchored by clear regulatory mandates such as FDA action levels and EU maximum allowable concentrations, clinical urine panels remain a contested space. Major medical bodies have not endorsed urinary mycotoxin testing as a standalone diagnostic for human exposure from buildings, even as integrative practitioners continue to use it.",
+      "editorsNote": "The Mold Report's position on urine mycotoxin testing: it is not a useful diagnostic for mold illness from water-damaged buildings. The tests cannot distinguish dietary exposure (food, coffee, grains) from environmental exposure, lack validated clinical reference ranges, and are not diagnostic for CIRS \u2014 the immune-mediated condition the Shoemaker Protocol identifies and treats. Patients investigating suspected mold-related illness are better served by blood biomarkers \u2014 TGF-\u03b21, MMP-9, and MSH \u2014 the markers Dr. Ritchie Shoemaker validated across 30+ years of research and more than 14,000 patients. A urine panel result is not confirmation or denial of exposure-related illness; the next step is blood biomarker testing.",
       "source": "Fortune Business Insights",
       "sourceUrl": "https://www.fortunebusinessinsights.com/mycotoxin-testing-market-106204",
       "author": "Fortune Business Insights",
@@ -102,16 +102,17 @@
       "status": "published",
       "tags": [
         "mycotoxin testing",
-        "market growth",
-        "realtime labs",
-        "mosaic diagnostics",
+        "urine mycotoxin testing",
+        "blood biomarkers",
+        "shoemaker protocol",
+        "diagnostics",
         "industry growth",
         "mold industry"
       ],
       "featured": false,
       "readTime": 3,
       "seoTitle": "Mycotoxin Testing Market to Hit $2.78B by 2034",
-      "seoDescription": "The mycotoxin testing market is forecast to grow from $1.53B in 2026 to $2.78B by 2034 as clinical and food-safety demand drive 7.73% CAGR.",
+      "seoDescription": "The mycotoxin testing market is forecast to hit $2.78B by 2034, but urine panels lack validated ranges and can't distinguish food from building exposure.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-25T13:47:04.988199+00:00"
     },
