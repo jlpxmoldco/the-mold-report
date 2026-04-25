@@ -1,30 +1,60 @@
 {
-  "lastUpdated": "2026-04-24T16:22:28.292143+00:00",
+  "lastUpdated": "2026-04-25T13:36:55.573921+00:00",
   "articles": [
     {
-      "id": "0d71278385f7",
-      "title": "New Study: MARCoNS Bacteria Directly Suppress Alpha-MSH, Confirming Key Step in Shoemaker's Biotoxin Pathway",
-      "summary": "A new peer-reviewed study published in Frontiers in Endocrinology provides the first direct evidence that MARCoNS (Multiple Antibiotic Resistant Coagulase Negative Staphylococci) bacteria suppress alpha-MSH production through specific enzymatic degradation. The research identifies the molecular mechanism by which these nasal biofilm-forming bacteria break down alpha-MSH, a key regulatory peptide in the hypothalamic-pituitary axis. This finding validates a critical node in Dr. Ritchie Shoemaker's biotoxin pathway model, which has long proposed that MARCoNS colonization in mold-exposed patients leads to MSH suppression, driving downstream dysregulation of cytokines, hormones, and immune function. The study's authors note that this mechanism may explain why MARCoNS-positive patients often present with treatment-resistant symptoms including fatigue, cognitive impairment, and hormonal imbalances.",
-      "source": "frontiersin.org",
-      "sourceUrl": "https://doi.org/10.3389/fendo.2026.1728408",
-      "author": "Frontiers in Endocrinology",
-      "publishedAt": "2026-04-22T00:00:00Z",
-      "category": "research",
-      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800",
-      "imageAlt": "Microscopic view of bacterial biofilm formation relevant to MARCoNS research",
+      "id": "de50531cdc50",
+      "title": "Inspectors Cite Decatur Township Fire Department for Mold and Health Code Violations",
+      "summary": "A WISH-TV investigation has documented active mold growth and a series of health code violations at the Decatur Township Fire Department in Marion County, Indiana. County inspectors flagged the issues during recent walkthroughs, raising concerns about long-term occupational exposure for firefighters and staff who eat, sleep, and store equipment inside the building during shifts.\n\nTownship officials are now facing public pressure to disclose remediation timelines and interim safeguards for personnel. Firefighters represent an occupational group at elevated risk for mold and biotoxin exposure because their stations are subject to repeated water intrusion, frequent equipment washdowns, and the constant cycling of contaminated turnout gear — conditions known to support persistent indoor mold colonization.",
+      "editorsNote": "Prolonged exposure to water-damaged occupational buildings is a documented risk factor for Chronic Inflammatory Response Syndrome (CIRS). Workers in repeatedly damp environments can develop multi-system inflammatory symptoms that persist long after a building is remediated, especially among genetically susceptible individuals.",
+      "source": "WISH-TV",
+      "sourceUrl": "https://www.wishtv.com/news/local-news/mold-violations-decatur-township/",
+      "author": "WISH-TV News",
+      "publishedAt": "2026-04-25T13:34:47.826734+00:00",
+      "category": "regulation",
+      "imageUrl": "https://www.wishtv.com/wp-content/uploads/2026/04/24/decatur-township.jpg",
+      "imageAlt": "Inspectors Cite Decatur Township Fire Department for Mold and Health Code Violat",
       "status": "published",
-      "qcReviewer": "editorial_pipeline_v3",
-      "qcTimestamp": "2026-04-22T12:00:00Z",
       "tags": [
-        "MARCoNS",
-        "alpha-MSH",
-        "Shoemaker Protocol",
-        "CIRS",
-        "biotoxin pathway",
-        "research"
+        "mold",
+        "water-damaged buildings",
+        "occupational health",
+        "fire department",
+        "indiana",
+        "health code"
       ],
       "featured": true,
-      "editorsNote": "Editor's Note: This study provides direct molecular evidence for a mechanism long proposed by Dr. Ritchie Shoemaker \u2014 that MARCoNS bacteria in the nasal passages of mold-exposed patients actively degrade alpha-MSH, a master regulatory peptide. In the Shoemaker biotoxin pathway, MSH suppression is a critical downstream effect of biotoxin exposure in genetically susceptible individuals (HLA-DR positive), leading to dysregulated cytokines (TGF-\u03b21, MMP-9, C4a), hormonal disruption, and chronic inflammation. This is the first peer-reviewed confirmation of the specific enzymatic pathway by which MARCoNS achieve this suppression. For patients currently in the Shoemaker Protocol, this research reinforces why MARCoNS eradication (typically via BEG spray) is an essential early step before VIP nasal spray can be effective."
+      "readTime": 2,
+      "seoTitle": "Decatur Fire Dept Cited for Mold, Code Violations",
+      "seoDescription": "Inspectors documented mold and health code violations at the Decatur Township Fire Department, raising occupational exposure concerns for firefighters.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-25T13:36:55.573854+00:00"
+    },
+    {
+      "id": "9e9448a9f260",
+      "title": "Walt Disney World Removes Black Mold from 'It's a Small World' After Mass Visitor Exposure",
+      "summary": "Walt Disney World has removed black mold from its iconic “It's a Small World” attraction in Florida following reports that thousands of guests were likely exposed during recent operations of the ride. The contamination was located inside the enclosed indoor boat attraction, where visitors travel slowly through humid, low-light scenes for roughly 12 minutes — a length of dwell time that drew immediate health concerns once the mold became public.\n\nDisney has not disclosed the species of mold identified, the duration of contamination, or the source of moisture intrusion, but the company has confirmed that remediation is complete. The incident underscores how quickly mold can establish itself in high-humidity, poorly ventilated indoor environments — the same conditions that drive mold growth inside water-damaged residential and commercial buildings.",
+      "editorsNote": "For genetically susceptible individuals — roughly 24% of the population carrying certain HLA-DR haplotypes — even short, high-density exposures to mold-contaminated indoor environments can trigger inflammatory responses. Onset symptoms typically appear days to weeks after exposure and are rarely traced back to the original location.",
+      "source": "MSN",
+      "sourceUrl": "https://www.msn.com/en-us/travel/news/thousands-likely-exposed-to-black-mold-on-classic-disney-world-ride/ar-AA1WtuNv?apiversion=v2&domshim=1&noservercache=1&noservertelemetry=1&batchservertelemetry=1&renderwebcomponents=1&wcseo=1&bundles=feat-es2020-c",
+      "author": "MSN News",
+      "publishedAt": "2026-04-25T13:34:47.824678+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
+      "imageAlt": "Walt Disney World Removes Black Mold from 'It's a Small World' After Mass Visito",
+      "status": "published",
+      "tags": [
+        "mold",
+        "water-damaged buildings",
+        "public health",
+        "exposure",
+        "disney"
+      ],
+      "featured": true,
+      "readTime": 2,
+      "seoTitle": "Disney Removes Black Mold from 'Small World' Ride",
+      "seoDescription": "Walt Disney World has remediated black mold on its 'It's a Small World' ride after thousands of guests were likely exposed in Florida.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-25T13:36:54.427060+00:00"
     },
     {
       "id": "f77398ac385d",
@@ -49,12 +79,13 @@
       "seoDescription": "New long-term research links indoor mold exposure in early childhood to reduced lung function, reinforcing concerns about water-damaged buildings and health.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:23.988732+00:00",
-      "editorsNote": "This research reinforces what Shoemaker Protocol researchers have documented for decades \u2014 that mold exposure triggers measurable biological responses, particularly in the approximately 24% of the population with genetic susceptibility (HLA-DR). Blood biomarkers like TGF-\u03b21 and MMP-9 can help identify children and adults experiencing immune-mediated responses to indoor mold."
+      "editorsNote": "This research reinforces what Shoemaker Protocol researchers have documented for decades — that mold exposure triggers measurable biological responses, particularly in the approximately 24% of the population with genetic susceptibility (HLA-DR). Blood biomarkers like TGF-β1 and MMP-9 can help identify children and adults experiencing immune-mediated responses to indoor mold.",
+      "featured": false
     },
     {
       "id": "35b943ce02eb",
       "title": "Reality Star's CIRS Diagnosis Puts Mold Illness in the National Spotlight",
-      "summary": "Mikayla Matthews, 26, star of Hulu's The Secret Lives of Mormon Wives, has publicly shared her struggle with symptoms consistent with Chronic Inflammatory Response Syndrome following suspected mold exposure in her Utah home. Matthews reports skin inflammation, neurological issues, hair loss, digestive problems, and hormonal disruptions \u2014 a symptom cluster familiar to mold illness researchers.\n\nNotably, Matthews experienced significant symptom relief while traveling to California and Costa Rica, with symptoms returning within two days of coming home to Utah \u2014 a pattern that researchers guided by the Shoemaker Protocol recognize as a hallmark of biotoxin-related illness tied to water-damaged buildings.",
+      "summary": "Mikayla Matthews, 26, star of Hulu's The Secret Lives of Mormon Wives, has publicly shared her struggle with symptoms consistent with Chronic Inflammatory Response Syndrome following suspected mold exposure in her Utah home. Matthews reports skin inflammation, neurological issues, hair loss, digestive problems, and hormonal disruptions — a symptom cluster familiar to mold illness researchers.\n\nNotably, Matthews experienced significant symptom relief while traveling to California and Costa Rica, with symptoms returning within two days of coming home to Utah — a pattern that researchers guided by the Shoemaker Protocol recognize as a hallmark of biotoxin-related illness tied to water-damaged buildings.",
       "source": "thelooker.thedailybeast.com",
       "sourceUrl": "https://thelooker.thedailybeast.com/mormon-wives-star-mikayla-matthews-breaks-down-in-tears-over-skin-condition/",
       "author": "The Daily Beast",
@@ -73,12 +104,13 @@
       "seoDescription": "Mikayla Matthews shares her battle with CIRS symptoms from suspected mold exposure, highlighting the link between water-damaged buildings and chronic illness.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:23.618352+00:00",
-      "editorsNote": "While CIRS is not yet recognized as an official diagnosis by all medical bodies, the symptom pattern Matthews describes \u2014 multi-system inflammation triggered by environmental exposure and resolving with removal from the exposure source \u2014 aligns with over 30 years of peer-reviewed research on innate immune responses to biotoxins. Blood biomarkers such as TGF-\u03b21, MMP-9, and MSH may help objectively identify this type of immune dysregulation."
+      "editorsNote": "While CIRS is not yet recognized as an official diagnosis by all medical bodies, the symptom pattern Matthews describes — multi-system inflammation triggered by environmental exposure and resolving with removal from the exposure source — aligns with over 30 years of peer-reviewed research on innate immune responses to biotoxins. Blood biomarkers such as TGF-β1, MMP-9, and MSH may help objectively identify this type of immune dysregulation.",
+      "featured": false
     },
     {
       "id": "92dc4f763d3a",
       "title": "Infectious Disease Specialists Address Challenges in Treating Invasive Mold Infections",
-      "summary": "Infectious disease specialists are highlighting the growing clinical challenge of managing invasive mold infections, particularly mucormycosis and invasive aspergillosis \u2014 two conditions that can be life-threatening in immunocompromised patients. A recent review in Infectious Disease Special Edition examines new, established, and combination antifungal treatment approaches including liposomal amphotericin B and isavuconazole.\n\nThe discussion reflects increasing recognition within the medical community that mold-related health impacts extend beyond allergic responses. Invasive fungal infections represent the most acute end of a spectrum that also includes chronic inflammatory responses in immunocompetent individuals exposed to mold in environmental settings.",
+      "summary": "Infectious disease specialists are highlighting the growing clinical challenge of managing invasive mold infections, particularly mucormycosis and invasive aspergillosis — two conditions that can be life-threatening in immunocompromised patients. A recent review in Infectious Disease Special Edition examines new, established, and combination antifungal treatment approaches including liposomal amphotericin B and isavuconazole.\n\nThe discussion reflects increasing recognition within the medical community that mold-related health impacts extend beyond allergic responses. Invasive fungal infections represent the most acute end of a spectrum that also includes chronic inflammatory responses in immunocompetent individuals exposed to mold in environmental settings.",
       "source": "idse.net",
       "sourceUrl": "https://www.idse.net/Fungal-Infection/Article/04-26/Antifungal-Management-of-Difficult-Mold-Infections/80351",
       "author": "Infectious Disease Special Edition",
@@ -99,7 +131,7 @@
       "seoDescription": "Specialists review treatment challenges for invasive aspergillosis and mucormycosis, highlighting mold's serious health impacts beyond allergic reactions.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:25.986773+00:00",
-      "editorsNote": "While invasive mold infections and mold-related illness from water-damaged buildings involve different mechanisms \u2014 direct fungal invasion versus immune-mediated inflammatory response \u2014 both underscore the seriousness of mold as a health threat. Research guided by the Shoemaker Protocol focuses on the latter: chronic innate immune activation triggered by biotoxin exposure, identifiable through blood biomarkers like TGF-\u03b21 and MMP-9."
+      "editorsNote": "While invasive mold infections and mold-related illness from water-damaged buildings involve different mechanisms — direct fungal invasion versus immune-mediated inflammatory response — both underscore the seriousness of mold as a health threat. Research guided by the Shoemaker Protocol focuses on the latter: chronic innate immune activation triggered by biotoxin exposure, identifiable through blood biomarkers like TGF-β1 and MMP-9."
     },
     {
       "id": "6094ec896cde",
@@ -156,7 +188,7 @@
     {
       "id": "39880a6c6c2a",
       "title": "ASU Students Report Persistent Illness After Mold Exposure in Campus Dorms",
-      "summary": "Students at Arizona State University's Manzanita Hall and Hassayampa Academic Village are reporting chronic health problems they attribute to mold exposure in their residence halls. Reported symptoms include brain fog, persistent fatigue, chronic coughing, recurring strep throat, sinus inflammation, and mental health effects \u2014 concerns that went largely unaddressed until parents intervened.\n\nOne student who tested her room for mold at the start of the academic year described being sick the entire year with constant coughing and stuffiness. Another student received a room transfer to Barrett Residential Complex only after her parents contacted the university directly. Notably, her symptoms resolved completely after the move. ASU Housing has stated they manage air quality through visible growth inspections, humidity checks, and ventilation screenings.",
+      "summary": "Students at Arizona State University's Manzanita Hall and Hassayampa Academic Village are reporting chronic health problems they attribute to mold exposure in their residence halls. Reported symptoms include brain fog, persistent fatigue, chronic coughing, recurring strep throat, sinus inflammation, and mental health effects — concerns that went largely unaddressed until parents intervened.\n\nOne student who tested her room for mold at the start of the academic year described being sick the entire year with constant coughing and stuffiness. Another student received a room transfer to Barrett Residential Complex only after her parents contacted the university directly. Notably, her symptoms resolved completely after the move. ASU Housing has stated they manage air quality through visible growth inspections, humidity checks, and ventilation screenings.",
       "source": "statepress.com",
       "sourceUrl": "https://www.statepress.com/article/2026/04/community-mold-dorms-69e9a8f1c0f95",
       "author": "The State Press",
@@ -177,12 +209,12 @@
       "seoDescription": "Arizona State students report brain fog, fatigue, and chronic illness from mold in dorms. Symptoms resolved after leaving affected buildings.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:24.327233+00:00",
-      "editorsNote": "The symptom pattern reported by ASU students \u2014 multi-system complaints including neurological symptoms (brain fog), respiratory issues, and fatigue that resolve upon leaving the exposure source \u2014 is consistent with what researchers guided by the Shoemaker Protocol have documented in occupants of water-damaged buildings. Institutional settings like dormitories, where HVAC systems can distribute mold spores across multiple rooms, may pose particular risk."
+      "editorsNote": "The symptom pattern reported by ASU students — multi-system complaints including neurological symptoms (brain fog), respiratory issues, and fatigue that resolve upon leaving the exposure source — is consistent with what researchers guided by the Shoemaker Protocol have documented in occupants of water-damaged buildings. Institutional settings like dormitories, where HVAC systems can distribute mold spores across multiple rooms, may pose particular risk."
     },
     {
       "id": "6305216af437",
       "title": "Mold Illness Highlighted Among Environmental Factors in Depression Research",
-      "summary": "A new article from AMAC reviewing research-backed approaches to depression has highlighted mold illness and environmental toxicity as underrecognized factors in treatment-resistant cases. The piece specifically calls attention to patients who feel like they have tried everything yet still suffer without answers \u2014 a description that resonates with the experience of many individuals living in water-damaged buildings.\n\nThe inclusion of mold illness in a mainstream depression resource is notable because cognitive and mood symptoms \u2014 including brain fog, anxiety, and depression \u2014 are among the most commonly reported effects of chronic mold exposure, yet they are rarely connected to environmental causes during standard psychiatric evaluation.",
+      "summary": "A new article from AMAC reviewing research-backed approaches to depression has highlighted mold illness and environmental toxicity as underrecognized factors in treatment-resistant cases. The piece specifically calls attention to patients who feel like they have tried everything yet still suffer without answers — a description that resonates with the experience of many individuals living in water-damaged buildings.\n\nThe inclusion of mold illness in a mainstream depression resource is notable because cognitive and mood symptoms — including brain fog, anxiety, and depression — are among the most commonly reported effects of chronic mold exposure, yet they are rarely connected to environmental causes during standard psychiatric evaluation.",
       "source": "amac.us",
       "sourceUrl": "https://amac.us/newsline/lifestyle/10-research-backed-natural-ways-to-counter-depression/",
       "author": "AMAC",
@@ -208,7 +240,7 @@
     {
       "id": "ab63327c2468",
       "title": "Wisconsin Doctor Warns Flood Victims: Mold Growth Begins Within Days",
-      "summary": "Dr. William Kumprey, an emergency medicine physician and associate chief medical officer for ThedaCare, is warning Northeast Wisconsin residents affected by April 2026 flooding that mold can develop in water-damaged homes within two to three days \u2014 with respiratory symptoms potentially appearing days, weeks, or even months after exposure begins.\n\nKumprey advises that homeowners can self-remediate small mold areas under 10 square feet within 24-48 hours, but larger affected areas involving carpeting and drywall require professional remediation. He cautioned that continued exposure in enclosed environments compounds health risks including respiratory illness and asthma.",
+      "summary": "Dr. William Kumprey, an emergency medicine physician and associate chief medical officer for ThedaCare, is warning Northeast Wisconsin residents affected by April 2026 flooding that mold can develop in water-damaged homes within two to three days — with respiratory symptoms potentially appearing days, weeks, or even months after exposure begins.\n\nKumprey advises that homeowners can self-remediate small mold areas under 10 square feet within 24-48 hours, but larger affected areas involving carpeting and drywall require professional remediation. He cautioned that continued exposure in enclosed environments compounds health risks including respiratory illness and asthma.",
       "source": "wtaq.com",
       "sourceUrl": "https://wtaq.com/2026/04/23/thedacare-doctor-warns-of-mold-damage-in-homes-after-floods-urges-health-and-safety-steps/",
       "author": "WTAQ",
@@ -254,7 +286,32 @@
       "seoDescription": "People magazine covers reality star's mold-related chronic illness, bringing mainstream attention to biotoxin exposure and water-damaged building health risks.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:24.535258+00:00",
-      "editorsNote": "Research suggests that approximately 24% of the population carries HLA-DR gene variants that may make them more susceptible to developing chronic immune responses from biotoxin exposure. Blood biomarker testing \u2014 including TGF-\u03b21, MMP-9, and MSH \u2014 can help identify whether environmental exposure is driving symptoms."
+      "editorsNote": "Research suggests that approximately 24% of the population carries HLA-DR gene variants that may make them more susceptible to developing chronic immune responses from biotoxin exposure. Blood biomarker testing — including TGF-β1, MMP-9, and MSH — can help identify whether environmental exposure is driving symptoms."
+    },
+    {
+      "id": "0d71278385f7",
+      "title": "New Study: MARCoNS Bacteria Directly Suppress Alpha-MSH, Confirming Key Step in Shoemaker's Biotoxin Pathway",
+      "summary": "A new peer-reviewed study published in Frontiers in Endocrinology provides the first direct evidence that MARCoNS (Multiple Antibiotic Resistant Coagulase Negative Staphylococci) bacteria suppress alpha-MSH production through specific enzymatic degradation. The research identifies the molecular mechanism by which these nasal biofilm-forming bacteria break down alpha-MSH, a key regulatory peptide in the hypothalamic-pituitary axis. This finding validates a critical node in Dr. Ritchie Shoemaker's biotoxin pathway model, which has long proposed that MARCoNS colonization in mold-exposed patients leads to MSH suppression, driving downstream dysregulation of cytokines, hormones, and immune function. The study's authors note that this mechanism may explain why MARCoNS-positive patients often present with treatment-resistant symptoms including fatigue, cognitive impairment, and hormonal imbalances.",
+      "source": "frontiersin.org",
+      "sourceUrl": "https://doi.org/10.3389/fendo.2026.1728408",
+      "author": "Frontiers in Endocrinology",
+      "publishedAt": "2026-04-22T00:00:00Z",
+      "category": "research",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800",
+      "imageAlt": "Microscopic view of bacterial biofilm formation relevant to MARCoNS research",
+      "status": "published",
+      "qcReviewer": "editorial_pipeline_v3",
+      "qcTimestamp": "2026-04-22T12:00:00Z",
+      "tags": [
+        "MARCoNS",
+        "alpha-MSH",
+        "Shoemaker Protocol",
+        "CIRS",
+        "biotoxin pathway",
+        "research"
+      ],
+      "featured": false,
+      "editorsNote": "Editor's Note: This study provides direct molecular evidence for a mechanism long proposed by Dr. Ritchie Shoemaker — that MARCoNS bacteria in the nasal passages of mold-exposed patients actively degrade alpha-MSH, a master regulatory peptide. In the Shoemaker biotoxin pathway, MSH suppression is a critical downstream effect of biotoxin exposure in genetically susceptible individuals (HLA-DR positive), leading to dysregulated cytokines (TGF-β1, MMP-9, C4a), hormonal disruption, and chronic inflammation. This is the first peer-reviewed confirmation of the specific enzymatic pathway by which MARCoNS achieve this suppression. For patients currently in the Shoemaker Protocol, this research reinforces why MARCoNS eradication (typically via BEG spray) is an essential early step before VIP nasal spray can be effective."
     },
     {
       "id": "3848c4e074ce",
@@ -305,7 +362,7 @@
       ],
       "featured": false,
       "readTime": 3,
-      "shoemakerConnection": "Shoemaker's research identifies water-damaged buildings (WDBs) as the primary source of biotoxin exposure triggering CIRS in genetically susceptible individuals (24% of the population via HLA-DR genes). Incarcerated populations represent a uniquely vulnerable group because they cannot exercise the most fundamental step in Shoemaker's treatment framework \u2014 removal from the source building \u2014 making institutional accountability a direct clinical concern.",
+      "shoemakerConnection": "Shoemaker's research identifies water-damaged buildings (WDBs) as the primary source of biotoxin exposure triggering CIRS in genetically susceptible individuals (24% of the population via HLA-DR genes). Incarcerated populations represent a uniquely vulnerable group because they cannot exercise the most fundamental step in Shoemaker's treatment framework — removal from the source building — making institutional accountability a direct clinical concern.",
       "editorsNote": "",
       "seoTitle": "Michigan Prison Mold Sickens Inmates | The Mold Report",
       "seoDescription": "Incarcerated women at a Michigan state prison are reporting illness they attribute to mold conditions within the facility, prompting calls for Governor Gre",
@@ -361,7 +418,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "This study underscores why thorough environmental and clinical assessment\u2014not a single test\u2014remains the standard for evaluating mold-related illness in children.",
+      "editorsNote": "This study underscores why thorough environmental and clinical assessment—not a single test—remains the standard for evaluating mold-related illness in children.",
       "seoTitle": "Mold Biomarkers for Asthmatic Children | The Mold Report",
       "seoDescription": "2025 study reveals how combined biomarkers help assess mold exposure in asthmatic children, improving clinical diagnosis and patient care.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -390,7 +447,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "This case underscores why thorough environmental and toxicological workups matter \u2014 source attribution in mold illness is rarely straightforward.",
+      "editorsNote": "This case underscores why thorough environmental and toxicological workups matter — source attribution in mold illness is rarely straightforward.",
       "seoTitle": "Mold VOCs & Toxicity in Office Buildings | The Mold Report",
       "seoDescription": "Case report on mold volatile organic compounds causing health symptoms in office buildings. Explore VOC toxicity beyond spores and mycotoxins.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -429,7 +486,7 @@
     {
       "id": "ae8317d213fc",
       "title": "Researchers Identify Nitrogen and Carbon Sources That Boost Mycotoxin Production in Mold",
-      "summary": "A Chemically Defined Medium That Supports Mycotoxin Production by Stachybotrys chartarum Enabled Analysis of the Impact of Nitrogen and Carbon Sources on the Biosynthesis of Macrocyclic Trichothecenes and Stachybotrylactam. (by Tribelhorn K, Twaru\u017cek M, Kosicki R) Published in Appl Environ Microbiol.",
+      "summary": "A Chemically Defined Medium That Supports Mycotoxin Production by Stachybotrys chartarum Enabled Analysis of the Impact of Nitrogen and Carbon Sources on the Biosynthesis of Macrocyclic Trichothecenes and Stachybotrylactam. (by Tribelhorn K, Twarużek M, Kosicki R) Published in Appl Environ Microbiol.",
       "source": "PubMed / Appl Environ Microbiol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37338364/",
       "publishedAt": "2026-04-18T16:10:12.310182+00:00",
@@ -455,7 +512,7 @@
     {
       "id": "7b761cfcb022",
       "title": "Inhaled Black Mold Toxicity Study in Mice Reveals Health Effects",
-      "summary": "A National Toxicology Program study examined the health effects of inhaled Stachybotrys chartarum \u2014 commonly known as black mold \u2014 in a mouse model. Researchers administered the mold by inhalation to B6C3F1/N mice and documented the resulting toxic responses. The findings contribute to the foundational science needed to better understand human health risks from mold exposure.",
+      "summary": "A National Toxicology Program study examined the health effects of inhaled Stachybotrys chartarum — commonly known as black mold — in a mouse model. Researchers administered the mold by inhalation to B6C3F1/N mice and documented the resulting toxic responses. The findings contribute to the foundational science needed to better understand human health risks from mold exposure.",
       "source": "PubMed / Toxic Rep Ser",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39441587/",
       "publishedAt": "2026-04-18T16:10:12.310141+00:00",
@@ -483,7 +540,7 @@
     {
       "id": "9d03b2bbfe76",
       "title": "Aspergillus Species Pose Growing Health Risks, Study Finds",
-      "summary": "A peer-reviewed study in the Journal of Infection and Public Health provides a systematic comparison of three clinically significant Aspergillus species \u2014 A. fumigatus, A. flavus, and A. niger \u2014 examining how each causes disease, its resistance patterns, and its broader implications for public health. The findings underscore that Aspergillus-related illness is not a single, uniform threat but a spectrum of risk shaped by which species is present and how it behaves in vulnerable individuals. Understanding these distinctions is essential for patients, caregivers, and clinicians navigating mold-related health concerns.",
+      "summary": "A peer-reviewed study in the Journal of Infection and Public Health provides a systematic comparison of three clinically significant Aspergillus species — A. fumigatus, A. flavus, and A. niger — examining how each causes disease, its resistance patterns, and its broader implications for public health. The findings underscore that Aspergillus-related illness is not a single, uniform threat but a spectrum of risk shaped by which species is present and how it behaves in vulnerable individuals. Understanding these distinctions is essential for patients, caregivers, and clinicians navigating mold-related health concerns.",
       "source": "PubMed / J Infect Public Health",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41353833/",
       "publishedAt": "2026-04-18T16:10:12.310011+00:00",
@@ -536,7 +593,7 @@
     {
       "id": "52e57df145ca",
       "title": "Biomarkers Distinguish ME/CFS From Chronic Inflammatory Response Syndrome",
-      "summary": "A study published in the International Journal of Molecular Sciences examines how researchers are investigating specific biomarkers \u2014 ranging from visual contrast sensitivity testing to transcriptomic analysis \u2014 as potential tools to help differentiate between Chronic Inflammatory Response Syndrome (CIRS), a condition studied by researchers, and Myalgic Encephalomyelitis/Chronic Fatigue Syndrome (ME/CFS). Research suggests that accurate differentiation between these two conditions may be important because they appear to involve different physiological mechanisms. This research adds to a field where researchers continue to seek improved diagnostic clarity for both patients and providers. Note: This account has not been independently verified by The Mold Report.",
+      "summary": "A study published in the International Journal of Molecular Sciences examines how researchers are investigating specific biomarkers — ranging from visual contrast sensitivity testing to transcriptomic analysis — as potential tools to help differentiate between Chronic Inflammatory Response Syndrome (CIRS), a condition studied by researchers, and Myalgic Encephalomyelitis/Chronic Fatigue Syndrome (ME/CFS). Research suggests that accurate differentiation between these two conditions may be important because they appear to involve different physiological mechanisms. This research adds to a field where researchers continue to seek improved diagnostic clarity for both patients and providers. Note: This account has not been independently verified by The Mold Report.",
       "source": "PubMed / Int J Mol Sci",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40806417/",
       "publishedAt": "2026-04-18T16:10:12.309828+00:00",
@@ -553,7 +610,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "Proper diagnosis is the foundation of effective treatment \u2014 work like this moves us closer to giving patients the right answer, not just an answer.",
+      "editorsNote": "Proper diagnosis is the foundation of effective treatment — work like this moves us closer to giving patients the right answer, not just an answer.",
       "seoTitle": "ME/CFS vs CIRS Biomarkers | The Mold Report",
       "seoDescription": "Study reveals biomarkers distinguishing ME/CFS from Chronic Inflammatory Response Syndrome using contrast sensitivity and transcriptomic analysis.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -579,7 +636,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "Systematic reviews synthesize multiple studies, making their findings more reliable than any single study alone \u2014 this one deserves attention from both clinicians and building professionals.",
+      "editorsNote": "Systematic reviews synthesize multiple studies, making their findings more reliable than any single study alone — this one deserves attention from both clinicians and building professionals.",
       "seoTitle": "Mold & Dampness Linked to Fatigue | The Mold Report",
       "seoDescription": "Study review reveals consistent associations between mold exposure and damp indoor environments with fatigue symptoms in peer-reviewed research.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -629,7 +686,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1602052577122-f73b9710adba?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "Mold management in healthcare settings carries higher stakes than in residential or commercial buildings \u2014 infection risk for at-risk patients makes prompt, methodical response essential.",
+      "editorsNote": "Mold management in healthcare settings carries higher stakes than in residential or commercial buildings — infection risk for at-risk patients makes prompt, methodical response essential.",
       "seoTitle": "Hospital Mold Control & Patient Safety | The Mold Report",
       "seoDescription": "Learn how hospitals identify, manage, and prevent mold infestations to protect vulnerable patients from fungal exposure risks.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -667,7 +724,7 @@
     },
     {
       "id": "b189bcd1c2a4",
-      "title": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick\u2014Lawmakers Demand Action",
+      "title": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick—Lawmakers Demand Action",
       "summary": "A Michigan inmate has reported that mold exposure at her correctional facility is causing illness, prompting state lawmakers to call for immediate intervention from Governor Gretchen Whitmer. The case highlights ongoing concerns about indoor environmental conditions in state-operated facilities and the health risks posed to incarcerated populations with limited ability to relocate or seek medical care. Lawmakers have demanded that the governor's office investigate the reported contamination and take corrective action. The incident underscores a broader issue: many U.S. correctional facilities operate with aging infrastructure and inadequate ventilation systems that can support mold growth. Prisoners typically have no choice in their living environment and may face barriers to accessing medical evaluation for mold-related symptoms. This case may prompt Michigan officials to conduct facility-wide environmental assessments and establish maintenance protocols to prevent future mold proliferation. For individuals concerned about mold exposure, this case demonstrates that documentation and escalation through official channels remains essential to triggering institutional response.",
       "source": "Clickondetroit",
       "sourceUrl": "https://www.clickondetroit.com/video/news/2026/04/17/dangerous-conditions-at-clinton-river/",
@@ -675,7 +732,7 @@
       "publishedAt": "2026-04-18T14:57:28.808850+00:00",
       "category": "regulation",
       "imageUrl": "https://res.cloudinary.com/graham-media-group/image/upload/f_auto/q_auto/c_thumb,w_700/v1/media/anyclip/fstl-tf/WkAxm50BdFUvoNnVe4KO/1776425260084_608x1080_thumbnail.jpg?_a=DATAg1fkZAA0",
-      "imageAlt": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick\u2014Lawmakers Demand Ac",
+      "imageAlt": "Michigan Inmate Says Toxic Mold at Prison is Making Her Sick—Lawmakers Demand Ac",
       "status": "published",
       "qcReviewer": "AI Editorial Pipeline v1.4",
       "qcTimestamp": "2026-04-18T14:58:08.782268+00:00",
@@ -764,7 +821,7 @@
       "status": "published",
       "imageUrl": "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
       "readTime": 2,
-      "editorsNote": "Plumbing defect litigation is an important upstream factor in mold prevention \u2014 pipe failures are a leading cause of the chronic moisture conditions that drive indoor mold growth.",
+      "editorsNote": "Plumbing defect litigation is an important upstream factor in mold prevention — pipe failures are a leading cause of the chronic moisture conditions that drive indoor mold growth.",
       "seoTitle": "Uponor PEX Pipe Lawsuits & Mold Growth | The Mold Report",
       "seoDescription": "Uponor faces lawsuits over defective AquaPEX pipes (2010-2021) causing moisture intrusion and mold growth in homes.",
       "qcReviewer": "AI Editorial Pipeline v2.0",
@@ -835,7 +892,7 @@
     },
     {
       "title": "120 Students in Limbo 7 Weeks After Mold Found at LA Elementary School",
-      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure \u2014 a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing \u2014 including markers such as TGF-B1, MMP-9, and MSH \u2014 as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
+      "summary": "A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has left more than 120 students in limbo seven weeks after the issue was first identified in December 2025. Maintenance crews discovered a leak following heavy rain, but families have yet to receive definitive test results confirming the source or extent of any contamination.\n\nThe Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.\n\nThe district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.",
       "source": "CBS News",
       "sourceUrl": "https://www.cbsnews.com/losangeles/news/chatsworth-elementary-school-mold-exposure-concerns/",
       "publishedAt": "2026-04-10T15:00:00+00:00",
@@ -975,7 +1032,7 @@
     {
       "id": "459ccc5eda3b",
       "title": "Common Airborne Mold May Speed Lung Cancer Growth, Lab Study Finds",
-      "summary": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote tumor-friendly conditions in lung cancer cells. Led by researcher Bian X., the study examined how secreted compounds from A. fumigatus interact with lung cancer cells in vitro, meaning in a controlled lab setting outside a living organism. The findings showed activation of three key molecular pathways, NF-\u03baB, AKT, and ERK, all of which are associated with cancer cell survival, growth, and spread.\n\nA. fumigatus is one of the most frequently inhaled mold species worldwide. It is already known to cause serious respiratory infections, particularly in immunocompromised individuals. This study adds a new dimension to that concern by suggesting its secreted compounds may also influence pro-tumor cellular behavior.\n\nFor people focused on mold exposure, this research raises questions about the potential intersection of chronic fungal exposure and lung health beyond infection. The findings are preliminary. In vitro results do not confirm the same effects occur in living humans, and no clinical conclusions can be drawn at this stage. Larger studies in animal models and human populations would be needed to establish any causal link.",
+      "summary": "A laboratory study published in Archives of Microbiology found that soluble factors released by Aspergillus fumigatus, a common airborne mold, may promote tumor-friendly conditions in lung cancer cells. Led by researcher Bian X., the study examined how secreted compounds from A. fumigatus interact with lung cancer cells in vitro, meaning in a controlled lab setting outside a living organism. The findings showed activation of three key molecular pathways, NF-κB, AKT, and ERK, all of which are associated with cancer cell survival, growth, and spread.\n\nA. fumigatus is one of the most frequently inhaled mold species worldwide. It is already known to cause serious respiratory infections, particularly in immunocompromised individuals. This study adds a new dimension to that concern by suggesting its secreted compounds may also influence pro-tumor cellular behavior.\n\nFor people focused on mold exposure, this research raises questions about the potential intersection of chronic fungal exposure and lung health beyond infection. The findings are preliminary. In vitro results do not confirm the same effects occur in living humans, and no clinical conclusions can be drawn at this stage. Larger studies in animal models and human populations would be needed to establish any causal link.",
       "source": "Arch Microbiol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944873/",
       "author": "Bian X",
@@ -1025,7 +1082,7 @@
       "featured": false,
       "readTime": 3,
       "author": "Reddit / r/ToxicMoldExposure",
-      "seoTitle": "Dr. Shoemaker CIRS AMA \u2013 25 Years of Mold Research | The Mold Report",
+      "seoTitle": "Dr. Shoemaker CIRS AMA – 25 Years of Mold Research | The Mold Report",
       "seoDescription": "Dr. Ritchie Shoemaker joins Reddit's r/ToxicMoldExposure for a live AMA marking 25 years since he first linked biotoxin exposure to CIRS. See what to ask.",
       "primaryKeyword": "CIRS diagnosis"
     },
@@ -1057,7 +1114,7 @@
     },
     {
       "title": "USA Today: Doctors Blamed Her Symptoms on Motherhood. She Actually Had Mold Illness.",
-      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists \u2014 they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
+      "summary": "A USA Today feature on Kate Ames illustrates a documented gap in how primary care physicians recognize and address mold-related illness. Ames spent years experiencing chronic fatigue and joint pain. Her doctors attributed the symptoms to the physical demands of motherhood. Research suggests that mold exposure in her home may have been a contributing factor to her ongoing symptoms.\n\nHer case reflects a broader pattern researchers have identified in mold illness patients: extended periods of misdiagnosis, symptoms that are dismissed or minimized, and delayed access to appropriate treatment. The lag between symptom onset and accurate identification can span years, during which patients may continue to experience inflammatory responses tied to ongoing mold exposure.\n\nThe clinical context matters here. Researchers estimate that approximately 24% of the population carries a genetic susceptibility that may impair their ability to clear mold-related biotoxins from the body. For this group, standard environmental exposures that cause no symptoms in others might trigger chronic, systemic inflammatory responses. Despite this, awareness among general practitioners remains limited. The USA Today coverage brings that disconnect to a mainstream audience, which is significant. Most people dealing with unexplained chronic symptoms are not seeing mold specialists — they are seeing family doctors who may not yet have mold-related illness on their radar.\n\n[Tag correction: Remove 'WHO' tag as the World Health Organization is not referenced in this article.]",
       "source": "USA Today",
       "sourceUrl": "https://eu.usatoday.com/story/life/health-wellness/2026/04/02/mold-illness-motherhood-chronic-symptoms/89215085007/",
       "publishedAt": "2026-04-02T08:00:00+00:00",
@@ -1140,10 +1197,10 @@
     {
       "id": "f0e9ccd067f9",
       "title": "What Lives in Your Home's Air? New Review Maps Indoor Microbiome Science",
-      "summary": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample, analyze, and interpret the microbial communities living inside homes and buildings. Lead author I. \u0160uni\u0107 and colleagues synthesized existing research on the methods used to detect bacteria, fungi, and other microorganisms in indoor air and on surfaces.\n\nThe review covers emerging trends in sampling techniques and analytical approaches, reflecting a growing scientific interest in how indoor microbial environments affect human health. Understanding what organisms are present, and in what quantities, is a foundational step before researchers can draw conclusions about exposure and disease risk.\n\nFor people concerned about mold exposure, this kind of methodological review matters because the reliability of any indoor air quality assessment depends heavily on how samples are collected and analyzed. Standardizing these approaches across studies is essential for building a clearer picture of which fungi and bacteria pose the greatest concern in residential and occupational settings.",
+      "summary": "A new review published in Environmental Microbiology Reports maps the current state of indoor microbiome science, examining how researchers sample, analyze, and interpret the microbial communities living inside homes and buildings. Lead author I. Šunić and colleagues synthesized existing research on the methods used to detect bacteria, fungi, and other microorganisms in indoor air and on surfaces.\n\nThe review covers emerging trends in sampling techniques and analytical approaches, reflecting a growing scientific interest in how indoor microbial environments affect human health. Understanding what organisms are present, and in what quantities, is a foundational step before researchers can draw conclusions about exposure and disease risk.\n\nFor people concerned about mold exposure, this kind of methodological review matters because the reliability of any indoor air quality assessment depends heavily on how samples are collected and analyzed. Standardizing these approaches across studies is essential for building a clearer picture of which fungi and bacteria pose the greatest concern in residential and occupational settings.",
       "source": "Environ Microbiol Rep",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41943876/",
-      "author": "\u0160uni\u0107 I",
+      "author": "Šunić I",
       "publishedAt": "2026-04-01T00:00:00+00:00",
       "category": "research",
       "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
@@ -1799,10 +1856,10 @@
     {
       "id": "4c5cf73834bc",
       "title": "Indoor air bacterial and fungal burden in the environment of an atopic child: implications for elevated urine mycotoxin levels.",
-      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Maji\u0107 and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing\u2014including markers such as TGF-B1, MMP-9, and MSH\u2014represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
+      "summary": "A study published in the journal *Archives of Industrial Hygiene and Toxicology* examined the relationship between indoor air quality and measurable mycotoxin levels in a child diagnosed with atopic disease. Lead author I. Majić and colleagues investigated how bacterial and fungal concentrations in a home environment may contribute to elevated mycotoxin concentrations, providing a potential biological link between indoor exposure and systemic uptake.\n\nThe research focused on an atopic child, a population known to have heightened immune sensitivity to environmental allergens and toxins. By measuring both the microbial burden in indoor air and corresponding mycotoxin levels, the study offers evidence that fungal contamination in living spaces may result in quantifiable internal exposure, not merely surface-level contact.\n\nThis work carries practical significance for families managing atopic conditions such as eczema, asthma, or allergic rhinitis. The findings reinforce that indoor air quality monitoring in homes with vulnerable occupants addresses a measurable concern with documented research implications. For those seeking to assess potential mold-related illness, blood biomarker testing—including markers such as TGF-B1, MMP-9, and MSH—represents an objective, evidence-based approach to evaluating immune response to indoor mold exposure. For parents, physicians, and building professionals alike, the data supports treating indoor air quality as a meaningful variable in the health of sensitive occupants.",
       "source": "Arh Hig Rada Toksikol",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41944406/",
-      "author": "Maji\u0107 I",
+      "author": "Majić I",
       "publishedAt": "2026-03-01T00:00:00+00:00",
       "category": "research",
       "imageUrl": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=800&q=80",
@@ -2279,7 +2336,7 @@
     {
       "id": "6a18e9374816",
       "title": "NSW Health Minister Apologizes Over Bird Lice and Mold Outbreaks in Public Hospitals",
-      "originalTitle": "'Sorry' \u2013 Health Minister on bird lice and mold outbreaks in NSW hospitals",
+      "originalTitle": "'Sorry' – Health Minister on bird lice and mold outbreaks in NSW hospitals",
       "summary": "New South Wales Health Minister issued a public apology following reports of bird lice infestations and mold outbreaks discovered in NSW public hospitals, according to local news. The incidents appear to have raised serious concerns about maintenance standards and patient safety across the state's health infrastructure. Reports indicate the outbreaks affected multiple facilities, prompting government accountability questions. Mold in hospital environments poses particular risks, as research suggests exposure may contribute to respiratory issues and other health complications, especially for patients who are already immunocompromised. The minister's apology signals acknowledgment of systemic failures in building upkeep and infection control protocols. Authorities are expected to outline remediation plans, though critics may argue the response came too slowly. The dual nature of the problem, combining pest infestation with mold contamination, points to broader infrastructure neglect in public health facilities. NSW hospital administrators are likely under pressure to conduct audits of other facilities to determine whether similar conditions exist elsewhere in the network.",
       "source": "2GB",
       "sourceUrl": "https://www.2gb.com/bird-lice-maintenance-failures-impacting-nsw-health-facilities/",
@@ -2523,7 +2580,7 @@
       "featured": false,
       "readTime": 3,
       "seoTitle": "Scotlandville Tenant Relocated After Apartment Mold | The Mold Report",
-      "seoDescription": "A Scotlandville tenant will be relocated after mold made her apartment uninhabitable. See how she forced management to act \u2014 and what renters can learn from her case.",
+      "seoDescription": "A Scotlandville tenant will be relocated after mold made her apartment uninhabitable. See how she forced management to act — and what renters can learn from her case.",
       "primaryKeyword": "mold testing"
     },
     {
@@ -2801,9 +2858,9 @@
     },
     {
       "id": "c18a9bff2811",
-      "title": "Espa\u00f1ola Middle School Closes Classrooms After Mold Found Linked to Aging Roof",
-      "originalTitle": "Espa\u00f1ola middle school battling mold problem due to leaky old roof",
-      "summary": "A middle school in Espa\u00f1ola, New Mexico is dealing with a mold outbreak traced to a leaking roof, according to local news reports. Aging infrastructure is a common driver of indoor mold growth, as persistent moisture from roof failures creates conditions where mold colonies can establish and spread quickly through walls, ceilings, and ventilation systems. Reports indicate the school has been managing the problem, though the extent of the contamination and any classroom closures have not been fully detailed in available coverage. School administrators are likely working with remediation contractors to assess the damage and develop a plan to restore safe conditions for students and staff. Mold exposure in school environments is a recognized public health concern, as children spend significant hours indoors and may be more vulnerable to air quality issues than adults. Research suggests that prolonged exposure to mold in indoor settings may contribute to respiratory symptoms, headaches, and other health complaints. Older school buildings across the country face similar infrastructure challenges, and deferred maintenance on roofing systems is frequently cited as a root cause.",
+      "title": "Española Middle School Closes Classrooms After Mold Found Linked to Aging Roof",
+      "originalTitle": "Española middle school battling mold problem due to leaky old roof",
+      "summary": "A middle school in Española, New Mexico is dealing with a mold outbreak traced to a leaking roof, according to local news reports. Aging infrastructure is a common driver of indoor mold growth, as persistent moisture from roof failures creates conditions where mold colonies can establish and spread quickly through walls, ceilings, and ventilation systems. Reports indicate the school has been managing the problem, though the extent of the contamination and any classroom closures have not been fully detailed in available coverage. School administrators are likely working with remediation contractors to assess the damage and develop a plan to restore safe conditions for students and staff. Mold exposure in school environments is a recognized public health concern, as children spend significant hours indoors and may be more vulnerable to air quality issues than adults. Research suggests that prolonged exposure to mold in indoor settings may contribute to respiratory symptoms, headaches, and other health complaints. Older school buildings across the country face similar infrastructure challenges, and deferred maintenance on roofing systems is frequently cited as a root cause.",
       "source": "Santa Fe New Mexican",
       "sourceUrl": "https://www.santafenewmexican.com/news/local_news/espa-ola-middle-school-battling-mold-problem-due-to-leaky-old-roof/article_5a51af12-0d03-4d38-a120-1cf21123e6d4.html",
       "author": "Local News",
@@ -2826,7 +2883,7 @@
       "featured": false,
       "readTime": 3,
       "seoTitle": "School Mold Outbreak Tied to Aging Roof | The Mold Report",
-      "seoDescription": "A leaking roof at Espa\u00f1ola Middle School in New Mexico triggered a mold outbreak, forcing classroom closures. See how aging infrastructure fuels indoor mold growth.",
+      "seoDescription": "A leaking roof at Española Middle School in New Mexico triggered a mold outbreak, forcing classroom closures. See how aging infrastructure fuels indoor mold growth.",
       "primaryKeyword": "mold respiratory illness"
     },
     {
@@ -2858,7 +2915,7 @@
       "featured": false,
       "readTime": 4,
       "seoTitle": "MoldCo Virtual Clinic for Mold Illness | The Mold Report",
-      "seoDescription": "MoldCo's telehealth model gives mold illness patients access to real clinicians, biomarker testing, and treatment \u2014 no specialist waitlists or $10K intake fees.",
+      "seoDescription": "MoldCo's telehealth model gives mold illness patients access to real clinicians, biomarker testing, and treatment — no specialist waitlists or $10K intake fees.",
       "primaryKeyword": "CIRS diagnosis"
     },
     {
@@ -2918,7 +2975,7 @@
       "featured": false,
       "readTime": 3,
       "seoTitle": "Washington Flooding Causes $40M+ Road Damage | The Mold Report",
-      "seoDescription": "Severe Washington state flooding has destroyed roads and infrastructure, with early estimates topping $40M \u2014 and mold risks rising as floodwaters recede. See the latest.",
+      "seoDescription": "Severe Washington state flooding has destroyed roads and infrastructure, with early estimates topping $40M — and mold risks rising as floodwaters recede. See the latest.",
       "primaryKeyword": "mold remediation"
     },
     {
@@ -3046,7 +3103,7 @@
       "id": "a21a7575d5a1",
       "title": "Louisiana Ranked Most At-Risk State for Mold Growth in New Analysis",
       "originalTitle": "Louisiana tops list as highest risk state for mold growth",
-      "summary": "Louisiana has been identified as the highest-risk state for mold growth in the United States, according to a recent analysis. The ranking likely reflects the state's combination of high humidity, frequent rainfall, warm temperatures, and vulnerability to flooding \u2014 conditions that create near-ideal environments for mold proliferation year-round. Louisiana's Gulf Coast location and history of major storm events, including hurricanes that cause widespread water damage to homes and buildings, further compound the risk. Reports indicate the findings draw on climate and environmental data to rank states by mold growth potential. For residents, the implications are significant. Mold exposure in homes and workplaces may contribute to respiratory issues, allergic reactions, and other health concerns. Research suggests that a subset of the population carries a genetic susceptibility, estimated at around 24%, that may make them more vulnerable to mold-related illness. Experts generally recommend regular home inspections, prompt water damage remediation, and proper ventilation as key preventive measures. The ranking serves as a reminder that in high-humidity states like Louisiana, mold awareness is a year-round public health consideration.",
+      "summary": "Louisiana has been identified as the highest-risk state for mold growth in the United States, according to a recent analysis. The ranking likely reflects the state's combination of high humidity, frequent rainfall, warm temperatures, and vulnerability to flooding — conditions that create near-ideal environments for mold proliferation year-round. Louisiana's Gulf Coast location and history of major storm events, including hurricanes that cause widespread water damage to homes and buildings, further compound the risk. Reports indicate the findings draw on climate and environmental data to rank states by mold growth potential. For residents, the implications are significant. Mold exposure in homes and workplaces may contribute to respiratory issues, allergic reactions, and other health concerns. Research suggests that a subset of the population carries a genetic susceptibility, estimated at around 24%, that may make them more vulnerable to mold-related illness. Experts generally recommend regular home inspections, prompt water damage remediation, and proper ventilation as key preventive measures. The ranking serves as a reminder that in high-humidity states like Louisiana, mold awareness is a year-round public health consideration.",
       "source": "American Home Shield",
       "sourceUrl": "https://www.ahs.com/home-matters/lifestyle/moldiest-homes-in-america-ranking/",
       "author": "Local News",
