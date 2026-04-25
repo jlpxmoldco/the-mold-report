@@ -648,6 +648,146 @@ Category: {article['category']}"""
 
 
 # =========================================
+# COMPLIANCE LINT (deterministic, no API needed)
+# =========================================
+# Hard checks that block publish. These mirror the most-cited rules from the
+# claims-compliance skill. Every entry: a "trigger" pattern, an optional
+# "rescue" pattern that, if also present in the article, signals the trigger
+# is being discussed responsibly (with the MoldCo position) rather than
+# violating the rule.
+#
+# Hard violations CANNOT be silently auto-corrected because they typically
+# imply a missing position statement, not just a wrong word.
+
+COMPLIANCE_HARD_RULES = [
+    {
+        "name": "urine mycotoxin testing without skeptical framing",
+        "trigger": re.compile(r"\b(urine|urinary)\s+mycotoxin\b", re.I),
+        "rescue": re.compile(
+            r"(not\s+(useful|diagnostic|endorsed|validated)|"
+            r"lacks?\s+validated|cannot\s+distinguish|"
+            r"blood\s+biomarkers?|drawn\s+caution|CDC\s+caution|"
+            r"contested|unresolved|debated|not\s+a\s+useful)",
+            re.I,
+        ),
+        "message": (
+            "Article mentions urine mycotoxin testing without the MoldCo "
+            "position. Per claims-compliance: it is not a useful diagnostic "
+            "for mold illness from water-damaged buildings -- cannot "
+            "distinguish food vs. inhaled exposure, lacks validated reference "
+            "ranges, not diagnostic for CIRS. Add an editor's note + body "
+            "language pointing to blood biomarkers (TGF-\u03b21, MMP-9, MSH)."
+        ),
+    },
+    {
+        "name": "VCS / visual contrast sensitivity",
+        "trigger": re.compile(r"\b(VCS|visual\s+contrast\s+sensitivity)\b", re.I),
+        "rescue": None,  # never allowed
+        "message": "Per claims-compliance Rule #6: never mention VCS testing.",
+    },
+    {
+        "name": "Shoemaker-licensed / certified Shoemaker",
+        "trigger": re.compile(
+            r"(shoemaker[-\s]licensed|certified\s+shoemaker|shoemaker[-\s]certified)",
+            re.I,
+        ),
+        "rescue": None,
+        "message": (
+            "Per claims-compliance Rule #4: certification is not currently "
+            "available. Use 'trained in Dr. Shoemaker's Protocol' instead."
+        ),
+    },
+    {
+        "name": "wrong genetic susceptibility stat",
+        "trigger": re.compile(
+            r"\b(25|30)\s*%\s*(of\s+(the\s+)?population|with\s+HLA|genetic|susceptibility)",
+            re.I,
+        ),
+        "rescue": None,
+        "message": "Per claims-compliance Rule #8: genetic susceptibility = 24%, never 25% or 30%.",
+    },
+    {
+        "name": "wrong mold growth timeline",
+        "trigger": re.compile(r"\b24\s*[\u2013-]\s*72\s*hours?\b"),
+        "rescue": None,
+        "message": "Per claims-compliance Rule #8: mold growth timeline = 24-48 hours, not 24-72.",
+    },
+    {
+        "name": "diagnostic accuracy claim applied to MoldCo",
+        "trigger": re.compile(
+            r"(98\.[45]\s*%\s*sensitivity|"
+            r"diagnostic\s+accuracy|"
+            r"MoldCo\s+diagnoses|"
+            r"diagnose[sd]?\s+CIRS)",
+            re.I,
+        ),
+        "rescue": None,
+        "message": (
+            "Per claims-compliance Rule #1 / #9: MoldCo does NOT diagnose. "
+            "No sensitivity/specificity stats applied to MoldCo's approach."
+        ),
+    },
+    {
+        "name": "modernized version of Shoemaker",
+        "trigger": re.compile(r"modernized\s+version\s+of\s+(the\s+)?shoemaker", re.I),
+        "rescue": None,
+        "message": (
+            "Per claims-compliance Rule #3: do not call MoldCo a 'modernized "
+            "version' of the Shoemaker Protocol. Use 'guided by Shoemaker Protocol'."
+        ),
+    },
+]
+
+# Soft warnings -- log but don't block. Catch lower-risk drift.
+COMPLIANCE_SOFT_RULES = [
+    {
+        "name": "uses 'follow' instead of 'guided by' near Shoemaker",
+        "trigger": re.compile(r"follow(s|ing|ed)?\s+(the\s+)?shoemaker", re.I),
+        "message": "Prefer 'guided by Shoemaker Protocol' over 'following' it.",
+    },
+    {
+        "name": "TGF-B1 referred to as a hormone",
+        "trigger": re.compile(r"TGF[-\s]?(\u03b2|B|b)1[^.]{0,40}\bhormone\b", re.I),
+        "message": "TGF-\u03b21 is a cytokine / growth factor, not a hormone.",
+    },
+]
+
+
+def compliance_lint(article):
+    """Deterministic compliance lint. Runs without API access.
+
+    Returns (hard_violations, soft_warnings) where each is a list of dicts:
+    {"name": str, "message": str, "match": str}.
+
+    Hard violations should BLOCK publishing. Soft warnings are advisory.
+    """
+    blob_parts = [
+        article.get("title", "") or "",
+        article.get("summary", "") or "",
+        article.get("editorsNote", "") or "",
+        " ".join(article.get("tags", []) or []),
+    ]
+    blob = "\n".join(blob_parts)
+
+    hard = []
+    for rule in COMPLIANCE_HARD_RULES:
+        m = rule["trigger"].search(blob)
+        if not m:
+            continue
+        if rule.get("rescue") and rule["rescue"].search(blob):
+            continue  # discussed responsibly with the MoldCo position present
+        hard.append({"name": rule["name"], "message": rule["message"], "match": m.group(0)})
+
+    soft = []
+    for rule in COMPLIANCE_SOFT_RULES:
+        m = rule["trigger"].search(blob)
+        if m:
+            soft.append({"name": rule["name"], "message": rule["message"], "match": m.group(0)})
+
+    return hard, soft
+
+
+# =========================================
 # AGENT: COMPLIANCE CHECK
 # =========================================
 def compliance_agent(article):
@@ -2214,6 +2354,12 @@ def publish_approved(approved_file):
     data = load_articles()
     existing_ids = {a["id"] for a in data["articles"]}
     published = []
+    blocked = []
+
+    api_key_present = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    if not api_key_present:
+        print("  ⚠ ANTHROPIC_API_KEY not set — semantic compliance_agent will be skipped.")
+        print("    Deterministic compliance_lint still runs (it does not require an API key).")
 
     for article in approved:
         aid = article.get("id", "?")
@@ -2222,6 +2368,23 @@ def publish_approved(approved_file):
             continue
 
         print(f"\n  Publishing: {article['title'][:65]}")
+
+        # GATE 1: Deterministic compliance lint (always runs, no API).
+        # Hard violations BLOCK publishing for this article.
+        hard, soft = compliance_lint(article)
+        for warn in soft:
+            print(f"    ⚠ Soft warning: {warn['name']} (matched: {warn['match']!r})")
+        if hard:
+            print(f"    ⛔ BLOCKED — {len(hard)} hard compliance violation(s):")
+            for v in hard:
+                print(f"       • {v['name']} (matched: {v['match']!r})")
+                print(f"         → {v['message']}")
+            blocked.append({"id": aid, "title": article.get("title", ""), "violations": hard})
+            continue
+
+        # GATE 2: Semantic compliance review via Claude (only if API key set).
+        if api_key_present:
+            article = compliance_agent(article)
 
         # Run photo agent (no API needed — just OG/Unsplash URL assignment)
         article = photo_agent(article)
@@ -2236,8 +2399,17 @@ def publish_approved(approved_file):
         published.append(article)
         print(f"  ✓ PUBLISHED")
 
+    if blocked:
+        print(f"\n  ⛔ {len(blocked)} article(s) blocked by compliance_lint:")
+        for b in blocked:
+            print(f"     - {b['title'][:80]}")
+            for v in b["violations"]:
+                print(f"         {v['name']}")
+
     if not published:
-        print("\n✓ No new articles to publish (all already on site).")
+        print("\n✓ No new articles to publish.")
+        if blocked:
+            print(f"  ({len(blocked)} blocked by compliance — fix and re-run.)")
         return
 
     # Merge into existing articles
