@@ -4,21 +4,21 @@ The Mold Report — Weekly Newsletter Generator (v3)
 ==================================================
 Generates a Substack-ready newsletter from this week's published articles.
 
-The host of the newsletter is MARLOW — the AI newsletter editor with a name,
+The host of the newsletter is MYCROFT — the AI newsletter editor with a name,
 a voice, and a long-running argument with the other bots downstairs (The
 Critic, The Lawyer, The Scientist — all already named on the About page).
-Marlow opens every issue, signs off at the bottom, and keeps the tone fun
+Mycroft opens every issue, signs off at the bottom, and keeps the tone fun
 throughout. The newsletter is unapologetically AI-curated; we lean into it.
 
 Editorial structure (in order):
   1. Header (title + date range)
-  2. From Marlow — warm, conversational editor's letter
+  2. From Mycroft — warm, conversational editor's letter
   3. The Lead — most important story, research preferred
   4. The Research Corner — appears whenever research-tagged stories shipped
   5. News & Regulation — what hit the cycle
   6. Industry Pulse — markets, standards, conferences
   7. Quick Hits — everything else worth a click
-  8. Sign-off — Marlow wraps with a P.S. running gag
+  8. Sign-off — Mycroft wraps with a P.S. running gag
   9. Footer — MoldCo CTAs (UTMs included; utm_medium=email)
 
 Editor's notes are short by design now: one sentence on the lead, one
@@ -26,7 +26,7 @@ sentence in the Research Corner. News/regulation/industry stand on their
 summaries alone — no medical mini-lectures.
 
 The intro is written by Claude when ANTHROPIC_API_KEY is reachable. A
-strong template fallback runs otherwise, also in Marlow's voice, so the
+strong template fallback runs otherwise, also in Mycroft's voice, so the
 newsletter never reads dry.
 
 Substack copy-paste: open newsletter.html in any browser, Cmd+A, Cmd+C, paste.
@@ -63,7 +63,7 @@ CATEGORY_LABELS = {
     "diagnostics": "Diagnostics",
 }
 
-EDITOR_NAME = "Marlow"
+EDITOR_NAME = "Mycroft"
 
 
 # ---------- Env loading ----------
@@ -164,29 +164,29 @@ def by_category(articles, exclude_ids=None):
     return out
 
 
-# ---------- Editorial intro (Marlow's voice) ----------
+# ---------- Editorial intro (Mycroft's voice) ----------
 
-EDITOR_PROMPT = """You are MARLOW, the AI editor of The Mold Report — a newsroom focused on mold and indoor health. Write the editor's letter at the top of this week's newsletter ({date_range}).
+EDITOR_PROMPT = """You are MYCROFT, the AI editor of The Mold Report — a newsroom focused on mold and indoor health. Write the editor's letter at the top of this week's newsletter ({date_range}).
 
-WHO MARLOW IS — a recurring character readers should grow attached to:
+WHO MYCROFT IS — a recurring character readers should grow attached to:
 - An AI newsletter editor. Self-aware about being an AI and embraces it without being weird about it.
-- Sharp, dryly funny, mildly cheeky. Reads like a smart human friend who happens to read every mold paper that hits the wires.
+- The name is on purpose: "myco-" is the Greek root for fungi (this is a mold publication, after all), and Mycroft Holmes is Sherlock's older, smarter, lazier brother — the one who'd rather read every paper in London than chase anyone down an alley. That's the voice: erudite, slightly weary, dryly funny, observes more than he reacts.
 - Cares about people with mold illness. Treats the illness with respect; treats hype, charlatans, and overreach with skepticism.
-- Has a long-running, affectionate argument with the other bots in the newsroom (already named on the About page):
+- Has a long-running, affectionate dynamic with the other bots in the newsroom (already named on the About page) — Mycroft thinks of them collectively as his Diogenes Club, a private newsroom of opinionated specialists who do the actual work while he reads and signs off:
     - The Critic (interest scoring, hardliner)
     - The Hook (headline rewriter, opinionated about semicolons)
     - The Writer (rewrites every summary)
     - The Lawyer (compliance, obsessed with the difference between "treatment" and "recovery")
     - The Scientist (verifies research against the evidence base)
     - The Optimizer (SEO, fights about meta descriptions)
-- Marlow can casually reference these bots by name for color, but only if it lands naturally — never forced.
+- Mycroft can casually reference these bots by name for color, but only if it lands naturally — never forced. The Diogenes Club bit is available too, sparingly.
 
-CRITICAL — INTRODUCE MARLOW EVERY WEEK:
-The first non-greeting paragraph MUST explicitly introduce Marlow as the AI editor behind this newsletter. Readers may be opening their first issue. They should never have to guess who Marlow is. Examples of acceptable phrasings (vary across issues, don't reuse the same one):
-- "Marlow here — your AI editor at The Mold Report."
-- "Marlow here. I'm the AI editor who runs this newsletter."
-- "Marlow here, the AI putting this newsletter together every week."
-- "Marlow here — AI editor in residence at The Mold Report."
+CRITICAL — INTRODUCE MYCROFT EVERY WEEK:
+The first non-greeting paragraph MUST explicitly introduce Mycroft as the AI editor behind this newsletter. Readers may be opening their first issue and they should never have to guess who Mycroft is. The introduction can briefly own the name (e.g. "yes, after the Holmes brother; yes, also after mycology") if it lands naturally. Examples of acceptable phrasings (vary across issues, don't reuse the same one):
+- "Mycroft here — your AI editor at The Mold Report."
+- "Mycroft here. I'm the AI editor who runs this newsletter."
+- "Mycroft here — AI editor in residence at The Mold Report, named for the fungi and the Holmes brother in roughly equal measure."
+- "Mycroft here, the AI putting this newsletter together every week."
 
 VOICE:
 - First person ("I", "me", or "we" for the newsroom collectively).
@@ -197,7 +197,7 @@ VOICE:
 
 STRUCTURE — output exactly this shape, no more, no less:
 1. <p>Hey friends,</p>  (or a varied warm greeting — "Friends —", "Hey readers,", "Hi all —")
-2. <p>Opening paragraph that explicitly introduces Marlow as the AI editor behind this newsletter and sets up the week. ~30-55 words.</p>
+2. <p>Opening paragraph that explicitly introduces Mycroft as the AI editor behind this newsletter and sets up the week. ~30-55 words.</p>
 3. <p>Lead-story paragraph — frame this week's lead in plain English with personality. ~50-80 words.</p>
 4. <p>"Also this week" paragraph — name 2-3 OTHER specific stories with color, in prose, not a list. ~50-80 words.</p>
 5. <p>One short closer line. Examples: "Let's dig in.", "Onward.", "Pour the coffee.", "Here we go." — vary it.</p>
@@ -216,9 +216,10 @@ CONTEXT FOR THIS WEEK:
 SIGNOFF_PSS = [
     "<em>P.S. The Lawyer reminds me this isn't medical advice. The Lawyer reminds everyone, of everything, constantly.</em>",
     "<em>P.S. The Scientist asked me to clarify that one study moves the dial — it doesn't end the conversation. Noted, Scientist. Noted.</em>",
-    "<em>P.S. The Critic says we should have killed two more stories. The Critic always says that.</em>",
-    "<em>P.S. The Hook fought me on three headlines this week. The Hook won twice.</em>",
-    "<em>P.S. None of this is medical advice. The Lawyer drafted that sentence and I'm contractually required to print it.</em>",
+    "<em>P.S. The Critic says we should have killed two more stories. The Critic always says that. I'm beginning to suspect it's pathological.</em>",
+    "<em>P.S. The Hook fought me on three headlines this week. The Hook won twice. I'm choosing to call this delegation.</em>",
+    "<em>P.S. None of this is medical advice. The Lawyer drafted that sentence and I am contractually obligated to reprint it.</em>",
+    "<em>P.S. Sherlock would have run somewhere this week. I read the wires from a chair. We each have our methods.</em>",
 ]
 
 
@@ -282,7 +283,7 @@ def ai_intro(lead, sections, total, date_range):
     return None
 
 
-# ---- Template fallback (still in Marlow's voice) ----
+# ---- Template fallback (still in Mycroft's voice) ----
 
 # Map common story patterns to short, voiced references for the "also this week" line.
 def humanize_thread(a):
@@ -363,7 +364,7 @@ def _pick_other_threads(articles, lead, n=3):
 
 
 def template_intro(lead, articles, sections, total, date_range):
-    """Hand-crafted Marlow-voiced fallback when the API isn't reachable."""
+    """Hand-crafted Mycroft-voiced fallback when the API isn't reachable."""
     lead_title = lead["title"]
     lead_cat = lead.get("category", "news")
     lead_source = lead.get("source", "")
@@ -372,13 +373,14 @@ def template_intro(lead, articles, sections, total, date_range):
     greetings = ["Hey friends,", "Friends —", "Hey readers,", "Hi all —"]
     greeting = greetings[week_num % len(greetings)]
 
-    # Each opener MUST explicitly introduce Marlow as the AI editor behind
-    # this newsletter — readers may be on their first issue.
+    # Each opener MUST explicitly introduce Mycroft as the AI editor behind
+    # this newsletter — readers may be on their first issue. The name is a
+    # double pun (myco- for fungi, Mycroft Holmes for the persona); we own it.
     openers = [
-        f"Marlow here — I'm the AI editor behind The Mold Report, the one who reads every mold paper and lawsuit so you don't have to. {total} stories cleared the bots this week. Here's the rundown.",
-        f"Marlow here. I'm the AI editor who runs this newsletter — every Sunday I take what the bots downstairs scrape, score, and rewrite, and serve up the keepers. We've got {total} of them this week.",
-        f"Marlow here, your AI editor at The Mold Report. {total} stories made it through editorial this week — some big, some absurd, all of them below.",
-        f"Marlow here — AI editor in residence at The Mold Report, fresh off another week of scoring fights with The Critic. {total} stories made the cut. We'll start with the one that surprised the room.",
+        f"Mycroft here — I'm the AI editor behind The Mold Report, named for the fungi and the Holmes brother in roughly equal measure. {total} stories cleared the bots downstairs this week. Here's the rundown.",
+        f"Mycroft here. I'm the AI editor who runs this newsletter — every Sunday I read what the bots scrape, score, and rewrite, then send up the keepers. We've got {total} this week.",
+        f"Mycroft here, your AI editor at The Mold Report. The bots in my Diogenes Club did the actual work this week; I read everything and signed off. {total} stories made it through. Below.",
+        f"Mycroft here — AI editor in residence at The Mold Report, fresh off another scoring fight with The Critic. {total} stories made the cut, and one of them genuinely surprised me.",
     ]
     opener = openers[week_num % len(openers)]
 
@@ -511,7 +513,7 @@ def render_research_corner(items):
     out = [
         '<hr>',
         '<h2>The Research Corner</h2>',
-        '<p><em>Studies, papers, and clinical work that landed this week. The Scientist insisted on this section.</em></p>',
+        '<p><em>Studies, papers, and clinical work that landed this week. The Scientist insisted; Mycroft did not object.</em></p>',
     ]
     for a in items[:4]:
         cat = CATEGORY_LABELS.get(a.get("category", "research"), "Research")
@@ -586,7 +588,7 @@ def render_footer():
         '<hr>',
         f'<p><em>The Mold Report is published by the team behind '
         f'<a href="{MOLDCO_HOME}">MoldCo</a>, a clinician-led virtual clinic focused on mold toxicity. '
-        f'Marlow is an AI; the science is real.</em></p>',
+        f'Mycroft is an AI; the science is real.</em></p>',
         f'<p><a href="{MOLDCO_CARE}">Mold Toxicity Care</a> · '
         f'<a href="{MOLDCO_PANEL}">Blood Panel Testing</a></p>',
         '<p><em>Every article AI-curated and compliance-checked. Not medical advice.</em></p>',
