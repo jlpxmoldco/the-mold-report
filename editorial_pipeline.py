@@ -1565,6 +1565,8 @@ def generate_article_pages(data):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5RC8HJF40"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-Y5RC8HJF40');</script>
   <title>{seo_title}</title>
   <meta name="description" content="{seo_desc}">
   <meta name="keywords" content="{tags_escaped}">
