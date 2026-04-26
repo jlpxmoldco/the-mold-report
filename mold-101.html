@@ -467,6 +467,77 @@
     footer p { font-size: 13px; color: var(--text-3); margin: 0 0 var(--sp-2); }
     footer a { color: var(--accent); }
 
+    /* SYMPTOM CLUSTERS */
+    .cluster-intro {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-8);
+    }
+    .cluster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--sp-4);
+      margin: var(--sp-8) 0;
+    }
+    .cluster-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: var(--sp-6);
+    }
+    .cluster-card .cluster-num {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 24px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .cluster-card .cluster-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+    .cluster-card .cluster-symptoms {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-2);
+      margin: var(--sp-3) 0 0;
+    }
+    .cluster-deep {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6) var(--sp-8);
+      margin: var(--sp-8) 0;
+    }
+    .cluster-deep h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin: 0 0 var(--sp-4);
+    }
+    .cluster-deep p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-4);
+    }
+    .cluster-deep p:last-child { margin-bottom: 0; }
+    .cluster-deep .ref-tag {
+      font-size: 12px;
+      color: var(--text-3);
+      font-style: italic;
+    }
+
     @media (max-width: 640px) {
       .stat-row { grid-template-columns: 1fr 1fr; }
       .step { gap: var(--sp-4); }
@@ -475,6 +546,7 @@
       .bio-table td, .bio-table th { padding: var(--sp-2) var(--sp-3); }
       .next-grid { grid-template-columns: 1fr; }
       .chapter-link { padding: 10px 12px; font-size: 12px; }
+      .cluster-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -607,30 +679,121 @@
       <div class="chapter-number">Chapter 3</div>
       <h2>Recognizing the Symptoms</h2>
 
-      <p>CIRS produces a <strong>cluster of symptoms</strong> that span multiple organ systems. No single symptom confirms mold illness — it is the <em>pattern</em> of multi-system involvement that matters. Patients typically experience symptoms across several of these categories simultaneously:</p>
+      <p>CIRS does not produce one or two telltale symptoms. It produces <strong>clusters</strong> — groups of symptoms that span multiple organ systems simultaneously. This multi-system presentation is one of the defining characteristics of biotoxin illness, and it is the reason patients are so often misdiagnosed or dismissed.</p>
 
-      <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Neurological &amp; Cognitive</div>
-          <div class="label">Difficulty concentrating and word-finding problems. Memory issues, particularly short-term. Disorientation and confusion. Headaches. Light sensitivity. Numbness and tingling. Vertigo.</div>
+      <p>Dr. Shoemaker's clinical research, spanning over 10,000 patients, identified <strong>13 distinct symptom clusters</strong> that CIRS patients typically present with. No single cluster confirms the diagnosis — it is the <em>pattern across multiple clusters</em>, combined with biomarker evidence and exposure history, that points to CIRS. Most CIRS patients report symptoms in 8 or more of these 13 clusters.</p>
+
+      <div class="callout">
+        <div class="callout-title">Why Clusters Matter</div>
+        <p>The cluster framework is significant because it moves beyond vague symptom lists toward a <strong>structured, reproducible pattern</strong>. When a patient presents with symptoms spanning 8+ of 13 defined clusters — and those symptoms began or worsened after water-damaged building exposure — the probability of CIRS increases substantially, especially when paired with objective biomarker abnormalities.</p>
+      </div>
+
+      <!-- THE 13 CLUSTERS -->
+      <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin:var(--sp-8) 0 var(--sp-4);color:var(--text);">The 13 Symptom Clusters</h3>
+
+      <div class="cluster-grid">
+        <div class="cluster-card">
+          <span class="cluster-num">1</span><span class="cluster-name">Fatigue</span>
+          <div class="cluster-symptoms">Persistent, debilitating fatigue not relieved by sleep or rest. This is not ordinary tiredness — research suggests it may reflect molecular hypometabolism, a measurable suppression of ribosomal and mitochondrial gene expression.</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Musculoskeletal</div>
-          <div class="label">Joint pain without swelling. Muscle aches and cramps. Morning stiffness. Ice-pick or sharp, shooting pains. Research suggests inflammatory pathways in CIRS may contribute to pain syndromes in many patients.</div>
+        <div class="cluster-card">
+          <span class="cluster-num">2</span><span class="cluster-name">Weakness</span>
+          <div class="cluster-symptoms">General weakness, reduced exercise tolerance, difficulty with physical tasks that were previously routine. Often accompanied by post-exertional malaise.</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Respiratory &amp; Sinus</div>
-          <div class="label">Chronic sinus congestion not responsive to standard treatment. Shortness of breath. Cough. Air hunger. These symptoms may be related to inflammatory mediators rather than infection.</div>
+        <div class="cluster-card">
+          <span class="cluster-num">3</span><span class="cluster-name">Body Aches</span>
+          <div class="cluster-symptoms">Muscle pain, joint pain without visible swelling, cramping, morning stiffness, and sharp or "ice-pick" pains. Research suggests inflammatory mediators from biotoxin exposure may drive pain syndromes in 85%+ of CIRS patients.</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">General &amp; Systemic</div>
-          <div class="label">Persistent fatigue not relieved by rest. Sleep disruption. Temperature regulation problems. Excessive thirst and frequent urination. Appetite changes. Static electrical shocks.</div>
+        <div class="cluster-card">
+          <span class="cluster-num">4</span><span class="cluster-name">Headache</span>
+          <div class="cluster-symptoms">Recurrent or persistent headaches, often described as unusual in character — different from the patient's historical headache pattern. May be accompanied by light sensitivity.</div>
         </div>
+        <div class="cluster-card">
+          <span class="cluster-num">5</span><span class="cluster-name">Light Sensitivity</span>
+          <div class="cluster-symptoms">Unusual sensitivity to bright light (photophobia), red or tearing eyes, and blurred vision. These may be related to inflammatory effects on the optic nerve and vascular system.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">6</span><span class="cluster-name">Memory &amp; Concentration</span>
+          <div class="cluster-symptoms">Difficulty concentrating, word-finding problems, short-term memory deficits, and disorientation. Research using NeuroQuant brain volumetrics has documented measurable cortical grey matter injury and ventricular enlargement in CIRS patients.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">7</span><span class="cluster-name">Numbness &amp; Tingling</span>
+          <div class="cluster-symptoms">Unusual tingling or numbness in extremities, "pins and needles" sensations, and ice-pick or shooting pains. These neurological symptoms may reflect inflammatory effects on peripheral nerves.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">8</span><span class="cluster-name">Sinus &amp; Respiratory</span>
+          <div class="cluster-symptoms">Chronic sinus congestion unresponsive to standard treatment, shortness of breath, cough, and air hunger. These symptoms are driven by inflammatory mediators rather than infection — which is why antibiotics and decongestants often fail.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">9</span><span class="cluster-name">Abdominal &amp; GI</span>
+          <div class="cluster-symptoms">Abdominal pain, nausea, diarrhea, appetite changes, and secretory diarrhea. Low MSH disrupts gut regulatory function, which may contribute to chronic GI symptoms.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">10</span><span class="cluster-name">Skin Sensitivity</span>
+          <div class="cluster-symptoms">Unusual skin sensitivity, rashes, static electrical shocks, and a feeling of being "shocked" when touching objects. Static shocks are a distinctive and frequently reported CIRS symptom.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">11</span><span class="cluster-name">Mood &amp; Affect</span>
+          <div class="cluster-symptoms">Mood swings, anxiety, depression, irritability, and difficulty with emotional regulation. Low MSH and chronic inflammation affect neurotransmitter pathways — these are physiological symptoms, not primarily psychological.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">12</span><span class="cluster-name">Temperature Dysregulation</span>
+          <div class="cluster-symptoms">Night sweats, body temperature instability, feeling too hot or too cold, and unusual sweating patterns. These may reflect hypothalamic dysfunction driven by low MSH.</div>
+        </div>
+        <div class="cluster-card">
+          <span class="cluster-num">13</span><span class="cluster-name">Thirst &amp; Urination</span>
+          <div class="cluster-symptoms">Excessive thirst, frequent urination (including at night), and susceptibility to dehydration. Low ADH (antidiuretic hormone) is common in CIRS and disrupts normal fluid regulation.</div>
+        </div>
+      </div>
+
+      <!-- DEEPER DIVES -->
+      <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin:var(--sp-10) 0 var(--sp-6);color:var(--text);">What the Research Shows</h3>
+
+      <p>Several of these clusters have been studied in significant depth. Understanding the mechanisms behind the symptoms helps explain why conventional treatments often miss the mark.</p>
+
+      <div class="cluster-deep">
+        <h3>Cognitive Impairment &amp; Brain Injury</h3>
+        <p>Cognitive symptoms in CIRS are not subjective complaints — research has documented <strong>measurable structural brain changes</strong> in CIRS patients. Using NeuroQuant MRI volumetrics, studies have identified cortical grey matter injury, grey matter nuclear atrophy, and ventricular enlargement following water-damaged building exposure. These findings provide objective evidence that biotoxin exposure can cause physical changes in brain tissue.</p>
+        <p>Importantly, research on intranasal VIP treatment has demonstrated that some of these brain volume changes may be <strong>reversible</strong> — a finding with significant implications for patients who have been told their cognitive decline is permanent or psychological.</p>
+        <p class="ref-tag">Shoemaker RC, Heyman A, Lark D (2023). Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment.</p>
+      </div>
+
+      <div class="cluster-deep">
+        <h3>Chronic Fatigue &amp; Hypometabolism</h3>
+        <p>The fatigue experienced by CIRS patients has a <strong>molecular basis</strong>. Transcriptomic analysis has revealed suppression of ribosomal and mitochondrial gene expression — a state researchers term "molecular hypometabolism." In plain terms: the cellular machinery that produces energy is measurably suppressed.</p>
+        <p>This finding is significant because it validates what patients report — that their fatigue is not laziness, depression, or deconditioning, but a real physiological state. The research also shows this hypometabolic state <strong>reverses during treatment</strong>, with VIP therapy correcting overshoot through insulin signaling pathways.</p>
+        <p class="ref-tag">Ryan JC, Shoemaker RC (2018). Chronic Fatigue: Reversible Hypometabolism Shown by Transcriptomics.</p>
+      </div>
+
+      <div class="cluster-deep">
+        <h3>Pain Syndromes</h3>
+        <p>Joint and muscle pain in CIRS are not caused by mechanical injury or autoimmune attack. Research has identified that the <strong>same inflammatory mediators</strong> driving the innate immune response to biotoxin exposure — particularly elevated MMP-9 and TGF-β1 — are directly involved in the musculoskeletal pain that affects an estimated 85%+ of CIRS patients.</p>
+        <p>This explains why pain persists despite normal rheumatological workups, negative imaging, and failed treatment with anti-inflammatory medications. The pain is real, measurable through biomarkers, and driven by the underlying inflammatory process — not by tissue damage or degeneration.</p>
+        <p class="ref-tag">Shoemaker RC, Ryan JC (2018). Inflammatory Responses Acquired Following Environmental Exposures Are Involved in Pain Syndromes.</p>
+      </div>
+
+      <div class="cluster-deep">
+        <h3>The MSH Connection</h3>
+        <p>Many CIRS symptom clusters trace back to a single upstream problem: <strong>low MSH</strong> (melanocyte-stimulating hormone). Research suggests MSH is low in approximately 94% of CIRS patients. This matters because MSH is not just one hormone — it is a <strong>master regulatory peptide</strong> that controls:</p>
+        <p><strong>Sleep</strong> — MSH regulates sleep-wake cycles. Low MSH disrupts restorative sleep, compounding fatigue.<br>
+        <strong>Pain perception</strong> — MSH modulates pain pathways. Low MSH amplifies pain signals.<br>
+        <strong>Gut function</strong> — MSH regulates gut motility and mucosal immunity. Low MSH contributes to GI symptoms.<br>
+        <strong>Mood</strong> — MSH influences neurotransmitter balance. Low MSH contributes to depression and irritability.<br>
+        <strong>Immune regulation</strong> — MSH is anti-inflammatory. Without it, the inflammatory cascade continues unchecked.<br>
+        <strong>Nasal defense</strong> — Low MSH creates conditions that allow MARCoNS (antibiotic-resistant staph) to colonize deep nasal passages.</p>
+        <p>This single biomarker abnormality helps explain why CIRS patients experience symptoms across so many apparently unrelated systems. They are not unrelated — they share a common regulatory failure.</p>
+      </div>
+
+      <div class="cluster-deep">
+        <h3>Neurodegeneration Risk</h3>
+        <p>Recent research has identified a <strong>transcriptomic fingerprint</strong> — including genes TUBA4A, TUBB1, and clusterin (CLU) — found in both symptomatic Parkinson's disease patients and younger CIRS patients. This finding, termed "Triple Positives," suggests that chronic water-damaged building exposure may contribute to neurodegenerative pathways earlier than previously recognized.</p>
+        <p>While this research is still developing, it underscores the importance of early identification and treatment of CIRS — the inflammatory processes driving current symptoms may also carry long-term neurological implications.</p>
+        <p class="ref-tag">Shoemaker RC, Ryan Z, Heyman A, McMahon S, Lark D (2024). A Transcriptomic Fingerprint for Parkinson's Disease Found in CIRS Patients.</p>
       </div>
 
       <div class="callout warn">
         <div class="callout-title">Important</div>
-        <p>These symptoms overlap with many other conditions. Experiencing them does not mean you have CIRS. A proper evaluation requires biomarker testing, exposure history, and clinical assessment by a provider experienced with mold-related illness. This guide is educational — not diagnostic.</p>
+        <p>These symptoms and clusters overlap with many other conditions. Experiencing them does not mean you have CIRS. The 13-cluster framework is a <strong>screening tool</strong>, not a diagnosis. A proper evaluation requires biomarker testing, exposure history assessment, and clinical assessment by a provider experienced with mold-related illness. This guide is educational — not diagnostic.</p>
       </div>
     </section>
 
