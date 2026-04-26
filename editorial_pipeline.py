@@ -1532,7 +1532,14 @@ def generate_article_pages(data):
         tags = a.get("tags", [])
         tags_str = ", ".join(tags)
         tags_escaped = html_module.escape(tags_str)
-        read_time = a.get("readTime", "3 min read")
+        # Format read time as "{n} min read" — readTime is stored as int minutes
+        _rt = a.get("readTime")
+        if isinstance(_rt, int) and _rt > 0:
+            read_time = f"{_rt} min read"
+        elif isinstance(_rt, str) and _rt.strip():
+            read_time = _rt if "min" in _rt else f"{_rt} min read"
+        else:
+            read_time = "3 min read"
         word_count = len(summary_raw.split())
         editors_note = a.get("editorsNote", "")
         primary_kw = html_module.escape(a.get("primaryKeyword", tags[0] if tags else "mold"))
