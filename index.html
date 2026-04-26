@@ -42,6 +42,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -95,7 +97,17 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
+    html { overflow-x: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+    .rank-debug-badge { position: absolute; top: 8px; right: 8px; background: rgba(17,17,17,0.92); color: #fff; font: 600 11px/1 var(--sans); padding: 4px 9px; border-radius: 100px; z-index: 5; cursor: help; pointer-events: auto; letter-spacing: 0.02em; }
+    .rank-debug-banner { max-width: var(--max-w); margin: 12px auto 0; padding: 8px 16px; background: #111; color: #fff; border-radius: var(--r-sm); font: 500 12px/1.5 var(--sans); display: flex; gap: 12px; flex-wrap: wrap; }
+    .rank-debug-banner strong { color: #FBBF24; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto; display: block; }
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
@@ -1067,6 +1079,7 @@
     }
     .moldco-tile-text {
       flex: 1;
+      min-width: 0;
     }
     .moldco-tile-text span {
       font-size: 13px;
@@ -1087,7 +1100,9 @@
     .share-bar {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: var(--sp-3);
+      row-gap: var(--sp-2);
       margin: var(--sp-6) 0 var(--sp-8);
       padding: var(--sp-6) 0;
       border-top: 1px solid var(--border-light);
@@ -1266,6 +1281,7 @@
       border-radius: var(--r-xl);
       max-width: 760px;
       width: 100%;
+      min-width: 0;
       overflow: hidden;
       box-shadow: var(--shadow-4);
       animation: slideUp 0.4s var(--ease-out);
@@ -1304,7 +1320,8 @@
     }
     .detail-meta {
       display: flex;
-      gap: var(--sp-4);
+      flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-4);
       font-size: 13px;
       color: var(--text-3);
       margin-bottom: var(--sp-6);
@@ -1315,6 +1332,8 @@
       font-size: 16px;
       line-height: 1.7;
       color: var(--text);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .detail-text p { margin-bottom: var(--sp-4); }
     .detail-source {
@@ -1517,10 +1536,24 @@
       .phase-card { padding: var(--sp-4); }
       .nl-form { flex-direction: column; }
       .submit-section { padding: var(--sp-8) var(--sp-6); }
-      .detail-body { padding: var(--sp-6); }
+      .detail-body { padding: var(--sp-5); }
       .detail-body h1 { font-size: 24px; }
       .detail-img { height: 240px; }
-      .article-overlay { padding: var(--sp-4); }
+      .article-overlay { padding: var(--sp-3); }
+      .article-detail { max-width: 100%; }
+      .share-bar { gap: var(--sp-2); padding: var(--sp-4) 0; margin: var(--sp-4) 0 var(--sp-6); }
+      .share-label { width: 100%; margin-bottom: var(--sp-1); }
+      .share-btn { padding: 7px 11px; font-size: 11px; }
+      .share-btn svg { width: 12px; height: 12px; }
+      .detail-meta { font-size: 12px; gap: var(--sp-1) var(--sp-3); }
+      .meta-dot::before { margin-right: 4px; }
+      .moldco-tile { padding: var(--sp-4); gap: var(--sp-3); }
+      .moldco-tile-text small { font-size: 12px; }
+      .filters { padding: var(--sp-3) var(--sp-4); gap: var(--sp-1); }
+      .content { padding: var(--sp-6) var(--sp-4); }
+      .ticker-wrap { padding: 0 var(--sp-4); }
+      .edition-bar { padding: var(--sp-3) var(--sp-4); }
+      .divider { padding: 0 var(--sp-4); }
     }
   </style>
 </head>
@@ -2084,11 +2117,116 @@ async function loadArticles() {
 // ==========================================
 // RENDER
 // ==========================================
+// ==========================================
+// RANKING — composite score + category cap + pinning
+// ==========================================
+const SOURCE_TIERS = [
+  { test: /(pubmed\.ncbi\.nlm\.nih\.gov|frontiersin\.org|sciencedirect\.com|nature\.com|jamanetwork|bmj\.com|thelancet|nejm\.org|nih\.gov|onlinelibrary\.wiley\.com|probiologists\.com|scholar\.google)/i, w: 18 },
+  { test: /(epa\.gov|cdc\.gov|hhs\.gov|hud\.gov|fda\.gov|osha\.gov|whitehouse\.gov)/i, w: 15 },
+  { test: /(npr\.org|nytimes\.com|wsj\.com|kffhealthnews|washingtonpost\.com|bloomberg\.com|reuters\.com|apnews\.com|propublica\.org|theguardian\.com|bbc\.co\.uk)/i, w: 10 },
+  { test: /(google\.com\/url|google\.com$)/i, w: 0 }
+];
+function sourceAuthority(a) {
+  const url = a.sourceUrl || '';
+  for (const t of SOURCE_TIERS) { if (t.test.test(url)) return t.w; }
+  return 5;
+}
+function recencyDecay(publishedAt) {
+  if (!publishedAt) return 0;
+  const ageDays = Math.max(0, (Date.now() - new Date(publishedAt).getTime()) / 86400000);
+  return 30 * Math.pow(0.5, ageDays / 5);
+}
+function pinSlot(a) {
+  if (!a.pinned) return null;
+  if (a.pinExpires && new Date(a.pinExpires).getTime() < Date.now()) return null;
+  return a.pinned === 'lead' || a.pinned === 'hero' ? a.pinned : null;
+}
+function articleScore(a) {
+  const featured = a.featured ? 100 : 0;
+  const interest = Math.max(0, ((a.interestScore || 0) - 6)) * 10;
+  const recency = recencyDecay(a.publishedAt);
+  const authority = sourceAuthority(a);
+  const shoemaker = a.shoemakerConnection ? 10 : 0;
+  return { total: featured + interest + recency + authority + shoemaker,
+           parts: { featured, interest, recency: Math.round(recency * 10) / 10, authority, shoemaker } };
+}
+function rankArticles(items, opts) {
+  opts = opts || {};
+  const caps = opts.caps || { 4: 2, 7: 3 };
+  const debug = opts.debug || false;
+  const scored = items.map(a => ({ a, s: articleScore(a), pin: pinSlot(a) }));
+  scored.sort((x, y) => y.s.total - x.s.total);
+  const pinnedLead = scored.find(x => x.pin === 'lead');
+  const pinnedHero = scored.filter(x => x.pin === 'hero' && x !== pinnedLead).slice(0, 3);
+  const reserved = new Set([pinnedLead, ...pinnedHero].filter(Boolean));
+  const pool = scored.filter(x => !reserved.has(x));
+  const out = []; const catCount = {};
+  const tryPush = (x, idx) => { if (!x) return false; out[idx] = x; catCount[x.a.category] = (catCount[x.a.category] || 0) + 1; return true; };
+  if (pinnedLead) tryPush(pinnedLead, 0);
+  else tryPush(pool.shift(), 0);
+  let next = 1;
+  for (const p of pinnedHero) { if (next > 3) break; tryPush(p, next++); }
+  while (next < 4 && pool.length) {
+    const cap = caps[4] || 2;
+    const idx = pool.findIndex(x => (catCount[x.a.category] || 0) < cap);
+    const pick = idx >= 0 ? pool.splice(idx, 1)[0] : pool.shift();
+    tryPush(pick, next++);
+  }
+  while (next < 7 && pool.length) {
+    const cap = caps[7] || 3;
+    const idx = pool.findIndex(x => (catCount[x.a.category] || 0) < cap);
+    const pick = idx >= 0 ? pool.splice(idx, 1)[0] : pool.shift();
+    tryPush(pick, next++);
+  }
+  while (pool.length) tryPush(pool.shift(), next++);
+  if (debug) {
+    console.log('[rank] Pinned:', { lead: pinnedLead && pinnedLead.a.title, hero: pinnedHero.map(p => p.a.title) });
+    console.table(out.slice(0, 10).map((x, i) => ({
+      pos: i, slot: i === 0 ? 'LEAD' : i < 4 ? 'side' : i < 7 ? 'card' : 'list',
+      cat: x.a.category, total: Math.round(x.s.total * 10) / 10,
+      featured: x.s.parts.featured, interest: x.s.parts.interest, recency: x.s.parts.recency,
+      authority: x.s.parts.authority, shoemaker: x.s.parts.shoemaker, title: x.a.title.slice(0, 50)
+    })));
+  }
+  return out.map(x => x.a);
+}
+const RANK_DEBUG = /[?&]debug=1/.test(location.search);
+let _rankInfo = new Map();
+let _rankOrder = new Map();
+
 function renderAll() {
-  const list = filter === 'all' ? articles : articles.filter(a => a.category === filter);
+  const filtered = filter === 'all' ? articles : articles.filter(a => a.category === filter);
+  const list = rankArticles(filtered, { debug: RANK_DEBUG });
+  _rankInfo.clear(); _rankOrder.clear();
+  list.forEach((a, i) => { _rankOrder.set(a.id, i + 1); _rankInfo.set(a.id, articleScore(a)); });
   renderHero(list);
   renderGrid(list);
   renderList(list);
+  if (RANK_DEBUG) decorateDebug();
+}
+function decorateDebug() {
+  document.querySelectorAll('[onclick^="openDetail("]').forEach(el => {
+    const m = el.getAttribute('onclick').match(/openDetail\('([^']+)'\)/);
+    if (!m) return;
+    const id = m[1];
+    const pos = _rankOrder.get(id);
+    const score = _rankInfo.get(id);
+    if (!score || el.querySelector('.rank-debug-badge')) return;
+    el.style.position = el.style.position || 'relative';
+    const badge = document.createElement('div');
+    badge.className = 'rank-debug-badge';
+    badge.textContent = '#' + pos + ' · ' + Math.round(score.total);
+    const p = score.parts;
+    badge.title = 'feat=' + p.featured + ' interest=' + p.interest + ' recency=' + p.recency + ' authority=' + p.authority + ' shoe=' + p.shoemaker;
+    el.appendChild(badge);
+  });
+  if (!document.querySelector('.rank-debug-banner')) {
+    const banner = document.createElement('div');
+    banner.className = 'rank-debug-banner';
+    banner.innerHTML = '<strong>RANK DEBUG</strong> Hover any badge for breakdown · <a href="' + location.pathname + '" style="color:#FBBF24">Exit debug</a> · See console.table for full ranking';
+    const main = document.querySelector('main.content');
+    if (main) main.prepend(banner);
+  }
 }
 
 function renderHero(items) {

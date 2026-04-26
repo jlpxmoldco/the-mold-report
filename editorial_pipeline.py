@@ -1454,7 +1454,14 @@ def save_articles(data):
 
 
 def rebuild_embedded(data):
-    """Re-embed articles into index.html for local file:// access."""
+    """Re-embed articles into index.html for local file:// access.
+
+    Uses ``json.JSONDecoder.raw_decode`` to find the end of the embedded JSON
+    object regardless of whether it's followed by ``;</script>`` or by more JS in
+    the same script block. The previous naive brace-counting approach could be
+    fooled by ``{`` / ``}`` inside string literals; ``raw_decode`` is the
+    correct parser-aware way to find the object boundary.
+    """
     if not INDEX_FILE.exists():
         return
     with open(INDEX_FILE) as f:
@@ -1465,23 +1472,28 @@ def rebuild_embedded(data):
         print("  ⚠ No EMBEDDED_ARTICLES marker in index.html")
         return
 
-    minified = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
-
-    # Find the JSON object by counting braces (regex can't handle nested JSON)
     start = html.index(marker) + len(marker)
-    depth = 0
-    end = start
-    for i, ch in enumerate(html[start:], start):
-        if ch == '{': depth += 1
-        elif ch == '}': depth -= 1
-        if depth == 0:
-            end = i + 1
-            break
+    decoder = json.JSONDecoder()
+    try:
+        # raw_decode returns (object, end_index_in_string). end is already absolute.
+        _, end = decoder.raw_decode(html, start)
+    except json.JSONDecodeError as exc:
+        print(f"  ⚠ Couldn't parse embedded JSON at offset {start}: {exc}")
+        return
 
-    html = html[:start] + minified + html[end:]
+    minified = json.dumps(data, separators=(',', ':'), ensure_ascii=False)
+    new_html = html[:start] + minified + html[end:]
+
+    # Round-trip check: parse what we just wrote, confirm count matches.
+    try:
+        parsed, _ = decoder.raw_decode(new_html, start)
+        assert len(parsed.get('articles', [])) == len(data.get('articles', []))
+    except Exception as exc:
+        print(f"  ⚠ Embedded JSON failed round-trip ({exc}) — refusing to write")
+        return
 
     with open(INDEX_FILE, 'w') as f:
-        f.write(html)
+        f.write(new_html)
     print(f"  ✓ Re-embedded {len(data['articles'])} articles into index.html")
 
 
