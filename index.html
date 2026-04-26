@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Mold Report — The First AI-Curated Mold News Publication</title>
-  <meta name="description" content="The Mold Report is the first AI-curated mold news publication. Weekly coverage of research, regulation, industry, and health — verified by compliance and research sub-agents.">
+  <meta name="description" content="The Mold Report is the first AI-curated mold news publication. Weekly coverage of research, regulation, industry, and health — verified by nine specialized AI editorial agents.">
   <meta name="keywords" content="mold news, mold research, indoor air quality, mold remediation, mold illness, biomarkers, mold regulation, mold testing">
   <meta name="robots" content="index, follow">
   <meta name="author" content="The Mold Report">
@@ -1727,7 +1727,7 @@
     <!-- AI TRANSPARENCY -->
     <section class="ai-transparency reveal" id="how-we-work" aria-label="How We Work">
       <h2>AI Journalism, Done Right</h2>
-      <p class="ai-sub">Every article passes through an 11-gate pipeline powered by six specialized AI agents before anything goes live. No hallucinations. No fabricated sources. Full transparency below.</p>
+      <p class="ai-sub">Every article passes through an 11-gate pipeline powered by nine specialized AI agents before anything goes live. No hallucinations. No fabricated sources. Full transparency below.</p>
 
       <!-- PHASE CARDS -->
       <!-- SYNC:PHASES_START -->
@@ -1756,7 +1756,7 @@
         <div class="phase-card">
           <div class="phase-num">Phase 4</div>
           <h4>Verify & Publish</h4>
-          <p>Claims compliance, Shoemaker alignment, invention guard, photo assignment</p>
+          <p>Claims compliance, Shoemaker alignment, photo assignment, SEO optimization</p>
           <span class="phase-count">4 gates</span>
         </div>
       </div>
@@ -1777,8 +1777,8 @@
             <div class="gate-item"><div class="gate-icon">&#x1F4DD;</div><div class="gate-info"><h5>7. Rewrite</h5><p>Rewrites each summary in Mold Report voice, adding expert context</p></div></div>
             <div class="gate-item"><div class="gate-icon">&#x2696;&#xFE0F;</div><div class="gate-info"><h5>8. Compliance</h5><p>Checks and auto-corrects against MoldCo claims compliance rules</p></div></div>
             <div class="gate-item"><div class="gate-icon">&#x1F52C;</div><div class="gate-info"><h5>9. Research</h5><p>Verifies Shoemaker alignment and scientific accuracy for research articles</p></div></div>
-            <div class="gate-item"><div class="gate-icon">&#x1F6E1;&#xFE0F;</div><div class="gate-info"><h5>10. Invention Guard</h5><p>AI cross-checks for fabricated facts and hallucinated claims</p></div></div>
-            <div class="gate-item"><div class="gate-icon">&#x1F4F7;</div><div class="gate-info"><h5>11. Photo</h5><p>Assigns images: OG source, topic Unsplash, or category fallback</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F4F7;</div><div class="gate-info"><h5>10. Photo</h5><p>Assigns images: OG source, topic-specific Unsplash match, or category fallback</p></div></div>
+            <div class="gate-item"><div class="gate-icon">&#x1F50E;</div><div class="gate-info"><h5>11. SEO</h5><p>Generates optimized meta titles and descriptions for search visibility</p></div></div>
           </div>
           <!-- SYNC:GATE_LIST_END -->
         </div>
@@ -1793,7 +1793,7 @@
             <!-- SYNC:WB_CARDS_START -->
             <div class="wb-card">
               <h4>Model</h4>
-              <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Separate agent instances for editorial, compliance, research, invention checking, and duplicate detection.</p>
+              <p>Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>) via Anthropic API. Nine separate agent instances: interest scoring, tip screening, headline writing, editorial rewriting, compliance checking, research verification, duplicate detection, photo assignment, and SEO optimization.</p>
             </div>
             <div class="wb-card">
               <h4>Source Bias</h4>
@@ -1824,6 +1824,46 @@
         <div class="ai-details-body">
           <!-- SYNC:VERSION_LOG_START -->
           <div class="vl-entry">
+            <span class="vl-version">v1.9</span>
+            <div class="vl-body">
+              <strong>Smart Ranking + Compliance Lint</strong>
+              <span>April 26, 2026</span>
+              <p>New composite scoring for Top Stories: articles ranked by featured status, recency decay, source authority, and Shoemaker alignment. Category cap prevents any single topic from dominating the hero. Added deterministic compliance lint gate to catch claims violations before the AI review. Fixed image repetition with pool-based dedup picker. Mobile share-bar overflow fix.</p>
+            </div>
+          </div>
+          <div class="vl-entry">
+            <span class="vl-version">v1.8</span>
+            <div class="vl-body">
+              <strong>Secure Pipeline + Tip Submissions</strong>
+              <span>April 24, 2026</span>
+              <p>Refactored pipeline into secure two-phase flow: <code>--fetch-only</code> for candidate retrieval, <code>--publish</code> for human-approved articles. Connected tip submission form to Formspree backend (was broken since launch). Added dedicated editorsNote field with styled rendering. Featured MARCoNS research study as lead article.</p>
+            </div>
+          </div>
+          <div class="vl-entry">
+            <span class="vl-version">v1.7</span>
+            <div class="vl-body">
+              <strong>SEO Overhaul + Pipeline Audit</strong>
+              <span>April 19, 2026</span>
+              <p>Standalone article pages with full OG tags, Twitter cards, and JSON-LD structured data. Added sitemap.xml and robots.txt. Upgraded SEO agent with keyword extraction and search-optimized headlines. Major pipeline audit: removed dead code, added parse safety defaults, enforced summary length limits, fixed editor's note generation.</p>
+            </div>
+          </div>
+          <div class="vl-entry">
+            <span class="vl-version">v1.6</span>
+            <div class="vl-body">
+              <strong>Shoemaker Knowledge Corpus</strong>
+              <span>April 18, 2026</span>
+              <p>Integrated Shoemaker research corpus (82 papers, 8,000+ chars) as the research agent's knowledge base. Activated Shoemaker Lens as pipeline gatekeeper — off-topic content now killed at the research gate. Added image URL validation to prevent broken images. First batch of fully autonomous publishes.</p>
+            </div>
+          </div>
+          <div class="vl-entry">
+            <span class="vl-version">v1.5</span>
+            <div class="vl-body">
+              <strong>Category Archives + UX Polish</strong>
+              <span>April 17, 2026</span>
+              <p>Category archive pages with search, sort, and filtering. Redesigned AI Journalism transparency section with phase cards and collapsible details. Fixed mobile nav (close on tap, dropdown styling). Added UTM tracking to all MoldCo partner links.</p>
+            </div>
+          </div>
+          <div class="vl-entry">
             <span class="vl-version">v1.4</span>
             <div class="vl-body">
               <strong>Duplicate Detection Agent</strong>
@@ -1836,7 +1876,7 @@
             <div class="vl-body">
               <strong>Full Auto-Publish Pipeline</strong>
               <span>April 14, 2026</span>
-              <p>Fully autonomous pipeline: RSS fetch, 7-gate AI review, auto-publish. Added PubMed, EPA/CDC/HUD feeds, reader tip intake, and invention guard.</p>
+              <p>Fully autonomous pipeline: RSS fetch, 11-gate AI review, auto-publish. Added PubMed, EPA/CDC/HUD feeds, reader tip intake, and SEO optimization gate.</p>
             </div>
           </div>
           <div class="vl-entry">
@@ -1962,7 +2002,7 @@
       <h3>Medical Disclaimer</h3>
       <p>Nothing on this site should be interpreted as medical advice, diagnosis, or treatment recommendation. The Mold Report reports on research and news. Always consult a qualified healthcare provider for medical decisions. Biomarker data and research findings discussed on this site are informational only.</p>
       <h3>AI Disclosure</h3>
-      <p>All content on The Mold Report is curated, rewritten, and verified by AI editorial agents. Every article passes through a five-stage pipeline including compliance checking and research verification. We believe in full transparency about our AI-powered editorial process.</p>
+      <p>All content on The Mold Report is curated, rewritten, and verified by AI editorial agents. Every article passes through an 11-gate pipeline powered by nine specialized AI agents, including compliance checking and research verification. We believe in full transparency about our AI-powered editorial process.</p>
       <h3>Affiliate Disclosure</h3>
       <p>The founder of The Mold Report is affiliated with MoldCo. Sponsored content from MoldCo is clearly labeled "From Our Partners" and is visually distinct from editorial content. Editorial coverage is independent and sourced from public research and news.</p>
       <h3>Copyright</h3>
@@ -1978,7 +2018,7 @@
       <h3>Why AI Journalism</h3>
       <p>The Mold Report is the first AI-curated publication in the mold and indoor environmental health space. We built it this way on purpose. Mold news is fragmented across government agencies, academic journals, local news outlets, and industry publications. No single human editor could monitor all these sources daily, rewrite them for accessibility, fact-check every medical claim, and verify scientific alignment. AI can. We believe AI journalism done transparently produces more consistent, more compliant, and more comprehensive coverage than traditional editorial alone.</p>
       <h3>Our AI Pipeline</h3>
-      <p>Every article passes through an 11-gate pipeline powered by six specialized AI agents before publication. The pipeline runs in four phases: <strong>Source & Filter</strong> (deduplication, freshness checks, source verification, tip screening), <strong>Score</strong> (AI-driven newsworthiness rating where only 7+ articles advance), <strong>Write</strong> (headline and summary rewriting in our editorial voice), and <strong>Verify & Publish</strong> (claims compliance, Shoemaker alignment, invention guard, and photo assignment). Only articles that pass all 11 gates get published.</p>
+      <p>Every article passes through an 11-gate pipeline powered by nine specialized AI agents before publication. The pipeline runs in four phases: <strong>Source & Filter</strong> (deduplication, freshness checks, source verification, tip screening), <strong>Score</strong> (AI-driven newsworthiness rating where only 7+ articles advance), <strong>Write</strong> (headline and summary rewriting in our editorial voice), and <strong>Verify & Publish</strong> (claims compliance, Shoemaker alignment, photo assignment, and SEO optimization). Only articles that pass all 11 gates get published.</p>
       <h3>What AI Does (and Doesn't Do)</h3>
       <p>AI writes the editorial summaries. AI checks the compliance. AI verifies the research alignment. AI does not fabricate sources, generate fake studies, or invent quotes. Every article on The Mold Report links back to its original source. We summarize and contextualize. If our AI pipeline cannot verify a claim, the article doesn't publish. That's the whole point.</p>
       <h3>Source Standards</h3>

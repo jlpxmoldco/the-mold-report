@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
+candidates.json
+approved.json
+.rejected_cache.json

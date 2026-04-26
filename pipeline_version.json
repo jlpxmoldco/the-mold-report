@@ -1,0 +1,137 @@
+{
+  "currentVersion": "1.9",
+  "lastUpdated": "2026-04-26",
+  "agents": [
+    {"name": "Duplicate Detection Agent", "function": "duplicate_detection_agent", "gate": "0"},
+    {"name": "Interest Scoring Agent", "function": "interest_agent", "gate": "3"},
+    {"name": "Tip Screening Agent", "function": "tip_screening_agent", "gate": "2b"},
+    {"name": "Headline Agent", "function": "headline_agent", "gate": "4"},
+    {"name": "Editorial Agent", "function": "editorial_agent", "gate": "5"},
+    {"name": "Compliance Agent", "function": "compliance_agent", "gate": "6"},
+    {"name": "Research Agent", "function": "research_agent", "gate": "7"},
+    {"name": "Photo Agent", "function": "photo_agent", "gate": "9"},
+    {"name": "SEO Agent", "function": "seo_agent", "gate": "10"}
+  ],
+  "gates": [
+    {"number": "0", "name": "Duplicate Detection", "type": "ai", "added": "v1.4"},
+    {"number": "1", "name": "Freshness", "type": "deterministic", "added": "v1.0"},
+    {"number": "2", "name": "Source Verification", "type": "deterministic", "added": "v1.1"},
+    {"number": "2b", "name": "Tip Screening", "type": "ai", "added": "v1.3"},
+    {"number": "3", "name": "Interest Scoring", "type": "ai", "added": "v1.1"},
+    {"number": "4", "name": "Headline Rewrite", "type": "ai", "added": "v1.2"},
+    {"number": "5", "name": "Editorial Rewrite", "type": "ai", "added": "v1.0"},
+    {"number": "6", "name": "Compliance Check", "type": "ai", "added": "v1.2"},
+    {"number": "7", "name": "Shoemaker Research Lens", "type": "ai", "added": "v1.2"},
+    {"number": "9", "name": "Photo Assignment", "type": "ai", "added": "v1.0"},
+    {"number": "10", "name": "SEO Optimization", "type": "ai", "added": "v1.7"}
+  ],
+  "changelog": [
+    {
+      "version": "1.9",
+      "date": "2026-04-26",
+      "title": "Smart Ranking + Compliance Lint",
+      "changes": [
+        "Composite scoring for Top Stories (featured, recency, authority, Shoemaker alignment)",
+        "Category cap prevents single-topic hero domination",
+        "Deterministic compliance lint gate added to publish path",
+        "Pool-based image picker eliminates photo repetition",
+        "Mobile share-bar overflow fix"
+      ]
+    },
+    {
+      "version": "1.8",
+      "date": "2026-04-24",
+      "title": "Secure Pipeline + Tip Submissions",
+      "changes": [
+        "Two-phase pipeline: --fetch-only for candidates, --publish for approved",
+        "Tip submission form connected to Formspree backend",
+        "Dedicated editorsNote field with styled rendering",
+        "MARCoNS research study featured as lead article"
+      ]
+    },
+    {
+      "version": "1.7",
+      "date": "2026-04-19",
+      "title": "SEO Overhaul + Pipeline Audit",
+      "changes": [
+        "Standalone article pages with OG tags, Twitter cards, JSON-LD",
+        "Added sitemap.xml and robots.txt",
+        "SEO agent upgraded with keyword extraction",
+        "Pipeline audit: dead code removal, parse safety, summary length enforcement"
+      ]
+    },
+    {
+      "version": "1.6",
+      "date": "2026-04-18",
+      "title": "Shoemaker Knowledge Corpus",
+      "changes": [
+        "Integrated 82-paper Shoemaker research corpus (8,000+ chars)",
+        "Research agent activated as pipeline gatekeeper",
+        "Image URL validation prevents broken images",
+        "First fully autonomous publish batch"
+      ]
+    },
+    {
+      "version": "1.5",
+      "date": "2026-04-17",
+      "title": "Category Archives + UX Polish",
+      "changes": [
+        "Category archive pages with search, sort, filtering",
+        "Redesigned AI Journalism transparency section",
+        "Mobile nav fix (close on tap)",
+        "UTM tracking on all MoldCo partner links"
+      ]
+    },
+    {
+      "version": "1.4",
+      "date": "2026-04-16",
+      "title": "Duplicate Detection Agent",
+      "changes": [
+        "Gate 0: content-aware dedup with three detection layers",
+        "Removed 14 duplicate articles from seed database",
+        "Photo agent upgraded with topic-specific Unsplash matching"
+      ]
+    },
+    {
+      "version": "1.3",
+      "date": "2026-04-14",
+      "title": "Full Auto-Publish Pipeline",
+      "changes": [
+        "Fully autonomous: RSS fetch, 11-gate AI review, auto-publish",
+        "Added PubMed, EPA/CDC/HUD feeds",
+        "Reader tip intake and screening",
+        "SEO optimization gate"
+      ]
+    },
+    {
+      "version": "1.2",
+      "date": "2026-04-13",
+      "title": "Claims Compliance + Research Gate",
+      "changes": [
+        "Compliance agent enforcing MoldCo claims rules",
+        "Research verification agent for Shoemaker alignment",
+        "Headline rewriting agent"
+      ]
+    },
+    {
+      "version": "1.1",
+      "date": "2026-04-12",
+      "title": "Interest Scoring Agent",
+      "changes": [
+        "Articles scored 1-10 on newsworthiness (7+ threshold)",
+        "Source verification gate",
+        "Category-based image fallbacks"
+      ]
+    },
+    {
+      "version": "1.0",
+      "date": "2026-04-10",
+      "title": "Launch",
+      "changes": [
+        "Initial launch with seed articles",
+        "Basic AI editorial rewriting",
+        "Photo assignment agent"
+      ]
+    }
+  ]
+}
