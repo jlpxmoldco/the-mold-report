@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mold 101 — Learn About Mold Illness — The Mold Report</title>
-  <meta name="description" content="A comprehensive resource guide for understanding mold illness, how it's diagnosed, and what you can do about it. Learn about CIRS, biomarkers, the Shoemaker Protocol, and evidence-based mold research.">
-  <meta property="og:title" content="Mold 101 — Learn About Mold Illness">
-  <meta property="og:description" content="Essential resources to help you understand mold illness, diagnosis, and treatment options.">
+  <title>Mold 101 — The Complete Guide to Mold Illness — The Mold Report</title>
+  <meta name="description" content="The most comprehensive free guide to mold illness (CIRS). Understand the science, biomarkers, symptoms, testing, treatment steps, and home remediation — grounded in 25 years of published research.">
+  <meta property="og:title" content="Mold 101 — The Complete Guide to Mold Illness">
+  <meta property="og:description" content="Everything you need to understand mold illness: the science, symptoms, biomarkers, testing, treatment steps, home remediation, and research — in one free guide.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Mold Report">
   <meta property="og:image" content="/og-image.png">
-
+  <meta name="keywords" content="mold illness, CIRS, chronic inflammatory response syndrome, mold toxicity, biomarkers, TGF-beta1, MMP-9, MSH, Shoemaker Protocol, mold testing, water damaged building, mold remediation, HERTSMI-2, mold symptoms">
+  <link rel="canonical" href="https://themoldreport.org/mold-101.html">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mold 101 — The Complete Guide to Mold Illness",
+    "description": "Everything you need to understand mold illness: the science, symptoms, biomarkers, testing, treatment steps, home remediation, and research.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Mold Report",
+      "url": "https://themoldreport.org"
+    },
+    "mainEntityOfPage": "https://themoldreport.org/mold-101.html"
+  }
+  </script>
 
   <style>
     :root {
@@ -29,6 +44,8 @@
       --accent-hover: #143D31;
       --border: #E5E4E0;
       --warm: #F5F0E8;
+      --warn: #C9553A;
+      --warn-bg: #FDF0ED;
       --serif: 'Instrument Serif', Georgia, serif;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-6: 24px;
@@ -38,7 +55,7 @@
       --max-w: 1280px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
     body {
       font-family: var(--sans);
       background: var(--bg);
@@ -73,166 +90,340 @@
       display: flex; align-items: center; justify-content: center;
       border-radius: 6px;
     }
-    .logo-type {
-      font-family: var(--serif);
-      font-size: 20px;
-      color: var(--text);
-    }
-    .back-link {
-      font-size: 14px;
-      color: var(--accent);
-      font-weight: 500;
-      transition: opacity 0.15s;
-    }
+    .logo-type { font-family: var(--serif); font-size: 20px; color: var(--text); }
+    .back-link { font-size: 14px; color: var(--accent); font-weight: 500; transition: opacity 0.15s; }
     .back-link:hover { opacity: 0.7; }
+
+    /* CHAPTER NAV */
+    .chapter-nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 56px; z-index: 99;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .chapter-nav::-webkit-scrollbar { display: none; }
+    .chapter-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-6);
+      display: flex;
+      gap: 0;
+      min-width: max-content;
+    }
+    .chapter-link {
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-3);
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .chapter-link:hover { color: var(--text); }
+    .chapter-link.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* HERO */
     .hero {
       background: var(--accent);
       color: white;
-      padding: var(--sp-16) var(--sp-6);
+      padding: var(--sp-16) var(--sp-6) var(--sp-12);
       text-align: center;
     }
-    .hero-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
     .hero h1 {
       font-family: var(--serif);
       font-size: clamp(36px, 5vw, 52px);
       font-weight: 400;
-      margin: 0 0 var(--sp-6);
+      margin: 0 0 var(--sp-4);
       line-height: 1.15;
     }
-    .hero p {
+    .hero .subtitle {
       font-size: 18px;
       line-height: 1.7;
       opacity: 0.9;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto var(--sp-8);
+    }
+    .hero .reading-time {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     /* CONTENT */
     .content {
-      max-width: 960px;
+      max-width: 780px;
       margin: 0 auto;
       padding: var(--sp-12) var(--sp-6);
     }
 
-    /* SECTIONS */
-    .section {
-      margin-bottom: var(--sp-12);
+    /* CHAPTER */
+    .chapter { margin-bottom: var(--sp-16); }
+    .chapter-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 var(--sp-2);
     }
-    .section h2 {
+    .chapter h2 {
       font-family: var(--serif);
-      font-size: 32px;
+      font-size: clamp(28px, 4vw, 36px);
       font-weight: 400;
       margin: 0 0 var(--sp-6);
-      color: var(--accent);
+      color: var(--text);
+      line-height: 1.2;
     }
+    .chapter p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-6);
+    }
+    .chapter p strong { color: var(--text); font-weight: 600; }
 
-    /* MOLDCO FEATURED CARD */
-    .moldco-card {
-      background: var(--accent-light);
-      border: 2px solid var(--accent);
-      border-radius: var(--r-lg);
-      padding: var(--sp-8);
-      margin-bottom: var(--sp-12);
-    }
-    .moldco-card h3 {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 400;
-      margin: 0 0 var(--sp-6);
-      color: var(--accent);
-    }
-    .moldco-items {
+    /* STAT ROW */
+    .stat-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-6);
-      margin-bottom: var(--sp-6);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--sp-4);
+      margin: var(--sp-8) 0;
     }
-    .moldco-item {
+    .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-md);
       padding: var(--sp-6);
+      text-align: center;
     }
-    .moldco-item h4 {
+    .stat-card .number {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 36px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+    }
+    .stat-card .label {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--warm);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      padding: var(--sp-6);
+      margin: var(--sp-8) 0;
+    }
+    .callout.warn {
+      background: var(--warn-bg);
+      border-left-color: var(--warn);
+    }
+    .callout-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 var(--sp-2);
+    }
+    .callout.warn .callout-title { color: var(--warn); }
+    .callout p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    /* STEP CARDS */
+    .steps { margin: var(--sp-8) 0; }
+    .step {
+      display: flex;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-6);
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--serif);
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+    .step-body h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-2);
+      color: var(--text);
+    }
+    .step-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    /* BIOMARKER TABLE */
+    .bio-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--sp-8) 0;
+      font-size: 15px;
+    }
+    .bio-table th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-3);
+      padding: var(--sp-3) var(--sp-4);
+      border-bottom: 2px solid var(--accent);
+    }
+    .bio-table td {
+      padding: var(--sp-4);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .bio-table td:first-child {
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .bio-table .direction {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .direction.up { background: #FDF0ED; color: var(--warn); }
+    .direction.down { background: var(--accent-light); color: var(--accent); }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--accent-light);
+      border: 1px solid #C5DDD2;
+      border-radius: var(--r-lg);
+      padding: var(--sp-8);
+      margin: var(--sp-10) 0;
+      text-align: center;
+    }
+    .cta-band h3 {
+      font-family: var(--serif);
+      font-size: 24px;
       font-weight: 400;
       margin: 0 0 var(--sp-3);
       color: var(--text);
     }
-    .moldco-item p {
-      font-size: 14px;
-      line-height: 1.65;
+    .cta-band p {
+      font-size: 15px;
       color: var(--text-2);
-      margin: 0 0 var(--sp-4);
+      margin: 0 0 var(--sp-6);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .cta-button {
+    .cta-band .btn {
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 10px 20px;
+      padding: 12px 28px;
       border-radius: var(--r-md);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       transition: background 0.2s;
-      cursor: pointer;
     }
-    .cta-button:hover {
-      background: var(--accent-hover);
-    }
-    .moldco-disclosure {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.65;
-      padding-top: var(--sp-4);
-      border-top: 1px solid var(--border);
-      margin-top: var(--sp-6);
+    .cta-band .btn:hover { background: var(--accent-hover); }
+    .cta-band .disclaimer {
+      font-size: 12px;
+      color: var(--text-3);
+      margin: var(--sp-3) 0 0;
     }
 
-    /* RESEARCH SECTION */
-    .research-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    /* FAQ */
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      margin-bottom: var(--sp-3);
+      background: var(--surface);
+      overflow: hidden;
     }
-    .research-item {
+    .faq-q {
+      padding: var(--sp-4) var(--sp-6);
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--text-3);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a {
+      display: none;
+      padding: 0 var(--sp-6) var(--sp-6);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* RESEARCH LIST */
+    .ref-list { margin: var(--sp-6) 0; }
+    .ref-item {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-md);
       padding: var(--sp-6);
       margin-bottom: var(--sp-4);
     }
-    .research-item .citation {
+    .ref-title {
       font-family: var(--serif);
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 400;
       color: var(--text);
       margin: 0 0 var(--sp-2);
     }
-    .research-item .source {
+    .ref-meta {
       font-size: 13px;
       color: var(--text-3);
-      margin: 0 0 var(--sp-3);
+      margin: 0 0 var(--sp-2);
     }
-    .research-item .description {
-      font-size: 15px;
-      line-height: 1.65;
+    .ref-finding {
+      font-size: 14px;
+      line-height: 1.7;
       color: var(--text-2);
       margin: 0;
     }
 
-    /* KEY RESOURCES */
-    .resources-grid {
+    /* NEXT STEPS */
+    .next-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--sp-6);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--sp-4);
+      margin: var(--sp-8) 0;
     }
-    .resource-link {
+    .next-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
@@ -240,86 +431,50 @@
       text-align: center;
       transition: box-shadow 0.2s, border-color 0.2s;
     }
-    .resource-link:hover {
-      box-shadow: var(--shadow-2);
-      border-color: var(--accent);
-    }
-    .resource-badge {
+    .next-card:hover { box-shadow: var(--shadow-2); border-color: var(--accent); }
+    .next-card .step-badge {
       display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      background: var(--accent);
+      color: white;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 32px;
       margin-bottom: var(--sp-3);
     }
-    .resource-link h4 {
+    .next-card h4 {
       font-family: var(--serif);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       margin: 0 0 var(--sp-2);
       color: var(--text);
     }
-    .resource-link p {
+    .next-card p {
       font-size: 14px;
       color: var(--text-2);
       margin: 0;
-    }
-
-    /* SCIENCE CARDS */
-    .science-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-6);
-    }
-    .science-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: var(--sp-6);
-    }
-    .science-card h4 {
-      font-family: var(--serif);
-      font-size: 18px;
-      font-weight: 400;
-      margin: 0 0 var(--sp-4);
-      color: var(--accent);
-    }
-    .science-card p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-2);
-      margin: 0;
+      line-height: 1.6;
     }
 
     /* FOOTER */
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: var(--sp-8) 0;
+      padding: var(--sp-8) var(--sp-6);
       text-align: center;
     }
-    footer p {
-      font-size: 13px;
-      color: var(--text-3);
-    }
-    footer a {
-      color: var(--accent);
-    }
+    footer p { font-size: 13px; color: var(--text-3); margin: 0 0 var(--sp-2); }
+    footer a { color: var(--accent); }
 
     @media (max-width: 640px) {
-      .moldco-items {
-        grid-template-columns: 1fr;
-      }
-      .resources-grid {
-        grid-template-columns: 1fr;
-      }
-      .science-cards {
-        grid-template-columns: 1fr;
-      }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .step { gap: var(--sp-4); }
+      .step-num { width: 32px; height: 32px; font-size: 16px; }
+      .bio-table { font-size: 13px; }
+      .bio-table td, .bio-table th { padding: var(--sp-2) var(--sp-3); }
+      .next-grid { grid-template-columns: 1fr; }
+      .chapter-link { padding: 10px 12px; font-size: 12px; }
     }
   </style>
 </head>
@@ -335,130 +490,535 @@
     </div>
   </header>
 
+  <!-- STICKY CHAPTER NAV -->
+  <nav class="chapter-nav" id="chapterNav">
+    <div class="chapter-nav-inner">
+      <a href="#what" class="chapter-link active">What Is It</a>
+      <a href="#how" class="chapter-link">How It Works</a>
+      <a href="#symptoms" class="chapter-link">Symptoms</a>
+      <a href="#biomarkers" class="chapter-link">Biomarkers</a>
+      <a href="#testing" class="chapter-link">Testing</a>
+      <a href="#treatment" class="chapter-link">Treatment</a>
+      <a href="#home" class="chapter-link">Your Home</a>
+      <a href="#research" class="chapter-link">Research</a>
+      <a href="#faq" class="chapter-link">FAQ</a>
+      <a href="#next" class="chapter-link">Next Steps</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Mold 101 — Learn About Mold Illness</h1>
-      <p>New to mold? Start here. We've compiled the essential resources to help you understand mold illness, how it's diagnosed, and what you can do about it.</p>
+      <h1>Mold 101</h1>
+      <p class="subtitle">The complete, research-grounded guide to mold illness. What it is, how it works, what the science says, and what you can do about it — all in one place.</p>
+      <span class="reading-time">15 min read · 10 chapters · Grounded in 25 years of published research</span>
     </div>
   </section>
 
   <div class="content">
 
-    <!-- MOLDCO FEATURED SECTION -->
-    <section class="section moldco-card">
-      <h3>Start With MoldCo</h3>
-      <div class="moldco-items">
-        <div class="moldco-item">
-          <h4>Free Mold Illness Guide</h4>
-          <p>An introduction to mold-related illness, how it affects your body, and what to look for.</p>
-          <a href="https://www.moldco.com/guide?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_guide" class="cta-button" target="_blank" rel="noopener noreferrer">Read the Free Guide</a>
+    <!-- ═══════════════════ CHAPTER 1: WHAT IS IT ═══════════════════ -->
+    <section class="chapter" id="what">
+      <div class="chapter-number">Chapter 1</div>
+      <h2>What Is Mold Illness?</h2>
+
+      <p>Mold illness — formally called <strong>Chronic Inflammatory Response Syndrome (CIRS)</strong> — is not an allergy. It is not a fungal infection. It is an <strong>innate immune response</strong> triggered by biotoxins produced by organisms found inside water-damaged buildings.</p>
+
+      <p>When genetically susceptible individuals are exposed to these environments, their immune systems cannot properly clear the toxins. The result is a chronic, multi-system inflammatory response that can affect the brain, joints, lungs, gut, and hormonal regulation simultaneously.</p>
+
+      <p>This understanding was developed over 25 years of clinical research by Dr. Ritchie Shoemaker and colleagues, beginning with the observation that patients exposed to water-damaged buildings showed consistent patterns of biomarker abnormalities — patterns that no other disease produces in the same combination.</p>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="number">24%</div>
+          <div class="label">of the population carries HLA-DR genes associated with susceptibility to CIRS</div>
         </div>
-        <div class="moldco-item">
-          <h4>Mold Risk Questionnaire</h4>
-          <p>A free questionnaire to understand your exposure history and health risk factors.</p>
-          <a href="https://www.moldco.com/questionnaire?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_questionnaire" class="cta-button" target="_blank" rel="noopener noreferrer">Take the Questionnaire</a>
+        <div class="stat-card">
+          <div class="number">50%</div>
+          <div class="label">of U.S. homes have had water damage, a precondition for biotoxin-producing organisms</div>
         </div>
-        <div class="moldco-item">
-          <h4>Starter Health Panel</h4>
-          <p>Blood test ($56) at any LabCorp location. Measures TGF-B1, MMP-9, and MSH.</p>
-          <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_panel" class="cta-button" target="_blank" rel="noopener noreferrer">Get Tested</a>
-        </div>
-        <div class="moldco-item">
-          <h4>See a Specialized Provider</h4>
-          <p>Ready to start care? Book a virtual consultation with a provider trained in mold toxicity treatment.</p>
-          <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_care" class="cta-button" target="_blank" rel="noopener noreferrer">Get Started</a>
+        <div class="stat-card">
+          <div class="number">85%</div>
+          <div class="label">of commercial buildings have had water damage at some point in their history</div>
         </div>
       </div>
-      <div class="moldco-disclosure">
-        <strong>About MoldCo:</strong> MoldCo is the leading virtual clinic specialized for mold exposure. Its care protocols are guided by the research of Dr. Ritchie Shoemaker, the physician who pioneered the modern understanding of mold-related illness, with Dr. Scott McMahon serving as Medical Director. The Mold Report's editorial coverage is independent and AI-curated from public sources.
+
+      <div class="callout">
+        <div class="callout-title">Key Distinction</div>
+        <p>CIRS is not caused by mold alone. Water-damaged buildings harbor a complex ecology of mold, bacteria (including actinobacteria), endotoxins, and other biotoxin-producing organisms. The illness results from the <strong>immune response</strong> to these biotoxins — not from fungal infection or allergic reaction. This is why antifungals and antihistamines typically don't resolve symptoms.</p>
       </div>
     </section>
 
-    <!-- ESSENTIAL READING -->
-    <section class="section">
-      <h2>Essential Reading</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: var(--text-2); margin: 0 0 var(--sp-6);">Foundational research papers that define our understanding of mold-related illness. All linked to their original publications.</p>
-      <ul class="research-list">
-        <li class="research-item">
-          <div class="citation"><a href="https://pubmed.ncbi.nlm.nih.gov/15681119/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Shoemaker RC, House DE. (2005)</a></div>
-          <div class="source">"A time-series study of sick building syndrome: chronic, biotoxin-associated illness from exposure to water-damaged buildings" — Neurotoxicology and Teratology, 27(1):29-46</div>
-          <p class="description">The time-series study documenting chronic illness following inhalation exposure to water-damaged buildings. Established the exposure-symptom-biomarker connection through controlled re-exposure trials.</p>
-        </li>
-        <li class="research-item">
-          <div class="citation"><a href="https://pubmed.ncbi.nlm.nih.gov/17010568/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Shoemaker RC, House DE. (2006)</a></div>
-          <div class="source">"Sick building syndrome (SBS) and exposure to water-damaged buildings: time series study, clinical trial and mechanisms" — Neurotoxicology and Teratology, 28(5):573-88</div>
-          <p class="description">The foundational paper on sick building syndrome mechanisms and clinical trial data in water-damaged building exposure. Demonstrated sequential activation of innate immune elements.</p>
-        </li>
-        <li class="research-item">
-          <div class="citation"><a href="https://internalmedicinereview.org/index.php/imr/article/view/836" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Dooley M, McMahon SW. (2020)</a></div>
-          <div class="source">"A comprehensive review of mold research literature from 2011-2018" — Internal Medicine Review, 6(1):1-39</div>
-          <p class="description">Reviewed 114 epidemiological articles across 30+ countries and 238,000+ subjects. Found 98.2% identified a correlation between indoor mold/dampness and adverse health effects.</p>
-        </li>
-        <li class="research-item">
-          <div class="citation"><a href="https://pubmed.ncbi.nlm.nih.gov/39649915/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Ryan JC, Shoemaker RC, et al. (2024)</a></div>
-          <div class="source">"Chronic inflammatory response syndrome: a review of the evidence of clinical efficacy of treatment" — Therapeutic Advances in Chronic Disease</div>
-          <p class="description">The most comprehensive review of CIRS treatment evidence. Analyzed 13 articles on CIRS treatment and found the Shoemaker Protocol was the only treatment with documented clinical efficacy across the literature.</p>
-        </li>
-      </ul>
-    </section>
+    <!-- ═══════════════════ CHAPTER 2: HOW IT WORKS ═══════════════════ -->
+    <section class="chapter" id="how">
+      <div class="chapter-number">Chapter 2</div>
+      <h2>How Mold Illness Works</h2>
 
-    <!-- KEY RESOURCES -->
-    <section class="section">
-      <h2>Key Resources</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: var(--text-2); margin: 0 0 var(--sp-6);">Trusted references for further learning and clinical guidance.</p>
-      <div class="resources-grid">
-        <a href="https://www.cirsx.com" class="resource-link" target="_blank" rel="noopener noreferrer">
-          <div class="resource-badge">Clinical</div>
-          <h4>CIRSx</h4>
-          <p>Clinical resources and training information for practitioners treating mold-related illness.</p>
-        </a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=shoemaker+CIRS+water-damaged+building" class="resource-link" target="_blank" rel="noopener noreferrer">
-          <div class="resource-badge">Research</div>
-          <h4>PubMed: CIRS Research</h4>
-          <p>Search peer-reviewed literature on Chronic Inflammatory Response Syndrome and water-damaged buildings.</p>
-        </a>
-        <a href="https://www.moldco.com/guide?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_resources_guide" class="resource-link" target="_blank" rel="noopener noreferrer">
-          <div class="resource-badge">MoldCo</div>
-          <h4>Free Mold Illness Guide</h4>
-          <p>A practical introduction to mold-related illness, biomarkers, and what to do next.</p>
-        </a>
-        <a href="https://www.moldco.com/questionnaire?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_resources_questionnaire" class="resource-link" target="_blank" rel="noopener noreferrer">
-          <div class="resource-badge">MoldCo</div>
-          <h4>Mold Risk Questionnaire</h4>
-          <p>Free assessment to evaluate your exposure history and symptom patterns.</p>
-        </a>
+      <p>In most people, the immune system identifies biotoxins, tags them for removal, and clears them. In genetically susceptible individuals, this clearance mechanism doesn't function properly. The biotoxins remain in the body, triggering a chronic inflammatory cascade.</p>
+
+      <p>Here is the pathway, step by step:</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Biotoxin Exposure</h3>
+            <p>The individual inhales or contacts biotoxins from water-damaged building organisms — mold, actinobacteria, endotoxins, and their metabolic byproducts.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Immune Recognition Failure</h3>
+            <p>In HLA-susceptible individuals, the adaptive immune system fails to properly recognize and tag these toxins for removal. They persist in the body.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Innate Immune Activation</h3>
+            <p>The innate immune system responds with sustained inflammation. Complement (C4a) activates. Cytokines and growth factors like TGF-β1 rise. MMP-9 elevates, driving tissue breakdown.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Hormonal Disruption</h3>
+            <p>MSH (melanocyte-stimulating hormone) drops — research suggests this occurs in approximately 94% of CIRS patients. This single change affects sleep, pain perception, mood, gut function, and immune regulation.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Multi-System Inflammation</h3>
+            <p>The cascade produces symptoms across multiple organ systems simultaneously — neurological, musculoskeletal, respiratory, gastrointestinal, and cognitive. This multi-system presentation is a hallmark of CIRS.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Why It's Missed</div>
+        <p>Because CIRS affects many systems at once, patients are often sent to multiple specialists — neurologists, rheumatologists, pulmonologists, psychiatrists — who each treat their organ system in isolation. Without the unifying biotoxin framework, the underlying cause goes unidentified, and symptoms persist or worsen.</p>
       </div>
     </section>
 
-    <!-- UNDERSTANDING THE SCIENCE -->
-    <section class="section">
-      <h2>Understanding the Science</h2>
-      <p style="font-size: 16px; line-height: 1.75; color: var(--text-2); margin: 0 0 var(--sp-6);">Brief explanations of key concepts in mold-related illness.</p>
-      <div class="science-cards">
-        <div class="science-card">
-          <h4>What is CIRS?</h4>
-          <p>Chronic Inflammatory Response Syndrome (CIRS) is an acute and chronic inflammatory response to the presence of toxigenic organisms and their metabolites inside buildings. It may develop in susceptible individuals after repeated water-damaged building exposures, particularly in genetically susceptible individuals. Research suggests approximately 24% of the population may have genetic susceptibility to developing CIRS.</p>
+    <!-- ═══════════════════ CHAPTER 3: SYMPTOMS ═══════════════════ -->
+    <section class="chapter" id="symptoms">
+      <div class="chapter-number">Chapter 3</div>
+      <h2>Recognizing the Symptoms</h2>
+
+      <p>CIRS produces a <strong>cluster of symptoms</strong> that span multiple organ systems. No single symptom confirms mold illness — it is the <em>pattern</em> of multi-system involvement that matters. Patients typically experience symptoms across several of these categories simultaneously:</p>
+
+      <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
+        <div class="stat-card" style="text-align:left;">
+          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Neurological &amp; Cognitive</div>
+          <div class="label">Difficulty concentrating and word-finding problems. Memory issues, particularly short-term. Disorientation and confusion. Headaches. Light sensitivity. Numbness and tingling. Vertigo.</div>
         </div>
-        <div class="science-card">
-          <h4>What are biomarkers?</h4>
-          <p>Biomarkers are measurable indicators in your blood or body that reflect disease processes. Key mold-related biomarkers include TGF-β1 (a marker of immune dysregulation), MMP-9 (an indicator of vascular inflammation), and MSH (melanocyte-stimulating hormone, which plays a role in immune function). These markers help clinicians understand inflammatory patterns and track changes over time.</p>
+        <div class="stat-card" style="text-align:left;">
+          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Musculoskeletal</div>
+          <div class="label">Joint pain without swelling. Muscle aches and cramps. Morning stiffness. Ice-pick or sharp, shooting pains. Research suggests inflammatory pathways in CIRS may contribute to pain syndromes in many patients.</div>
         </div>
-        <div class="science-card">
-          <h4>What is the Shoemaker Protocol?</h4>
-          <p>The Shoemaker Protocol is a step-by-step, evidence-based approach to treating mold-related illness. It begins with exposure avoidance and assessment, continues with specific biomarker testing, and includes targeted care protocols guided by test results. The approach is designed to reduce inflammatory markers and support recovery.</p>
+        <div class="stat-card" style="text-align:left;">
+          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Respiratory &amp; Sinus</div>
+          <div class="label">Chronic sinus congestion not responsive to standard treatment. Shortness of breath. Cough. Air hunger. These symptoms may be related to inflammatory mediators rather than infection.</div>
         </div>
-        <div class="science-card">
-          <h4>Is mold illness real?</h4>
-          <p>Yes. Mold-related illness is recognized by peer-reviewed medical literature and clinicians who specialize in environmental medicine. Research has established clear connections between water-damaged building exposure and specific health symptoms and biomarker changes. While diagnosis and treatment approaches continue to evolve, the underlying science is robust and supported by multiple clinical studies.</p>
+        <div class="stat-card" style="text-align:left;">
+          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">General &amp; Systemic</div>
+          <div class="label">Persistent fatigue not relieved by rest. Sleep disruption. Temperature regulation problems. Excessive thirst and frequent urination. Appetite changes. Static electrical shocks.</div>
         </div>
       </div>
+
+      <div class="callout warn">
+        <div class="callout-title">Important</div>
+        <p>These symptoms overlap with many other conditions. Experiencing them does not mean you have CIRS. A proper evaluation requires biomarker testing, exposure history, and clinical assessment by a provider experienced with mold-related illness. This guide is educational — not diagnostic.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ CTA: GET TESTED ═══════════ -->
+    <div class="cta-band">
+      <h3>Wondering if your symptoms could be mold-related?</h3>
+      <p>MoldCo's Starter Health Panel tests three key inflammatory biomarkers (TGF-β1, MMP-9, and MSH) at any LabCorp location.</p>
+      <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch3_panel" class="btn" target="_blank" rel="noopener noreferrer">Learn About the Starter Panel — $56</a>
+      <p class="disclaimer">MoldCo's testing is guided by published research. Results should be reviewed with a qualified healthcare provider. The Mold Report's editorial coverage is independent of MoldCo.</p>
+    </div>
+
+    <!-- ═══════════════════ CHAPTER 4: BIOMARKERS ═══════════════════ -->
+    <section class="chapter" id="biomarkers">
+      <div class="chapter-number">Chapter 4</div>
+      <h2>The Biomarkers</h2>
+
+      <p>One of the most significant advances in mold illness research is the identification of <strong>measurable blood biomarkers</strong> that correlate with CIRS. These markers provide objective data about what is happening in the immune system — moving beyond symptom checklists to lab-verified patterns.</p>
+
+      <table class="bio-table">
+        <thead>
+          <tr>
+            <th>Biomarker</th>
+            <th>What It Is</th>
+            <th>In CIRS</th>
+            <th>What It Indicates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TGF-β1</td>
+            <td>Cytokine/growth factor involved in tissue remodeling and immune regulation</td>
+            <td><span class="direction up">Elevated</span></td>
+            <td>Active inflammation and immune dysregulation</td>
+          </tr>
+          <tr>
+            <td>MMP-9</td>
+            <td>Matrix metalloproteinase — an enzyme involved in tissue breakdown</td>
+            <td><span class="direction up">Elevated</span></td>
+            <td>Vascular inflammation and tissue destruction</td>
+          </tr>
+          <tr>
+            <td>MSH</td>
+            <td>Melanocyte-stimulating hormone — regulates sleep, pain, mood, gut, and immune function</td>
+            <td><span class="direction down">Low</span></td>
+            <td>Central regulatory failure; low in approximately 94% of CIRS patients</td>
+          </tr>
+          <tr>
+            <td>C4a</td>
+            <td>Complement protein — part of the innate immune cascade</td>
+            <td><span class="direction up">Elevated</span></td>
+            <td>Biotoxin exposure and innate immune activation</td>
+          </tr>
+          <tr>
+            <td>VIP</td>
+            <td>Vasoactive intestinal peptide — neuropeptide with broad regulatory functions</td>
+            <td><span class="direction down">Low</span></td>
+            <td>Late-stage marker; involved in final phases of the treatment protocol</td>
+          </tr>
+          <tr>
+            <td>VEGF</td>
+            <td>Vascular endothelial growth factor — affects blood vessel and capillary function</td>
+            <td>Variable</td>
+            <td>Abnormal capillary perfusion and oxygen delivery</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">The Immune Fingerprint</div>
+        <p>Research suggests that the combination of <strong>elevated MMP-9 and TGF-β1 while MSH is low</strong> creates an immune fingerprint that is relatively specific to CIRS. Very few other disease processes produce this particular pattern of simultaneously raising both inflammatory markers while driving MSH down.</p>
+      </div>
+
+      <p>Note: TGF-β1 is a <strong>cytokine and growth factor</strong> — not a hormone. This distinction matters because it reflects immune activation and tissue remodeling, not endocrine dysfunction. Accurate terminology helps patients and providers communicate clearly.</p>
+    </section>
+
+    <!-- ═══════════════════ CHAPTER 5: TESTING ═══════════════════ -->
+    <section class="chapter" id="testing">
+      <div class="chapter-number">Chapter 5</div>
+      <h2>Getting Tested</h2>
+
+      <p>If you suspect mold illness, the first concrete step is <strong>blood biomarker testing</strong>. These tests are standard laboratory panels run at facilities like LabCorp — there is nothing experimental about the individual tests themselves.</p>
+
+      <p>A starting panel typically includes TGF-β1, MMP-9, and MSH. These three markers, together, can provide initial insight into whether an inflammatory pattern consistent with biotoxin exposure is present. More comprehensive panels may add C4a, VIP, VEGF, and other markers.</p>
+
+      <div class="callout warn">
+        <div class="callout-title">About Urine Mycotoxin Testing</div>
+        <p>Urine mycotoxin testing is commercially available but has significant limitations. Published research has noted concerns including the lack of validated case definitions, absence of proper control groups, and potential confounding from dietary mycotoxin exposure. Blood biomarker testing provides more clinically validated data for evaluating mold-related illness.</p>
+      </div>
+
+      <p><strong>What to expect:</strong> Blood biomarker testing is a standard blood draw at a laboratory. Results typically take 5–10 business days. The markers themselves are well-established laboratory tests. The interpretation of results in the context of CIRS should ideally involve a provider with experience in mold-related illness.</p>
+    </section>
+
+    <!-- ═══════════ CTA: MOLDCO PANEL ═══════════ -->
+    <div class="cta-band">
+      <h3>Ready to test your biomarkers?</h3>
+      <p>MoldCo's Starter Health Panel ($56) tests TGF-β1, MMP-9, and MSH at any LabCorp location. No doctor's visit required to order.</p>
+      <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch5_panel" class="btn" target="_blank" rel="noopener noreferrer">Order the Starter Health Panel</a>
+      <p class="disclaimer">Testing provides data, not diagnosis. MoldCo recommends reviewing results with a qualified healthcare provider experienced in mold-related illness.</p>
+    </div>
+
+    <!-- ═══════════════════ CHAPTER 6: TREATMENT ═══════════════════ -->
+    <section class="chapter" id="treatment">
+      <div class="chapter-number">Chapter 6</div>
+      <h2>The Treatment Framework</h2>
+
+      <p>Treatment for CIRS follows a <strong>sequential, step-by-step framework</strong> developed through clinical research on thousands of patients. Each step is designed to address a specific aspect of the inflammatory cascade. Published research has found this framework to be the approach with documented clinical efficacy across the literature.</p>
+
+      <p>The steps must generally be followed in order — skipping ahead can lead to symptom recurrence or failure to improve.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Remove Exposure</h3>
+            <p>The single most important step. If the biotoxin source is not eliminated from the patient's environment, no treatment protocol can produce lasting improvement. This may involve professional remediation, environmental testing, or relocation from a water-damaged space.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Binding Agents</h3>
+            <p>Cholestyramine (CSM) or welchol may be used as binding agents to help remove biotoxins from the body. These agents work in the gut to bind toxins and facilitate their elimination rather than allowing recirculation.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Address MARCoNS</h3>
+            <p>MARCoNS (Multiple Antibiotic Resistant Coagulase Negative Staphylococci) are antibiotic-resistant bacteria that may colonize the deep nasal passages when MSH is low. If present, they may need to be addressed before MSH levels can recover.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Correct Inflammatory Markers</h3>
+            <p>Targeted interventions to normalize specific biomarkers including MMP-9, C4a, TGF-β1, and VEGF. The protocol addresses each marker sequentially, with retesting to confirm improvement before progressing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>VIP (Vasoactive Intestinal Peptide)</h3>
+            <p>The final stage of the protocol. VIP is a neuropeptide with broad regulatory functions. Research has demonstrated that intranasal VIP may safely help restore grey matter volume, reduce inflammatory markers, and normalize clotting abnormalities in CIRS patients.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">About Treatment Language</div>
+        <p>You may see references to "the Shoemaker Protocol" online. This describes the framework developed through Dr. Shoemaker's research. MoldCo's providers deliver care that is <strong>guided by</strong> this published research. Treatment outcomes vary by individual, and all care should be managed by a qualified healthcare provider.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ CTA: CARE ═══════════ -->
+    <div class="cta-band">
+      <h3>Looking for a provider experienced with mold illness?</h3>
+      <p>MoldCo connects patients with providers trained in mold toxicity treatment through virtual consultations.</p>
+      <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch6_care" class="btn" target="_blank" rel="noopener noreferrer">Explore MoldCo Care</a>
+      <p class="disclaimer">MoldCo does not diagnose CIRS. Its providers deliver care guided by published research. Individual results vary. This is not medical advice.</p>
+    </div>
+
+    <!-- ═══════════════════ CHAPTER 7: YOUR HOME ═══════════════════ -->
+    <section class="chapter" id="home">
+      <div class="chapter-number">Chapter 7</div>
+      <h2>Your Home &amp; Environment</h2>
+
+      <p>Because the first step of treatment is removing exposure, understanding your home environment is critical. Mold growth can begin within <strong>24–48 hours</strong> of water intrusion — and it can develop in hidden spaces like wall cavities, HVAC systems, and under flooring.</p>
+
+      <p><strong>HERTSMI-2</strong> (Health Effects Roster of Type-Specific Formers of Mycotoxins and Inflammagens, 2nd version) is an environmental testing method that measures five specific mold species associated with water-damaged building illness. A HERTSMI-2 score below 11 is generally considered safe for CIRS patients.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Identify Water Intrusion</h3>
+            <p>Check for current or past water damage: roof leaks, plumbing failures, condensation issues, basement flooding, and HVAC problems. Even past water damage that appears "dried out" can harbor active growth in hidden spaces.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Test Your Environment</h3>
+            <p>ERMI (Environmental Relative Moldiness Index) and HERTSMI-2 testing use dust samples to identify specific mold species. Unlike air testing, dust sampling captures longer-term exposure data and the specific species most associated with illness.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Professional Remediation</h3>
+            <p>If testing confirms elevated levels, professional remediation by an experienced company is recommended. Proper remediation addresses the moisture source (not just the visible mold), removes contaminated materials, and verifies clearance through post-remediation testing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">Do Not DIY</div>
+        <p>For individuals with suspected CIRS, DIY mold removal is not recommended. Disturbing mold colonies can release large quantities of spores and biotoxins. Professional remediation with proper containment, negative air pressure, and personal protection is the safer path.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CHAPTER 8: RESEARCH ═══════════════════ -->
+    <section class="chapter" id="research">
+      <div class="chapter-number">Chapter 8</div>
+      <h2>The Research</h2>
+
+      <p>The understanding of CIRS and its treatment is grounded in published, peer-reviewed research spanning over two decades. Below are key papers that form the scientific foundation of the field.</p>
+
+      <div class="ref-list">
+
+        <div class="ref-item">
+          <div class="ref-title">Diagnostic Process for CIRS: A Consensus Statement</div>
+          <div class="ref-meta">Shoemaker RC, Johnson K, Jim L, Berry Y, Dooley M, Ryan JC, McMahon S (2018)</div>
+          <p class="ref-finding">Establishes a formal consensus diagnostic protocol for CIRS requiring abnormalities in innate immune responses, including reduced MSH and VIP, elevated C4a, MMP-9, and TGF-β1, supported by transcriptomic confirmation.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment</div>
+          <div class="ref-meta">Shoemaker RC, Heyman A, Lark D (2023)</div>
+          <p class="ref-finding">Combined transcriptomic testing and NeuroQuant brain volumetrics identify specific causation of cognitive impairment from water-damaged building exposure, including cortical grey matter injury and ventricular enlargement.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">A Transcriptomic Fingerprint for Parkinson's Disease Found in CIRS Patients</div>
+          <div class="ref-meta">Shoemaker RC, Ryan Z, Heyman A, McMahon S, Lark D (2024)</div>
+          <p class="ref-finding">Identifies a unique transcriptomic fingerprint including TUBA4A, TUBB1, and clusterin found in both symptomatic Parkinson's patients and younger CIRS patients, suggesting water-damaged building exposure may contribute to neurodegeneration.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">HIF 1A Pathway Overexpression in CIRS Patients</div>
+          <div class="ref-meta">Shoemaker RC, Heyman A, Lark D (2024)</div>
+          <p class="ref-finding">HIF 1A pathway overexpression drives proliferative physiology and pulmonary artery hypertension in CIRS patients. VIP therapy reduces HIF 1A by resolving aberrant mitochondrial transcriptomics.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">Intranasal VIP Safely Restores Grey Matter Volume</div>
+          <div class="ref-meta">Shoemaker RC, Katz D, Ackerley M, Rapaport S, McMahon S, Berndtson K, Ryan JC (2017)</div>
+          <p class="ref-finding">Intranasal VIP treatment safely corrected multinuclear grey matter atrophy in CIRS patients while reducing MMP-9, TGF-β1, C4a, raising VEGF, and normalizing clotting abnormalities.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">Chronic Fatigue: Reversible Hypometabolism Shown by Transcriptomics</div>
+          <div class="ref-meta">Ryan JC, Shoemaker RC (2018)</div>
+          <p class="ref-finding">CIRS patients show suppression of ribosomal and mitochondrial gene expression (molecular hypometabolism) that reverses during treatment, with VIP therapy correcting overshoot via insulin signaling mechanisms.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">Urinary Mycotoxins: A Review of Contaminated Buildings and Food</div>
+          <div class="ref-meta">Shoemaker RC, Lark D (2019)</div>
+          <p class="ref-finding">Demonstrates that urinary mycotoxin testing lacks validated case definitions, proper control groups, and case-control studies. Dietary mycotoxins confound results, and the CDC has repudiated this practice.</p>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-title">Moldy Buildings, CIRS, Sick People and Damaged Brains: 25 Years</div>
+          <div class="ref-meta">Shoemaker RC (2019)</div>
+          <p class="ref-finding">25-year retrospective describing the evolution from identifying water-damaged building illness through biotoxin paradigm, biomarker development, and transcriptomics to a point where CIRS can be characterized as addressable through gene-level correction.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CHAPTER 9: FAQ ═══════════════════ -->
+    <section class="chapter" id="faq">
+      <div class="chapter-number">Chapter 9</div>
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is mold illness the same as a mold allergy?</div>
+        <div class="faq-a">No. Mold allergy is an IgE-mediated response — your body produces antibodies to mold spores, causing allergic symptoms like sneezing and itchy eyes. CIRS is an innate immune response to biotoxins. It involves different immune pathways, different biomarkers, and requires different treatment. Antihistamines and allergy shots do not address CIRS.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can my regular doctor diagnose this?</div>
+        <div class="faq-a">Most primary care physicians are not trained to recognize or evaluate CIRS. The biomarker panels used in evaluation are standard lab tests, but their interpretation in the context of biotoxin illness requires specific knowledge. Seeking a provider experienced with mold-related illness is generally recommended for proper evaluation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does treatment take?</div>
+        <div class="faq-a">Treatment duration varies significantly by individual, depending on the severity of illness, whether exposure has been fully eliminated, genetic susceptibility, and presence of complicating factors like MARCoNS colonization. Some patients see symptom improvements within weeks of initial steps. The complete protocol may take months. Individual outcomes vary.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is urine mycotoxin testing reliable?</div>
+        <div class="faq-a">Published research has raised significant concerns about urine mycotoxin testing, including the absence of validated case definitions, lack of proper control groups, and confounding from dietary mycotoxin exposure. Blood biomarker testing (TGF-β1, MMP-9, MSH, C4a, VIP) provides more clinically validated data for evaluating potential mold-related illness.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the HLA gene connection?</div>
+        <div class="faq-a">Research suggests approximately 24% of the population carries HLA-DR gene variants associated with susceptibility to developing CIRS when exposed to biotoxins. These gene variants may affect how the immune system processes and clears biotoxins. HLA testing can identify susceptibility but is not diagnostic on its own.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can children develop CIRS?</div>
+        <div class="faq-a">Yes. Children can develop CIRS from water-damaged building exposure, and the same genetic susceptibility factors apply. Research has documented CIRS in children and adolescents, particularly in school settings with water damage. Pediatric evaluation should involve a provider experienced with mold-related illness in younger populations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What about "black mold" (Stachybotrys)?</div>
+        <div class="faq-a">While Stachybotrys chartarum ("black mold") receives significant media attention, it is only one of many organisms associated with water-damaged building illness. CIRS research recognizes multiple mold species, actinobacteria, and endotoxins as contributors. The color of mold is not a reliable indicator of danger — the immune response to the biotoxin ecology of the entire water-damaged environment is what matters.</div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CHAPTER 10: NEXT STEPS ═══════════════════ -->
+    <section class="chapter" id="next">
+      <div class="chapter-number">Chapter 10</div>
+      <h2>Your Next Steps</h2>
+
+      <p>If you've read this far, you now have a solid foundation in the science of mold illness. Here is a practical starting path:</p>
+
+      <div class="next-grid">
+        <a href="https://www.moldco.com/questionnaire?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch10_quiz" class="next-card" target="_blank" rel="noopener noreferrer">
+          <div class="step-badge">1</div>
+          <h4>Take the Free Assessment</h4>
+          <p>MoldCo's questionnaire evaluates your exposure history and symptom patterns to help you understand your risk profile.</p>
+        </a>
+        <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch10_panel" class="next-card" target="_blank" rel="noopener noreferrer">
+          <div class="step-badge">2</div>
+          <h4>Get Your Biomarkers Tested</h4>
+          <p>The Starter Health Panel ($56) measures TGF-β1, MMP-9, and MSH at any LabCorp location. No doctor visit required to order.</p>
+        </a>
+        <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch10_care" class="next-card" target="_blank" rel="noopener noreferrer">
+          <div class="step-badge">3</div>
+          <h4>Talk to a Provider</h4>
+          <p>Review your results with a provider experienced in mold toxicity treatment. MoldCo offers virtual consultations.</p>
+        </a>
+        <a href="index.html" class="next-card">
+          <div class="step-badge">4</div>
+          <h4>Stay Informed</h4>
+          <p>The Mold Report publishes weekly, AI-curated coverage of mold research, regulation, and news. Bookmark the site.</p>
+        </a>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-3);text-align:center;margin-top:var(--sp-6);">MoldCo's care protocols are guided by published research. MoldCo does not diagnose CIRS. Individual results vary. Always consult a qualified healthcare provider for medical decisions. The Mold Report's editorial coverage is independent of MoldCo.</p>
     </section>
 
   </div>
 
   <footer>
-    <p>&copy; 2026 The Mold Report. All rights reserved. <a href="index.html">Back to The Mold Report</a></p>
+    <p>&copy; 2026 The Mold Report. All rights reserved.</p>
+    <p><a href="index.html">Back to The Mold Report</a> · <a href="about.html">About</a></p>
+    <p style="margin-top:8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_footer">MoldCo</a>.</p>
   </footer>
+
+  <!-- SCROLL SPY -->
+  <script>
+    (function() {
+      const links = document.querySelectorAll('.chapter-link');
+      const chapters = [];
+      links.forEach(function(link) {
+        const id = link.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) chapters.push({ id: id, el: el, link: link });
+      });
+
+      function update() {
+        let current = chapters[0];
+        const scrollY = window.scrollY + 140;
+        for (let i = 0; i < chapters.length; i++) {
+          if (chapters[i].el.offsetTop <= scrollY) {
+            current = chapters[i];
+          }
+        }
+        links.forEach(function(l) { l.classList.remove('active'); });
+        if (current) current.link.classList.add('active');
+
+        // auto-scroll nav to keep active link visible
+        const nav = document.getElementById('chapterNav');
+        if (current && nav) {
+          const linkRect = current.link.getBoundingClientRect();
+          const navRect = nav.getBoundingClientRect();
+          if (linkRect.left < navRect.left || linkRect.right > navRect.right) {
+            current.link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        }
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            update();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      update();
+    })();
+  </script>
 
 </body>
 </html>
