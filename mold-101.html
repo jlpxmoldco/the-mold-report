@@ -791,6 +791,173 @@
     .sticky-cta .sticky-btn { background: #fff; color: var(--accent); padding: 8px 20px; border-radius: var(--r-md); font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
     .sticky-cta .sticky-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; padding: 4px 8px; flex-shrink: 0; }
 
+    /* GLOSSARY TOOLTIPS */
+    .glossary {
+      border-bottom: 1px dotted var(--accent);
+      cursor: help;
+      position: relative;
+      white-space: nowrap;
+    }
+    .glossary .glossary-tip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 400;
+      padding: 10px 14px;
+      border-radius: var(--r-md);
+      width: max-content;
+      max-width: 280px;
+      white-space: normal;
+      z-index: 50;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    .glossary .glossary-tip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--text);
+    }
+    .glossary:hover .glossary-tip,
+    .glossary:focus .glossary-tip { display: block; }
+
+    /* CHAPTER TAKEAWAY */
+    .takeaway {
+      background: var(--accent);
+      color: white;
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-6);
+      margin: var(--sp-8) 0 0;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .takeaway-icon {
+      flex-shrink: 0;
+      font-size: 16px;
+      margin-top: 1px;
+      opacity: 0.7;
+    }
+    .takeaway p { margin: 0; color: rgba(255,255,255,0.9); }
+    .takeaway strong { color: #fff; }
+
+    /* RESOURCE CARD */
+    .resource-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6) var(--sp-8);
+      margin: var(--sp-8) 0;
+      display: flex;
+      gap: var(--sp-6);
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+    }
+    .resource-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .resource-icon {
+      flex-shrink: 0;
+      width: 56px; height: 56px;
+      background: var(--accent-light);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .resource-body h4 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .resource-body p {
+      font-size: 13px;
+      color: var(--text-2);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .resource-body .resource-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    /* QUESTIONS FOR DOCTOR */
+    .doctor-questions {
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      margin: var(--sp-10) 0;
+      box-shadow: var(--shadow-md);
+    }
+    .doctor-questions h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-2);
+      color: var(--text);
+    }
+    .doctor-questions .dq-sub {
+      font-size: 14px;
+      color: var(--text-3);
+      margin: 0 0 var(--sp-6);
+    }
+    .doctor-questions ol {
+      margin: 0 0 var(--sp-6);
+      padding: 0 0 0 var(--sp-6);
+    }
+    .doctor-questions li {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: var(--sp-3);
+      padding-left: 4px;
+    }
+    .doctor-questions li strong { color: var(--text); }
+    .dq-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: white;
+      padding: 10px 20px;
+      border-radius: var(--r-md);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .dq-print:hover { background: var(--accent-hover); }
+
+    @media print {
+      .masthead, .chapter-nav, .progress-bar, .sticky-cta, .cta-band, .hero, footer { display: none !important; }
+      .doctor-questions { border: 2px solid #000; break-inside: avoid; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
     @media (max-width: 640px) {
       .stat-row { grid-template-columns: 1fr 1fr; }
       .step { gap: var(--sp-4); }
@@ -810,6 +977,8 @@
       .hero-chapter-link .hc-num { font-size: 17px; }
       .hero-chapter-link .hc-label { font-size: 9px; }
       .cta-band { padding: var(--sp-8) var(--sp-6); }
+      .resource-card { flex-direction: column; text-align: center; }
+      .glossary .glossary-tip { left: 0; transform: none; max-width: 220px; }
     }
 
     @media (min-width: 641px) {
@@ -879,7 +1048,7 @@
 
       <p>If you're reading this, there's a good chance you've been told your symptoms are stress, anxiety, or "all in your head." You've seen multiple doctors. Your labs come back "normal." But you know something is wrong.</p>
 
-      <p>Mold illness — formally called <strong>Chronic Inflammatory Response Syndrome (CIRS)</strong> — is not an allergy. It is not a fungal infection. It is an <strong>innate immune response</strong> triggered by biotoxins produced by organisms found inside water-damaged buildings. And it is identifiable through blood biomarkers that most doctors never think to order.</p>
+      <p>Mold illness — formally called <strong>Chronic Inflammatory Response Syndrome (<span class="glossary" tabindex="0">CIRS<span class="glossary-tip">A multi-system inflammatory illness triggered by biotoxins from water-damaged buildings in genetically susceptible individuals.</span></span>)</strong> — is not an allergy. It is not a fungal infection. It is an <strong>innate immune response</strong> triggered by biotoxins produced by organisms found inside water-damaged buildings. And it is identifiable through blood biomarkers that most doctors never think to order.</p>
 
       <p>When genetically susceptible individuals are exposed to these environments, their immune systems cannot properly clear the toxins. The result is a chronic, multi-system inflammatory response that can affect the brain, joints, lungs, gut, and hormonal regulation simultaneously — which is why patients so often get passed from specialist to specialist without answers.</p>
 
@@ -903,6 +1072,11 @@
       <div class="callout">
         <div class="callout-title">Key Distinction</div>
         <p>CIRS is not caused by mold alone. Water-damaged buildings harbor a complex ecology of mold, bacteria (including actinobacteria), endotoxins, and other biotoxin-producing organisms. The illness results from the <strong>immune response</strong> to these biotoxins — not from fungal infection or allergic reaction. This is why antifungals and antihistamines typically don't resolve symptoms.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> Mold illness (CIRS) is a measurable, multi-system inflammatory response — not an allergy, not in your head — triggered by biotoxins in water-damaged buildings, affecting up to 24% of the population.</p>
       </div>
     </section>
 
@@ -1036,6 +1210,11 @@
       <div class="callout">
         <div class="callout-title">Why It's Missed</div>
         <p>Because CIRS affects many systems at once, patients are often sent to multiple specialists — neurologists, rheumatologists, pulmonologists, psychiatrists — who each treat their organ system in isolation. Without the unifying biotoxin framework, the underlying cause goes unidentified, and symptoms persist or worsen.</p>
+      </div>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> In genetically susceptible individuals, biotoxins aren't cleared properly — triggering a cascade from immune activation to regulatory collapse that explains why symptoms hit every system at once.</p>
       </div>
     </section>
 
@@ -1203,6 +1382,11 @@
         <div class="callout-title">Important</div>
         <p>These symptoms and clusters overlap with many other conditions. Experiencing them does not mean you have CIRS. The 13-cluster framework is a <strong>screening tool</strong>, not a diagnosis. A proper evaluation requires biomarker testing, exposure history assessment, and clinical assessment by a provider experienced with mold-related illness. This guide is educational — not diagnostic.</p>
       </div>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> CIRS produces symptoms across 13 defined clusters. The multi-system pattern — not any single symptom — is what distinguishes it. Most patients report 8+ clusters. A qualified provider can help you evaluate this.</p>
+      </div>
     </section>
 
     <!-- ═══════════ CTA: GET TESTED ═══════════ -->
@@ -1231,19 +1415,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>TGF-β1</td>
+            <td><span class="glossary" tabindex="0">TGF-β1<span class="glossary-tip">Transforming Growth Factor Beta-1. A cytokine and growth factor — not a hormone — involved in tissue remodeling and immune regulation. Elevated in CIRS.</span></span></td>
             <td>Cytokine/growth factor involved in tissue remodeling and immune regulation</td>
             <td><span class="direction up">Elevated</span></td>
             <td>Active inflammation and immune dysregulation</td>
           </tr>
           <tr>
-            <td>MMP-9</td>
+            <td><span class="glossary" tabindex="0">MMP-9<span class="glossary-tip">Matrix Metalloproteinase-9. An enzyme that breaks down tissue. Elevated levels indicate vascular inflammation and are a key CIRS biomarker.</span></span></td>
             <td>Matrix metalloproteinase — an enzyme involved in tissue breakdown</td>
             <td><span class="direction up">Elevated</span></td>
             <td>Vascular inflammation and tissue destruction</td>
           </tr>
           <tr>
-            <td>MSH</td>
+            <td><span class="glossary" tabindex="0">MSH<span class="glossary-tip">Melanocyte-Stimulating Hormone. A master regulatory peptide controlling sleep, pain, mood, gut function, and immune regulation. Low in ~94% of CIRS patients.</span></span></td>
             <td>Melanocyte-stimulating hormone — regulates sleep, pain, mood, gut, and immune function</td>
             <td><span class="direction down">Low</span></td>
             <td>Central regulatory failure; low in approximately 94% of CIRS patients</td>
@@ -1255,7 +1439,7 @@
             <td>Biotoxin exposure and innate immune activation</td>
           </tr>
           <tr>
-            <td>VIP</td>
+            <td><span class="glossary" tabindex="0">VIP<span class="glossary-tip">Vasoactive Intestinal Peptide. A neuropeptide with broad regulatory functions. Used in the final stage of treatment. Research shows it may restore brain grey matter volume.</span></span></td>
             <td>Vasoactive intestinal peptide — neuropeptide with broad regulatory functions</td>
             <td><span class="direction down">Low</span></td>
             <td>Late-stage marker; involved in final phases of the treatment protocol</td>
@@ -1349,6 +1533,11 @@
       <p>The consensus diagnostic statement (Shoemaker et al., 2018) describes a comprehensive evaluation protocol that integrates these markers with symptom clusters, exposure history, and increasingly, transcriptomic data that can identify specific gene expression patterns associated with CIRS at the molecular level. The breadth of the published marker panel reflects the multi-system nature of the disease — CIRS is not a single-marker condition.</p>
 
       </div>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> Blood biomarkers like TGF-β1, MMP-9, and MSH create a measurable immune fingerprint. The pattern across multiple markers — not any single value — is what gives providers objective data to work with.</p>
+      </div>
     </section>
 
     <!-- ═══════════════════ CHAPTER 5: TESTING ═══════════════════ -->
@@ -1366,6 +1555,11 @@
       </div>
 
       <p><strong>What to expect:</strong> Blood biomarker testing is a standard blood draw at a laboratory. Results typically take 5–10 business days. The markers themselves are well-established laboratory tests. The interpretation of results in the context of mold-related illness should ideally involve a provider experienced with this specific biomarker pattern — because the pattern matters more than any single value.</p>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> Start with blood biomarker testing (TGF-β1, MMP-9, MSH) at a standard lab. The tests are routine — it's the interpretation in context that requires a knowledgeable provider.</p>
+      </div>
     </section>
 
     <!-- ═══════════ CTA: MOLDCO PANEL ═══════════ -->
@@ -1480,6 +1674,11 @@
         <div class="callout-title">About This Approach</div>
         <p>This four-step framework reflects MoldCo's clinical experience guided by Dr. Shoemaker's published research and refined across 30,000 patients. The insight that inflammatory markers normalize through the early steps — without requiring a dedicated marker-correction phase — comes from years of real-world treatment data. Individual treatment plans are always personalized by MoldCo's providers. Treatment outcomes vary, and all care should be managed by a qualified healthcare provider.</p>
       </div>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> Treatment follows a sequential framework: remove exposure, bind toxins, address MARCoNS, then VIP therapy. The order matters — each step enables the next. Work with a provider experienced in this approach.</p>
+      </div>
     </section>
 
     <!-- ═══════════ CTA: CARE ═══════════ -->
@@ -1497,7 +1696,7 @@
 
       <p>Because the first step of treatment is removing exposure, understanding your home environment is critical. Mold growth can begin within <strong>24–48 hours</strong> of water intrusion — and it can develop in hidden spaces like wall cavities, HVAC systems, and under flooring.</p>
 
-      <p><strong>HERTSMI-2</strong> (Health Effects Roster of Type-Specific Formers of Mycotoxins and Inflammagens, 2nd version) is an environmental testing method that measures five specific mold species associated with water-damaged building illness. A HERTSMI-2 score below 11 is generally considered safe for CIRS patients.</p>
+      <p><strong><span class="glossary" tabindex="0">HERTSMI-2<span class="glossary-tip">Health Effects Roster of Type-Specific Formers of Mycotoxins and Inflammagens. An environmental test measuring 5 mold species associated with water-damaged building illness. Score below 11 is generally considered safe.</span></span></strong> (Health Effects Roster of Type-Specific Formers of Mycotoxins and Inflammagens, 2nd version) is an environmental testing method that measures five specific mold species associated with water-damaged building illness. A HERTSMI-2 score below 11 is generally considered safe for CIRS patients.</p>
 
       <div class="steps">
         <div class="step">
@@ -1526,6 +1725,20 @@
       <div class="callout warn">
         <div class="callout-title">Do Not DIY</div>
         <p>For individuals with suspected CIRS, DIY mold removal is not recommended. Disturbing mold colonies can release large quantities of spores and biotoxins. Professional remediation with proper containment, negative air pressure, and personal protection is the safer path.</p>
+      </div>
+
+      <a href="https://www.johncbanta.com/product-page/pdf-of-pre-release-mold-controlled" class="resource-card" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon">&#128218;</div>
+        <div class="resource-body">
+          <h4>Recommended: Mold Controlled by John C. Banta</h4>
+          <p>The definitive guide to mold inspection and remediation. Written by one of the most experienced environmental consultants in the field. Essential reading if you're dealing with a water-damaged building.</p>
+          <span class="resource-link">Get the book &rarr;</span>
+        </div>
+      </a>
+
+      <div class="takeaway">
+        <span class="takeaway-icon">&#9679;</span>
+        <p><strong>Key takeaway:</strong> Removing exposure is step one. Test your environment with HERTSMI-2/ERMI, hire professionals for remediation, and use John Banta's guide as your reference. Do not attempt DIY mold removal.</p>
       </div>
     </section>
 
@@ -1638,6 +1851,21 @@
         <div class="faq-a">While Stachybotrys chartarum ("black mold") receives significant media attention, it is only one of many organisms associated with water-damaged building illness. CIRS research recognizes multiple mold species, actinobacteria, and endotoxins as contributors. The color of mold is not a reliable indicator of danger — the immune response to the biotoxin ecology of the entire water-damaged environment is what matters.</div>
       </div>
     </section>
+
+    <!-- ═══════════ QUESTIONS FOR YOUR DOCTOR ═══════════ -->
+    <div class="doctor-questions reveal">
+      <h3>Questions to Bring to Your Provider</h3>
+      <p class="dq-sub">Print or screenshot this list. These are informed questions that can help guide a productive conversation with your doctor.</p>
+      <ol>
+        <li><strong>"Can you order TGF-β1, MMP-9, and MSH blood panels?"</strong> — These are standard LabCorp tests. Most doctors can order them even if they're unfamiliar with CIRS.</li>
+        <li><strong>"Have you evaluated me for biotoxin-related illness or CIRS?"</strong> — This introduces the framework without self-diagnosing. Many providers haven't encountered it.</li>
+        <li><strong>"Could my symptoms be connected to water damage in my home or workplace?"</strong> — Establishes exposure history, which is a critical diagnostic factor.</li>
+        <li><strong>"Would you be open to reviewing my results with a provider who specializes in mold-related illness?"</strong> — Opens the door to specialist referral without confrontation.</li>
+        <li><strong>"Are there environmental tests I should consider for my home?"</strong> — Introduces HERTSMI-2/ERMI testing as a next step for investigating exposure.</li>
+        <li><strong>"What do you know about the Shoemaker Protocol for biotoxin illness?"</strong> — Gauges whether your provider has relevant training and opens a research-grounded conversation.</li>
+      </ol>
+      <button class="dq-print" onclick="window.print()">&#128424; Print This List</button>
+    </div>
 
     <!-- ═══════════════════ CHAPTER 10: NEXT STEPS ═══════════════════ -->
     <section class="chapter reveal" id="next">
@@ -1790,9 +2018,9 @@
       if (fillEl) fillEl.style.width = (selected / 13 * 100) + '%';
       if (msgEl) {
         if (selected === 0) msgEl.textContent = 'Select clusters that apply';
-        else if (selected < 4) msgEl.textContent = 'Some overlap possible';
-        else if (selected < 8) msgEl.textContent = 'Pattern emerging';
-        else msgEl.textContent = 'Consistent with CIRS pattern';
+        else if (selected < 4) msgEl.textContent = selected + ' selected';
+        else if (selected < 8) msgEl.textContent = 'Bring this to your provider';
+        else msgEl.textContent = 'Discuss with a qualified provider';
       }
     };
 
