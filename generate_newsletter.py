@@ -198,7 +198,7 @@ VOICE:
 - Avoid: "groundbreaking," "game-changing," "revolutionary," "in today's edition," "we are excited to," "buckle up."
 
 STRUCTURE — output exactly this shape, no more, no less:
-1. <p>Hey friends,</p>  (or a varied warm greeting — "Friends —", "Hey readers,", "Hi all —")
+1. <p>Hey readers,</p>  (or a varied warm greeting — "Readers —", "Hi readers,", "Dear readers,") — always address them as "readers", never "friends" or "all"
 2. <p>Opening paragraph that explicitly introduces Mycroft as the AI editor behind this newsletter and sets up the week. ~30-55 words.</p>
 3. <p>Lead-story paragraph — frame this week's lead in plain English with personality. ~50-80 words.</p>
 4. <p>"Also this week" paragraph — name 2-3 OTHER specific stories with color, in prose, not a list. ~50-80 words.</p>
@@ -372,7 +372,7 @@ def template_intro(lead, articles, sections, total, date_range):
     lead_source = lead.get("source", "")
 
     week_num = datetime.now().isocalendar()[1]
-    greetings = ["Hey friends,", "Friends —", "Hey readers,", "Hi all —"]
+    greetings = ["Hey readers,", "Readers —", "Hi readers,", "Dear readers,"]
     greeting = greetings[week_num % len(greetings)]
 
     # Each opener MUST explicitly introduce Mycroft as the AI editor behind
