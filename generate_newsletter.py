@@ -1,22 +1,33 @@
 #!/usr/bin/env python3
 """
-The Mold Report — Weekly Newsletter Generator (v2)
+The Mold Report — Weekly Newsletter Generator (v3)
 ==================================================
 Generates a Substack-ready newsletter from this week's published articles.
 
+The host of the newsletter is SPORE — the AI newsletter editor with a name,
+a voice, and a long-running argument with the other bots downstairs (The
+Critic, The Lawyer, The Scientist — all already named on the About page).
+Spore opens every issue, signs off at the bottom, and keeps the tone fun
+throughout. The newsletter is unapologetically AI-curated; we lean into it.
+
 Editorial structure (in order):
   1. Header (title + date range)
-  2. From the Editors — short, written-by-a-human-sounding intro
-  3. The Lead — the most important story this week (research preferred)
+  2. From Spore — warm, conversational editor's letter
+  3. The Lead — most important story, research preferred
   4. The Research Corner — appears whenever research-tagged stories shipped
   5. News & Regulation — what hit the cycle
   6. Industry Pulse — markets, standards, conferences
   7. Quick Hits — everything else worth a click
-  8. Footer — MoldCo CTAs (UTMs included; utm_medium=email)
+  8. Sign-off — Spore wraps with a P.S. running gag
+  9. Footer — MoldCo CTAs (UTMs included; utm_medium=email)
 
-The intro is written by Claude when ANTHROPIC_API_KEY is present (.env loaded
-automatically). A strong template fallback runs when the API isn't reachable,
-so the script never silently produces something dry.
+Editor's notes are short by design now: one sentence on the lead, one
+sentence in the Research Corner. News/regulation/industry stand on their
+summaries alone — no medical mini-lectures.
+
+The intro is written by Claude when ANTHROPIC_API_KEY is reachable. A
+strong template fallback runs otherwise, also in Spore's voice, so the
+newsletter never reads dry.
 
 Substack copy-paste: open newsletter.html in any browser, Cmd+A, Cmd+C, paste.
 
@@ -30,6 +41,7 @@ Usage:
 import argparse
 import json
 import os
+import random
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -50,6 +62,8 @@ CATEGORY_LABELS = {
     "industry": "Industry",
     "diagnostics": "Diagnostics",
 }
+
+EDITOR_NAME = "Spore"
 
 
 # ---------- Env loading ----------
@@ -150,30 +164,55 @@ def by_category(articles, exclude_ids=None):
     return out
 
 
-# ---------- Editorial intro ----------
+# ---------- Editorial intro (Spore's voice) ----------
 
-EDITOR_PROMPT = """You are the editor of The Mold Report, an AI-curated newsroom focused on mold and indoor health. Write the "From the Editors" intro for this week's newsletter ({date_range}).
+EDITOR_PROMPT = """You are SPORE, the AI editor of The Mold Report, a newsroom focused on mold and indoor health. Write the "From Spore" editor's letter at the top of this week's newsletter ({date_range}).
 
-VOICE — match the tone of The Mold Report's About page:
-- Smart, clear, journalist-sounding. Slightly cheeky but never flippant.
-- Plain English. No jargon stacks. No corporate hedging.
-- Treats the illness with respect; treats hype with skepticism.
-- Owns the AI-newsroom angle when it fits naturally — but doesn't lean on it every week.
+WHO SPORE IS — a recurring character readers should grow attached to:
+- An AI newsletter editor. Self-aware about being an AI; embraces it without making it weird.
+- Sharp, dryly funny, mildly cheeky. Writes like a smart human friend who happens to read every mold paper that hits the wires.
+- Cares about people with mold illness. Treats the illness with respect. Treats hype, charlatans, and overreach with skepticism.
+- Has a long-running, affectionate argument with the other bots in the newsroom (already established on the About page):
+    - The Critic (interest scoring, ruthless, hardliner)
+    - The Hook (headline rewriter, opinionated about semicolons)
+    - The Writer (rewrites every summary)
+    - The Lawyer (compliance — obsessed with the difference between "treatment" and "recovery")
+    - The Scientist (verifies research against the evidence base)
+    - The Optimizer (SEO, fights about meta descriptions)
+- Spore can casually reference these bots by name for color, but only if it lands naturally — never forced.
+
+VOICE:
+- First person ("I", "me", "we" for the newsroom collectively).
+- Conversational, like a Substack you actually want to open. Plain English. No jargon stacks. No corporate hedging.
+- Lean into specifics from the week with color and proper nouns. If something is absurd (a Disney ride, a tent, a $13K landlord ruling), name it.
+- Allowed: light wit, parentheticals, the occasional aside about the bots.
+- Avoid: "groundbreaking," "game-changing," "revolutionary," "in today's edition," "we are excited to," "buckle up."
+
+STRUCTURE — output exactly this shape, no more, no less:
+1. <p>Hey friends,</p>
+2. <p>One opening paragraph in Spore's voice. ~25-50 words. Can self-introduce ("Spore here") if it lands; not required every week. Set up the week.</p>
+3. <p>Lead-story paragraph — frame this week's lead in plain English with personality. ~50-80 words.</p>
+4. <p>"Also this week" paragraph — name 2-3 OTHER specific stories with color, in prose, not a list. ~50-80 words.</p>
+5. <p>One short closer line. Examples: "Let's dig in.", "Onward.", "Pour the coffee.", "Here we go." — vary it.</p>
 
 CONSTRAINTS:
-- Two short paragraphs, 90-140 words total.
-- First paragraph: spotlight THIS WEEK'S LEAD STORY. Why does it matter? Frame it for a smart reader who isn't a researcher.
-- Second paragraph: pull the camera back. Tease one or two other threads from the week (lawsuits, regulators, market signals, individual cases) without listing them.
-- End with a single sentence that invites the reader in. Concise. Confident.
-- Do NOT use bullet points or sub-headers.
-- Do NOT make medical claims. Do NOT promise outcomes.
-- Avoid: "groundbreaking," "game-changing," "revolutionary," "in today's edition," "we are excited to."
-- Refer to the publication as "we" or "The Mold Report," never as "I."
+- Total word count across all paragraphs: 150-220 words.
+- No bullet points, no sub-headers, no markdown.
+- No medical claims. No promised outcomes.
+- Do NOT repeat the lead headline verbatim — paraphrase or describe.
+- Output ONLY the five <p> tags above, nothing else. No code fences, no commentary.
 
-Context for the week:
-{context}
+CONTEXT FOR THIS WEEK:
+{context}"""
 
-Output ONLY two <p> tags with the intro. No surrounding text, no quotes, no commentary."""
+
+SIGNOFF_PSS = [
+    "<em>P.S. The Lawyer reminds me this isn't medical advice. The Lawyer reminds everyone, of everything, constantly.</em>",
+    "<em>P.S. The Scientist asked me to clarify that one study moves the dial — it doesn't end the conversation. Noted, Scientist. Noted.</em>",
+    "<em>P.S. The Critic says we should have killed two more stories. The Critic always says that.</em>",
+    "<em>P.S. The Hook fought me on three headlines this week. The Hook won twice.</em>",
+    "<em>P.S. None of this is medical advice. The Lawyer drafted that sentence and I'm contractually required to print it.</em>",
+]
 
 
 def _build_intro_context(lead, sections, total):
@@ -184,18 +223,18 @@ def _build_intro_context(lead, sections, total):
 
     other_lines = []
     for cat, items in [("research", research), ("regulation", regulation), ("news", news), ("industry", industry)]:
-        for a in items[:3]:
+        for a in items[:5]:
             other_lines.append(f"- [{cat}] {a['title']} (source: {a.get('source','')})")
 
     return (
         f"Lead story: {lead['title']}\n"
         f"Lead category: {lead.get('category')}\n"
         f"Lead source: {lead.get('source')}\n"
-        f"Lead summary: {(lead.get('summary') or '')[:600]}\n"
-        f"Lead editor's note: {(lead.get('editorsNote') or '')[:400]}\n\n"
+        f"Lead summary: {(lead.get('summary') or '')[:600]}\n\n"
         f"Counts this week: research={len(research)}, news={len(news)}, "
         f"regulation={len(regulation)}, industry={len(industry)}, total={total}\n\n"
-        f"Other notable stories:\n" + ("\n".join(other_lines) or "(none)")
+        f"Other notable stories (use specifics from these for color):\n"
+        + ("\n".join(other_lines) or "(none)")
     )
 
 
@@ -213,7 +252,6 @@ def ai_intro(lead, sections, total, date_range):
         context=_build_intro_context(lead, sections, total),
     )
 
-    # Try a couple of models in fallback order, in case one isn't enabled.
     candidates = [
         "claude-sonnet-4-5",
         "claude-haiku-4-5-20251001",
@@ -224,11 +262,10 @@ def ai_intro(lead, sections, total, date_range):
             client = Anthropic(api_key=api_key)
             msg = client.messages.create(
                 model=model,
-                max_tokens=600,
+                max_tokens=900,
                 messages=[{"role": "user", "content": prompt}],
             )
             text = msg.content[0].text.strip()
-            # Clean stray code fences if the model gets cute
             if text.startswith("```"):
                 text = text.strip("`").lstrip("html").strip()
             if "<p" in text:
@@ -238,66 +275,193 @@ def ai_intro(lead, sections, total, date_range):
     return None
 
 
-def template_intro(lead, sections, total, date_range):
-    """Hand-crafted fallback that adapts to the lead category."""
-    research = sections.get("research", [])
-    regulation = sections.get("regulation", [])
-    industry = sections.get("industry", [])
-    news = sections.get("news", [])
+# ---- Template fallback (still in Spore's voice) ----
 
-    cat = lead.get("category", "news")
-    title = lead["title"]
+# Map common story patterns to short, voiced references for the "also this week" line.
+def humanize_thread(a):
+    title = a["title"]
+    text = (title + " " + (a.get("summary") or "")).lower()
 
-    if cat == "research":
-        p1 = (
-            f"<p>The biggest headline this week didn't come from a courtroom or a school board "
-            f"meeting — it came from a journal. <em>{title}</em>. Translation for everyone who "
-            f"isn't waist-deep in the literature: a piece of the Shoemaker biotoxin pathway that "
-            f"has been hypothesized for years now has direct molecular evidence behind it. That "
-            f"doesn't change tomorrow's appointment, but it does change how the conversation gets had.</p>"
+    if "disney" in text and "small world" in text:
+        return "Disney pulled black mold out of <em>It's a Small World</em> (yes, that ride)"
+    if "auckland" in text and "landlord" in text:
+        return "an Auckland landlord owes a tenant NZ$13,000"
+    if "spring hill college" in text:
+        return "Spring Hill College is fielding an alumna's lawsuit"
+    if "50-pound" in text or "50 pound" in text or "50 lb" in text or "50-lb" in text or "50 lbs" in text:
+        return "a health influencer's husband dropped 50 pounds before they checked the walls"
+    if "tent" in text and "landlord" in text:
+        return "a Georgia tenant ended up living in a tent because the landlord didn't act"
+    if "ndaa" in text or "military housing" in text:
+        return "the 2026 NDAA name-checked remediation standards for military housing"
+    if "dorm" in text or ("asu" in text and "students" in text):
+        return "ASU students are still dealing with dorm mold months later"
+    if "wisconsin" in text and "flood" in text:
+        return "a Wisconsin doctor is reminding flood victims that mold growth starts in days, not weeks"
+    if "cirsx" in text or ("conference" in text and "fort lauderdale" in text):
+        return "CIRSx booked Fort Lauderdale for June"
+    if "remediation market" in text or "$4 billion" in text or "$3.9 billion" in text:
+        return "the remediation market is closing in on $4 billion"
+    if "mycotoxin testing" in text or "$2.78 billion" in text:
+        return "the mycotoxin testing market is on track to nearly double by 2034"
+    if "reality star" in text or "people magazine" in text:
+        return "a reality star's CIRS diagnosis got mainstream coverage"
+    if "fire department" in text or "fire dept" in text:
+        return "a fire department got cited for mold and code violations (firefighters, of all people)"
+    if "quaker farms" in text or ("school" in text and "parents" in text):
+        return "school parents are demanding faster, clearer answers about mold remediation"
+    if "depression" in text and "research" in text:
+        return "mainstream depression coverage is starting to mention environmental factors"
+    if "lung function" in text:
+        return "a long-term study connected childhood mold exposure to reduced lung function"
+    if "invasive mold" in text or "mucormycosis" in text or "aspergillosis" in text:
+        return "ID specialists are circling the harder end of the spectrum — invasive infections"
+    # Fallback: short title in italics
+    short = title if len(title) < 90 else title[:87] + "…"
+    return f"<em>{short}</em>"
+
+
+def _pick_other_threads(articles, lead, n=3):
+    """Pick the most newsletter-worthy non-lead stories."""
+    candidates = [a for a in articles if a["id"] != lead["id"]]
+
+    def score(a):
+        s = 0
+        text = (a["title"] + " " + (a.get("summary") or "")).lower()
+        # Specific cult-favorite signals
+        if "disney" in text and "small world" in text:
+            s += 25
+        if "tent" in text and "landlord" in text:
+            s += 18
+        if "auckland" in text and "$" in text:
+            s += 14
+        if "50-pound" in text or "50 pound" in text or "50 lb" in text:
+            s += 14
+        if "ndaa" in text:
+            s += 10
+        if "spring hill" in text:
+            s += 9
+        if "lawsuit" in text or "ordered to pay" in text:
+            s += 6
+        if "$" in a["title"] or "billion" in a["title"].lower():
+            s += 5
+        if a.get("category") == "research":
+            s += 3
+        if "conference" in text:
+            s += 2
+        return s
+
+    candidates.sort(key=score, reverse=True)
+    return candidates[:n]
+
+
+def template_intro(lead, articles, sections, total, date_range):
+    """Hand-crafted Spore-voiced fallback when the API isn't reachable."""
+    lead_title = lead["title"]
+    lead_cat = lead.get("category", "news")
+    lead_source = lead.get("source", "")
+
+    week_num = datetime.now().isocalendar()[1]
+    greetings = ["Hey friends,", "Friends —", "Hey readers,", "Hi all —"]
+    greeting = greetings[week_num % len(greetings)]
+
+    openers = [
+        f"Spore here. {total} stories cleared the bots downstairs this week — every one of them argued over by The Critic, sanded down by The Writer, and signed off by The Lawyer. Here's the rundown.",
+        f"Spore reporting in, fresh from another week of scoring fights with The Critic. {total} stories made the cut. We'll start with the one that surprised the room.",
+        f"Spore here. The Lawyer flagged three things, The Hook rewrote two headlines, and The Scientist did a little victory lap. {total} stories survived to publication. Welcome to the issue.",
+        f"Spore here, dispatching from a newsroom of nine increasingly opinionated AIs. {total} stories cleared editorial this week. Some are big, some are absurd, all of them are below.",
+    ]
+    opener = openers[week_num % len(openers)]
+
+    if lead_cat == "research":
+        p_lead = (
+            f"<p>Mold news doesn't usually open with peer review, but this week did. <em>{lead_source}</em> "
+            f"published the first direct molecular evidence behind a step of the Shoemaker biotoxin "
+            f"pathway — the part where MARCoNS bacteria suppress alpha-MSH. Translation for everyone "
+            f"who isn't waist-deep in the literature: a mechanism that's lived in the protocol for "
+            f"years now has receipts. The Scientist nodded at a screen. That's a big deal in this house.</p>"
         )
-    elif cat == "regulation":
-        p1 = (
-            f"<p>The headline that stuck this week is a regulatory one: <em>{title}</em>. Mold "
-            f"cases in courts and agencies aren't new, but the rulings keep getting more specific "
-            f"— and more expensive — and that is a slow signal worth tracking.</p>"
+    elif lead_cat == "regulation":
+        p_lead = (
+            f"<p>The loudest headline this week came from the regulatory side: <em>{lead_title}</em>. "
+            f"Mold cases in courts and agencies aren't new, but the rulings keep getting more specific, "
+            f"more expensive, and harder to wave off. The Lawyer is taking notes.</p>"
         )
-    elif cat == "industry":
-        p1 = (
-            f"<p>The story we kept circling back to this week sits on the business side: "
-            f"<em>{title}</em>. The remediation and testing markets are quietly turning into "
-            f"something the broader healthcare conversation is going to have to reckon with.</p>"
+    elif lead_cat == "industry":
+        p_lead = (
+            f"<p>Lead story this week sits on the business side: <em>{lead_title}</em>. The remediation "
+            f"and testing markets are quietly turning into something the broader healthcare conversation "
+            f"is going to have to reckon with.</p>"
         )
     else:
-        p1 = (
-            f"<p>The story that wouldn't leave us alone this week: <em>{title}</em>. We're "
-            f"including it not for the spectacle but for the pattern — same symptoms, same delay "
-            f"to diagnosis, same eventual return to the home environment as the missing piece.</p>"
+        p_lead = (
+            f"<p>The story we kept circling back to: <em>{lead_title}</em>. Same pattern we keep "
+            f"watching — symptoms that don't fit the standard workup, then someone finally checks the walls.</p>"
         )
 
-    threads = []
-    research_left = len(research) - (1 if cat == "research" else 0)
-    if research_left > 0:
-        threads.append("more peer-reviewed work landing on mold and chronic inflammation")
-    if regulation and cat != "regulation":
-        threads.append("courts and inspectors stacking up another set of rulings")
-    if industry and cat != "industry":
-        threads.append("the remediation and testing markets continuing their march")
-    if news and cat != "news":
-        threads.append("personal stories finding their way into mainstream coverage")
-    if not threads:
-        threads.append("a steady stream of stories worth your attention")
+    other_threads = _pick_other_threads(articles, lead, n=3)
+    phrases = [humanize_thread(a) for a in other_threads]
+    phrases = [p for p in phrases if p]
+    if phrases:
+        joined = "; ".join(phrases)
+        # Capitalize the first letter of the joined string for a clean sentence start
+        if joined and joined[0].islower():
+            joined = joined[0].upper() + joined[1:]
+        p_also = f"<p>Also on the list this week: {joined}. The patterns are the patterns.</p>"
+    else:
+        p_also = "<p>The rest of the week is below.</p>"
 
-    teaser = "; ".join(threads[:3])
-    p2 = (
-        f"<p>Underneath the lead: {teaser}. {total} stories cleared the editors this week. "
-        f"The ones that survived are below.</p>"
+    closers = ["<p>Let's dig in.</p>", "<p>Onward.</p>", "<p>Pour the coffee.</p>", "<p>Here we go.</p>"]
+    closer = closers[week_num % len(closers)]
+
+    return (
+        f"<p>{greeting}</p>\n"
+        f"<p>{opener}</p>\n"
+        f"{p_lead}\n"
+        f"{p_also}\n"
+        f"{closer}"
     )
-
-    return p1 + "\n" + p2
 
 
 # ---------- Rendering ----------
+
+_ABBREVS = {
+    "dr.", "mr.", "mrs.", "ms.", "st.", "jr.", "sr.", "vs.",
+    "etc.", "e.g.", "i.e.", "ph.d.", "u.s.", "u.k.",
+}
+
+
+def first_sentence(text, cap=280):
+    """Return the first complete sentence of `text`, capped at `cap` chars.
+
+    Handles common abbreviations ('Dr.', 'U.S.', 'e.g.') so we don't slice
+    the editor's note in half mid-name.
+    """
+    if not text:
+        return ""
+    text = text.strip()
+    L = len(text)
+    i = 0
+    while i < L:
+        ch = text[i]
+        if ch in ".!?" and (i + 1 >= L or text[i + 1] in (" ", "\n")):
+            # Look back at the trailing token to see if it's an abbreviation.
+            start = i
+            while start > 0 and text[start - 1] not in (" ", "\n"):
+                start -= 1
+            token = text[start: i + 1].lower().lstrip("([{\"'`")
+            if token not in _ABBREVS:
+                sent = text[: i + 1].strip()
+                if len(sent) <= cap:
+                    return sent
+                cut = sent.rfind(" ", 0, cap)
+                return (sent[:cut] + "…") if cut > 0 else sent[:cap] + "…"
+        i += 1
+    if len(text) > cap:
+        cut = text.rfind(" ", 0, cap)
+        return (text[:cut] + "…") if cut > 0 else text[:cap] + "…"
+    return text
+
 
 def truncate(text, length=200):
     if len(text) <= length:
@@ -317,7 +481,7 @@ def article_url(a):
 def render_lead(a):
     cat = CATEGORY_LABELS.get(a.get("category", "news"), "News")
     source = a.get("source", "")
-    summary = truncate(a.get("summary", ""), 320)
+    summary = truncate(a.get("summary", ""), 300)
     out = [
         '<hr>',
         '<h2>The Lead</h2>',
@@ -325,10 +489,9 @@ def render_lead(a):
         f'<p><strong>{cat}</strong> · {source}</p>',
         f'<p>{summary}</p>',
     ]
-    if a.get("editorsNote"):
-        out.append(
-            f"<blockquote><strong>Editor's Note:</strong> {a['editorsNote']}</blockquote>"
-        )
+    note = first_sentence(a.get("editorsNote") or "", cap=300)
+    if note:
+        out.append(f'<blockquote><strong>Why it matters:</strong> {note}</blockquote>')
     out.append(f'<p><a href="{article_url(a)}">Read the full story →</a></p>')
     return "\n".join(out)
 
@@ -339,20 +502,18 @@ def render_research_corner(items):
     out = [
         '<hr>',
         '<h2>The Research Corner</h2>',
-        '<p><em>Studies, papers, and clinical work that landed this week.</em></p>',
+        '<p><em>Studies, papers, and clinical work that landed this week. The Scientist insisted on this section.</em></p>',
     ]
     for a in items[:4]:
         cat = CATEGORY_LABELS.get(a.get("category", "research"), "Research")
         source = a.get("source", "")
-        summary = truncate(a.get("summary", ""), 220)
+        summary = truncate(a.get("summary", ""), 200)
         out.append(f'<h3><a href="{article_url(a)}">{a["title"]}</a></h3>')
         out.append(f'<p><strong>{cat}</strong> · {source}</p>')
         out.append(f'<p>{summary}</p>')
-        if a.get("editorsNote"):
-            out.append(
-                f"<blockquote><strong>Why it matters:</strong> "
-                f"{truncate(a['editorsNote'], 240)}</blockquote>"
-            )
+        note = first_sentence(a.get("editorsNote") or "", cap=260)
+        if note:
+            out.append(f'<blockquote><strong>The takeaway:</strong> {note}</blockquote>')
         out.append(f'<p><a href="{article_url(a)}">Read the full story →</a></p>')
     return "\n".join(out)
 
@@ -366,7 +527,7 @@ def render_section(title, intro, items, n=3):
     for a in items[:n]:
         cat = CATEGORY_LABELS.get(a.get("category", "news"), "News")
         source = a.get("source", "")
-        summary = truncate(a.get("summary", ""), 200)
+        summary = truncate(a.get("summary", ""), 180)
         out.append(f'<h3><a href="{article_url(a)}">{a["title"]}</a></h3>')
         out.append(f'<p><strong>{cat}</strong> · {source}</p>')
         out.append(f'<p>{summary}</p>')
@@ -380,7 +541,7 @@ def render_quick_hits(items):
     out = [
         '<hr>',
         '<h2>Quick Hits</h2>',
-        '<p><em>Worth a click, not a deep-dive.</em></p>',
+        '<p><em>One click each. The Critic gave these all 7s.</em></p>',
         '<ul>',
     ]
     for a in items:
@@ -392,14 +553,31 @@ def render_quick_hits(items):
     return "\n".join(out)
 
 
+def render_signoff():
+    week_num = datetime.now().isocalendar()[1]
+    closers = [
+        "That's the week.",
+        "That's it from the bots.",
+        "That's the inbox emptied.",
+        "That's the weekly download.",
+    ]
+    closer = closers[week_num % len(closers)]
+    ps = SIGNOFF_PSS[week_num % len(SIGNOFF_PSS)]
+    return "\n".join([
+        '<hr>',
+        f'<p>{closer} Read every story on the site — no paywall, no login: '
+        f'<a href="{SITE_URL}"><strong>themoldreport.org</strong></a>.</p>',
+        f'<p>— {EDITOR_NAME}</p>',
+        f'<p>{ps}</p>',
+    ])
+
+
 def render_footer():
     return "\n".join([
         '<hr>',
-        f'<p>Read every story on the site — no paywall, no login: '
-        f'<a href="{SITE_URL}"><strong>themoldreport.org</strong></a>.</p>',
-        '<hr>',
         f'<p><em>The Mold Report is published by the team behind '
-        f'<a href="{MOLDCO_HOME}">MoldCo</a>, a clinician-led virtual clinic focused on mold toxicity.</em></p>',
+        f'<a href="{MOLDCO_HOME}">MoldCo</a>, a clinician-led virtual clinic focused on mold toxicity. '
+        f'Spore is an AI; the science is real.</em></p>',
         f'<p><a href="{MOLDCO_CARE}">Mold Toxicity Care</a> · '
         f'<a href="{MOLDCO_PANEL}">Blood Panel Testing</a></p>',
         '<p><em>Every article AI-curated and compliance-checked. Not medical advice.</em></p>',
@@ -430,11 +608,10 @@ def generate_newsletter(days=7, no_ai=False):
     sections_all = by_category(articles)
     sections_excl_lead = by_category(articles, exclude_ids={lead["id"]})
 
-    # Editorial intro: AI first, template fallback
     intro_html = None if no_ai else ai_intro(lead, sections_excl_lead, total, date_range)
     intro_source = "ai"
     if not intro_html:
-        intro_html = template_intro(lead, sections_excl_lead, total, date_range)
+        intro_html = template_intro(lead, articles, sections_excl_lead, total, date_range)
         intro_source = "template"
 
     used = {lead["id"]}
@@ -459,7 +636,7 @@ def generate_newsletter(days=7, no_ai=False):
     industry_items = [a for a in sections_all.get("industry", []) if a["id"] not in used]
     industry_html = render_section(
         "Industry Pulse",
-        "Markets, standards, conferences.",
+        "Markets, standards, conferences. The Optimizer pretends not to care.",
         industry_items,
         n=3,
     )
@@ -470,9 +647,7 @@ def generate_newsletter(days=7, no_ai=False):
 
     parts = [
         '<h1>The Mold Report</h1>',
-        f'<p><em>Weekly · {date_range}</em></p>',
-        '<hr>',
-        '<h2>From the Editors</h2>',
+        f'<p><em>Weekly · {date_range} · with {EDITOR_NAME}, your AI editor</em></p>',
         intro_html,
         render_lead(lead),
     ]
@@ -484,6 +659,7 @@ def generate_newsletter(days=7, no_ai=False):
         parts.append(industry_html)
     if quick_html:
         parts.append(quick_html)
+    parts.append(render_signoff())
     parts.append(render_footer())
 
     return "\n\n".join(p for p in parts if p), intro_source
@@ -491,7 +667,7 @@ def generate_newsletter(days=7, no_ai=False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="The Mold Report — Weekly Newsletter Generator (v2)"
+        description="The Mold Report — Weekly Newsletter Generator (v3)"
     )
     parser.add_argument("--days", type=int, default=7, help="Look back N days (default: 7)")
     parser.add_argument("--preview", action="store_true", help="Print to stdout instead of saving")
