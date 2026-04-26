@@ -50,7 +50,9 @@ ARTICLES_FILE = SCRIPT_DIR / "articles.json"
 OUTPUT_FILE = SCRIPT_DIR / "newsletter.html"
 SITE_URL = "https://themoldreport.org"
 
-# UTM-enabled MoldCo links (every link includes utm_medium=email)
+# UTM-enabled MoldCo links (every link includes utm_medium=email).
+# Each backlink uses a distinct utm_campaign so we can see in analytics which
+# placement is doing the work week to week.
 MOLDCO_HOME = "https://www.moldco.com?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter"
 MOLDCO_CARE = "https://www.moldco.com/care?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter_care"
 MOLDCO_PANEL = "https://www.moldco.com/products?utm_source=themoldreport&utm_medium=email&utm_campaign=newsletter_panel"
@@ -446,31 +448,48 @@ def first_sentence(text, cap=280):
     """Return the first complete sentence of `text`, capped at `cap` chars.
 
     Handles common abbreviations ('Dr.', 'U.S.', 'e.g.') so we don't slice
-    the editor's note in half mid-name.
+    the editor's note in half mid-name. When the first sentence is itself
+    longer than `cap`, prefers to break at an em-dash or comma boundary
+    rather than mid-word — produces cleaner-looking ellipses.
     """
     if not text:
         return ""
     text = text.strip()
     L = len(text)
+
+    # Pass 1: find a complete sentence end within the text.
     i = 0
+    sentence_end = -1
     while i < L:
         ch = text[i]
         if ch in ".!?" and (i + 1 >= L or text[i + 1] in (" ", "\n")):
-            # Look back at the trailing token to see if it's an abbreviation.
             start = i
             while start > 0 and text[start - 1] not in (" ", "\n"):
                 start -= 1
             token = text[start: i + 1].lower().lstrip("([{\"'`")
             if token not in _ABBREVS:
-                sent = text[: i + 1].strip()
-                if len(sent) <= cap:
-                    return sent
-                cut = sent.rfind(" ", 0, cap)
-                return (sent[:cut] + "…") if cut > 0 else sent[:cap] + "…"
+                sentence_end = i
+                break
         i += 1
-    if len(text) > cap:
-        cut = text.rfind(" ", 0, cap)
-        return (text[:cut] + "…") if cut > 0 else text[:cap] + "…"
+
+    # If the first sentence fits within cap, return it whole.
+    if sentence_end > -1 and sentence_end + 1 <= cap:
+        return text[: sentence_end + 1].strip()
+
+    # First sentence is longer than cap (or there is none). Try clean breaks.
+    if L > cap:
+        # Prefer em-dash boundary in the second half of the cap.
+        em_idx = text.rfind(" — ", 0, cap)
+        if em_idx > cap * 0.5:
+            return text[:em_idx].rstrip(".,;:") + "…"
+        # Prefer comma boundary in the second half of the cap.
+        comma_idx = text.rfind(", ", 0, cap)
+        if comma_idx > cap * 0.6:
+            return text[:comma_idx] + "…"
+        # Word boundary fallback.
+        word_cut = text.rfind(" ", 0, cap)
+        return (text[:word_cut] + "…") if word_cut > 0 else text[:cap] + "…"
+
     return text
 
 
@@ -490,9 +509,10 @@ def article_url(a):
 
 
 def render_lead(a):
+    """The lead gets the longest summary + 'Why it matters' + a 'Read full story' link."""
     cat = CATEGORY_LABELS.get(a.get("category", "news"), "News")
     source = a.get("source", "")
-    summary = truncate(a.get("summary", ""), 300)
+    summary = first_sentence(a.get("summary", ""), cap=300)
     out = [
         '<hr>',
         '<h2>The Lead</h2>',
@@ -500,7 +520,7 @@ def render_lead(a):
         f'<p><strong>{cat}</strong> · {source}</p>',
         f'<p>{summary}</p>',
     ]
-    note = first_sentence(a.get("editorsNote") or "", cap=300)
+    note = first_sentence(a.get("editorsNote") or "", cap=260)
     if note:
         out.append(f'<blockquote><strong>Why it matters:</strong> {note}</blockquote>')
     out.append(f'<p><a href="{article_url(a)}">Read the full story →</a></p>')
@@ -508,41 +528,59 @@ def render_lead(a):
 
 
 def render_research_corner(items):
+    """Slimmed: just title + source + first-sentence summary. Dropped the
+    'Takeaway' line — the summary already does that job and the duplication
+    was making the section feel medical-textbook-heavy."""
     if not items:
         return ""
     out = [
         '<hr>',
         '<h2>The Research Corner</h2>',
-        '<p><em>Studies, papers, and clinical work that landed this week. The Scientist insisted; Mycroft did not object.</em></p>',
+        '<p><em>Studies and papers that landed this week. The Scientist insisted; Mycroft did not object.</em></p>',
     ]
-    for a in items[:4]:
-        cat = CATEGORY_LABELS.get(a.get("category", "research"), "Research")
+    for a in items[:3]:
         source = a.get("source", "")
-        summary = truncate(a.get("summary", ""), 200)
+        summary = first_sentence(a.get("summary", ""), cap=260)
         out.append(f'<h3><a href="{article_url(a)}">{a["title"]}</a></h3>')
-        out.append(f'<p><strong>{cat}</strong> · {source}</p>')
-        out.append(f'<p>{summary}</p>')
-        note = first_sentence(a.get("editorsNote") or "", cap=260)
-        if note:
-            out.append(f'<blockquote><strong>The takeaway:</strong> {note}</blockquote>')
-        out.append(f'<p><a href="{article_url(a)}">Read the full story →</a></p>')
+        out.append(f'<p><em>{source}</em> — {summary}</p>')
     return "\n".join(out)
 
 
 def render_section(title, intro, items, n=3):
+    """Slimmed: source + first-sentence summary on one line. No 'Read →'
+    line — the title already links to the full story."""
     if not items:
         return ""
     out = ['<hr>', f'<h2>{title}</h2>']
     if intro:
         out.append(f'<p><em>{intro}</em></p>')
     for a in items[:n]:
-        cat = CATEGORY_LABELS.get(a.get("category", "news"), "News")
         source = a.get("source", "")
-        summary = truncate(a.get("summary", ""), 180)
+        summary = first_sentence(a.get("summary", ""), cap=240)
         out.append(f'<h3><a href="{article_url(a)}">{a["title"]}</a></h3>')
-        out.append(f'<p><strong>{cat}</strong> · {source}</p>')
-        out.append(f'<p>{summary}</p>')
-        out.append(f'<p><a href="{article_url(a)}">Read →</a></p>')
+        out.append(f'<p><em>{source}</em> — {summary}</p>')
+    return "\n".join(out)
+
+
+def render_compact_list(title, intro, items, n=5):
+    """Tight list-style section: title + source + one-sentence summary per
+    item. Used for The Roundup so news/regulation/industry stories surface
+    without four separate sections."""
+    if not items:
+        return ""
+    out = ['<hr>', f'<h2>{title}</h2>']
+    if intro:
+        out.append(f'<p><em>{intro}</em></p>')
+    out.append('<ul>')
+    for a in items[:n]:
+        source = a.get("source", "")
+        clause = first_sentence(a.get("summary", ""), cap=260)
+        clause = clause.rstrip(".")
+        out.append(
+            f'<li><a href="{article_url(a)}"><strong>{a["title"]}</strong></a> — '
+            f'<em>{source}</em>. {clause}.</li>'
+        )
+    out.append('</ul>')
     return "\n".join(out)
 
 
@@ -562,6 +600,11 @@ def render_quick_hits(items):
         )
     out.append('</ul>')
     return "\n".join(out)
+
+
+# Note: MoldCo references live ONLY in the footer for this newsletter.
+# Earlier versions had in-body "From the publisher" CTAs; removed because
+# Substack readers don't want sponsor-block interruptions in a digest.
 
 
 def render_signoff():
@@ -627,35 +670,38 @@ def generate_newsletter(days=7, no_ai=False):
 
     used = {lead["id"]}
 
+    # Research Corner: 2 items max (deeper treatment, since research is rarer
+    # and worth lingering on). Keeps the section focused.
     research_items = [a for a in sections_all.get("research", []) if a["id"] not in used]
-    research_html = render_research_corner(research_items[:4])
-    used |= {a["id"] for a in research_items[:4]}
+    research_html = render_research_corner(research_items[:2])
+    used |= {a["id"] for a in research_items[:2]}
 
-    news_items = [
-        a for a in (sections_all.get("news", []) + sections_all.get("regulation", []))
+    # The Roundup: News + Regulation + Industry collapsed into one compact
+    # list. Easier to digest than three separate sections, still surfaces the
+    # week's most important non-research items above the fold.
+    roundup_items = [
+        a for a in (
+            sections_all.get("news", [])
+            + sections_all.get("regulation", [])
+            + sections_all.get("industry", [])
+        )
         if a["id"] not in used
     ]
-    news_items.sort(key=lambda x: x.get("publishedAt", ""), reverse=True)
-    news_html = render_section(
-        "News & Regulation",
-        "What hit the cycle: lawsuits, schools, housing, and the human stories.",
-        news_items,
-        n=4,
+    # Sort by publishedAt desc so the freshest are at the top of the list.
+    roundup_items.sort(key=lambda x: x.get("publishedAt", ""), reverse=True)
+    roundup_html = render_compact_list(
+        "The Roundup",
+        "Lawsuits, schools, markets, the human stories. The Critic ranked these; I largely agreed.",
+        roundup_items,
+        n=5,
     )
-    used |= {a["id"] for a in news_items[:4]}
-
-    industry_items = [a for a in sections_all.get("industry", []) if a["id"] not in used]
-    industry_html = render_section(
-        "Industry Pulse",
-        "Markets, standards, conferences. The Optimizer pretends not to care.",
-        industry_items,
-        n=3,
-    )
-    used |= {a["id"] for a in industry_items[:3]}
+    used |= {a["id"] for a in roundup_items[:5]}
 
     leftover = [a for a in articles if a["id"] not in used]
     quick_html = render_quick_hits(leftover)
 
+    # Assemble — MoldCo lives only in the footer (light reference at the end).
+    # No in-body CTA boxes; this is a Substack newsletter, not a sales page.
     parts = [
         '<h1>The Mold Report</h1>',
         f'<p><em>Weekly · {date_range} · with {EDITOR_NAME}, your AI editor</em></p>',
@@ -664,10 +710,8 @@ def generate_newsletter(days=7, no_ai=False):
     ]
     if research_html:
         parts.append(research_html)
-    if news_html:
-        parts.append(news_html)
-    if industry_html:
-        parts.append(industry_html)
+    if roundup_html:
+        parts.append(roundup_html)
     if quick_html:
         parts.append(quick_html)
     parts.append(render_signoff())
