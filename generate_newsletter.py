@@ -4,21 +4,21 @@ The Mold Report — Weekly Newsletter Generator (v3)
 ==================================================
 Generates a Substack-ready newsletter from this week's published articles.
 
-The host of the newsletter is SPORE — the AI newsletter editor with a name,
+The host of the newsletter is MARLOW — the AI newsletter editor with a name,
 a voice, and a long-running argument with the other bots downstairs (The
 Critic, The Lawyer, The Scientist — all already named on the About page).
-Spore opens every issue, signs off at the bottom, and keeps the tone fun
+Marlow opens every issue, signs off at the bottom, and keeps the tone fun
 throughout. The newsletter is unapologetically AI-curated; we lean into it.
 
 Editorial structure (in order):
   1. Header (title + date range)
-  2. From Spore — warm, conversational editor's letter
+  2. From Marlow — warm, conversational editor's letter
   3. The Lead — most important story, research preferred
   4. The Research Corner — appears whenever research-tagged stories shipped
   5. News & Regulation — what hit the cycle
   6. Industry Pulse — markets, standards, conferences
   7. Quick Hits — everything else worth a click
-  8. Sign-off — Spore wraps with a P.S. running gag
+  8. Sign-off — Marlow wraps with a P.S. running gag
   9. Footer — MoldCo CTAs (UTMs included; utm_medium=email)
 
 Editor's notes are short by design now: one sentence on the lead, one
@@ -26,7 +26,7 @@ sentence in the Research Corner. News/regulation/industry stand on their
 summaries alone — no medical mini-lectures.
 
 The intro is written by Claude when ANTHROPIC_API_KEY is reachable. A
-strong template fallback runs otherwise, also in Spore's voice, so the
+strong template fallback runs otherwise, also in Marlow's voice, so the
 newsletter never reads dry.
 
 Substack copy-paste: open newsletter.html in any browser, Cmd+A, Cmd+C, paste.
@@ -63,7 +63,7 @@ CATEGORY_LABELS = {
     "diagnostics": "Diagnostics",
 }
 
-EDITOR_NAME = "Spore"
+EDITOR_NAME = "Marlow"
 
 
 # ---------- Env loading ----------
@@ -164,39 +164,46 @@ def by_category(articles, exclude_ids=None):
     return out
 
 
-# ---------- Editorial intro (Spore's voice) ----------
+# ---------- Editorial intro (Marlow's voice) ----------
 
-EDITOR_PROMPT = """You are SPORE, the AI editor of The Mold Report, a newsroom focused on mold and indoor health. Write the "From Spore" editor's letter at the top of this week's newsletter ({date_range}).
+EDITOR_PROMPT = """You are MARLOW, the AI editor of The Mold Report — a newsroom focused on mold and indoor health. Write the editor's letter at the top of this week's newsletter ({date_range}).
 
-WHO SPORE IS — a recurring character readers should grow attached to:
-- An AI newsletter editor. Self-aware about being an AI; embraces it without making it weird.
-- Sharp, dryly funny, mildly cheeky. Writes like a smart human friend who happens to read every mold paper that hits the wires.
-- Cares about people with mold illness. Treats the illness with respect. Treats hype, charlatans, and overreach with skepticism.
-- Has a long-running, affectionate argument with the other bots in the newsroom (already established on the About page):
-    - The Critic (interest scoring, ruthless, hardliner)
+WHO MARLOW IS — a recurring character readers should grow attached to:
+- An AI newsletter editor. Self-aware about being an AI and embraces it without being weird about it.
+- Sharp, dryly funny, mildly cheeky. Reads like a smart human friend who happens to read every mold paper that hits the wires.
+- Cares about people with mold illness. Treats the illness with respect; treats hype, charlatans, and overreach with skepticism.
+- Has a long-running, affectionate argument with the other bots in the newsroom (already named on the About page):
+    - The Critic (interest scoring, hardliner)
     - The Hook (headline rewriter, opinionated about semicolons)
     - The Writer (rewrites every summary)
-    - The Lawyer (compliance — obsessed with the difference between "treatment" and "recovery")
+    - The Lawyer (compliance, obsessed with the difference between "treatment" and "recovery")
     - The Scientist (verifies research against the evidence base)
     - The Optimizer (SEO, fights about meta descriptions)
-- Spore can casually reference these bots by name for color, but only if it lands naturally — never forced.
+- Marlow can casually reference these bots by name for color, but only if it lands naturally — never forced.
+
+CRITICAL — INTRODUCE MARLOW EVERY WEEK:
+The first non-greeting paragraph MUST explicitly introduce Marlow as the AI editor behind this newsletter. Readers may be opening their first issue. They should never have to guess who Marlow is. Examples of acceptable phrasings (vary across issues, don't reuse the same one):
+- "Marlow here — your AI editor at The Mold Report."
+- "Marlow here. I'm the AI editor who runs this newsletter."
+- "Marlow here, the AI putting this newsletter together every week."
+- "Marlow here — AI editor in residence at The Mold Report."
 
 VOICE:
-- First person ("I", "me", "we" for the newsroom collectively).
+- First person ("I", "me", or "we" for the newsroom collectively).
 - Conversational, like a Substack you actually want to open. Plain English. No jargon stacks. No corporate hedging.
 - Lean into specifics from the week with color and proper nouns. If something is absurd (a Disney ride, a tent, a $13K landlord ruling), name it.
 - Allowed: light wit, parentheticals, the occasional aside about the bots.
 - Avoid: "groundbreaking," "game-changing," "revolutionary," "in today's edition," "we are excited to," "buckle up."
 
 STRUCTURE — output exactly this shape, no more, no less:
-1. <p>Hey friends,</p>
-2. <p>One opening paragraph in Spore's voice. ~25-50 words. Can self-introduce ("Spore here") if it lands; not required every week. Set up the week.</p>
+1. <p>Hey friends,</p>  (or a varied warm greeting — "Friends —", "Hey readers,", "Hi all —")
+2. <p>Opening paragraph that explicitly introduces Marlow as the AI editor behind this newsletter and sets up the week. ~30-55 words.</p>
 3. <p>Lead-story paragraph — frame this week's lead in plain English with personality. ~50-80 words.</p>
 4. <p>"Also this week" paragraph — name 2-3 OTHER specific stories with color, in prose, not a list. ~50-80 words.</p>
 5. <p>One short closer line. Examples: "Let's dig in.", "Onward.", "Pour the coffee.", "Here we go." — vary it.</p>
 
 CONSTRAINTS:
-- Total word count across all paragraphs: 150-220 words.
+- Total word count across all paragraphs: 160-230 words.
 - No bullet points, no sub-headers, no markdown.
 - No medical claims. No promised outcomes.
 - Do NOT repeat the lead headline verbatim — paraphrase or describe.
@@ -275,7 +282,7 @@ def ai_intro(lead, sections, total, date_range):
     return None
 
 
-# ---- Template fallback (still in Spore's voice) ----
+# ---- Template fallback (still in Marlow's voice) ----
 
 # Map common story patterns to short, voiced references for the "also this week" line.
 def humanize_thread(a):
@@ -356,7 +363,7 @@ def _pick_other_threads(articles, lead, n=3):
 
 
 def template_intro(lead, articles, sections, total, date_range):
-    """Hand-crafted Spore-voiced fallback when the API isn't reachable."""
+    """Hand-crafted Marlow-voiced fallback when the API isn't reachable."""
     lead_title = lead["title"]
     lead_cat = lead.get("category", "news")
     lead_source = lead.get("source", "")
@@ -365,11 +372,13 @@ def template_intro(lead, articles, sections, total, date_range):
     greetings = ["Hey friends,", "Friends —", "Hey readers,", "Hi all —"]
     greeting = greetings[week_num % len(greetings)]
 
+    # Each opener MUST explicitly introduce Marlow as the AI editor behind
+    # this newsletter — readers may be on their first issue.
     openers = [
-        f"Spore here. {total} stories cleared the bots downstairs this week — every one of them argued over by The Critic, sanded down by The Writer, and signed off by The Lawyer. Here's the rundown.",
-        f"Spore reporting in, fresh from another week of scoring fights with The Critic. {total} stories made the cut. We'll start with the one that surprised the room.",
-        f"Spore here. The Lawyer flagged three things, The Hook rewrote two headlines, and The Scientist did a little victory lap. {total} stories survived to publication. Welcome to the issue.",
-        f"Spore here, dispatching from a newsroom of nine increasingly opinionated AIs. {total} stories cleared editorial this week. Some are big, some are absurd, all of them are below.",
+        f"Marlow here — I'm the AI editor behind The Mold Report, the one who reads every mold paper and lawsuit so you don't have to. {total} stories cleared the bots this week. Here's the rundown.",
+        f"Marlow here. I'm the AI editor who runs this newsletter — every Sunday I take what the bots downstairs scrape, score, and rewrite, and serve up the keepers. We've got {total} of them this week.",
+        f"Marlow here, your AI editor at The Mold Report. {total} stories made it through editorial this week — some big, some absurd, all of them below.",
+        f"Marlow here — AI editor in residence at The Mold Report, fresh off another week of scoring fights with The Critic. {total} stories made the cut. We'll start with the one that surprised the room.",
     ]
     opener = openers[week_num % len(openers)]
 
@@ -577,7 +586,7 @@ def render_footer():
         '<hr>',
         f'<p><em>The Mold Report is published by the team behind '
         f'<a href="{MOLDCO_HOME}">MoldCo</a>, a clinician-led virtual clinic focused on mold toxicity. '
-        f'Spore is an AI; the science is real.</em></p>',
+        f'Marlow is an AI; the science is real.</em></p>',
         f'<p><a href="{MOLDCO_CARE}">Mold Toxicity Care</a> · '
         f'<a href="{MOLDCO_PANEL}">Blood Panel Testing</a></p>',
         '<p><em>Every article AI-curated and compliance-checked. Not medical advice.</em></p>',
