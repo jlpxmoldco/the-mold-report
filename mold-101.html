@@ -565,6 +565,64 @@
       font-style: italic;
     }
 
+    /* SCROLL PROGRESS BAR */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 200; width: 0; transition: width 0.1s linear; }
+
+    /* FADE-IN ON SCROLL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* INTERACTIVE CLUSTER CARDS */
+    .cluster-card { cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; position: relative; }
+    .cluster-card:hover { border-color: var(--accent); }
+    .cluster-card.selected { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+    .cluster-card .cluster-symptoms { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, margin 0.35s ease; margin: 0; }
+    .cluster-card.expanded .cluster-symptoms { max-height: 200px; margin: var(--sp-3) 0 0; }
+    .cluster-card .expand-hint { font-size: 11px; color: var(--text-3); margin-top: 6px; transition: opacity 0.2s; }
+    .cluster-card.expanded .expand-hint { opacity: 0; height: 0; margin: 0; overflow: hidden; }
+    .cluster-card .cluster-check { position: absolute; top: 14px; right: 14px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; transition: all 0.2s; }
+    .cluster-card.selected .cluster-check { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* CLUSTER COUNTER */
+    .cluster-counter { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-4) var(--sp-6); margin: var(--sp-6) 0 var(--sp-4); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); }
+    .cluster-counter .count-label { font-size: 15px; color: var(--text-2); }
+    .cluster-counter .count-label strong { color: var(--accent); font-size: 20px; font-family: var(--serif); }
+    .cluster-counter .count-bar { flex: 1; max-width: 200px; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .cluster-counter .count-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.3s ease; width: 0; }
+    .cluster-counter .count-msg { font-size: 13px; color: var(--text-3); min-width: 120px; text-align: right; }
+
+    /* COLLAPSIBLE DEEP DIVES */
+    .cluster-deep { cursor: pointer; }
+    .cluster-deep h3 { display: flex; align-items: center; justify-content: space-between; }
+    .cluster-deep h3::after { content: '+'; font-size: 22px; color: var(--text-3); font-weight: 300; transition: transform 0.2s; flex-shrink: 0; margin-left: 12px; }
+    .cluster-deep.open h3::after { content: '−'; }
+    .cluster-deep .deep-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .cluster-deep.open .deep-body { max-height: 600px; }
+
+    /* COLLAPSIBLE RESEARCH ITEMS */
+    .ref-item { cursor: pointer; transition: border-color 0.2s; }
+    .ref-item:hover { border-color: var(--accent); }
+    .ref-item .ref-finding { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, margin 0.35s ease; margin: 0; }
+    .ref-item.open .ref-finding { max-height: 200px; margin-top: var(--sp-2); }
+    .ref-title { display: flex; justify-content: space-between; align-items: flex-start; }
+    .ref-toggle { font-size: 18px; color: var(--text-3); margin-left: 12px; flex-shrink: 0; transition: transform 0.2s; }
+    .ref-item.open .ref-toggle { transform: rotate(45deg); }
+
+    /* COLLAPSIBLE SECTION */
+    .collapsible-trigger { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; padding: var(--sp-4) 0; }
+    .collapsible-trigger h3 { margin: 0; }
+    .collapsible-trigger::after { content: '+'; font-size: 20px; color: var(--text-3); transition: transform 0.2s; }
+    .collapsible-trigger.open::after { content: '−'; }
+    .collapsible-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .collapsible-body.open { max-height: 2000px; }
+
+    /* STICKY MOBILE CTA */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--accent); padding: 12px var(--sp-6); display: flex; align-items: center; justify-content: center; gap: var(--sp-4); z-index: 100; transform: translateY(100%); transition: transform 0.3s ease; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta .sticky-text { color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 500; }
+    .sticky-cta .sticky-btn { background: #fff; color: var(--accent); padding: 8px 20px; border-radius: var(--r-md); font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+    .sticky-cta .sticky-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; padding: 4px 8px; flex-shrink: 0; }
+
     @media (max-width: 640px) {
       .stat-row { grid-template-columns: 1fr 1fr; }
       .step { gap: var(--sp-4); }
@@ -574,10 +632,20 @@
       .next-grid { grid-template-columns: 1fr; }
       .chapter-link { padding: 10px 12px; font-size: 12px; }
       .cluster-grid { grid-template-columns: 1fr; }
+      .cluster-counter { flex-wrap: wrap; }
+      .cluster-counter .count-bar { max-width: 100%; flex-basis: 100%; order: 3; }
+      .cluster-counter .count-msg { text-align: left; }
+      .sticky-cta .sticky-text { display: none; }
+    }
+
+    @media (min-width: 641px) {
+      .sticky-cta { display: none; }
     }
   </style>
 </head>
 <body>
+
+  <div class="progress-bar" id="progressBar"></div>
 
   <header class="masthead">
     <div class="masthead-inner">
@@ -629,7 +697,7 @@
   <div class="content">
 
     <!-- ═══════════════════ CHAPTER 1: WHAT IS IT ═══════════════════ -->
-    <section class="chapter" id="what">
+    <section class="chapter reveal" id="what">
       <div class="chapter-number">Chapter 1</div>
       <h2>What Is Mold Illness?</h2>
 
@@ -663,7 +731,7 @@
     </section>
 
     <!-- ═══════════════════ CHAPTER 2: HOW IT WORKS ═══════════════════ -->
-    <section class="chapter" id="how">
+    <section class="chapter reveal" id="how">
       <div class="chapter-number">Chapter 2</div>
       <h2>How Mold Illness Works</h2>
 
@@ -796,7 +864,7 @@
     </section>
 
     <!-- ═══════════════════ CHAPTER 3: SYMPTOMS ═══════════════════ -->
-    <section class="chapter" id="symptoms">
+    <section class="chapter reveal" id="symptoms">
       <div class="chapter-number">Chapter 3</div>
       <h2>Recognizing the Symptoms</h2>
 
@@ -811,58 +879,91 @@
 
       <!-- THE 13 CLUSTERS -->
       <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin:var(--sp-8) 0 var(--sp-4);color:var(--text);">The 13 Symptom Clusters</h3>
+      <p style="font-size:14px;color:var(--text-3);margin:0 0 var(--sp-3);">Tap a cluster to expand details. Select the ones that apply to you.</p>
 
-      <div class="cluster-grid">
-        <div class="cluster-card">
+      <div class="cluster-counter" id="clusterCounter">
+        <div class="count-label">Clusters selected: <strong id="clusterCount">0</strong> / 13</div>
+        <div class="count-bar"><div class="count-fill" id="clusterFill"></div></div>
+        <div class="count-msg" id="clusterMsg">Select clusters that apply</div>
+      </div>
+
+      <div class="cluster-grid" id="clusterGrid">
+        <div class="cluster-card" data-cluster="1" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">1</span><span class="cluster-name">Fatigue</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Persistent, debilitating fatigue not relieved by sleep or rest. This is not ordinary tiredness — research suggests it may reflect molecular hypometabolism, a measurable suppression of ribosomal and mitochondrial gene expression.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="2" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">2</span><span class="cluster-name">Weakness</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">General weakness, reduced exercise tolerance, difficulty with physical tasks that were previously routine. Often accompanied by post-exertional malaise.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="3" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">3</span><span class="cluster-name">Body Aches</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Muscle pain, joint pain without visible swelling, cramping, morning stiffness, and sharp or "ice-pick" pains. Research suggests inflammatory mediators from biotoxin exposure may drive pain syndromes in 85%+ of CIRS patients.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="4" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">4</span><span class="cluster-name">Headache</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Recurrent or persistent headaches, often described as unusual in character — different from the patient's historical headache pattern. May be accompanied by light sensitivity.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="5" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">5</span><span class="cluster-name">Light Sensitivity</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Unusual sensitivity to bright light (photophobia), red or tearing eyes, and blurred vision. These may be related to inflammatory effects on the optic nerve and vascular system.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="6" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">6</span><span class="cluster-name">Memory &amp; Concentration</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Difficulty concentrating, word-finding problems, short-term memory deficits, and disorientation. Research using NeuroQuant brain volumetrics has documented measurable cortical grey matter injury and ventricular enlargement in CIRS patients.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="7" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">7</span><span class="cluster-name">Numbness &amp; Tingling</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Unusual tingling or numbness in extremities, "pins and needles" sensations, and ice-pick or shooting pains. These neurological symptoms may reflect inflammatory effects on peripheral nerves.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="8" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">8</span><span class="cluster-name">Sinus &amp; Respiratory</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Chronic sinus congestion unresponsive to standard treatment, shortness of breath, cough, and air hunger. These symptoms are driven by inflammatory mediators rather than infection — which is why antibiotics and decongestants often fail.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="9" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">9</span><span class="cluster-name">Abdominal &amp; GI</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Abdominal pain, nausea, diarrhea, appetite changes, and secretory diarrhea. Low MSH disrupts gut regulatory function, which may contribute to chronic GI symptoms.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="10" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">10</span><span class="cluster-name">Skin Sensitivity</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Unusual skin sensitivity, rashes, static electrical shocks, and a feeling of being "shocked" when touching objects. Static shocks are a distinctive and frequently reported CIRS symptom.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="11" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">11</span><span class="cluster-name">Mood &amp; Affect</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Mood swings, anxiety, depression, irritability, and difficulty with emotional regulation. Low MSH and chronic inflammation affect neurotransmitter pathways — these are physiological symptoms, not primarily psychological.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="12" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">12</span><span class="cluster-name">Temperature Dysregulation</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Night sweats, body temperature instability, feeling too hot or too cold, and unusual sweating patterns. These may reflect hypothalamic dysfunction driven by low MSH.</div>
         </div>
-        <div class="cluster-card">
+        <div class="cluster-card" data-cluster="13" onclick="toggleCluster(this)">
+          <div class="cluster-check">&#10003;</div>
           <span class="cluster-num">13</span><span class="cluster-name">Thirst &amp; Urination</span>
+          <div class="expand-hint">Tap to expand</div>
           <div class="cluster-symptoms">Excessive thirst, frequent urination (including at night), and susceptibility to dehydration. Low ADH (antidiuretic hormone) is common in CIRS and disrupts normal fluid regulation.</div>
         </div>
       </div>
@@ -872,29 +973,36 @@
 
       <p>Several of these clusters have been studied in significant depth. Understanding the mechanisms behind the symptoms helps explain why conventional treatments often miss the mark.</p>
 
-      <div class="cluster-deep">
+      <div class="cluster-deep" onclick="this.classList.toggle('open')">
         <h3>Cognitive Impairment &amp; Brain Injury</h3>
+        <div class="deep-body">
         <p>Cognitive symptoms in CIRS are not subjective complaints — research has documented <strong>measurable structural brain changes</strong> in CIRS patients. Using NeuroQuant MRI volumetrics, studies have identified cortical grey matter injury, grey matter nuclear atrophy, and ventricular enlargement following water-damaged building exposure. These findings provide objective evidence that biotoxin exposure can cause physical changes in brain tissue.</p>
         <p>Importantly, research on intranasal VIP treatment has demonstrated that some of these brain volume changes may be <strong>reversible</strong> — a finding with significant implications for patients who have been told their cognitive decline is permanent or psychological.</p>
         <p class="ref-tag">Shoemaker RC, Heyman A, Lark D (2023). Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment.</p>
+        </div>
       </div>
 
-      <div class="cluster-deep">
+      <div class="cluster-deep" onclick="this.classList.toggle('open')">
         <h3>Chronic Fatigue &amp; Hypometabolism</h3>
+        <div class="deep-body">
         <p>The fatigue experienced by CIRS patients has a <strong>molecular basis</strong>. Transcriptomic analysis has revealed suppression of ribosomal and mitochondrial gene expression — a state researchers term "molecular hypometabolism." In plain terms: the cellular machinery that produces energy is measurably suppressed.</p>
         <p>This finding is significant because it validates what patients report — that their fatigue is not laziness, depression, or deconditioning, but a real physiological state. The research also shows this hypometabolic state <strong>reverses during treatment</strong>, with VIP therapy correcting overshoot through insulin signaling pathways.</p>
         <p class="ref-tag">Ryan JC, Shoemaker RC (2018). Chronic Fatigue: Reversible Hypometabolism Shown by Transcriptomics.</p>
+        </div>
       </div>
 
-      <div class="cluster-deep">
+      <div class="cluster-deep" onclick="this.classList.toggle('open')">
         <h3>Pain Syndromes</h3>
+        <div class="deep-body">
         <p>Joint and muscle pain in CIRS are not caused by mechanical injury or autoimmune attack. Research has identified that the <strong>same inflammatory mediators</strong> driving the innate immune response to biotoxin exposure — particularly elevated MMP-9 and TGF-β1 — are directly involved in the musculoskeletal pain that affects an estimated 85%+ of CIRS patients.</p>
         <p>This explains why pain persists despite normal rheumatological workups, negative imaging, and failed treatment with anti-inflammatory medications. The pain is real, measurable through biomarkers, and driven by the underlying inflammatory process — not by tissue damage or degeneration.</p>
         <p class="ref-tag">Shoemaker RC, Ryan JC (2018). Inflammatory Responses Acquired Following Environmental Exposures Are Involved in Pain Syndromes.</p>
+        </div>
       </div>
 
-      <div class="cluster-deep">
+      <div class="cluster-deep" onclick="this.classList.toggle('open')">
         <h3>The MSH Connection</h3>
+        <div class="deep-body">
         <p>Many CIRS symptom clusters trace back to a single upstream problem: <strong>low MSH</strong> (melanocyte-stimulating hormone). Research suggests MSH is low in approximately 94% of CIRS patients. This matters because MSH is not just one hormone — it is a <strong>master regulatory peptide</strong> that controls:</p>
         <p><strong>Sleep</strong> — MSH regulates sleep-wake cycles. Low MSH disrupts restorative sleep, compounding fatigue.<br>
         <strong>Pain perception</strong> — MSH modulates pain pathways. Low MSH amplifies pain signals.<br>
@@ -903,13 +1011,16 @@
         <strong>Immune regulation</strong> — MSH is anti-inflammatory. Without it, the inflammatory cascade continues unchecked.<br>
         <strong>Nasal defense</strong> — Low MSH creates conditions that allow MARCoNS (antibiotic-resistant staph) to colonize deep nasal passages.</p>
         <p>This single biomarker abnormality helps explain why CIRS patients experience symptoms across so many apparently unrelated systems. They are not unrelated — they share a common regulatory failure.</p>
+        </div>
       </div>
 
-      <div class="cluster-deep">
+      <div class="cluster-deep" onclick="this.classList.toggle('open')">
         <h3>Neurodegeneration Risk</h3>
+        <div class="deep-body">
         <p>Recent research has identified a <strong>transcriptomic fingerprint</strong> — including genes TUBA4A, TUBB1, and clusterin (CLU) — found in both symptomatic Parkinson's disease patients and younger CIRS patients. This finding, termed "Triple Positives," suggests that chronic water-damaged building exposure may contribute to neurodegenerative pathways earlier than previously recognized.</p>
         <p>While this research is still developing, it underscores the importance of early identification and treatment of CIRS — the inflammatory processes driving current symptoms may also carry long-term neurological implications.</p>
         <p class="ref-tag">Shoemaker RC, Ryan Z, Heyman A, McMahon S, Lark D (2024). A Transcriptomic Fingerprint for Parkinson's Disease Found in CIRS Patients.</p>
+        </div>
       </div>
 
       <div class="callout warn">
@@ -919,7 +1030,7 @@
     </section>
 
     <!-- ═══════════ CTA: GET TESTED ═══════════ -->
-    <div class="cta-band">
+    <div class="cta-band reveal">
       <h3>Wondering if your symptoms could be mold-related?</h3>
       <p>MoldCo — built by former patients who navigated mold illness themselves — offers a Starter Health Panel that tests TGF-β1, MMP-9, and MSH at any LabCorp location. Three biomarkers. One blood draw. Real data to start with.</p>
       <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch3_panel" class="btn" target="_blank" rel="noopener noreferrer">Learn About the Starter Panel — $56</a>
@@ -927,7 +1038,7 @@
     </div>
 
     <!-- ═══════════════════ CHAPTER 4: BIOMARKERS ═══════════════════ -->
-    <section class="chapter" id="biomarkers">
+    <section class="chapter reveal" id="biomarkers">
       <div class="chapter-number">Chapter 4</div>
       <h2>The Biomarkers</h2>
 
@@ -1031,7 +1142,10 @@
 
       <p>Note: TGF-β1 is a <strong>cytokine and growth factor</strong> — not a hormone. This distinction matters because it reflects immune activation and tissue remodeling, not endocrine dysfunction. Accurate terminology helps patients and providers communicate clearly.</p>
 
-      <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin:var(--sp-10) 0 var(--sp-4);color:var(--text);">Beyond the Core Six: The Full Biomarker Panel</h3>
+      <div class="collapsible-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;margin:0;color:var(--text);">Beyond the Core Six: The Full Biomarker Panel</h3>
+      </div>
+      <div class="collapsible-body">
 
       <p>The six markers above are the most commonly referenced starting points. However, the published diagnostic framework identifies a much broader set of laboratory abnormalities. Research across thousands of CIRS patients has documented abnormalities in <strong>dozens of markers</strong> spanning innate immunity, adaptive immunity, hormonal regulation, coagulation, and more recently, genomic transcriptomics.</p>
 
@@ -1057,10 +1171,12 @@
       </div>
 
       <p>The consensus diagnostic statement (Shoemaker et al., 2018) describes a comprehensive evaluation protocol that integrates these markers with symptom clusters, exposure history, and increasingly, transcriptomic data that can identify specific gene expression patterns associated with CIRS at the molecular level. The breadth of the published marker panel reflects the multi-system nature of the disease — CIRS is not a single-marker condition.</p>
+
+      </div>
     </section>
 
     <!-- ═══════════════════ CHAPTER 5: TESTING ═══════════════════ -->
-    <section class="chapter" id="testing">
+    <section class="chapter reveal" id="testing">
       <div class="chapter-number">Chapter 5</div>
       <h2>Getting Tested</h2>
 
@@ -1077,7 +1193,7 @@
     </section>
 
     <!-- ═══════════ CTA: MOLDCO PANEL ═══════════ -->
-    <div class="cta-band">
+    <div class="cta-band reveal">
       <h3>Ready to test your biomarkers?</h3>
       <p>MoldCo's Starter Health Panel ($56) tests TGF-β1, MMP-9, and MSH at any LabCorp location. No doctor's visit required to order. Results are delivered to your online dashboard, where MoldCo's providers can help you interpret what the data means.</p>
       <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch5_panel" class="btn" target="_blank" rel="noopener noreferrer">Order the Starter Health Panel</a>
@@ -1085,7 +1201,7 @@
     </div>
 
     <!-- ═══════════════════ CHAPTER 6: TREATMENT ═══════════════════ -->
-    <section class="chapter" id="treatment">
+    <section class="chapter reveal" id="treatment">
       <div class="chapter-number">Chapter 6</div>
       <h2>The Treatment Framework</h2>
 
@@ -1191,7 +1307,7 @@
     </section>
 
     <!-- ═══════════ CTA: CARE ═══════════ -->
-    <div class="cta-band">
+    <div class="cta-band reveal">
       <h3>Ready to start treatment with providers who specialize in this?</h3>
       <p>MoldCo is America's leading clinician-led virtual clinic for mold toxicity — founded by former patients who joined forces with Dr. Shoemaker and Dr. Scott McMahon to build the care they wished existed. Lab testing, home testing, genetic testing, and provider-guided treatment in one platform, with an online dashboard, education resources, and unlimited access to your care team.</p>
       <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch6_care" class="btn" target="_blank" rel="noopener noreferrer">Explore MoldCo Care</a>
@@ -1199,7 +1315,7 @@
     </div>
 
     <!-- ═══════════════════ CHAPTER 7: YOUR HOME ═══════════════════ -->
-    <section class="chapter" id="home">
+    <section class="chapter reveal" id="home">
       <div class="chapter-number">Chapter 7</div>
       <h2>Your Home &amp; Environment</h2>
 
@@ -1238,7 +1354,7 @@
     </section>
 
     <!-- ═══════════════════ CHAPTER 8: RESEARCH ═══════════════════ -->
-    <section class="chapter" id="research">
+    <section class="chapter reveal" id="research">
       <div class="chapter-number">Chapter 8</div>
       <h2>The Research</h2>
 
@@ -1255,50 +1371,50 @@
 
       <div class="ref-list">
 
-        <div class="ref-item">
-          <div class="ref-title">Diagnostic Process for CIRS: A Consensus Statement</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Diagnostic Process for CIRS: A Consensus Statement<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Johnson K, Jim L, Berry Y, Dooley M, Ryan JC, McMahon S (2018)</div>
           <p class="ref-finding">Establishes a formal consensus diagnostic protocol for CIRS requiring abnormalities in innate immune responses, including reduced MSH and VIP, elevated C4a, MMP-9, and TGF-β1, supported by transcriptomic confirmation.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Transcriptomics and Brain Volumetrics Define the Causes of Cognitive Impairment<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Heyman A, Lark D (2023)</div>
           <p class="ref-finding">Combined transcriptomic testing and NeuroQuant brain volumetrics identify specific causation of cognitive impairment from water-damaged building exposure, including cortical grey matter injury and ventricular enlargement.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">A Transcriptomic Fingerprint for Parkinson's Disease Found in CIRS Patients</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">A Transcriptomic Fingerprint for Parkinson's Disease Found in CIRS Patients<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Ryan Z, Heyman A, McMahon S, Lark D (2024)</div>
           <p class="ref-finding">Identifies a unique transcriptomic fingerprint including TUBA4A, TUBB1, and clusterin found in both symptomatic Parkinson's patients and younger CIRS patients, suggesting water-damaged building exposure may contribute to neurodegeneration.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">HIF 1A Pathway Overexpression in CIRS Patients</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">HIF 1A Pathway Overexpression in CIRS Patients<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Heyman A, Lark D (2024)</div>
           <p class="ref-finding">HIF 1A pathway overexpression drives proliferative physiology and pulmonary artery hypertension in CIRS patients. VIP therapy reduces HIF 1A by resolving aberrant mitochondrial transcriptomics.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">Intranasal VIP Safely Restores Grey Matter Volume</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Intranasal VIP Safely Restores Grey Matter Volume<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Katz D, Ackerley M, Rapaport S, McMahon S, Berndtson K, Ryan JC (2017)</div>
           <p class="ref-finding">Intranasal VIP treatment safely corrected multinuclear grey matter atrophy in CIRS patients while reducing MMP-9, TGF-β1, C4a, raising VEGF, and normalizing clotting abnormalities.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">Chronic Fatigue: Reversible Hypometabolism Shown by Transcriptomics</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Chronic Fatigue: Reversible Hypometabolism Shown by Transcriptomics<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Ryan JC, Shoemaker RC (2018)</div>
           <p class="ref-finding">CIRS patients show suppression of ribosomal and mitochondrial gene expression (molecular hypometabolism) that reverses during treatment, with VIP therapy correcting overshoot via insulin signaling mechanisms.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">Urinary Mycotoxins: A Review of Contaminated Buildings and Food</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Urinary Mycotoxins: A Review of Contaminated Buildings and Food<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC, Lark D (2019)</div>
           <p class="ref-finding">Demonstrates that urinary mycotoxin testing lacks validated case definitions, proper control groups, and case-control studies. Dietary mycotoxins confound results, and the CDC has repudiated this practice.</p>
         </div>
 
-        <div class="ref-item">
-          <div class="ref-title">Moldy Buildings, CIRS, Sick People and Damaged Brains: 25 Years</div>
+        <div class="ref-item" onclick="this.classList.toggle('open')">
+          <div class="ref-title">Moldy Buildings, CIRS, Sick People and Damaged Brains: 25 Years<span class="ref-toggle">+</span></div>
           <div class="ref-meta">Shoemaker RC (2019)</div>
           <p class="ref-finding">25-year retrospective describing the evolution from identifying water-damaged building illness through biotoxin paradigm, biomarker development, and transcriptomics to a point where CIRS can be characterized as addressable through gene-level correction.</p>
         </div>
@@ -1307,7 +1423,7 @@
     </section>
 
     <!-- ═══════════════════ CHAPTER 9: FAQ ═══════════════════ -->
-    <section class="chapter" id="faq">
+    <section class="chapter reveal" id="faq">
       <div class="chapter-number">Chapter 9</div>
       <h2>Frequently Asked Questions</h2>
 
@@ -1348,7 +1464,7 @@
     </section>
 
     <!-- ═══════════════════ CHAPTER 10: NEXT STEPS ═══════════════════ -->
-    <section class="chapter" id="next">
+    <section class="chapter reveal" id="next">
       <div class="chapter-number">Chapter 10</div>
       <h2>Your Next Steps</h2>
 
@@ -1388,51 +1504,123 @@
     <p style="margin-top:8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_footer">MoldCo</a> — America's leading virtual clinic for mold toxicity, built by former patients.</p>
   </footer>
 
-  <!-- SCROLL SPY -->
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <span class="sticky-text">$56 · Starter Health Panel</span>
+    <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_sticky" class="sticky-btn" target="_blank" rel="noopener noreferrer">Order Panel</a>
+    <button class="sticky-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Close">&times;</button>
+  </div>
+
   <script>
-    (function() {
-      const links = document.querySelectorAll('.chapter-link');
-      const chapters = [];
-      links.forEach(function(link) {
-        const id = link.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el) chapters.push({ id: id, el: el, link: link });
-      });
+  (function() {
+    /* ── PROGRESS BAR ── */
+    var progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
 
-      function update() {
-        let current = chapters[0];
-        const scrollY = window.scrollY + 140;
-        for (let i = 0; i < chapters.length; i++) {
-          if (chapters[i].el.offsetTop <= scrollY) {
-            current = chapters[i];
-          }
-        }
-        links.forEach(function(l) { l.classList.remove('active'); });
-        if (current) current.link.classList.add('active');
-
-        // auto-scroll nav to keep active link visible
-        const nav = document.getElementById('chapterNav');
-        if (current && nav) {
-          const linkRect = current.link.getBoundingClientRect();
-          const navRect = nav.getBoundingClientRect();
-          if (linkRect.left < navRect.left || linkRect.right > navRect.right) {
-            current.link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          }
+    /* ── SCROLL SPY ── */
+    var links = document.querySelectorAll('.chapter-link');
+    var chapters = [];
+    links.forEach(function(link) {
+      var id = link.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) chapters.push({ id: id, el: el, link: link });
+    });
+    function updateSpy() {
+      var current = chapters[0];
+      var scrollY = window.scrollY + 140;
+      for (var i = 0; i < chapters.length; i++) {
+        if (chapters[i].el.offsetTop <= scrollY) current = chapters[i];
+      }
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (current) current.link.classList.add('active');
+      var nav = document.getElementById('chapterNav');
+      if (current && nav) {
+        var lr = current.link.getBoundingClientRect();
+        var nr = nav.getBoundingClientRect();
+        if (lr.left < nr.left || lr.right > nr.right) {
+          current.link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
       }
+    }
 
-      let ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            update();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-      update();
-    })();
+    /* ── STICKY MOBILE CTA ── */
+    var stickyCta = document.getElementById('stickyCta');
+    var stickyShown = false;
+    function updateSticky() {
+      if (!stickyCta) return;
+      if (window.scrollY > 800 && !stickyShown) {
+        stickyCta.classList.add('visible');
+        stickyShown = true;
+      } else if (window.scrollY <= 800 && stickyShown) {
+        stickyCta.classList.remove('visible');
+        stickyShown = false;
+      }
+    }
+
+    /* ── COMBINED SCROLL HANDLER ── */
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          updateProgress();
+          updateSpy();
+          updateSticky();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    updateProgress();
+    updateSpy();
+
+    /* ── INTERSECTION OBSERVER — FADE-IN ON SCROLL ── */
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    /* ── CLUSTER CARD TOGGLE ── */
+    window.toggleCluster = function(el) {
+      // Toggle expand (show symptoms)
+      el.classList.toggle('expanded');
+
+      // Toggle selected (checkmark)
+      var wasSelected = el.classList.contains('selected');
+      if (el.classList.contains('expanded') && !wasSelected) {
+        el.classList.add('selected');
+      } else if (!el.classList.contains('expanded')) {
+        el.classList.remove('selected');
+      }
+
+      // Update counter
+      var selected = document.querySelectorAll('.cluster-card.selected').length;
+      var countEl = document.getElementById('clusterCount');
+      var fillEl = document.getElementById('clusterFill');
+      var msgEl = document.getElementById('clusterMsg');
+      if (countEl) countEl.textContent = selected;
+      if (fillEl) fillEl.style.width = (selected / 13 * 100) + '%';
+      if (msgEl) {
+        if (selected === 0) msgEl.textContent = 'Select clusters that apply';
+        else if (selected < 4) msgEl.textContent = 'Some overlap possible';
+        else if (selected < 8) msgEl.textContent = 'Pattern emerging';
+        else msgEl.textContent = 'Consistent with CIRS pattern';
+      }
+    };
+
+  })();
   </script>
 
 </body>
