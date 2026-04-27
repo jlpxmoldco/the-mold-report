@@ -1,6 +1,60 @@
 {
-  "lastUpdated": "2026-04-26T14:56:50.980032+00:00",
+  "lastUpdated": "2026-04-27T15:04:21.225893+00:00",
   "articles": [
+    {
+      "id": "78af5ae1459e",
+      "title": "Flood Cleanup Safety: Why Water-Damaged Homes May Need Remediation Before Re-Entry",
+      "summary": "Public health guidance highlighted in a new MSN advisory warns that flood-damaged homes may not be safe to occupy until they are fully cleaned, disinfected, and dried. Standing water and saturated building materials create the conditions for rapid microbial growth, and visible mold can emerge within 24 to 48 hours of water intrusion.\n\nFor people with histories of biotoxin exposure or chronic inflammatory response syndrome (CIRS), re-entering a water-damaged structure prematurely can trigger or worsen symptoms. Drying alone is not sufficient when porous materials such as drywall, carpet padding, and insulation have been saturated; these typically need to be removed rather than salvaged.",
+      "editorsNote": "Mold growth in water-damaged buildings is the upstream environmental driver of CIRS as described in the Shoemaker Protocol. Even after surfaces look dry, residual mycotoxins and fragments of fungal cell walls can remain biologically active in dust and HVAC systems.",
+      "source": "MSN",
+      "sourceUrl": "https://www.msn.com/en-us/health/other/flood-cleanup-safety-tips-to-prevent-illness-mold/ar-AA1Zvjeo",
+      "author": "MSN Health",
+      "publishedAt": "2026-04-27T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "imageAlt": "Flood Cleanup Safety: Why Water-Damaged Homes May Need Remediation Before Re-Ent",
+      "status": "published",
+      "tags": [
+        "flooding",
+        "water damage",
+        "remediation",
+        "indoor air quality",
+        "cirs"
+      ],
+      "featured": true,
+      "readTime": 2,
+      "seoTitle": "Flood Cleanup: Why Drying Isn't Enough to Prevent Mold",
+      "seoDescription": "Flood-damaged homes may need full remediation, not just drying, before they're safe to occupy. What the latest guidance says about mold risk.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-27T15:04:20.975991+00:00"
+    },
+    {
+      "id": "454dcdbc792a",
+      "title": "Health Influencer's Husband Loses 50 Pounds in Four Months; Couple Traces Cause to Toxic Black Mold at Home",
+      "summary": "A health influencer profiled by MSN reports that her previously fit husband lost roughly 50 pounds in under four months, and the couple ultimately attributed his decline — along with her own respiratory trouble, rash, and brain fog — to toxic black mold in their home. They left the property after identifying the exposure.\n\nThe constellation of symptoms described in the piece — unexplained weight loss, cognitive dysfunction, skin reactions, and respiratory complaints — is consistent with the multi-system, multi-symptom presentation that clinicians familiar with biotoxin illness recognize as the hallmark of CIRS. Patients commonly report cycling through specialists for months or years before the building exposure is identified.",
+      "editorsNote": "Stories like this illustrate why Dr. Ritchie Shoemaker's diagnostic framework prioritizes exposure history alongside biomarkers such as TGF-β1, MMP-9, and MSH. Removing the patient from the water-damaged building is step one of the Shoemaker Protocol — and, as in this case, often the single most important intervention.",
+      "source": "MSN",
+      "sourceUrl": "https://www.msn.com/en-us/health/other/health-influencer-s-husband-lost-50-lbs-in-under-4-months-when-they-discovered-the-cause-they-had-to-leave-home-exclusive/ar-AA1WEVxM",
+      "author": "MSN Health",
+      "publishedAt": "2026-04-27T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "imageAlt": "Health Influencer's Husband Loses 50 Pounds in Four Months; Couple Traces Cause ",
+      "status": "published",
+      "tags": [
+        "mold illness",
+        "cirs",
+        "patient story",
+        "black mold",
+        "biotoxin exposure"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Couple Leaves Home After Tracing Illness to Toxic Black Mold",
+      "seoDescription": "A health influencer's husband lost 50 lbs in 4 months. Their search for answers led to toxic mold — a story familiar to CIRS patients.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-27T15:04:21.225731+00:00"
+    },
     {
       "id": "d7a1e5baf969",
       "title": "Health Influencer Links Husband's 50-Pound Weight Loss to Black Mold at Home",
@@ -22,7 +76,7 @@
         "symptoms",
         "water-damaged buildings"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Influencer Links Husband's 50-Lb Loss to Black Mold",
       "seoDescription": "A health influencer says her husband lost 50 pounds in under four months before traces of black mold in their home led the family to leave the residence.",
@@ -50,7 +104,7 @@
         "alabama",
         "indoor air"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Spring Hill College responds to mold and asthma lawsuit",
       "seoDescription": "Alabama college issues statement after alumna sues over alleged campus mold exposure that she says caused severe asthma and respiratory issues.",
