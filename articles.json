@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-04-28T14:07:04.462581+00:00",
+  "lastUpdated": "2026-04-28T14:18:06.846523+00:00",
   "articles": [
+    {
+      "id": "036242ec9786",
+      "title": "Miami University Students Report Black Mold in Dorm Showers and AC Units",
+      "summary": "An opinion column by first-year student Kenzi Perkins in The Miami Student details mold problems across multiple residence halls at Miami University in Oxford, Ohio. Perkins reports black mold spreading through both showers in her wing of Hahne Hall, with visible patches first noticed in October and worsening by January.\n\nThe piece also profiles a student in McKee Hall, Alana Molnar, who said she and her roommate were 'constantly sick for like two months' before tracing the cause to mold inside their in-room air conditioning unit. Per Molnar, replacement of the unit took roughly four weeks after it was reported. Both students cited preexisting health conditions.\n\nThe column references CDC guidance noting that living with mold can cause coughing, respiratory issues, weight loss, itchy and watery eyes, and rashes. Miami University requires first- and second-year students to live on campus.",
+      "editorsNote": "Visible mold inside an HVAC unit is particularly concerning because the system actively circulates spores and fragments through the breathing zone. For susceptible occupants — including the roughly 24% of the population with HLA-DR genotypes that impair biotoxin clearance — even short exposures in enclosed dorm rooms can drive multi-system symptoms consistent with chronic inflammatory response syndrome (CIRS).",
+      "source": "The Miami Student",
+      "sourceUrl": "https://www.miamistudent.net/article/2026/04/miami-univeristy-housing-health-mold-air-conditioning-saftey",
+      "author": "Kenzi Perkins",
+      "publishedAt": "2026-04-27T10:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://snworksceo.imgix.net/tms/7dc13658-a777-4cc9-8f91-98b7757ff015.sized-1000x1000.jpg?w=800&h=600",
+      "imageAlt": "Miami University Students Report Black Mold in Dorm Showers and AC Units",
+      "status": "published",
+      "tags": [
+        "college housing",
+        "indoor air quality",
+        "hvac",
+        "water-damaged buildings",
+        "miami university"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Miami University Students Report Mold in Dorm Showers and AC Units",
+      "seoDescription": "Students at Miami University detail black mold in Hahne and McKee Hall — including a moldy AC unit linked to two months of illness.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-28T14:18:06.846388+00:00"
+    },
     {
       "id": "78af5ae1459e",
       "title": "Flood Cleanup Safety: Why Water-Damaged Homes May Need Remediation Before Re-Entry",
@@ -49,7 +76,7 @@
         "symptoms",
         "water-damaged buildings"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Influencer Links Husband's 50-Lb Loss to Black Mold",
       "seoDescription": "A health influencer says her husband lost 50 pounds in under four months before traces of black mold in their home led the family to leave the residence.",
