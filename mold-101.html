@@ -210,47 +210,60 @@
       background: rgba(255,255,255,0.25);
     }
     /* HERO CHAPTER GRID */
-    .hero-chapters {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin-top: var(--sp-6);
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
+    /* TABLE OF CONTENTS — standalone section */
+    .toc-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: var(--sp-8) var(--sp-6);
     }
-    .hero-chapter-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: var(--r-sm);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: background 0.25s, border-color 0.25s, transform 0.25s;
-      text-decoration: none;
-      color: white;
+    .toc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--shadow-sm);
     }
-    .hero-chapter-link:hover {
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(255,255,255,0.22);
-      transform: translateY(-1px);
-    }
-    .hero-chapter-link .hc-num {
-      font-family: var(--sans);
+    .toc-header {
       font-size: 11px;
       font-weight: 600;
-      opacity: 0.4;
-      line-height: 1;
-      flex-shrink: 0;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin: 0 0 var(--sp-6);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--border);
     }
-    .hero-chapter-link .hc-label {
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: 12px 16px;
+      border-radius: var(--r-sm);
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .toc-link:hover {
+      background: var(--accent-light);
+    }
+    .toc-num {
+      font-family: var(--sans);
       font-size: 12px;
-      font-weight: 500;
-      opacity: 0.85;
-      text-align: left;
-      line-height: 1.3;
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 28px;
     }
+    .toc-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .toc-link:hover .toc-label { color: var(--accent); }
 
     /* CONTENT */
     .content {
@@ -1026,21 +1039,28 @@
       <p class="subtitle">You're not crazy. Your symptoms are real. And there's a science-backed framework to understand and address them. This is the playbook.</p>
       <span class="reading-time">20 min read &nbsp;·&nbsp; 10 chapters &nbsp;·&nbsp; 30 years of Shoemaker research</span>
 
-      <p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 14px;font-weight:600;">Table of Contents</p>
-      <div class="hero-chapters">
-        <a href="#what" class="hero-chapter-link"><span class="hc-num">01.</span><span class="hc-label">What Is It</span></a>
-        <a href="#how" class="hero-chapter-link"><span class="hc-num">02.</span><span class="hc-label">How It Works</span></a>
-        <a href="#symptoms" class="hero-chapter-link"><span class="hc-num">03.</span><span class="hc-label">Symptoms</span></a>
-        <a href="#biomarkers" class="hero-chapter-link"><span class="hc-num">04.</span><span class="hc-label">Biomarkers</span></a>
-        <a href="#testing" class="hero-chapter-link"><span class="hc-num">05.</span><span class="hc-label">Testing</span></a>
-        <a href="#treatment" class="hero-chapter-link"><span class="hc-num">06.</span><span class="hc-label">Treatment</span></a>
-        <a href="#home" class="hero-chapter-link"><span class="hc-num">07.</span><span class="hc-label">Your Home</span></a>
-        <a href="#research" class="hero-chapter-link"><span class="hc-num">08.</span><span class="hc-label">Research</span></a>
-        <a href="#faq" class="hero-chapter-link"><span class="hc-num">09.</span><span class="hc-label">FAQ</span></a>
-        <a href="#next" class="hero-chapter-link"><span class="hc-num">10.</span><span class="hc-label">Next Steps</span></a>
-      </div>
+
     </div>
   </section>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-section">
+    <div class="toc-card">
+      <div class="toc-header">In this guide</div>
+      <div class="toc-grid">
+        <a href="#what" class="toc-link"><span class="toc-num">01</span><span class="toc-label">What Is Mold Illness</span></a>
+        <a href="#how" class="toc-link"><span class="toc-num">02</span><span class="toc-label">How It Works</span></a>
+        <a href="#symptoms" class="toc-link"><span class="toc-num">03</span><span class="toc-label">Symptoms &amp; Clusters</span></a>
+        <a href="#biomarkers" class="toc-link"><span class="toc-num">04</span><span class="toc-label">The Biomarkers</span></a>
+        <a href="#testing" class="toc-link"><span class="toc-num">05</span><span class="toc-label">Testing &amp; Diagnosis</span></a>
+        <a href="#treatment" class="toc-link"><span class="toc-num">06</span><span class="toc-label">Treatment Protocol</span></a>
+        <a href="#home" class="toc-link"><span class="toc-num">07</span><span class="toc-label">Your Home &amp; Environment</span></a>
+        <a href="#research" class="toc-link"><span class="toc-num">08</span><span class="toc-label">Published Research</span></a>
+        <a href="#faq" class="toc-link"><span class="toc-num">09</span><span class="toc-label">Frequently Asked</span></a>
+        <a href="#next" class="toc-link"><span class="toc-num">10</span><span class="toc-label">Next Steps</span></a>
+      </div>
+    </div>
+  </div>
 
   <div class="content">
 
