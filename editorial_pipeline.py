@@ -62,6 +62,37 @@ if _env_file.exists():
                 if _v and (not os.environ.get(_k)):
                     os.environ[_k] = _v
 
+# --- Self-healing dependency install -----------------------------------------
+# If a required package is missing, pip-install it on the fly so a fresh clone
+# (e.g. an automated scheduled task that doesn't run bootstrap.sh) doesn't
+# silently lose functionality. feedparser in particular: without it, the entire
+# Google Alerts RSS pipeline no-ops with only a warning.
+def _ensure_deps(packages):
+    import importlib, subprocess, sys as _sys
+    missing = []
+    for mod_name, pkg_name in packages:
+        try:
+            importlib.import_module(mod_name)
+        except ImportError:
+            missing.append(pkg_name)
+    if missing:
+        print(f"⚙ Installing missing deps: {', '.join(missing)}")
+        try:
+            subprocess.check_call(
+                [_sys.executable, "-m", "pip", "install", "--quiet",
+                 "--break-system-packages", *missing],
+                stdout=subprocess.DEVNULL,
+            )
+        except Exception as _exc:
+            print(f"  ⚠ pip install failed ({_exc}); falling back to None imports")
+
+_ensure_deps([
+    ("feedparser", "feedparser"),
+    ("requests", "requests"),
+    ("bs4", "beautifulsoup4"),
+    # anthropic is optional — only needed for AI gates, not fetch/publish
+])
+
 try:
     import anthropic
 except ImportError:
@@ -1060,6 +1091,25 @@ def _title_similarity(a, b):
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
+def _normalize_url(url):
+    """Normalize a URL for dedup comparison.
+
+    Strips query strings, fragments, trailing slashes, scheme, and lowercases.
+    Different MSN/Yahoo aggregator queries (apiversion, domshim, ocid, etc.)
+    point to the same article — they should collapse to one key.
+    """
+    if not url:
+        return ''
+    try:
+        from urllib.parse import urlparse
+        p = urlparse(url.strip())
+        host = p.netloc.lower().replace('www.', '')
+        path = p.path.rstrip('/').lower()
+        return f"{host}{path}"
+    except Exception:
+        return url.lower().split('?')[0].rstrip('/')
+
+
 def _extract_key_entities(text):
     """Extract location names, org names, dollar amounts for comparison."""
     text_lower = text.lower()
@@ -1099,9 +1149,10 @@ def duplicate_detection_agent(article, existing_articles):
         ex_url = existing.get('sourceUrl', '')
         ex_summary = existing.get('summary', '')
 
-        # Layer 1: Same source URL
-        if url and ex_url and url == ex_url:
-            print(f"    ✗ DUPLICATE: Same source URL as '{ex_title[:50]}...'")
+        # Layer 1: Same source URL (normalized — strips query params,
+        # which differ between MSN/Yahoo aggregator hits for the same article).
+        if url and ex_url and _normalize_url(url) == _normalize_url(ex_url):
+            print(f"    ✗ DUPLICATE: Same source URL (normalized) as '{ex_title[:50]}...'")
             article['_dedup_pass'] = False
             article['_duplicate_of'] = existing['id']
             article['_duplicate_reason'] = 'same_url'
