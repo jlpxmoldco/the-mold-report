@@ -1,5 +1,5 @@
 # Defamation Audit Report
-Generated: 2026-04-29T20:10:56.011586Z
+Generated: 2026-04-29T20:29:20.403829Z
 Articles scanned: 123
 HIGH severity (no hedge context anywhere): 0
 MEDIUM severity (hedge elsewhere, but specific sentence missing it): 0

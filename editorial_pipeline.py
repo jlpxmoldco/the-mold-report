@@ -1011,7 +1011,23 @@ def defamation_lint(article):
 
     findings = {'has_hedge_context': has_hedge_context, 'high': [], 'medium': [], 'low': []}
 
-    for source_label, text in [('title', title), ('summary', summary), ('editorsNote', editors_note)]:
+    seo_title = (article.get('seoTitle') or '')
+    seo_desc = (article.get('seoDescription') or '')
+    image_alt = (article.get('imageAlt') or '')
+
+    # Note: HEDGE check uses ALL fields including derived ones for context detection
+    full_text_extended = full_text + f"\n\n{seo_title}\n\n{seo_desc}\n\n{image_alt}"
+    has_hedge_context = bool(DEFAMATION_HEDGE_INDICATORS.search(full_text_extended))
+    findings['has_hedge_context'] = has_hedge_context
+
+    for source_label, text in [
+        ('title', title),
+        ('seoTitle', seo_title),
+        ('seoDescription', seo_desc),
+        ('imageAlt', image_alt),
+        ('summary', summary),
+        ('editorsNote', editors_note),
+    ]:
         for m in DEFAMATION_RISKY_VERB_PATTERN.finditer(text):
             # Skip if subject is a single stopword (e.g., "The failed appeal")
             if DEFAMATION_SUBJECT_STOPWORDS.match(m.group(1).strip()):

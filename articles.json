@@ -469,14 +469,14 @@
     {
       "id": "f7003aaca06c",
       "title": "Georgia Tenant Living in Tent Amid Dispute Over Mold-Affected Rental",
-      "summary": "A Georgia woman says she has been forced to live in a tent outside her rental home after persistent mold problems went unaddressed by her landlord, highlighting the intersection of housing negligence and environmental health that affects renters across the country. The woman accuses her landlord of extreme negligence in failing to remediate mold conditions that made the property uninhabitable.\n\nHer situation is far from unique. Renters in water-damaged properties often face a difficult choice between continued exposure and displacement, with limited legal recourse in many states. Unlike homeowners, tenants typically cannot authorize remediation themselves and depend entirely on landlord responsiveness.",
+      "summary": "A Georgia woman says she has been forced to live in a tent outside her rental home after persistent mold problems she alleges went unaddressed by her landlord, highlighting the intersection of housing-condition disputes and environmental health that affects renters across the country. The woman accuses her landlord of extreme negligence in failing to remediate mold conditions that made the property uninhabitable.\n\nHer situation is far from unique. Renters in water-damaged properties often face a difficult choice between continued exposure and displacement, with limited legal recourse in many states. Unlike homeowners, tenants typically cannot authorize remediation themselves and depend entirely on landlord responsiveness.",
       "source": "MSN",
       "sourceUrl": "https://www.msn.com/en-ie/money/other/distraught-woman-forced-to-live-in-tent-outside-home-after-accusing-landlord-of-extreme-negligence/ar-AA21uMcw",
       "author": "MSN",
       "publishedAt": "2026-04-24T16:14:20.432098+00:00",
       "category": "news",
       "imageUrl": "https://images.unsplash.com/photo-1651752523215-9bf678c29355?w=800&q=80",
-      "imageAlt": "Georgia Tenant Forced to Live in Tent After Landlord Ignores Mold Crisis",
+      "imageAlt": "Georgia Tenant Living in Tent Amid Dispute Over Mold-Affected Rental",
       "status": "published",
       "tags": [
         "housing",
@@ -486,15 +486,16 @@
       ],
       "featured": false,
       "readTime": 3,
-      "seoTitle": "Tenant Displaced by Landlord's Mold Negligence in Georgia",
-      "seoDescription": "Georgia renter forced to live in a tent after landlord ignores mold damage, highlighting the health risks of prolonged exposure in water-damaged rentals.",
+      "seoTitle": "Georgia Tenant Living in Tent After Mold-Affected Rental Dispute | The Mold Report",
+      "seoDescription": "A Georgia tenant says she has been forced to live in a tent after persistent mold problems in her rental home went unresolved. She has filed claims alleging her landlord did not remediate the property.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-04-24T16:22:25.168685+00:00",
       "editorsNote": "Prolonged mold exposure in residential settings is a well-documented trigger for chronic inflammatory responses. Research guided by the Shoemaker Protocol has shown that occupants of water-damaged buildings may develop multi-system symptoms including fatigue, cognitive difficulty, and respiratory issues. Approximately 50% of residential buildings have some history of water damage, making this a widespread public health concern that disproportionately impacts renters.",
       "defamation_audit": {
         "title_rewritten_at": "2026-04-29T20:10:31.490968+00:00",
         "title_old": "Georgia Tenant Forced to Live in Tent After Landlord Ignores Mold Crisis",
-        "title_reason": "Removed editorial verb \"Ignores\" (no hedge in title); replaced with neutral \"Dispute\"."
+        "title_reason": "Removed editorial verb \"Ignores\" (no hedge in title); replaced with neutral \"Dispute\".",
+        "derived_fields_fixed_at": "2026-04-29T20:28:23.993045+00:00"
       }
     },
     {
@@ -677,9 +678,12 @@
       "readTime": 3,
       "shoemakerConnection": "Shoemaker's research identifies water-damaged buildings (WDBs) as the primary source of biotoxin exposure triggering CIRS in genetically susceptible individuals (24% of the population via HLA-DR genes). Incarcerated populations represent a uniquely vulnerable group because they cannot exercise the most fundamental step in Shoemaker's treatment framework — removal from the source building — making institutional accountability a direct clinical concern.",
       "editorsNote": "",
-      "seoTitle": "Michigan Prison Mold Sickens Inmates | The Mold Report",
+      "seoTitle": "Michigan Prison Mold Linked to Inmate Illness, Whitmer Asked to Intervene | The Mold Report",
       "seoDescription": "Incarcerated women at a Michigan state prison are reporting illness they attribute to mold conditions within the facility, prompting calls for Governor Gre",
-      "primaryKeyword": "mold remediation"
+      "primaryKeyword": "mold remediation",
+      "defamation_audit": {
+        "derived_fields_fixed_at": "2026-04-29T20:29:20.131672+00:00"
+      }
     },
     {
       "id": "4f6462b3ce58",
@@ -1947,9 +1951,12 @@
       ],
       "featured": false,
       "readTime": 3,
-      "seoTitle": "Temple Apartment Mold Sickens Residents for Months | The Mold Report",
+      "seoTitle": "Temple Residents Report Months of Mold-Related Illness | The Mold Report",
       "seoDescription": "Tenants at a Temple apartment complex report months of mold-related illness after management allegedly delayed remediation. See what residents are saying.",
-      "primaryKeyword": "indoor air quality mold"
+      "primaryKeyword": "indoor air quality mold",
+      "defamation_audit": {
+        "derived_fields_fixed_at": "2026-04-29T20:29:20.131784+00:00"
+      }
     },
     {
       "id": "16962afb59bd",
@@ -2197,14 +2204,14 @@
       "id": "a3c24de5bd06",
       "title": "Mold Found at 20 Wichita Fire Stations Despite Reported Repair Requests",
       "originalTitle": "Mold found at 20 Wichita fire stations; union says problems were reported but work never done",
-      "summary": "Mold has been found at 20 fire stations across Wichita, Kansas, raising serious concerns about air quality and the health of firefighters who live and work in these buildings for extended shifts. According to local news, the firefighters union reported that workers had flagged the problem previously, but repair and remediation work was never completed. The situation points to a breakdown in facility maintenance response by city management. Firefighters face compounded exposure risks compared to typical office workers, as they spend long hours at stations and may already carry respiratory stress from on-duty smoke inhalation. Research suggests that prolonged mold exposure may contribute to respiratory issues, fatigue, and other health concerns, particularly for individuals with genetic susceptibility to mold-related illness. Reports indicate the union is now pushing for immediate remediation and accountability from city officials. The case mirrors a broader national pattern of deferred maintenance in public safety buildings leaving workers in potentially hazardous conditions. No timeline for remediation has been publicly confirmed as of the report date.",
+      "summary": "Mold has been found at 20 fire stations across Wichita, Kansas, raising serious concerns about air quality and the health of firefighters who live and work in these buildings for extended shifts. According to local news, the firefighters union reported that workers had flagged the problem previously, but repair and remediation work was never completed. The firefighters union has raised concerns about facility maintenance response. Firefighters face compounded exposure risks compared to typical office workers, as they spend long hours at stations and may already carry respiratory stress from on-duty smoke inhalation. Research suggests that prolonged mold exposure may contribute to respiratory issues, fatigue, and other health concerns, particularly for individuals with genetic susceptibility to mold-related illness. Reports indicate the union is now pushing for immediate remediation and accountability from city officials. The case mirrors a broader national pattern of deferred maintenance in public safety buildings leaving workers in potentially hazardous conditions. No timeline for remediation has been publicly confirmed as of the report date.",
       "source": "KWCH",
       "sourceUrl": "https://www.kwch.com/2026/02/27/mold-found-20-wichita-fire-stations-union-says-problems-were-reported-work-never-done/",
       "author": "Local News",
       "publishedAt": "2026-03-02T12:00:00Z",
       "category": "news",
       "imageUrl": "https://gray-kwch-prod.gtv-cdn.com/resizer/v2/LRNLECICKVHI7HSJOBNHYCFPLI.jfif?auth=5cc155f1938f20fe90ae8dccf52a3e36cbc0f95a9abebf1d92bcce766ee8c833&width=1200&height=600&smart=true",
-      "imageAlt": "Mold Discovered at 20 Wichita Fire Stations After Repair Requests Ignored",
+      "imageAlt": "Mold Found at 20 Wichita Fire Stations Despite Reported Repair Requests",
       "status": "published",
       "interestScore": 7,
       "qcReviewer": "seed-backlog",
@@ -2221,13 +2228,14 @@
       ],
       "featured": false,
       "readTime": 3,
-      "seoTitle": "Mold Found in 20 Wichita Fire Stations | The Mold Report",
-      "seoDescription": "Mold discovered at 20 Wichita fire stations after repair requests were ignored. See how ignored maintenance reports put firefighters' air quality and health at risk.",
+      "seoTitle": "Mold Found at 20 Wichita Fire Stations Despite Reported Repair Requests | The Mold Report",
+      "seoDescription": "Mold has been found at 20 Wichita fire stations following repair-request reports from the firefighters union. The situation raises air-quality and exposure concerns for personnel.",
       "primaryKeyword": "mold exposure fatigue",
       "defamation_audit": {
         "title_rewritten_at": "2026-04-29T20:10:31.491839+00:00",
         "title_old": "Mold Discovered at 20 Wichita Fire Stations After Repair Requests Ignored",
-        "title_reason": "Removed editorial verb \"Ignored\" (no hedge in title); replaced with neutral \"Despite Reported\"."
+        "title_reason": "Removed editorial verb \"Ignored\" (no hedge in title); replaced with neutral \"Despite Reported\".",
+        "derived_fields_fixed_at": "2026-04-29T20:28:23.993115+00:00"
       }
     },
     {
@@ -3446,8 +3454,11 @@
       "featured": false,
       "readTime": 3,
       "seoTitle": "Alden Towers Mold Forces Detroit Family From Home | The Mold Report",
-      "seoDescription": "A Detroit family says mold at Alden Towers caused serious health problems and displacement after management ignored complaints. See what tenants faced.",
-      "primaryKeyword": "sick building syndrome"
+      "seoDescription": "A Detroit family says mold at Alden Towers contributed to serious health problems and displacement; they allege management did not address their complaints.",
+      "primaryKeyword": "sick building syndrome",
+      "defamation_audit": {
+        "derived_fields_fixed_at": "2026-04-29T20:29:20.131798+00:00"
+      }
     },
     {
       "id": "7d839adc2682",
