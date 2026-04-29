@@ -1463,13 +1463,47 @@
       animation: sheet-slide 0.25s ease;
     }
     @keyframes sheet-slide { from { transform: translateY(100%); } to { transform: translateY(0); } }
-    .nav-sheet-handle {
+    .nav-sheet-grab {
+      display: block;
+      width: 100%;
+      padding: 6px 0 14px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-sheet-grab .nav-sheet-handle {
+      display: block;
       width: 36px;
       height: 4px;
       background: var(--border);
       border-radius: 2px;
-      margin: 0 auto 16px;
+      margin: 0 auto;
+      transition: background 0.15s;
     }
+    .nav-sheet-grab:hover .nav-sheet-handle,
+    .nav-sheet-grab:active .nav-sheet-handle { background: var(--text-3); }
+    .nav-sheet-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--warm);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-2);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-sheet-close:hover { background: var(--border); color: var(--text); }
+    .nav-sheet-close svg { width: 16px; height: 16px; pointer-events: none; }
+    .nav-sheet-panel { position: relative; }
     .nav-tabs {
       display: flex;
       gap: 6px;
@@ -2765,13 +2799,31 @@
       var fab = document.getElementById('navFab');
       var sheet = document.getElementById('navSheet');
       if (!fab || !sheet) return;
-      fab.addEventListener('click', function() { sheet.classList.add('open'); });
+      function openSheet() { sheet.classList.add('open'); fab.setAttribute('aria-expanded', 'true'); }
+      function closeSheet() { sheet.classList.remove('open'); fab.setAttribute('aria-expanded', 'false'); }
+      function toggleSheet() { sheet.classList.contains('open') ? closeSheet() : openSheet(); }
+
+      fab.setAttribute('aria-expanded', 'false');
+      fab.setAttribute('aria-controls', 'navSheet');
+      fab.addEventListener('click', toggleSheet);
+
+      // Backdrop tap closes
       sheet.addEventListener('click', function(e) {
-        if (e.target === sheet) sheet.classList.remove('open');
+        if (e.target === sheet) closeSheet();
       });
+      // Any element marked data-close-sheet (X button + drag handle) closes
+      sheet.querySelectorAll('[data-close-sheet]').forEach(function(el) {
+        el.addEventListener('click', closeSheet);
+      });
+      // Following a chapter link also closes
       sheet.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { sheet.classList.remove('open'); });
+        a.addEventListener('click', closeSheet);
       });
+      // Escape closes
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sheet.classList.contains('open')) closeSheet();
+      });
+      // Tab switching
       sheet.querySelectorAll('.nav-tab').forEach(function(tab) {
         tab.addEventListener('click', function() {
           var target = tab.getAttribute('data-tab');
@@ -2840,7 +2892,12 @@
 
   <div class="nav-sheet" id="navSheet" role="dialog" aria-modal="true" aria-label="Guide navigation">
     <div class="nav-sheet-panel">
-      <div class="nav-sheet-handle"></div>
+      <button class="nav-sheet-grab" type="button" data-close-sheet aria-label="Close menu">
+        <span class="nav-sheet-handle"></span>
+      </button>
+      <button class="nav-sheet-close" type="button" data-close-sheet aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
       <div class="nav-tabs">
         <button class="nav-tab active" data-tab="ch" type="button">Chapters</button>
         <button class="nav-tab" data-tab="res" type="button">Resources</button>
