@@ -2019,10 +2019,35 @@ def generate_article_pages(data):
         ])
         return bool(MENTAL_HEALTH_TERMS.search(haystack))
 
+    OUTCOMES_RESEARCH_TERMS = re.compile(
+        r"\b(VIP\s+therapy|VIP\s+(?:nasal|treatment)|intranasal\s+VIP|"
+        r"grey\s+matter|grey-matter|gray\s+matter|"
+        r"brain\s+volume|brain\s+atrophy|"
+        r"biomarker\s+(?:normaliz|reduc|improv)|"
+        r"MMP-?9.*reduc|C4a.*reduc|"
+        r"hypometabolism\s+revers|reversible\s+hypometabolism|"
+        r"clinical\s+efficacy|treatment\s+(?:efficacy|outcomes)|"
+        r"Shoemaker\s+Protocol\s+efficacy)\b",
+        re.IGNORECASE,
+    )
+
+    def _detect_outcomes_research(article):
+        """True if article touches VIP/grey-matter/biomarker-improvement/efficacy."""
+        if article.get("outcomesResearch") is True:
+            return True
+        haystack = " ".join([
+            article.get("title", ""),
+            article.get("summary", ""),
+            article.get("editorsNote", "") or "",
+            " ".join(article.get("tags", [])),
+        ])
+        return bool(OUTCOMES_RESEARCH_TERMS.search(haystack))
+
     count = 0
     flagged_moldco = 0
     flagged_competitor = 0
     flagged_mental_health = 0
+    flagged_outcomes_research = 0
 
     for a in data.get("articles", []):
         if a.get("status") != "published":
@@ -2065,12 +2090,15 @@ def generate_article_pages(data):
         is_about_moldco = _detect_about_moldco(a)
         has_competitor_mention = _detect_competitor(a)
         is_mental_health = _detect_mental_health(a)
+        is_outcomes_research = _detect_outcomes_research(a)
         if is_about_moldco:
             flagged_moldco += 1
         if has_competitor_mention:
             flagged_competitor += 1
         if is_mental_health:
             flagged_mental_health += 1
+        if is_outcomes_research:
+            flagged_outcomes_research += 1
 
         # JSON-LD: build via json.dumps for safe encoding (edge case §E13)
         # AI authorship flags via creator + additionalProperty (edge case §E13)
@@ -2167,6 +2195,25 @@ def generate_article_pages(data):
         # ------------------------------------------------------------------
         # Bottom-of-article disclaimer blocks (always)
         # ------------------------------------------------------------------
+        # Outcomes-research callout (conditional, encouragement piece)
+        outcomes_research_block = ""
+        if is_outcomes_research:
+            outcomes_research_block = (
+                '<aside class="article-disclaimer" role="note" '
+                'style="background:#E6F0EB; border-left-color:#1B4D3E;">'
+                '<strong>What the research shows about improvement.</strong> '
+                'Patient improvement is documented in the published literature: '
+                'intranasal VIP has been shown to restore grey matter volume and '
+                'reduce inflammatory markers (Shoemaker et al., 2017); molecular '
+                'hypometabolism reverses during treatment (Ryan &amp; Shoemaker, '
+                '2018); and a 2024 peer-reviewed review identified the Shoemaker '
+                'Protocol as the only treatment with documented clinical efficacy '
+                'for CIRS (Dooley et al., 2024). Full citations on our '
+                '<a href="/research.html">research page</a>. '
+                '<em>Individual outcomes vary. Always work with a qualified provider.</em>'
+                '</aside>'
+            )
+
         # Mental health 988 block (conditional)
         mental_health_block = ""
         if is_mental_health:
@@ -2310,6 +2357,8 @@ def generate_article_pages(data):
     <strong>Who runs this.</strong> The Mold Report is built and operated by Julien Lepleux. Julien also leads growth at <a href="https://www.moldco.com" rel="noopener">MoldCo</a>, a virtual clinic for mold illness. MoldCo Care is featured in our <a href="/providers.html">provider directory</a>. MoldCo doesn't choose stories or shape coverage. Full <a href="/about.html">disclosures</a>.
   </aside>
 
+  {outcomes_research_block}
+
   {mental_health_block}
 
   <footer class="site-footer">
@@ -2351,11 +2400,12 @@ def generate_article_pages(data):
         count += 1
 
     print(f"  ✓ Generated {count} standalone article pages in /a/")
-    if flagged_moldco or flagged_competitor or flagged_mental_health:
+    if flagged_moldco or flagged_competitor or flagged_mental_health or flagged_outcomes_research:
         print(
             f"  ℹ Flags: aboutMoldCo={flagged_moldco}, "
             f"competitor_mention={flagged_competitor}, "
-            f"mental_health={flagged_mental_health}"
+            f"mental_health={flagged_mental_health}, "
+            f"outcomes_research={flagged_outcomes_research}"
         )
 
 
@@ -3474,6 +3524,32 @@ def generate_sitemap(data):
     <priority>0.8</priority>
   </url>""")
 
+    # Providers directory
+    urls.append(f"""  <url>
+    <loc>{site_url}/providers.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>""")
+
+    # Research / improvement evidence page
+    urls.append(f"""  <url>
+    <loc>{site_url}/research.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>""")
+
+    # Privacy + Terms (canonical pages, low priority but indexable)
+    urls.append(f"""  <url>
+    <loc>{site_url}/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>""")
+    urls.append(f"""  <url>
+    <loc>{site_url}/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>""")
+
     # Individual article pages — high priority, they carry the SEO weight
     for a in data.get("articles", []):
         if a.get("status") != "published":
@@ -3541,7 +3617,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json", "sitemap.xml", "robots.txt", "category.html"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json", "sitemap.xml", "robots.txt", "category.html", "providers.html", "research.html", "privacy.html", "terms.html", "newsletter.html"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory
