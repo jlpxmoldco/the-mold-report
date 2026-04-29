@@ -1337,11 +1337,11 @@
       transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
     }
-    .res-tile.content {
+    .res-tile.tile-content {
       background: var(--accent-light);
       color: var(--accent);
     }
-    .res-tile.action {
+    .res-tile.tile-action {
       background: var(--warm);
       color: var(--text-2);
     }
@@ -1478,8 +1478,8 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .nav-list .icon-wrap.content { background: var(--accent-light); color: var(--accent); }
-    .nav-list .icon-wrap.action { background: var(--warm); color: var(--text-2); }
+    .nav-list .icon-wrap.tile-content { background: var(--accent-light); color: var(--accent); }
+    .nav-list .icon-wrap.tile-action { background: var(--warm); color: var(--text-2); }
     .nav-list .icon-wrap svg { width: 18px; height: 18px; }
 
     /* Hide desktop chapter-nav (we're using rails now) and toggle by viewport */
@@ -1522,19 +1522,19 @@
 
   <!-- RIGHT RAIL — resources (desktop ≥1024px) -->
   <aside class="res-rail" aria-label="Resources">
-    <a href="https://themoldreport.org/" class="res-tile content" data-title="Free guide" aria-label="Free guide">
+    <a href="https://themoldreport.org/" class="res-tile tile-content" data-title="Free guide" aria-label="Free guide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v15H6.5a2.5 2.5 0 0 0 0 5H20"/><path d="M9 7h7"/><path d="M9 11h5"/></svg>
     </a>
-    <a href="/newsletter.html" class="res-tile action" data-title="Newsletter" aria-label="Newsletter">
+    <a href="/newsletter.html" class="res-tile tile-action" data-title="Newsletter" aria-label="Newsletter">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
     </a>
-    <a href="https://www.moldco.com/care" target="_blank" rel="noopener" class="res-tile content" data-title="MoldCo Care" aria-label="MoldCo Care">
+    <a href="https://www.moldco.com/care" target="_blank" rel="noopener" class="res-tile tile-content" data-title="MoldCo Care" aria-label="MoldCo Care">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
     </a>
-    <a href="https://www.moldco.com/products" target="_blank" rel="noopener" class="res-tile content" data-title="MoldCo Labs" aria-label="MoldCo Labs">
+    <a href="https://www.moldco.com/products" target="_blank" rel="noopener" class="res-tile tile-content" data-title="MoldCo Labs" aria-label="MoldCo Labs">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4 18a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 18l-5-9.5V2"/><path d="M8 2h8"/><path d="M6 14h12"/></svg>
     </a>
-    <a href="https://www.moldco.com/products/home-test" target="_blank" rel="noopener" class="res-tile content" data-title="MoldCo Home Test" aria-label="MoldCo Home Test">
+    <a href="https://www.moldco.com/products/home-test" target="_blank" rel="noopener" class="res-tile tile-content" data-title="MoldCo Home Test" aria-label="MoldCo Home Test">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2"/><path d="M12 16v3"/></svg>
     </a>
   </aside>
@@ -2776,23 +2776,23 @@
 
       <div class="nav-list" data-pane="res" hidden>
         <a href="https://themoldreport.org/">
-          <span class="icon-wrap content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v15H6.5a2.5 2.5 0 0 0 0 5H20"/><path d="M9 7h7"/><path d="M9 11h5"/></svg></span>
+          <span class="icon-wrap tile-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v15H6.5a2.5 2.5 0 0 0 0 5H20"/><path d="M9 7h7"/><path d="M9 11h5"/></svg></span>
           Free guide
         </a>
         <a href="/newsletter.html">
-          <span class="icon-wrap action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span class="icon-wrap tile-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
           Newsletter
         </a>
         <a href="https://www.moldco.com/care" target="_blank" rel="noopener">
-          <span class="icon-wrap content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span class="icon-wrap tile-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
           MoldCo Care
         </a>
         <a href="https://www.moldco.com/products" target="_blank" rel="noopener">
-          <span class="icon-wrap content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4 18a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 18l-5-9.5V2"/><path d="M8 2h8"/><path d="M6 14h12"/></svg></span>
+          <span class="icon-wrap tile-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4 18a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 18l-5-9.5V2"/><path d="M8 2h8"/><path d="M6 14h12"/></svg></span>
           MoldCo Labs
         </a>
         <a href="https://www.moldco.com/products/home-test" target="_blank" rel="noopener">
-          <span class="icon-wrap content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2"/><path d="M12 16v3"/></svg></span>
+          <span class="icon-wrap tile-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2"/><path d="M12 16v3"/></svg></span>
           MoldCo Home Test
         </a>
       </div>
