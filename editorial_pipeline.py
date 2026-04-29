@@ -1883,8 +1883,8 @@ def generate_article_pages(data):
     }});
   </script>
 
-  <!-- CookieYes consent banner — replace __COOKIEYES_SITE_ID__ with your CookieYes Site ID -->
-  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/__COOKIEYES_SITE_ID__/script.js"></script>
+  <!-- CookieYes consent banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a92911ca2138337f5187719c9cc72892/script.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5RC8HJF40"></script>
   <script>gtag('js',new Date());gtag('config','G-Y5RC8HJF40');</script>
