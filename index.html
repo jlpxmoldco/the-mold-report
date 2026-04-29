@@ -1534,7 +1534,11 @@
       .list-item img, .list-item .fallback-img { height: 200px; min-height: 200px; }
       .form-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .edition-bar { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+      .edition-bar { flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); }
+      .edition-date { font-size: 12px; }
+      .edition-greeting { display: none; }
+      .edition-num { font-size: 10px; padding: 1px 8px; }
+      .ai-badge { font-size: 9px; padding: 2px 8px; }
       .pipeline-phases { flex-direction: column; gap: var(--sp-3); }
       .phase-arrow { transform: rotate(90deg); padding: 0; justify-content: center; }
       .phase-card { padding: var(--sp-4); }
