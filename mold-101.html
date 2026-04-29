@@ -106,8 +106,6 @@
       border-radius: 8px;
     }
     .logo-type { font-family: var(--serif); font-size: 20px; color: var(--text); }
-    .back-link { font-size: 14px; color: var(--accent); font-weight: 500; transition: opacity 0.15s; }
-    .back-link:hover { opacity: 0.7; }
 
     /* CHAPTER NAV */
     .chapter-nav {
@@ -317,6 +315,7 @@
       gap: var(--sp-4);
       margin: var(--sp-10) 0;
     }
+    .stat-row.stat-row-2col { grid-template-columns: 1fr 1fr; }
     .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -329,6 +328,13 @@
     .stat-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-2px);
+    }
+    .stat-card.left { text-align: left; }
+    .stat-card .label-strong {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 14px;
     }
     .stat-card .number {
       font-family: var(--serif);
@@ -661,6 +667,7 @@
       margin: 0 auto;
       max-width: 100%;
       height: auto;
+      font-family: var(--sans);
     }
     .diagram-caption {
       font-size: 12px;
@@ -1039,6 +1046,11 @@
       .ref-title { font-size: 14.5px; }
       .ref-finding { font-size: 13.5px; }
       .provider-cta { padding: var(--sp-5) var(--sp-4); font-size: 14px; }
+
+      /* Mobile typography + FAB stack-above-sticky-CTA */
+      .hero h1 { font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; }
+      .chapter h2 { font-size: 26px; line-height: 1.15; }
+      .sticky-cta.visible ~ .nav-fab { bottom: 78px; }
     }
 
     @media (min-width: 641px) {
@@ -1567,13 +1579,6 @@
       text-underline-offset: 2px;
     }
 
-    /* ─── Mobile fixes (typography + FAB stacking) ─── */
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; }
-      .chapter h2 { font-size: 26px; line-height: 1.15; }
-      .sticky-cta.visible ~ .nav-fab { bottom: 78px; }
-    }
-
     /* ─── Partner CTA disclosure label ─── */
     .partner-label {
       display: inline-block;
@@ -1721,7 +1726,7 @@
 
       <!-- BIOTOXIN PATHWAY DIAGRAM -->
       <div class="diagram">
-        <svg viewBox="0 0 720 640" xmlns="http://www.w3.org/2000/svg" style="font-family:'Inter',-apple-system,sans-serif;">
+        <svg viewBox="0 0 720 640" xmlns="http://www.w3.org/2000/svg">
           <!-- Background -->
           <rect width="720" height="640" fill="#F8F7F4" rx="8"/>
 
@@ -2069,7 +2074,7 @@
 
       <!-- IMMUNE FINGERPRINT DIAGRAM -->
       <div class="diagram">
-        <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" style="font-family:'Inter',-apple-system,sans-serif;">
+        <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
           <rect width="720" height="360" fill="#F8F7F4" rx="8"/>
           <text x="360" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#1B4D3E" letter-spacing="0.08em">THE CIRS IMMUNE FINGERPRINT</text>
           <text x="360" y="48" text-anchor="middle" font-size="11" fill="#999">The pattern that distinguishes CIRS from other inflammatory conditions</text>
@@ -2119,21 +2124,21 @@
 
       <p>Additional markers that may be evaluated in a comprehensive CIRS workup include:</p>
 
-      <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Innate Immune &amp; Complement</div>
+      <div class="stat-row stat-row-2col">
+        <div class="stat-card left">
+          <div class="label-strong">Innate Immune &amp; Complement</div>
           <div class="label">C3a, TGF-β1, MMP-9, split products of complement activation, leptin, ADH (antidiuretic hormone), osmolality, cortisol, ACTH</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Regulatory &amp; Hormonal</div>
+        <div class="stat-card left">
+          <div class="label-strong">Regulatory &amp; Hormonal</div>
           <div class="label">MSH, VIP, VEGF, ADH/osmolality, cortisol/ACTH axis, sex hormones (estradiol, testosterone), thyroid markers, erythropoietin</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Coagulation &amp; Vascular</div>
+        <div class="stat-card left">
+          <div class="label-strong">Coagulation &amp; Vascular</div>
           <div class="label">Von Willebrand's factor, PAI-1 (plasminogen activator inhibitor), D-dimer, anticardiolipin antibodies, VEGF, clotting abnormalities documented in published research</div>
         </div>
-        <div class="stat-card" style="text-align:left;">
-          <div class="label" style="font-weight:600;color:var(--accent);margin-bottom:8px;font-size:14px;">Genomic &amp; Advanced</div>
+        <div class="stat-card left">
+          <div class="label-strong">Genomic &amp; Advanced</div>
           <div class="label">HLA-DR/DQ genotyping (susceptibility genes), GENIE transcriptomics (gene expression), NeuroQuant MRI brain volumetrics, visual contrast sensitivity (VCS) testing</div>
         </div>
       </div>
@@ -2190,7 +2195,7 @@
 
       <!-- TREATMENT PROTOCOL DIAGRAM -->
       <div class="diagram">
-        <svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg" style="font-family:'Inter',-apple-system,sans-serif;">
+        <svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg">
           <rect width="720" height="310" fill="#F8F7F4" rx="8"/>
           <text x="360" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#1B4D3E" letter-spacing="0.08em">THE FOUR-STEP TREATMENT FRAMEWORK</text>
           <text x="360" y="46" text-anchor="middle" font-size="11" fill="#999">Based on Shoemaker research · 30,000+ patient cases documented</text>
