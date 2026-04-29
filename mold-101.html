@@ -2758,10 +2758,13 @@
     updateSpy();
 
 
-    /* ── MOBILE SHEET TOGGLE ── */
-    var fab = document.getElementById('navFab');
-    var sheet = document.getElementById('navSheet');
-    if (fab && sheet) {
+    /* ── MOBILE SHEET TOGGLE ──
+       The FAB and nav-sheet markup come AFTER this <script> in the document,
+       so we defer setup until DOM parsing finishes. */
+    function initMobileSheet() {
+      var fab = document.getElementById('navFab');
+      var sheet = document.getElementById('navSheet');
+      if (!fab || !sheet) return;
       fab.addEventListener('click', function() { sheet.classList.add('open'); });
       sheet.addEventListener('click', function(e) {
         if (e.target === sheet) sheet.classList.remove('open');
@@ -2779,6 +2782,11 @@
           });
         });
       });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMobileSheet);
+    } else {
+      initMobileSheet();
     }
     /* ── INTERSECTION OBSERVER — FADE-IN ON SCROLL ── */
     if ('IntersectionObserver' in window) {
