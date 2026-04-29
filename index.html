@@ -502,6 +502,88 @@
     }
 
     /* ===== AD BANNER (native style) ===== */
+    .guide-card {
+      background: linear-gradient(135deg, #1B4D3E 0%, #143D31 100%);
+      color: #fff;
+      border-radius: var(--r-lg);
+      padding: var(--sp-10) var(--sp-8);
+      margin-bottom: var(--sp-12);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-6);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%);
+      pointer-events: none;
+    }
+    .guide-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: var(--sp-3);
+    }
+    .guide-card h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 36px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 0 0 var(--sp-3);
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .guide-card .guide-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 var(--sp-4);
+      max-width: 560px;
+    }
+    .guide-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.04em;
+    }
+    .guide-meta span + span::before {
+      content: " \00B7 ";
+      margin: 0 4px;
+    }
+    .guide-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #fff;
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .guide-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 720px) {
+      .guide-card {
+        grid-template-columns: 1fr;
+        padding: var(--sp-8) var(--sp-6);
+        text-align: left;
+      }
+      .guide-card .guide-cta-btn { justify-self: flex-start; }
+    }
+
     .ad-native {
       border-radius: var(--r-lg);
       overflow: hidden;
@@ -1664,6 +1746,21 @@
       </div>
       <div class="hero" id="heroSection"></div>
     </section>
+
+    <!-- MOLD 101 GUIDE -->
+    <a href="/mold-101.html" class="guide-card reveal" aria-label="Read Mold 101">
+      <div>
+        <span class="guide-label">The complete playbook</span>
+        <h3>New to mold illness? Start with Mold 101.</h3>
+        <p class="guide-desc">Ten chapters covering CIRS, the 13 symptom clusters, biomarkers, testing, and the four-step treatment framework. Grounded in 25+ years of Shoemaker research, written for people figuring this out for the first time.</p>
+        <div class="guide-meta">
+          <span>20 min read</span>
+          <span>10 chapters</span>
+          <span>Updated regularly</span>
+        </div>
+      </div>
+      <span class="guide-cta-btn">Read Mold 101 &rarr;</span>
+    </a>
 
     <!-- AD: STARTER PANEL -->
     <div class="ad-native reveal" role="complementary" aria-label="Sponsored">
