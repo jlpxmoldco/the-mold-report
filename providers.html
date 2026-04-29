@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="wvN75K_P-D9ZjMDstk9oKKZ7zzidPUxWjvyjFk0fi38">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5RC8HJF40"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y5RC8HJF40');</script>
+  <title>Find a Certified CIRS Provider — The Mold Report</title>
+  <meta name="description" content="A directory of Shoemaker Protocol-certified practitioners across the U.S. and internationally. Sourced from Surviving Mold's official certification list.">
+  <meta property="og:title" content="Find a Certified CIRS Provider — The Mold Report">
+  <meta property="og:description" content="Directory of Shoemaker Protocol-certified practitioners. Find a CIRS-literate provider in your state.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Mold Report">
+  <link rel="canonical" href="https://themoldreport.org/providers.html">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-2: #4A4A4A;
+      --text-3: #8E8E8E;
+      --accent: #1B4D3E;
+      --accent-mid: #2A6B55;
+      --accent-light: #EAF4EF;
+      --accent-hover: #143D31;
+      --border: #E8E7E3;
+      --warm: #F7F2EA;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-6: 24px;
+      --sp-8: 32px; --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+      --sp-20: 80px; --sp-24: 96px;
+      --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 28px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .masthead {
+      background: var(--surface);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .masthead-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-size: 18px;
+      border-radius: 8px;
+    }
+    .logo-type { font-family: var(--serif); font-size: 22px; color: var(--text); }
+    .logo-type i { font-style: italic; }
+    .back-link { color: var(--accent); font-size: 14px; font-weight: 500; }
+
+    .hero {
+      padding: var(--sp-16) 32px var(--sp-12);
+      text-align: center;
+      background: linear-gradient(180deg, var(--accent) 0%, #194738 100%);
+      color: #fff;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: var(--sp-4);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 56px;
+      line-height: 1.1;
+      font-weight: 400;
+      margin: 0 0 var(--sp-4);
+      letter-spacing: -0.01em;
+    }
+    .hero .subtitle {
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: var(--sp-12) var(--sp-6);
+    }
+
+    .featured {
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      margin-bottom: var(--sp-12);
+      display: flex;
+      gap: var(--sp-6);
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-md);
+    }
+    .featured-icon {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: var(--r-lg);
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 38px;
+    }
+    .featured-body { flex: 1; min-width: 280px; }
+    .featured .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .featured h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .featured .meta {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: var(--sp-4);
+    }
+    .featured p { font-size: 14px; color: var(--text-2); margin: 0 0 var(--sp-4); line-height: 1.55; }
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .featured-cta:hover { background: var(--accent-hover); }
+
+    .section-label {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-3);
+      letter-spacing: -0.01em;
+    }
+    .section-intro {
+      font-size: 15px;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-8);
+      max-width: 720px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--sp-4);
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+    .card-state {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: var(--sp-3);
+    }
+    .card-state.intl { background: var(--warm); color: var(--text-2); }
+    .card-name {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.25;
+      font-weight: 400;
+      margin: 0 0 4px;
+      color: var(--text);
+    }
+    .card-credentials {
+      font-size: 12px;
+      color: var(--text-3);
+      letter-spacing: 0.01em;
+      margin: 0 0 var(--sp-3);
+    }
+    .card-location {
+      font-size: 14px;
+      color: var(--text-2);
+      margin: 0 0 var(--sp-3);
+    }
+    .card-note {
+      font-size: 13px;
+      color: var(--text-2);
+      background: var(--accent-light);
+      border-radius: var(--r-sm);
+      padding: 8px 10px;
+      margin: var(--sp-3) 0 0;
+      line-height: 1.4;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: var(--sp-3);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .source-disclosure {
+      margin-top: var(--sp-12);
+      padding: var(--sp-6);
+      background: var(--warm);
+      border-radius: var(--r-md);
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .source-disclosure a { color: var(--accent); text-decoration: underline; }
+    .source-disclosure strong { color: var(--text); }
+
+    footer {
+      text-align: center;
+      padding: var(--sp-12) var(--sp-6);
+      border-top: 1px solid var(--border);
+      color: var(--text-3);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    footer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+    @media (max-width: 720px) {
+      .hero { padding: var(--sp-12) 24px var(--sp-8); }
+      .hero h1 { font-size: 38px; }
+      .hero .subtitle { font-size: 16px; }
+      .featured { flex-direction: column; text-align: center; }
+      .container { padding: var(--sp-8) var(--sp-4); }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a href="index.html" class="logo" aria-label="Home">
+        <div class="logo-mark">M</div>
+        <div class="logo-type">The Mold <i>Report</i></div>
+      </a>
+      <a href="index.html" class="back-link">&larr; Back to The Mold Report</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Provider Directory</div>
+      <h1>Find a certified CIRS provider</h1>
+      <p class="subtitle">Practitioners trained in the Shoemaker Protocol. Verified through Surviving Mold's official certification list, with MoldCo Care included as a telehealth option.</p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- FEATURED — MoldCo Care -->
+    <div class="featured">
+      <div class="featured-icon">M</div>
+      <div class="featured-body">
+        <span class="badge">Telehealth · Multi-state</span>
+        <h2>MoldCo Care</h2>
+        <p class="meta">Founded by former patients · Medical Director: Dr. Scott McMahon (Shoemaker-certified)</p>
+        <p>The only clinician-led virtual clinic dedicated to mold toxicity. Unlimited provider access, lab-driven diagnosis through LabCorp, and an online dashboard to track progress through each phase of the protocol. Plans run $107–$313/month depending on prescribed medications.</p>
+        <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=providers_featured" class="featured-cta" target="_blank" rel="noopener noreferrer">Visit MoldCo Care →</a>
+      </div>
+    </div>
+
+    <!-- DIRECTORY -->
+    <h2 class="section-label">Shoemaker Protocol-certified practitioners</h2>
+    <p class="section-intro">28 practitioners certified by Dr. Ritchie Shoemaker, listed alphabetically by last name. Click any name to view their bio and contact information on Surviving Mold.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="card-state intl">London / Lincoln, UK</span>
+        <h3 class="card-name">Louise Carder</h3>
+        <p class="card-credentials">BSc Nutr. Med., PgDip</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">New Jersey</span>
+        <h3 class="card-name">Jodie A. Dashore</h3>
+        <p class="card-credentials">PhD, OTD, BCIP, HHP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Georgia · Florida · South Carolina</span>
+        <h3 class="card-name">Christine Deacher</h3>
+        <p class="card-credentials">DO</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">New Hampshire</span>
+        <h3 class="card-name">Margaret DiTulio</h3>
+        <p class="card-credentials">APRN, FNP, MS, MBA</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">California</span>
+        <h3 class="card-name">Ming Dooley</h3>
+        <p class="card-credentials">L.Ac</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Colorado</span>
+        <h3 class="card-name">Eric Dorninger</h3>
+        <p class="card-credentials">ND, LAc</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Washington</span>
+        <h3 class="card-name">Linda S. Goggin</h3>
+        <p class="card-credentials">MD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Virginia</span>
+        <h3 class="card-name">Andrew Heyman</h3>
+        <p class="card-credentials">MD, MHSA</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">California</span>
+        <h3 class="card-name">Lysander Jim</h3>
+        <p class="card-credentials">MD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Hawaii</span>
+        <h3 class="card-name">Karen D. Johnson</h3>
+        <p class="card-credentials">MD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Virginia</span>
+        <h3 class="card-name">Lynese L. Lawson</h3>
+        <p class="card-credentials">DO, ABAARM, IFMCP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Maryland</span>
+        <h3 class="card-name">LJ Leo</h3>
+        <p class="card-credentials">DO, DC, MS, MBA, FAARM, FICT, FAAO, FACACN, ABAARM, IFMCP, DHERB</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">New Mexico</span>
+        <h3 class="card-name">Scott W. McMahon</h3>
+        <p class="card-credentials">MD</p>
+        <p class="card-note"><strong>Also Medical Director, MoldCo Care</strong> — telehealth available across multiple states</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Virginia</span>
+        <h3 class="card-name">Jacki Meinhardt</h3>
+        <p class="card-credentials">NP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">California · Montana</span>
+        <h3 class="card-name">Kellyn Milani</h3>
+        <p class="card-credentials">ND</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">California</span>
+        <h3 class="card-name">Aaron Newman</h3>
+        <p class="card-credentials">DC, MSN, FNP-C, PMHNP-BC, RN</p>
+        <p class="card-note">Online available: OR, WA, NV, NZ</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Florida</span>
+        <h3 class="card-name">Anjali Noble</h3>
+        <p class="card-credentials">DO, FACOI, FAARFM, FMNM, AOBIM</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Texas</span>
+        <h3 class="card-name">Olusegun Oseni</h3>
+        <p class="card-credentials">FCCP, DABSM</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">North Carolina</span>
+        <h3 class="card-name">Diane Parks</h3>
+        <p class="card-credentials">NP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">New Jersey</span>
+        <h3 class="card-name">Michael Rothman</h3>
+        <p class="card-credentials">MD, FACEP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Arizona</span>
+        <h3 class="card-name">Jennifer Smith</h3>
+        <p class="card-credentials">NMD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">New Mexico</span>
+        <h3 class="card-name">Lauren Jones Sparks</h3>
+        <p class="card-credentials">DNP, CNP, APRN, PMHNP-BC, MA, RN</p>
+        <p class="card-note">Online available: AZ, NV</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Florida</span>
+        <h3 class="card-name">Craig Tanio</h3>
+        <p class="card-credentials">MD, FACP</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">South Carolina</span>
+        <h3 class="card-name">Natasha Thomas</h3>
+        <p class="card-credentials">MD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Montana · Oregon</span>
+        <h3 class="card-name">Robin Thomson</h3>
+        <p class="card-credentials">ND</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Pennsylvania</span>
+        <h3 class="card-name">April Vukelic</h3>
+        <p class="card-credentials">DO</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state intl">Alberta, Canada</span>
+        <h3 class="card-name">Mark Volmer</h3>
+        <p class="card-credentials">D.Ac</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-state">Wisconsin</span>
+        <h3 class="card-name">John Whitcomb</h3>
+        <p class="card-credentials">MD</p>
+        <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer" class="card-link">View profile →</a>
+      </div>
+
+    </div>
+
+    <!-- SOURCE DISCLOSURE -->
+    <div class="source-disclosure">
+      <p><strong>About this list:</strong> Practitioner names, credentials, and locations are sourced from <a href="https://www.survivingmold.com/shoemaker-protocol/list-of-certified-practitioners" target="_blank" rel="noopener noreferrer">Surviving Mold's official Shoemaker Protocol Certified Practitioners list</a>, last reviewed April 28, 2026. This is the authoritative source — practitioners are added there as they complete certification. We recommend verifying current status and contact details on Surviving Mold before reaching out.</p>
+      <p style="margin-top:var(--sp-3);"><strong>Disclosure:</strong> The Mold Report is published by the team behind MoldCo. MoldCo Care is featured at the top of this directory. Editorial coverage of the Shoemaker Protocol practitioner list is independent and reproduces the publicly available list verbatim.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 The Mold Report. All rights reserved.</p>
+    <p><a href="index.html">Back to The Mold Report</a> · <a href="mold-101.html">Mold 101</a> · <a href="about.html">About</a></p>
+    <p style="margin-top:8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com?utm_source=themoldreport&utm_medium=referral&utm_campaign=providers_footer">MoldCo</a> — America's leading virtual clinic for mold toxicity, built by former patients.</p>
+  </footer>
+
+</body>
+</html>
