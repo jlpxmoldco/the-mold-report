@@ -923,6 +923,278 @@ COMPLIANCE_SOFT_RULES = [
 ]
 
 
+# =========================================
+# DEFAMATION LINT (deterministic, no API needed)
+# =========================================
+# Layered defense for articles that name specific individuals or organizations
+# in connection with wrongdoing. Pairs with the prompt-based rule in
+# COMPLIANCE_RULES. Catches:
+#   - Named subject + attribution verb without hedging
+#   - Conclusory legal/moral phrases without hedging
+# Severity:
+#   HIGH   — article has NO legal-proceeding context anywhere → human review
+#   MEDIUM — context exists elsewhere but this sentence lacks hedge → auto-fix
+#   LOW    — already hedged; informational only
+
+DEFAMATION_RISKY_VERBS = [
+    'failed', 'fails', 'failing',
+    'ignored', 'ignores', 'ignoring',
+    'neglected', 'neglects', 'neglecting',
+    'knew',
+    'concealed', 'conceals', 'concealing',
+    'misled', 'mislead', 'misleads',
+    'defrauded', 'defrauds',
+    'abused', 'abuses',
+    'harassed', 'harasses',
+    'sickened', 'sickens', 'sickening',
+    'poisoned', 'poisons', 'poisoning',
+    'harmed', 'harms', 'harming',
+    'caused',
+    'refused', 'refuses', 'refusing',
+    'covered',
+    'lied', 'lies',
+]
+
+DEFAMATION_CONCLUSORY_PHRASES = [
+    r'is\s+negligent', r'was\s+negligent',
+    r'is\s+responsible\s+for', r'was\s+responsible\s+for',
+    r'guilty\s+of',
+    r'convicted\s+of',
+    r'liable\s+for',
+    r'in\s+violation\s+of',
+    r'knowingly\s+(failed|allowed|permitted|exposed|caused|sickened|let)',
+    r'deliberately\s+(failed|allowed|exposed|caused|covered|hid)',
+    r'intentionally\s+(failed|allowed|exposed|caused|covered|hid)',
+    r'covered\s+up',
+]
+
+DEFAMATION_HEDGE_INDICATORS = re.compile(
+    r'\b('
+    r'allegedly|alleged|allege[sd]?|alleging|allegations?|'
+    r'accused|accuses|accusations?|'
+    r'lawsuit|suit|sued|sues|suing|'
+    r'filed\s+(?:a\s+)?(?:suit|complaint|petition|action|claim)|'
+    r'complaint|petition|tribunal|'
+    r'court|judge|judgment|ruling|ruled|orders?|ordered|'
+    r'indicted|indictment|charged|charges|'
+    r'investigation|investigators?|'
+    r'cited|citation|violation|fined|'
+    r'claim[sd]?|claiming'
+    r')\b',
+    re.IGNORECASE,
+)
+
+DEFAMATION_CONCLUSORY_RE = re.compile('|'.join(DEFAMATION_CONCLUSORY_PHRASES), re.IGNORECASE)
+
+# Stopwords: never treat these as a named-subject by themselves
+DEFAMATION_SUBJECT_STOPWORDS = re.compile(
+    r'^(The|A|An|This|That|These|Those|It|He|She|They|We|Our|I|You|Your|His|Her|Their|My|There|Here|If|When|Where|While|After|Before|Since|Although|Because|However|Meanwhile|Still|Yet|But|And|Or|Reports|Cases|Mold|Renters|Tenants|Workers|Patients|Residents|Parents|Students|Children)$',
+)
+
+DEFAMATION_RISKY_VERB_PATTERN = re.compile(
+    r'\b([A-Z][a-zA-Z]*(?:\s+(?:of\s+|the\s+)?[A-Z][a-zA-Z]*){0,4})\s+'
+    r'((?i:' + '|'.join(DEFAMATION_RISKY_VERBS) + r'))\b'
+)
+
+
+def defamation_lint(article):
+    """Scan title + summary + editor's note for potentially defamatory
+    constructions. Returns dict with high/medium/low severity findings.
+    Returns empty result if article has defamation_lint_exempt: true."""
+    if article.get('defamation_lint_exempt'):
+        return {'has_hedge_context': True, 'high': [], 'medium': [], 'low': [], 'exempt': True}
+    title = (article.get('title') or '')
+    summary = (article.get('summary') or '')
+    editors_note = (article.get('editorsNote') or '')
+    full_text = f"{title}\n\n{summary}\n\n{editors_note}"
+    has_hedge_context = bool(DEFAMATION_HEDGE_INDICATORS.search(full_text))
+
+    findings = {'has_hedge_context': has_hedge_context, 'high': [], 'medium': [], 'low': []}
+
+    for source_label, text in [('title', title), ('summary', summary), ('editorsNote', editors_note)]:
+        for m in DEFAMATION_RISKY_VERB_PATTERN.finditer(text):
+            # Skip if subject is a single stopword (e.g., "The failed appeal")
+            if DEFAMATION_SUBJECT_STOPWORDS.match(m.group(1).strip()):
+                continue
+            sentence = text[max(0,m.start()-200):min(len(text), m.end()+200)]
+            sentence_has_hedge = bool(DEFAMATION_HEDGE_INDICATORS.search(sentence))
+            entry = {'where': source_label, 'match': m.group(0), 'subject': m.group(1),
+                     'verb': m.group(2), 'context': sentence}
+            if not has_hedge_context:
+                findings['high'].append(entry)
+            elif not sentence_has_hedge:
+                findings['medium'].append(entry)
+            else:
+                findings['low'].append(entry)
+
+        for m in DEFAMATION_CONCLUSORY_RE.finditer(text):
+            sentence = text[max(0,m.start()-200):min(len(text), m.end()+200)]
+            sentence_has_hedge = bool(DEFAMATION_HEDGE_INDICATORS.search(sentence))
+            entry = {'where': source_label, 'phrase': m.group(0), 'context': sentence}
+            if not has_hedge_context:
+                findings['high'].append(entry)
+            elif not sentence_has_hedge:
+                findings['medium'].append(entry)
+            else:
+                findings['low'].append(entry)
+    return findings
+
+
+def auto_hedge_text(text, hedge_word='allegedly'):
+    """Insert 'allegedly' before risky verbs whose containing sentence has
+    no hedge already. Returns (new_text, fixes_applied_count). Conservative:
+    only handles RISKY_VERB_PATTERN, not conclusory phrases (those need human
+    judgment to rewrite)."""
+    matches = list(DEFAMATION_RISKY_VERB_PATTERN.finditer(text))
+    if not matches:
+        return text, 0
+    fixes = 0
+    out = []
+    last_end = 0
+    for m in matches:
+        if DEFAMATION_SUBJECT_STOPWORDS.match(m.group(1).strip()):
+            continue
+        before = text[max(0,m.start()-200):m.start()]
+        after = text[m.end():min(len(text), m.end()+200)]
+        sent_offset = max(before.rfind('. '), before.rfind('! '),
+                          before.rfind('? '), before.rfind('\n'))
+        sent_start = m.start() - len(before) + sent_offset + 1 if sent_offset >= 0 else max(0, m.start()-200)
+        sent_end_after = min(
+            (after.find('. ') if '. ' in after else len(after)),
+            (after.find('! ') if '! ' in after else len(after)),
+            (after.find('? ') if '? ' in after else len(after)),
+        )
+        sentence = text[sent_start:m.end()+sent_end_after]
+        if DEFAMATION_HEDGE_INDICATORS.search(sentence):
+            continue
+        out.append(text[last_end:m.start(2)])
+        out.append(f"{hedge_word} ")
+        last_end = m.start(2)
+        fixes += 1
+    out.append(text[last_end:])
+    return ''.join(out), fixes
+
+
+def audit_defamation(apply_fixes=False):
+    """Audit articles.json for defamation risk. If apply_fixes=True, insert
+    'allegedly' into summaries (NOT titles — titles need title-case editing)
+    and save articles.json. Always writes a report to defamation_audit_report.md.
+    """
+    import json as _json
+    from datetime import datetime as _dt
+
+    articles_file = SCRIPT_DIR / "articles.json"
+    if not articles_file.exists():
+        print(f"  ✗ {articles_file} not found")
+        return
+
+    data = _json.loads(articles_file.read_text())
+    pubs = [a for a in data.get('articles', []) if a.get('status') == 'published']
+    print(f"Auditing {len(pubs)} published articles for defamation risk...")
+
+    high_severity_articles = []
+    medium_severity_articles = []
+    auto_fixed_articles = []
+
+    for a in pubs:
+        result = defamation_lint(a)
+        if not (result['high'] or result['medium']):
+            continue
+
+        record = {
+            'id': a['id'],
+            'title': a['title'],
+            'sourceUrl': a.get('sourceUrl', ''),
+            'has_hedge_context': result['has_hedge_context'],
+            'high': result['high'],
+            'medium': result['medium'],
+        }
+
+        if result['high']:
+            high_severity_articles.append(record)
+        elif result['medium']:
+            medium_severity_articles.append(record)
+
+        if apply_fixes and result['medium']:
+            # Auto-fix summary only (titles are surfaced for manual review)
+            new_summary, n_fixes = auto_hedge_text(a['summary'])
+            if n_fixes > 0:
+                record['original_summary'] = a['summary']
+                record['fixed_summary'] = new_summary
+                record['fixes_applied'] = n_fixes
+                a['summary'] = new_summary
+                a.setdefault('defamation_audit', {})
+                a['defamation_audit']['rewritten_at'] = _dt.utcnow().isoformat() + 'Z'
+                a['defamation_audit']['fixes_applied'] = n_fixes
+                auto_fixed_articles.append(record)
+
+    # Build report
+    lines = []
+    lines.append('# Defamation Audit Report')
+    lines.append(f'Generated: {_dt.utcnow().isoformat()}Z')
+    lines.append(f'Articles scanned: {len(pubs)}')
+    lines.append(f'HIGH severity (no hedge context anywhere): {len(high_severity_articles)}')
+    lines.append(f'MEDIUM severity (hedge elsewhere, but specific sentence missing it): {len(medium_severity_articles)}')
+    lines.append(f'Auto-fixed (allegedly inserted in summary): {len(auto_fixed_articles)}')
+    lines.append('')
+    lines.append('---')
+    lines.append('')
+
+    if high_severity_articles:
+        lines.append('## HIGH severity — manual review recommended')
+        lines.append('')
+        lines.append('These articles use accusatory language about a named subject and have no')
+        lines.append('legal-proceeding context (lawsuit, court, alleged) anywhere in title/summary/note.')
+        lines.append('Either add hedging language or remove the article.')
+        lines.append('')
+        for r in high_severity_articles:
+            lines.append(f"### {r['title']}")
+            lines.append(f"- ID: `{r['id']}`")
+            if r['sourceUrl']:
+                lines.append(f"- Source: {r['sourceUrl']}")
+            for f in r['high'][:5]:
+                if 'match' in f:
+                    lines.append(f"- [{f['where']}] flagged: **{f['match']}**")
+                else:
+                    lines.append(f"- [{f['where']}] flagged phrase: **{f['phrase']}**")
+            lines.append('')
+
+    if medium_severity_articles:
+        lines.append('## MEDIUM severity — auto-fixed (or recommended)')
+        lines.append('')
+        for r in medium_severity_articles:
+            lines.append(f"### {r['title']}")
+            lines.append(f"- ID: `{r['id']}`")
+            for f in r['medium'][:5]:
+                if 'match' in f:
+                    lines.append(f"- [{f['where']}] flagged: **{f['match']}**")
+                else:
+                    lines.append(f"- [{f['where']}] flagged phrase: **{f['phrase']}**")
+            if 'fixed_summary' in r:
+                lines.append('')
+                lines.append('Auto-fix applied to summary:')
+                lines.append(f"- BEFORE: `{r['original_summary'][:300]}...`" if len(r['original_summary']) > 300 else f"- BEFORE: `{r['original_summary']}`")
+                lines.append(f"- AFTER:  `{r['fixed_summary'][:300]}...`" if len(r['fixed_summary']) > 300 else f"- AFTER:  `{r['fixed_summary']}`")
+            lines.append('')
+
+    report_path = SCRIPT_DIR / 'defamation_audit_report.md'
+    report_path.write_text('\n'.join(lines))
+    print(f"  Report written: {report_path}")
+    print(f"  HIGH:  {len(high_severity_articles)} (manual review)")
+    print(f"  MED:   {len(medium_severity_articles)} ({'auto-fixed' if apply_fixes else 'fix on next run with --apply'})")
+
+    if apply_fixes and auto_fixed_articles:
+        articles_file.write_text(_json.dumps(data, indent=2, ensure_ascii=False))
+        print(f"  ✓ Saved articles.json with {sum(r['fixes_applied'] for r in auto_fixed_articles)} fixes across {len(auto_fixed_articles)} articles")
+        print(f"  Run --regenerate-all to rebuild the article HTML pages.")
+    return {
+        'high': high_severity_articles,
+        'medium': medium_severity_articles,
+        'auto_fixed': auto_fixed_articles,
+    }
+
+
+
 def compliance_lint(article):
     """Deterministic compliance lint. Runs without API access.
 
@@ -953,6 +1225,33 @@ def compliance_lint(article):
         m = rule["trigger"].search(blob)
         if m:
             soft.append({"name": rule["name"], "message": rule["message"], "match": m.group(0)})
+
+    # Defamation lint — HIGH severity findings escalate to hard violations.
+    # MEDIUM go to soft warnings (auto-fixable on next regeneration via
+    # --audit-defamation --apply).
+    defam = defamation_lint(article)
+    for entry in defam.get('high', []):
+        m = entry.get('match') or entry.get('phrase') or '?'
+        hard.append({
+            'name': 'defamation_risk_high',
+            'message': (
+                f"Defamation lint HIGH: '{m}' in {entry['where']}. "
+                "No legal-proceeding context (lawsuit/court/alleged) anywhere in "
+                "the article. Either add hedging language or do not publish."
+            ),
+            'match': m,
+        })
+    for entry in defam.get('medium', []):
+        m = entry.get('match') or entry.get('phrase') or '?'
+        soft.append({
+            'name': 'defamation_risk_medium',
+            'message': (
+                f"Defamation lint MEDIUM: '{m}' in {entry['where']}. "
+                "Hedge context exists elsewhere; this sentence is missing it. "
+                "Consider inserting 'allegedly'."
+            ),
+            'match': m,
+        })
 
     return hard, soft
 
@@ -3095,10 +3394,16 @@ How it works:
                         help="Publish pre-approved articles from FILE (no API key needed). Deploys to GitHub.")
     parser.add_argument("--regenerate-all", action="store_true",
                         help="Re-render every article HTML page from articles.json without re-running editorial agents. Use after a template change to backfill existing articles.")
+    parser.add_argument("--audit-defamation", action="store_true",
+                        help="Audit articles.json for defamation risk. Writes a report to defamation_audit_report.md.")
+    parser.add_argument("--apply", action="store_true",
+                        help="Used with --audit-defamation: apply safe auto-fixes (insert 'allegedly' in summaries) and save articles.json.")
     args = parser.parse_args()
 
     if args.fetch_only:
         fetch_only_pipeline()
+    elif args.audit_defamation:
+        audit_defamation(apply_fixes=args.apply)
     elif args.regenerate_all:
         regenerate_all_articles()
     elif args.publish:
