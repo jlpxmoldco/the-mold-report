@@ -1490,6 +1490,38 @@
       .nav-fab { display: flex; }
     }
 
+    /* ─── Cost tags + provider CTA ─── */
+    .cost-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--warm);
+      color: var(--text-2);
+      padding: 2px 9px;
+      border-radius: 999px;
+      margin: 0 2px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      vertical-align: baseline;
+    }
+    .provider-cta {
+      margin: var(--sp-8) 0 var(--sp-4);
+      padding: var(--sp-6) var(--sp-6);
+      background: var(--accent-light);
+      border-radius: var(--r-md);
+      text-align: center;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .provider-cta strong { color: var(--accent); }
+    .provider-cta a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
   </style>
 </head>
 <body>
@@ -1580,11 +1612,11 @@
 
       <p>If you're reading this, there's a good chance you've been told your symptoms are stress, anxiety, or "all in your head." You've seen multiple doctors. Your labs come back "normal." But you know something is wrong.</p>
 
-      <p>Mold illness — formally called <strong>Chronic Inflammatory Response Syndrome (<span class="glossary" tabindex="0">CIRS<span class="glossary-tip">A multi-system inflammatory illness triggered by biotoxins from water-damaged buildings in genetically susceptible individuals.</span></span>)</strong> — is not an allergy. It is not a fungal infection. It is an <strong>innate immune response</strong> triggered by biotoxins produced by organisms found inside water-damaged buildings. And it is identifiable through blood biomarkers that most doctors never think to order.</p>
+      <p>Mold illness — formally called <strong>Chronic Inflammatory Response Syndrome (<span class="glossary" tabindex="0">CIRS<span class="glossary-tip">A multi-system inflammatory illness triggered by biotoxins from water-damaged buildings in genetically susceptible individuals.</span></span>)</strong> — is not an allergy. It is not a fungal infection. It is an <strong>innate immune response</strong> triggered by <span class="glossary" tabindex="0">biotoxins<span class="glossary-tip">Toxic substances produced by living organisms (molds, bacteria, actinobacteria) that inhabit water-damaged buildings. They drive a sustained immune response when inhaled, ingested, or absorbed through the skin.</span></span> produced by organisms found inside water-damaged buildings. And it is identifiable through blood biomarkers that most doctors never think to order.</p>
 
       <p>When genetically susceptible individuals are exposed to these environments, their immune systems cannot properly clear the toxins. The result is a chronic, multi-system inflammatory response that can affect the brain, joints, lungs, gut, and hormonal regulation simultaneously — which is why patients so often get passed from specialist to specialist without answers.</p>
 
-      <p>This understanding was developed over 30 years of clinical research by Dr. Ritchie Shoemaker and colleagues, beginning with the observation that patients exposed to water-damaged buildings showed consistent patterns of biomarker abnormalities — patterns that no other disease produces in the same combination. Today, this research forms the foundation of a structured, treatable framework.</p>
+      <p>This understanding was developed over 30 years of clinical research by Dr. Ritchie <span class="glossary" tabindex="0">Shoemaker<span class="glossary-tip">Dr. Ritchie Shoemaker. Pioneered the diagnostic and treatment framework for CIRS — a 12-step protocol structured around removing exposure, binding biotoxins, addressing nasal MARCoNS, and restoring regulatory peptides like MSH and VIP.</span></span> and colleagues, beginning with the observation that patients exposed to water-damaged buildings showed consistent patterns of biomarker abnormalities — patterns that no other disease produces in the same combination. Today, this research forms the foundation of a structured, treatable framework.</p>
 
       <div class="stat-row">
         <div class="stat-card">
@@ -1720,7 +1752,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <h3>Innate Immune Activation &amp; Cytokine Storm</h3>
-            <p>The innate immune system responds with sustained, escalating inflammation. Cytokines and growth factors — particularly TGF-β1 — rise. MMP-9 elevates, driving vascular inflammation and tissue destruction. This is not a brief inflammatory response that resolves; it is a self-perpetuating cycle as long as the biotoxin remains.</p>
+            <p>The innate immune system responds with sustained, escalating inflammation. <span class="glossary" tabindex="0">Cytokines<span class="glossary-tip">Signaling molecules released by immune cells. Sustained cytokine activation in CIRS drives chronic inflammation across multiple body systems — respiratory, gut, neurological, musculoskeletal.</span></span> and growth factors — particularly TGF-β1 — rise. MMP-9 elevates, driving vascular inflammation and tissue destruction. This is not a brief inflammatory response that resolves; it is a self-perpetuating cycle as long as the biotoxin remains.</p>
           </div>
         </div>
         <div class="step">
@@ -1896,7 +1928,7 @@
         <strong>Gut function</strong> — MSH regulates gut motility and mucosal immunity. Low MSH contributes to GI symptoms.<br>
         <strong>Mood</strong> — MSH influences neurotransmitter balance. Low MSH contributes to depression and irritability.<br>
         <strong>Immune regulation</strong> — MSH is anti-inflammatory. Without it, the inflammatory cascade continues unchecked.<br>
-        <strong>Nasal defense</strong> — Low MSH creates conditions that allow MARCoNS (antibiotic-resistant staph) to colonize deep nasal passages.</p>
+        <strong>Nasal defense</strong> — Low MSH creates conditions that allow <span class="glossary" tabindex="0">MARCoNS<span class="glossary-tip">Multiple Antibiotic Resistant Coagulase Negative Staphylococci. A biofilm-forming bacterial colonization in deep nasal passages, common when MSH is low. Must be cleared before VIP therapy can succeed.</span></span> (antibiotic-resistant staph) to colonize deep nasal passages.</p>
         <p>This single biomarker abnormality helps explain why CIRS patients experience symptoms across so many apparently unrelated systems. They are not unrelated — they share a common regulatory failure.</p>
         </div>
       </div>
@@ -2067,11 +2099,11 @@
 
       <p>This is where it gets actionable. If you suspect mold illness, the first concrete step is <strong>blood biomarker testing</strong>. These tests are standard laboratory panels run at facilities like LabCorp — there is nothing experimental about the individual tests themselves. The difference is knowing which markers to look at and how to interpret the patterns.</p>
 
-      <p>A starting panel typically includes TGF-β1, MMP-9, and MSH. These three markers, together, can provide initial insight into whether an inflammatory pattern consistent with biotoxin exposure is present. More comprehensive panels may add C4a, VIP, VEGF, and other markers. Beyond blood work, home environmental testing (HERTSMI-2/ERMI) and HLA genetic testing can complete the picture — telling you not just whether you're inflamed, but whether your environment is driving it and whether your genetics make you susceptible.</p>
+      <p>A starting panel <span class="cost-tag">$56–$799 at MoldCo</span> typically includes TGF-β1, MMP-9, and MSH. These three markers, together, can provide initial insight into whether an inflammatory pattern consistent with biotoxin exposure is present. More comprehensive panels may add C4a, VIP, VEGF, and other markers. Beyond blood work, home environmental testing (HERTSMI-2 / <span class="glossary" tabindex="0">ERMI<span class="glossary-tip">Environmental Relative Moldiness Index. A dust test quantifying 36 mold species — both water-damage indicators and common background molds — to assess a home's overall mold burden.</span></span>) and HLA genetic testing can complete the picture — telling you not just whether you're inflamed, but whether your environment is driving it and whether your genetics make you susceptible.</p>
 
       <div class="callout warn">
         <div class="callout-title">About Urine Mycotoxin Testing</div>
-        <p>Urine mycotoxin testing is commercially available but has significant limitations. Published research has noted concerns including the lack of validated case definitions, absence of proper control groups, and potential confounding from dietary mycotoxin exposure. Blood biomarker testing provides more clinically validated data for evaluating mold-related illness.</p>
+        <p>Urine <span class="glossary" tabindex="0">mycotoxin<span class="glossary-tip">A toxic compound produced by certain molds. One of several biotoxin classes that drive CIRS inflammation. Note: urine mycotoxin testing is not clinically validated for CIRS diagnosis — blood biomarker testing is the validated approach.</span></span> testing is commercially available but has significant limitations. Published research has noted concerns including the lack of validated case definitions, absence of proper control groups, and potential confounding from dietary mycotoxin exposure. Blood biomarker testing provides more clinically validated data for evaluating mold-related illness.</p>
       </div>
 
       <p><strong>What to expect:</strong> Blood biomarker testing is a standard blood draw at a laboratory. Results typically take 5–10 business days. The markers themselves are well-established laboratory tests. The interpretation of results in the context of mold-related illness should ideally involve a provider experienced with this specific biomarker pattern — because the pattern matters more than any single value.</p>
@@ -2171,7 +2203,7 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <h3>Binding Agents</h3>
-            <p>Colesevelam (Welchol) or cholestyramine (CSM) may be used as binding agents to help remove biotoxins from the body. These agents work in the gut to bind toxins and facilitate their elimination rather than allowing recirculation. MoldCo's providers guide patients through this phase with ongoing support and monitoring.</p>
+            <p>Colesevelam (Welchol) or cholestyramine (CSM) may be used as <span class="glossary" tabindex="0">binding agents<span class="glossary-tip">Agents (typically cholestyramine or colesevelam) taken with meals to bind biotoxins in the gut, preventing re-absorption and allowing the body to eliminate them. Step 2 of the Shoemaker Protocol.</span></span> to help remove biotoxins from the body. These agents work in the gut to bind toxins and facilitate their elimination rather than allowing recirculation. MoldCo's providers guide patients through this phase with ongoing support and monitoring <span class="cost-tag">$107–$313 / month</span>.</p>
           </div>
         </div>
         <div class="step">
@@ -2237,7 +2269,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <h3>Professional Remediation</h3>
-            <p>If testing confirms elevated levels, professional remediation by an experienced company is recommended. Proper remediation addresses the moisture source (not just the visible mold), removes contaminated materials, and verifies clearance through post-remediation testing.</p>
+            <p>If testing confirms elevated levels, professional remediation by an experienced company is recommended <span class="cost-tag">typically $5,000–$25,000</span>. Proper remediation addresses the moisture source (not just the visible mold), removes contaminated materials, and verifies clearance through post-remediation testing.</p>
           </div>
         </div>
       </div>
@@ -2359,7 +2391,7 @@
           <span class="ch7-step-pill">Step 2 — deeper</span>
         </div>
         <h3>The right test for a real answer</h3>
-        <p>For a data-driven assessment, use the <strong>HERTSMI-2</strong> — a dust test that analyzes the DNA of the 5 most problematic mold species and gives you a single score. For a broader picture, the <strong>ERMI</strong> measures 36 species, including both water-damage indicators and common background molds.</p>
+        <p>For a data-driven assessment, use the <strong>HERTSMI-2</strong> <span class="cost-tag">$199 at MoldCo</span> — a dust test that analyzes the DNA of the 5 most problematic mold species and gives you a single score. For a broader picture, the <strong>ERMI</strong> measures 36 species, including both water-damage indicators and common background molds.</p>
 
         <div class="score-bands">
           <div class="score-band safe">
@@ -2588,7 +2620,7 @@
         <a href="https://www.moldco.com/care?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_ch10_care" class="next-card" target="_blank" rel="noopener noreferrer">
           <div class="step-badge">3</div>
           <h4>Start Treatment</h4>
-          <p>MoldCo's providers — trained under the guidance of Shoemaker and McMahon — walk you through every step. Unlimited virtual access, ongoing support, and an online dashboard to track your progress.</p>
+          <p>MoldCo's providers — trained under the guidance of Shoemaker and McMahon — walk you through every step. Plans run $107–$313/month depending on prescribed medications. Unlimited virtual access, ongoing support, and an online dashboard to track your progress.</p>
         </a>
         <a href="index.html" class="next-card">
           <div class="step-badge">4</div>
@@ -2597,6 +2629,10 @@
         </a>
       </div>
 
+
+      <div class="provider-cta">
+        <p style="margin:0;"><strong>Looking for a different provider?</strong> Browse our directory of <a href="providers.html">28 Shoemaker Protocol-certified practitioners</a> across the U.S. and internationally — sourced from Surviving Mold's official list.</p>
+      </div>
       <p style="font-size:13px;color:var(--text-3);text-align:center;margin-top:var(--sp-6);">MoldCo is America's leading clinician-led virtual clinic for mold toxicity — founded by former patients, guided by published research. MoldCo does not diagnose CIRS. Individual results vary. Always consult a qualified healthcare provider for medical decisions. The Mold Report's editorial coverage is independent of MoldCo.</p>
     </section>
 
