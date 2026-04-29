@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-04-28T14:18:06.846523+00:00",
+  "lastUpdated": "2026-04-29T14:06:42.711908+00:00",
   "articles": [
+    {
+      "id": "cf5df03af810",
+      "title": "Review Examines How the Mycotoxin Deoxynivalenol Damages the Liver",
+      "summary": "A new peer-reviewed review in Archives of Toxicology, led by researcher Zhu K., catalogs recent advances in understanding how deoxynivalenol — a trichothecene mycotoxin produced by Fusarium fungi and one of the most prevalent food-borne contaminants worldwide — damages liver tissue.\n\nThe paper synthesizes current evidence on deoxynivalenol's hepatotoxic mechanisms, including oxidative stress, mitochondrial dysfunction, and inflammatory signaling, and surveys protective strategies under investigation. Deoxynivalenol, also known as vomitoxin, is most often studied as a contaminant of cereal grains, but its biological effects extend across multiple organ systems.\n\nThe review adds to the broader literature documenting how mycotoxins disrupt human physiology, a body of research that the mold illness community has long tracked alongside building-related biotoxin exposure.",
+      "editorsNote": "Trichothecenes are the same family of mycotoxins produced by Stachybotrys chartarum, the so-called black mold associated with water-damaged buildings. The mechanisms reviewed here — oxidative stress, mitochondrial injury, immune dysregulation — overlap with pathways implicated in CIRS literature.",
+      "source": "Arch Toxicol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42047702/",
+      "author": "Zhu K",
+      "publishedAt": "2026-04-28T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Review Examines How the Mycotoxin Deoxynivalenol Damages the Liver",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "deoxynivalenol",
+        "trichothecenes",
+        "research",
+        "hepatotoxicity"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Deoxynivalenol Mycotoxin Liver Damage: New Review",
+      "seoDescription": "Archives of Toxicology review summarizes how the Fusarium trichothecene mycotoxin deoxynivalenol damages the liver, plus emerging protective strategies.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-04-29T14:06:42.711788+00:00"
+    },
     {
       "id": "036242ec9786",
       "title": "Miami University Students Report Black Mold in Dorm Showers and AC Units",
@@ -48,7 +75,7 @@
         "indoor air quality",
         "cirs"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 2,
       "seoTitle": "Flood Cleanup: Why Drying Isn't Enough to Prevent Mold",
       "seoDescription": "Flood-damaged homes may need full remediation, not just drying, before they're safe to occupy. What the latest guidance says about mold risk.",
