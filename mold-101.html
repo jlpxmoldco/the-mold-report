@@ -999,6 +999,252 @@
     @media (min-width: 641px) {
       .sticky-cta { display: none; }
     }
+    /* ─── Chapter 7: navigating the home (deep-dives) ─── */
+    .ch7-deep {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-10);
+      margin: var(--sp-10) 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .ch7-deep-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+    .ch7-step-pill {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+    }
+    .ch7-deep h3 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-4);
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .ch7-deep > p { font-size: 16px; color: var(--text-2); margin: 0 0 var(--sp-6); }
+    .ch7-deep > p strong { color: var(--text); }
+
+    /* Room grid (Home Detective) */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: var(--sp-3);
+      margin: var(--sp-6) 0;
+    }
+    .room-card {
+      display: flex;
+      gap: var(--sp-4);
+      background: var(--warm);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4);
+      border: 1px solid transparent;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .room-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .room-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r-md);
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    .room-icon svg { width: 30px; height: 30px; }
+    .room-body { flex: 1; min-width: 0; }
+    .room-body h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .check-list li {
+      position: relative;
+      padding-left: 26px;
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1.5px solid var(--accent);
+      background: var(--surface);
+    }
+    .check-list li::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      transform: rotate(-45deg);
+      opacity: 0.55;
+    }
+    .check-list li strong { color: var(--text); font-weight: 600; }
+
+    /* Next-step banner */
+    .next-step {
+      margin-top: var(--sp-6);
+      padding: var(--sp-4) var(--sp-6);
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--r-sm);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .next-step strong { color: var(--accent); }
+
+    /* HERTSMI-2 score bands */
+    .score-bands {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+      margin: var(--sp-6) 0;
+    }
+    .score-band {
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: var(--shadow-sm);
+    }
+    .score-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--band-from), var(--band-to));
+      z-index: 0;
+    }
+    .score-band > * { position: relative; z-index: 1; }
+    .score-band.safe    { --band-from: #1B4D3E; --band-to: #3A8A6F; }
+    .score-band.caution { --band-from: #B98322; --band-to: #E0A83F; }
+    .score-band.danger  { --band-from: #A43E2A; --band-to: #C9553A; }
+    .score-band .score-value {
+      font-family: var(--serif);
+      font-size: 60px;
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+      letter-spacing: -0.02em;
+    }
+    .score-band .score-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--sp-3);
+      opacity: 0.95;
+    }
+    .score-band p {
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0;
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* Hire-the-experts cards */
+    .experts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      margin: var(--sp-6) 0;
+    }
+    .expert-card {
+      background: var(--warm);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--border);
+    }
+    .expert-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      margin-bottom: var(--sp-3);
+    }
+    .expert-card h4 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0 0 var(--sp-4);
+      color: var(--text);
+    }
+
+    /* Golden-rule callout variant */
+    .callout.golden-rule {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+    }
+    .callout.golden-rule .callout-title { color: var(--accent); }
+
+    .ch7-resources {
+      font-size: 14px;
+      color: var(--text-2);
+      margin: var(--sp-4) 0 0;
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .ch7-resources a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 720px) {
+      .score-bands { grid-template-columns: 1fr; }
+      .experts-grid { grid-template-columns: 1fr; }
+      .ch7-deep { padding: var(--sp-6); }
+      .ch7-deep h3 { font-size: 24px; }
+      .score-band { min-height: 0; padding: var(--sp-4); }
+      .score-band .score-value { font-size: 48px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1732,6 +1978,186 @@
           </div>
         </div>
       </div>
+
+      <!-- ── Sub-section A: Become a home detective ── -->
+      <div class="ch7-deep">
+        <div class="ch7-deep-header">
+          <span class="ch7-step-pill">Step 1 — deeper</span>
+        </div>
+        <h3>Become a home detective</h3>
+        <p>Use your senses. A musty, earthy smell is the most reliable sign of active mold. Follow that clue with a visual hunt for water damage in these common hotspots.</p>
+
+        <div class="room-grid">
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a1 1 0 0 1 1 1v6H4V4a1 1 0 0 1 1-1z"/><path d="M4 10v10a1 1 0 0 0 1 1h6V10"/><path d="M11 10v11h8a1 1 0 0 0 1-1V10"/><circle cx="8" cy="6.5" r="1"/><circle cx="16" cy="6.5" r="1"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Kitchens</h4>
+              <ul class="check-list">
+                <li>Under the sink for drips</li>
+                <li>Behind the refrigerator</li>
+                <li>Inside the pantry</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V9"/><path d="M21 18v-4a3 3 0 0 0-3-3H8"/><path d="M3 14h18"/><path d="M3 18h18"/><circle cx="7" cy="11" r="2"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Bedrooms</h4>
+              <ul class="check-list">
+                <li>Condensation on windows, especially in corners</li>
+                <li>Behind furniture against exterior walls</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2"/><path d="M3 12h18"/><path d="M5 12v4a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-4"/><path d="M8 20l-1 2"/><path d="M16 20l1 2"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Bathrooms</h4>
+              <ul class="check-list">
+                <li>Shower tile grout</li>
+                <li>Under the sink</li>
+                <li>Around the base of the toilet</li>
+                <li>Poor ventilation (is there an exhaust fan?)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="1.8"/><circle cx="8" cy="6.5" r="0.6"/><circle cx="11" cy="6.5" r="0.6"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Laundry rooms</h4>
+              <ul class="check-list">
+                <li>Washing machine hoses for leaks</li>
+                <li>Dryer vents for blockages</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5"/><path d="M5 8v12h14V8"/><path d="M3 14h18"/><path d="M3 20h18"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Basements &amp; crawl spaces</h4>
+              <ul class="check-list">
+                <li>The most common source of hidden mold</li>
+                <li>Watch for ground moisture, lack of light, musty air</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>HVAC systems</h4>
+              <ul class="check-list">
+                <li>Musty smell when the system turns on</li>
+                <li>Drain pan and visible ductwork</li>
+                <li>Coils, drip pans, uninsulated ducts</li>
+                <li>Filters overdue for replacement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-card">
+            <div class="room-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+            </div>
+            <div class="room-body">
+              <h4>Wall cavities &amp; ceilings</h4>
+              <ul class="check-list">
+                <li>Water stains or discoloration</li>
+                <li>Bubbling or peeling paint</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-step">
+          <strong>Your next step:</strong> Walk through your home with this checklist. If you find multiple warning signs, the next step is to get objective data with a reliable test.
+        </div>
+      </div>
+
+      <!-- ── Sub-section B: The right test for a real answer ── -->
+      <div class="ch7-deep">
+        <div class="ch7-deep-header">
+          <span class="ch7-step-pill">Step 2 — deeper</span>
+        </div>
+        <h3>The right test for a real answer</h3>
+        <p>For a data-driven assessment, use the <strong>HERTSMI-2</strong> — a dust test that analyzes the DNA of the 5 most problematic mold species and gives you a single score. For a broader picture, the <strong>ERMI</strong> measures 36 species, including both water-damage indicators and common background molds.</p>
+
+        <div class="score-bands">
+          <div class="score-band safe">
+            <div class="score-value">&lt; 11</div>
+            <div class="score-label">Generally safe</div>
+            <p>Good news for your current living space. If you're still symptomatic, exposure may have occurred in a previous home, school, or workplace.</p>
+          </div>
+          <div class="score-band caution">
+            <div class="score-value">11&ndash;15</div>
+            <div class="score-label">Borderline. Caution advised.</div>
+            <p>Warrants further investigation by a professional inspector to pinpoint the source. Aggressive cleaning and air purification are essential.</p>
+          </div>
+          <div class="score-band danger">
+            <div class="score-value">&gt; 15</div>
+            <div class="score-label">Dangerous. Unsafe.</div>
+            <p>Strong evidence that your home is a source of toxic exposure. Top priority: a plan for professional remediation or relocation.</p>
+          </div>
+        </div>
+
+        <div class="next-step">
+          <strong>Your next step:</strong> Use your test score to guide your next action — plan for remediation, hire an inspector for a deeper look, or begin investigating past environments.
+        </div>
+      </div>
+
+      <!-- ── Sub-section C: Not all experts are created equal ── -->
+      <div class="ch7-deep">
+        <div class="ch7-deep-header">
+          <span class="ch7-step-pill">Step 3 — deeper</span>
+        </div>
+        <h3>Not all experts are created equal</h3>
+
+        <div class="callout golden-rule">
+          <div class="callout-title">The golden rule</div>
+          <p>The company that <strong>tests</strong> should not be the company that <strong>remediates</strong>. Hire two separate experts: an independent Indoor Environmental Professional (IEP) to inspect, and a certified remediation company to do the cleanup. This prevents conflicts of interest and ensures the job is done right.</p>
+        </div>
+
+        <div class="experts-grid">
+          <div class="expert-card">
+            <span class="expert-tag">Inspector (IEP)</span>
+            <h4>What to look for</h4>
+            <ul class="check-list">
+              <li><strong>Independent.</strong> Inspects and tests only — does not perform remediation. Their job is to be your unbiased scientific advocate.</li>
+              <li><strong>CIRS-literate.</strong> Familiar with the Shoemaker Protocol and HERTSMI-2 testing for chronically ill patients. If they dismiss these concepts, they're not the right fit.</li>
+              <li><strong>Right tools.</strong> Moisture meters, thermal imaging cameras (to find hidden leaks), and DNA-based dust tests (ERMI / HERTSMI-2) — not just unreliable air samples.</li>
+              <li><strong>Right certifications.</strong> Active credentials through ACAC, NORMI, or IICRC. Look for at least one.</li>
+            </ul>
+          </div>
+          <div class="expert-card">
+            <span class="expert-tag">Remediator</span>
+            <h4>What to look for</h4>
+            <ul class="check-list">
+              <li><strong>Follows IICRC S520.</strong> The non-negotiable industry gold standard for safe, effective remediation.</li>
+              <li><strong>Proper containment.</strong> Plastic sheeting and negative-air-pressure scrubbers to prevent cross-contaminating the rest of your home.</li>
+              <li><strong>Agrees to third-party clearance testing.</strong> A confident remediator welcomes an independent IEP back to verify success.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="ch7-resources">Find a vetted IEP through <a href="https://www.iaqa.org" target="_blank" rel="noopener noreferrer">IAQA.org</a> (Indoor Air Quality Association) or <a href="https://www.iicrc.org" target="_blank" rel="noopener noreferrer">IICRC.org</a> (Institute of Inspection, Cleaning and Restoration Certification). Conduct due diligence with your local Department of Consumer Affairs and Better Business Bureau before signing.</p>
+      </div>
+
 
       <div class="callout warn">
         <div class="callout-title">Do Not DIY</div>
