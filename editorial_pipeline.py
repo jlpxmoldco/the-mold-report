@@ -159,9 +159,13 @@ def get_corpus_context():
     return ""
 
 # PubMed eutils search queries (fetches recent peer-reviewed research)
+# Query #3 uses [tiab] field tags + AND structure: a mold-anchor term must
+# co-occur with a health-effect qualifier in title/abstract. Prevents loose-OR
+# false positives (e.g. "MMP-9 in skin aging" matching query #2).
 PUBMED_SEARCHES = [
     "mold illness OR mycotoxin exposure OR chronic inflammatory response syndrome OR water-damaged building",
     "TGF-beta1 mold OR MMP-9 biotoxin OR MSH mold OR Stachybotrys health",
+    '("Mold"[tiab] OR "microbial growth"[tiab] OR "dampness"[tiab] OR "water-damaged building"[tiab] OR "water-damaged buildings"[tiab] OR "Sick Building Syndrome"[tiab]) AND ("adverse health effects"[tiab] OR "Chronic Inflammatory Response Syndrome"[tiab] OR "innate immune system"[tiab] OR "comprehensive review"[tiab] OR "systematic review"[tiab])',
 ]
 PUBMED_DAYS_BACK = 30   # Only fetch articles from last 30 days
 PUBMED_MAX_PER_QUERY = 5
