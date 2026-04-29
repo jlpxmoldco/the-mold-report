@@ -688,6 +688,7 @@
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
       padding: var(--sp-6);
+      padding-right: 56px;
       box-shadow: var(--shadow-sm);
     }
     .cluster-card .cluster-num {
@@ -975,6 +976,9 @@
     }
 
     @media (max-width: 640px) {
+      .hero { padding: var(--sp-12) var(--sp-4) var(--sp-10); }
+      .chapter { margin-bottom: var(--sp-12); }
+      .chapter p { font-size: 15.5px; line-height: 1.65; margin: 0 0 var(--sp-4); }
       .toc-section { padding: var(--sp-6) var(--sp-4); }
       .toc-card { padding: var(--sp-5); }
       .toc-grid { grid-template-columns: 1fr; gap: 2px; }
@@ -985,24 +989,56 @@
       .step { gap: var(--sp-4); }
       .step-num { width: 32px; height: 32px; font-size: 16px; }
       .step:not(:last-child)::after { left: 16px; }
+      .step-body h3 { font-size: 18px; }
+      .step-body p { font-size: 14.5px; line-height: 1.6; }
       .bio-table { font-size: 12px; table-layout: fixed; width: 100%; }
       .bio-table td, .bio-table th { padding: var(--sp-2) var(--sp-2); word-wrap: break-word; }
       .bio-table th:nth-child(1), .bio-table td:nth-child(1) { width: 22%; }
       .bio-table th:nth-child(3), .bio-table td:nth-child(3) { width: 18%; }
-      .next-grid { grid-template-columns: 1fr; }
+      .next-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+      .next-card { padding: var(--sp-5); }
       .chapter-link { padding: 10px 12px; font-size: 12px; }
-      .cluster-grid { grid-template-columns: 1fr; }
-      .cluster-counter { flex-wrap: wrap; }
+      .cluster-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+      .cluster-card { padding: var(--sp-4); padding-right: 50px; }
+      .cluster-card .cluster-num { width: 22px; height: 22px; font-size: 11px; }
+      .cluster-card .cluster-name { font-size: 14px; }
+      .cluster-card .cluster-symptoms { font-size: 13px; line-height: 1.55; }
+      .cluster-card .cluster-check { top: 10px; right: 10px; width: 26px; height: 26px; }
+      .cluster-counter { flex-wrap: wrap; padding: var(--sp-4); }
       .cluster-counter .count-bar { max-width: 100%; flex-basis: 100%; order: 3; }
       .cluster-counter .count-msg { text-align: left; }
+      .cluster-deep { padding: var(--sp-5) var(--sp-5); margin: var(--sp-4) 0; }
+      .cluster-deep h3 { font-size: 18px; }
+      .cluster-deep p { font-size: 14.5px; line-height: 1.65; margin: 0 0 var(--sp-3); }
+      .callout { padding: var(--sp-4) var(--sp-5); }
+      .callout p { font-size: 14.5px; line-height: 1.6; }
+      .diagram { padding: var(--sp-4); margin: var(--sp-8) 0 var(--sp-10); border-radius: var(--r-lg); }
+      .diagram-caption { font-size: 11.5px; padding: 0 var(--sp-2); }
+      .stat-card { padding: var(--sp-4); }
+      .stat-card .number { font-size: 28px; }
+      .stat-card .label { font-size: 12px; }
+      .resource-card { flex-direction: column; text-align: center; padding: var(--sp-5); }
+      .takeaway { padding: var(--sp-4) var(--sp-5); }
+      .takeaway p { font-size: 14.5px; }
+      .glossary .glossary-tip { left: 0; transform: none; max-width: 220px; }
       .sticky-cta .sticky-text { display: none; }
       .hero-chapters { grid-template-columns: repeat(5, 1fr); gap: 6px; }
       .hero-chapter-link { padding: 10px 4px 8px; }
       .hero-chapter-link .hc-num { font-size: 17px; }
       .hero-chapter-link .hc-label { font-size: 9px; }
-      .cta-band { padding: var(--sp-8) var(--sp-6); }
-      .resource-card { flex-direction: column; text-align: center; }
-      .glossary .glossary-tip { left: 0; transform: none; max-width: 220px; }
+      .cta-band { padding: var(--sp-8) var(--sp-5); }
+      .cta-band h3 { font-size: 22px; }
+      .cta-band p { font-size: 14.5px; line-height: 1.6; margin-bottom: var(--sp-6); }
+      .cta-band .btn { padding: 12px 22px; font-size: 14px; }
+      .partner-label { font-size: 9.5px; padding: 3px 10px; }
+      .doctor-questions { padding: var(--sp-5); }
+      .doctor-questions h3 { font-size: 18px; }
+      .doctor-questions li { font-size: 14px; line-height: 1.55; }
+      .ref-list { padding: 0; }
+      .ref-item { padding: var(--sp-4); }
+      .ref-title { font-size: 14.5px; }
+      .ref-finding { font-size: 13.5px; }
+      .provider-cta { padding: var(--sp-5) var(--sp-4); font-size: 14px; }
     }
 
     @media (min-width: 641px) {
@@ -1540,19 +1576,17 @@
 
     /* ─── Partner CTA disclosure label ─── */
     .partner-label {
-      position: absolute;
-      top: 14px;
-      right: 18px;
+      display: inline-block;
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       background: rgba(255,255,255,0.85);
-      padding: 3px 9px;
+      padding: 4px 12px;
       border-radius: 999px;
       border: 1px solid rgba(27,77,62,0.18);
-      pointer-events: none;
+      margin: 0 auto var(--sp-4);
     }
 
   </style>
@@ -2440,7 +2474,7 @@
           <strong>Your next step:</strong> Use your test score to guide your next action — plan for remediation, hire an inspector for a deeper look, or begin investigating past environments.
         </div>
 
-        <div class="cta-band reveal" style="margin-top:var(--sp-8);padding:var(--sp-8);">
+        <div class="cta-band reveal" style="margin-top:var(--sp-8);">
           <span class="partner-label">From Our Partners</span>
           <h3 style="font-family:var(--serif);font-size:24px;font-weight:400;margin:0 0 8px;">Order a HERTSMI-2 home test</h3>
           <p style="font-size:14px;margin:0 auto 20px;max-width:480px;line-height:1.6;">A dust-DNA test for the 5 most problematic mold species. Ships to your home; no doctor visit required. Results delivered in your dashboard.</p>
