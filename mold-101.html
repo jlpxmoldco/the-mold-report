@@ -806,12 +806,6 @@
     .collapsible-body.open { max-height: 2000px; }
 
     /* STICKY MOBILE CTA */
-    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #1B4D3E 0%, #245E4C 100%); padding: 14px var(--sp-6); display: flex; align-items: center; justify-content: center; gap: var(--sp-4); z-index: 100; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 -4px 24px rgba(0,0,0,0.15); }
-    .sticky-cta.visible { transform: translateY(0); }
-    .sticky-cta .sticky-text { color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 500; }
-    .sticky-cta .sticky-btn { background: #fff; color: var(--accent); padding: 8px 20px; border-radius: var(--r-md); font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
-    .sticky-cta .sticky-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 20px; cursor: pointer; padding: 4px 8px; flex-shrink: 0; }
-
     /* GLOSSARY TOOLTIPS */
     .glossary {
       border-bottom: 1px dotted var(--accent);
@@ -977,7 +971,7 @@
     .dq-print:hover { background: var(--accent-hover); }
 
     @media print {
-      .masthead, .chapter-nav, .progress-bar, .sticky-cta, .cta-band, .hero, footer { display: none !important; }
+      .masthead, .chapter-nav, .progress-bar, .cta-band, .hero, footer { display: none !important; }
       .doctor-questions { border: 2px solid #000; break-inside: avoid; }
       .reveal { opacity: 1 !important; transform: none !important; }
     }
@@ -1028,7 +1022,6 @@
       .takeaway { padding: var(--sp-4) var(--sp-5); }
       .takeaway p { font-size: 14.5px; }
       .glossary .glossary-tip { left: 0; transform: none; max-width: 220px; }
-      .sticky-cta .sticky-text { display: none; }
       .hero-chapters { grid-template-columns: repeat(5, 1fr); gap: 6px; }
       .hero-chapter-link { padding: 10px 4px 8px; }
       .hero-chapter-link .hc-num { font-size: 17px; }
@@ -1047,14 +1040,9 @@
       .ref-finding { font-size: 13.5px; }
       .provider-cta { padding: var(--sp-5) var(--sp-4); font-size: 14px; }
 
-      /* Mobile typography + FAB stack-above-sticky-CTA */
+      /* Mobile typography */
       .hero h1 { font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; }
       .chapter h2 { font-size: 26px; line-height: 1.15; }
-      .sticky-cta.visible ~ .nav-fab { bottom: 78px; }
-    }
-
-    @media (min-width: 641px) {
-      .sticky-cta { display: none; }
     }
     /* ─── Chapter 7: navigating the home (deep-dives) ─── */
     .ch7-deep {
@@ -1444,9 +1432,13 @@
       justify-content: center;
       cursor: pointer;
       padding: 0;
+      pointer-events: auto;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
-    .nav-fab svg { width: 22px; height: 22px; }
+    .nav-fab svg { width: 22px; height: 22px; pointer-events: none; }
     .nav-fab:hover { background: var(--accent-hover); }
+    .nav-fab:active { transform: scale(0.96); }
 
     /* Mobile sheet */
     .nav-sheet {
@@ -2715,12 +2707,6 @@
     <p style="margin-top:8px;">The Mold Report is published by the team behind <a href="https://www.moldco.com?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_footer">MoldCo</a> — America's leading virtual clinic for mold toxicity, built by former patients.</p>
   </footer>
 
-  <!-- STICKY MOBILE CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <span class="sticky-text">$56 · Starter Health Panel</span>
-    <a href="https://www.moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=mold101_sticky" class="sticky-btn" target="_blank" rel="noopener noreferrer">Order Panel</a>
-    <button class="sticky-close" onclick="document.getElementById('stickyCta').remove()" aria-label="Close">&times;</button>
-  </div>
 
   <script>
   (function() {
@@ -2756,20 +2742,6 @@
       }
     }
 
-    /* ── STICKY MOBILE CTA ── */
-    var stickyCta = document.getElementById('stickyCta');
-    var stickyShown = false;
-    function updateSticky() {
-      if (!stickyCta) return;
-      if (window.scrollY > 800 && !stickyShown) {
-        stickyCta.classList.add('visible');
-        stickyShown = true;
-      } else if (window.scrollY <= 800 && stickyShown) {
-        stickyCta.classList.remove('visible');
-        stickyShown = false;
-      }
-    }
-
     /* ── COMBINED SCROLL HANDLER ── */
     var ticking = false;
     window.addEventListener('scroll', function() {
@@ -2777,7 +2749,6 @@
         window.requestAnimationFrame(function() {
           updateProgress();
           updateSpy();
-          updateSticky();
           ticking = false;
         });
         ticking = true;
