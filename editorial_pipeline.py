@@ -355,9 +355,26 @@ TOPIC_IMAGES = {
 COMPLIANCE_RULES = """
 ## MoldCo Claims Compliance Rules for The Mold Report
 
-These rules MUST be followed when writing or reviewing any article:
+These rules MUST be followed when writing or reviewing any article.
 
-### CRITICAL: Language Rules
+### Banned phrases — auto-correct outside direct quotes; reject if inside a direct quote and the quote can't be paraphrased
+- "cure", "cures", "cured", "curing" → use "treat" or "manage"
+- "guaranteed recovery", "guaranteed results"
+- "FDA-approved" applied to any non-FDA-approved product
+- "clinically proven" without a cited peer-reviewed source
+- "miracle", "breakthrough" applied to treatments
+- "X% of patients recover" without a citation
+- "the only" / "the first" applied to MoldCo (use "leading" or "dedicated")
+- "diagnoses" applied to any product
+
+### CRITICAL: NEVER edit text inside quotation marks (§E1)
+If a banned phrase appears inside a direct quote, you must do ONE of:
+  (a) Keep the quote intact and add a brief editor's note flagging the strong language without endorsing it.
+  (b) Paraphrase rather than quote, removing the banned phrase from the rewritten text.
+  (c) Reject the article if neither (a) nor (b) preserves meaning.
+Editing a direct quote breaks attribution and is a hard journalistic foul. Do not do it.
+
+### CRITICAL: Language Rules (rewrite our prose, not source quotes)
 1. MoldCo does NOT diagnose anything. Never say "diagnostic criteria" or "comprehensive CIRS evaluation."
 2. Use "mold toxicity treatment" not "CIRS treatment"
 3. Use "guided by Shoemaker Protocol" not "following" it
@@ -377,7 +394,36 @@ These rules MUST be followed when writing or reviewing any article:
 17. Never recommend urine mycotoxin testing proactively
 18. Blood biomarker testing (TGF-B1, MMP-9, MSH) is the preferred approach
 
-### Shoemaker Alignment
+### Required hedging (in our prose, not source quotes)
+- "may", "research suggests", "data indicates", "preliminary findings show"
+- Causation language requires "is associated with" or "may be linked to"
+- Always cite the source for any specific statistic
+
+### Defamation guardrail (§E5)
+Articles that name a specific individual or organization and accuse them of malpractice, negligence, fraud, or wrongdoing must:
+  - Be sourced to a public court filing, government record, or established news source.
+  - Use neutral language ("filed a suit alleging...", "is being investigated for...") rather than conclusory language ("X was negligent").
+If the source is a single local news outlet or unverified claim, REJECT the article.
+
+### Off-label drug promotion (§E8)
+CIRS treatment routinely involves off-label use of FDA-approved drugs (cholestyramine, colesevelam, VIP nasal spray, low-dose ketotifen, etc.). Discussion of off-label use in research/news framing is fine. PROMOTIONAL framing of off-label use is NOT — REJECT if the headline or lede is the off-label use being recommended.
+
+### Publisher conflict markers (§E6, §E7)
+- The Mold Report is operated by Julien Lepleux, who also leads growth at MoldCo.
+- If an article mentions MoldCo, MoldCo Care, MoldCo Labs, MoldCo Home Test, or Dr. Scott McMahon: flag as `aboutMoldCo: true` in the article record. The article template will inject a strong inline disclosure block automatically.
+- If an article mentions a known MoldCo competitor (Sponaugle, Brewer Science, RealtimeLabs, MyMycoLab, Great Plains Lab, Mosaic Diagnostics): flag as `competitorMention: true`. The article template will inject a transparency block.
+
+### Mental health sensitivity (§E9)
+If the article touches on suicide, self-harm, depression, or mental health crisis: flag as `mentalHealth: true`. The article template will append a 988 Suicide & Crisis Lifeline block automatically.
+
+### Hard rejection criteria — cannot be auto-corrected
+- Article makes an unsubstantiated treatment claim ("X cures CIRS")
+- Article identifies a person and accuses them of malpractice without a cited court filing or news source
+- Article reproduces more than 75% of source material verbatim (copyright)
+- Article promotes off-label use of a prescription drug as a primary frame
+- Article contains a banned phrase inside a direct quote that cannot be paraphrased without losing meaning
+
+### Shoemaker Alignment (acknowledged bias — see /about.html)
 - Frame Shoemaker research positively as foundational, peer-reviewed science
 - Reference "30+ years of research" and "14,000+ patients" when relevant
 - Don't dismiss mainstream medicine. Frame it as "emerging awareness"
@@ -573,13 +619,19 @@ def tip_screening_agent(article):
 
 Your job is to evaluate reader-submitted news tips for:
 1. EDITORIAL VALIDITY — Is this a real, newsworthy development? Or is it spam, self-promotion, misinformation, or a personal anecdote that isn't news?
-2. SHOEMAKER/MOLDCO ALIGNMENT — Does this story align with or at least not contradict the Shoemaker Protocol framework and MoldCo's mission? We don't publish content that:
+2. SELF-PROMOTION CHECK (§E20) — REJECT if any of the following are true:
+   - The submitter's email domain matches the source URL domain (e.g., person@drsmith.com submitting drsmith.com)
+   - The tip pitches a specific provider, product, supplement, course, or service
+   - The tip's "newsworthiness" hinges on the submitter's own work or business
+   - Tips that read like press releases written in third person about the submitter's organization
+3. SHOEMAKER/MOLDCO ALIGNMENT — Does this story align with or at least not contradict the Shoemaker Protocol framework and MoldCo's mission? We don't publish content that:
    - Promotes urine mycotoxin testing as a primary diagnostic
    - Pushes unproven "detox" products or supplements without clinical evidence
    - Uses conspiratorial framing about government agencies
    - Contradicts established Shoemaker Protocol research
    - Promotes competing non-evidence-based mold illness frameworks
-3. VERIFIABILITY — Can the claims in this tip be verified? Tips with source URLs are easier to verify. Tips without URLs need stronger internal evidence (specific names, dates, institutions, data points).
+4. PHI / SENSITIVE DATA CHECK — REJECT if the tip contains identifying personal health information about a third party (named individual + condition + medical detail). Personal health stories about the submitter themselves are OK, but flag for editorial review.
+5. VERIFIABILITY — Can the claims in this tip be verified? Tips with source URLs are easier to verify. Tips without URLs need stronger internal evidence (specific names, dates, institutions, data points).
 
 {COMPLIANCE_RULES}
 
@@ -932,9 +984,25 @@ Summary: {article['summary']}
 Category: {article['category']}
 Tags: {', '.join(article.get('tags', []))}"""
 
-    article['_compliance_pass'] = True  # default: pass if API/parsing fails
+    # §E10: fail-closed — if API can't reach the model, we don't pass by default.
+    # Compliance_lint (deterministic, no API needed) is the fallback.
+    article['_compliance_pass'] = True
+    article['_compliance_api_ok'] = False
+    article['_compliance_lint_hard'] = []
+
+    # Run deterministic lint first as a safety net
+    try:
+        _hard, _soft = compliance_lint(article)
+        article['_compliance_lint_hard'] = _hard
+        if _hard:
+            article['_compliance_pass'] = False
+            print(f"    \u26a0 Hard lint violations: {[h['name'] for h in _hard]}")
+    except Exception as _e:
+        print(f"    \u26a0 compliance_lint error: {_e}")
+
     result = call_claude(system, prompt, max_tokens=800, model=MODEL_FAST)
     if result:
+        article['_compliance_api_ok'] = True
         try:
             json_match = re.search(r'\{.*\}', strip_json_fences(result), re.DOTALL)
             if json_match:
@@ -949,7 +1017,19 @@ Tags: {', '.join(article.get('tags', []))}"""
                     print("    ✓ Passed")
                 article['_compliance_issues'] = review.get('issues', [])
         except (json.JSONDecodeError, AttributeError):
-            print("    ⚠ Could not parse compliance response — passing by default")
+            # §E10 — parsing failed; only pass if lint also clean
+            if article['_compliance_lint_hard']:
+                print("    ⚠ Could not parse compliance response AND lint found hard violations — failing closed")
+                article['_compliance_pass'] = False
+            else:
+                print("    ⚠ Could not parse compliance response; lint clean — allowing")
+    else:
+        # API unreachable. Trust lint as fallback.
+        if article['_compliance_lint_hard']:
+            print("    ⚠ API unavailable AND lint found hard violations — failing closed (§E10)")
+            article['_compliance_pass'] = False
+        else:
+            print("    ⚠ API unavailable but lint clean — allowing (no hard violations detected)")
     return article
 
 
@@ -1555,12 +1635,80 @@ def rebuild_embedded(data):
 def generate_article_pages(data):
     """Generate full standalone HTML article pages for SEO indexing.
     Each page at /a/{id}.html is a complete, indexable article page with
-    full content, structured data, and a link back to the main site."""
+    full content, structured data, and a link back to the main site.
+
+    Every page includes a baked-in disclosure block:
+      - Medical disclaimer (informational only, not medical advice)
+      - AI editorial disclosure (this was written by an AI pipeline)
+      - Publisher disclosure (operated by Julien Lepleux, MoldCo conflict)
+      - Footer links to /about.html /privacy.html /terms.html + Removal request
+
+    Conditional blocks:
+      - aboutMoldCo articles: stronger top-of-article inline disclosure
+      - Mental-health-tagged articles: 988 Suicide & Crisis Lifeline block
+
+    A Disclaimer Presence regression check runs before each file write —
+    if any required disclosure marker is missing, the function raises.
+    """
     import html as html_module
+    import json as json_module
     articles_dir = SCRIPT_DIR / "a"
     articles_dir.mkdir(exist_ok=True)
 
+    # ------------------------------------------------------------------
+    # Conflict / sensitivity detection (Step 2 + edge cases §E6, §E7, §E9)
+    # ------------------------------------------------------------------
+    MOLDCO_PATTERN = re.compile(r"\bMold\s*Co(?:\.?com|\s*Care|\s*Labs|\s*Home\s*Test)?\b", re.IGNORECASE)
+    COMPETITOR_PATTERNS = [
+        re.compile(r"\bSponaugle\b", re.IGNORECASE),
+        re.compile(r"\bBrewer\s*Science\b", re.IGNORECASE),
+        re.compile(r"\bRealtime\s*Labs?\b", re.IGNORECASE),
+        re.compile(r"\bMyMyco(?:Lab)?\b", re.IGNORECASE),
+        re.compile(r"\bGreat\s*Plains\s*Lab\b", re.IGNORECASE),
+        re.compile(r"\bMosaic\s*Diagnostics\b", re.IGNORECASE),
+    ]
+    MENTAL_HEALTH_TERMS = re.compile(
+        r"\b(suicide|self-harm|self\s*harm|depression|suicidal|crisis|mental\s*health\s*crisis|psychiatric\s*emergency)\b",
+        re.IGNORECASE,
+    )
+
+    def _detect_about_moldco(article):
+        if article.get("aboutMoldCo") is True:
+            return True
+        haystack = " ".join([
+            article.get("title", ""),
+            article.get("summary", ""),
+            article.get("editorsNote", ""),
+            " ".join(article.get("tags", [])),
+        ])
+        return bool(MOLDCO_PATTERN.search(haystack))
+
+    def _detect_competitor(article):
+        if article.get("competitorMention") is True:
+            return True
+        haystack = " ".join([
+            article.get("title", ""),
+            article.get("summary", ""),
+            " ".join(article.get("tags", [])),
+        ])
+        return any(pat.search(haystack) for pat in COMPETITOR_PATTERNS)
+
+    def _detect_mental_health(article):
+        if article.get("mentalHealth") is True:
+            return True
+        haystack = " ".join([
+            article.get("title", ""),
+            article.get("summary", ""),
+            article.get("editorsNote", ""),
+            " ".join(article.get("tags", [])),
+        ])
+        return bool(MENTAL_HEALTH_TERMS.search(haystack))
+
     count = 0
+    flagged_moldco = 0
+    flagged_competitor = 0
+    flagged_mental_health = 0
+
     for a in data.get("articles", []):
         if a.get("status") != "published":
             continue
@@ -1571,7 +1719,6 @@ def generate_article_pages(data):
         seo_title = html_module.escape(a.get("seoTitle", title_raw + " | The Mold Report"))
         seo_desc = html_module.escape(a.get("seoDescription", a["summary"][:155])).replace("\n", " ")
         summary_raw = a["summary"]
-        # Convert summary paragraphs to HTML paragraphs
         summary_paras = [f"<p>{html_module.escape(p.strip())}</p>" for p in summary_raw.split("\n\n") if p.strip()]
         if not summary_paras:
             summary_paras = [f"<p>{html_module.escape(summary_raw)}</p>"]
@@ -1587,7 +1734,6 @@ def generate_article_pages(data):
         tags = a.get("tags", [])
         tags_str = ", ".join(tags)
         tags_escaped = html_module.escape(tags_str)
-        # Format read time as "{n} min read" — readTime is stored as int minutes
         _rt = a.get("readTime")
         if isinstance(_rt, int) and _rt > 0:
             read_time = f"{_rt} min read"
@@ -1598,9 +1744,64 @@ def generate_article_pages(data):
         word_count = len(summary_raw.split())
         editors_note = a.get("editorsNote", "")
         primary_kw = html_module.escape(a.get("primaryKeyword", tags[0] if tags else "mold"))
+        paywalled = bool(a.get("paywalledSource", False))
 
-        # JSON-LD articleBody (plain text, escaped for JSON)
-        article_body_text = summary_raw.replace('"', '\\"').replace("\n", " ")
+        # Detect conflict / sensitivity flags
+        is_about_moldco = _detect_about_moldco(a)
+        has_competitor_mention = _detect_competitor(a)
+        is_mental_health = _detect_mental_health(a)
+        if is_about_moldco:
+            flagged_moldco += 1
+        if has_competitor_mention:
+            flagged_competitor += 1
+        if is_mental_health:
+            flagged_mental_health += 1
+
+        # JSON-LD: build via json.dumps for safe encoding (edge case §E13)
+        # AI authorship flags via creator + additionalProperty (edge case §E13)
+        json_ld_obj = {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": title_raw,
+            "description": a.get("seoDescription", a["summary"][:155]).replace("\n", " "),
+            "image": img if img else None,
+            "datePublished": pub_date,
+            "wordCount": word_count,
+            "articleBody": summary_raw[:500],
+            "author": {
+                "@type": "Organization",
+                "name": "The Mold Report",
+                "url": "https://themoldreport.org",
+            },
+            "creator": {
+                "@type": "SoftwareApplication",
+                "name": "The Mold Report AI Editorial Pipeline",
+                "url": "https://themoldreport.org/about.html#editorial",
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "The Mold Report",
+                "url": "https://themoldreport.org",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://themoldreport.org/logo.png",
+                },
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": f"https://themoldreport.org/a/{aid}.html",
+            },
+            "articleSection": a.get("category", "news"),
+            "keywords": tags_str,
+            "isAccessibleForFree": True,
+            "additionalProperty": [
+                {"@type": "PropertyValue", "name": "AI-Generated", "value": "true"},
+                {"@type": "PropertyValue", "name": "Editorial Pipeline Version", "value": pipeline_version_string()},
+            ],
+        }
+        if not img:
+            json_ld_obj.pop("image", None)
+        json_ld_str = json_module.dumps(json_ld_obj, ensure_ascii=False, indent=2)
 
         # Editor's note HTML
         editors_note_html = ""
@@ -1614,6 +1815,53 @@ def generate_article_pages(data):
 
         # Source link
         source_html = f'<a href="{source_url}" rel="noopener" target="_blank">{source}</a>' if source_url else source
+
+        # ------------------------------------------------------------------
+        # Top-of-article inline blocks (conditional)
+        # ------------------------------------------------------------------
+        moldco_inline_html = ""
+        if is_about_moldco:
+            moldco_inline_html = (
+                '<aside class="editors-note" style="background:#FEF3C7; border-left-color:#D97706;">'
+                '<strong>This article mentions MoldCo, the company I work for.</strong> '
+                'I\'m Julien Lepleux — I built and run The Mold Report and also lead growth at MoldCo. '
+                'Read the <a href="/about.html">publisher disclosure</a> before continuing.'
+                '</aside>'
+            )
+
+        competitor_inline_html = ""
+        if has_competitor_mention and not is_about_moldco:
+            competitor_inline_html = (
+                '<aside class="editors-note" style="background:#F0F9FF; border-left-color:#0284C7;">'
+                '<strong>Editor\'s note — conflict transparency:</strong> '
+                'This article references a company that operates in the same space as MoldCo, where I work. '
+                'Coverage is selected and rewritten by an AI pipeline independent of MoldCo. '
+                'See <a href="/about.html">disclosures</a> for the full relationship.'
+                '</aside>'
+            )
+
+        paywall_inline_html = ""
+        if paywalled:
+            paywall_inline_html = (
+                '<aside class="editors-note" style="background:#FAF5FF; border-left-color:#7C3AED;">'
+                '<strong>Note on the source:</strong> The original article is behind a paywall. '
+                'This summary is based on the publicly visible portion. Read the full source for context.'
+                '</aside>'
+            )
+
+        # ------------------------------------------------------------------
+        # Bottom-of-article disclaimer blocks (always)
+        # ------------------------------------------------------------------
+        # Mental health 988 block (conditional)
+        mental_health_block = ""
+        if is_mental_health:
+            mental_health_block = (
+                '<aside class="article-disclaimer" role="note" style="background:#FEE2E2; border-left-color:#DC2626;">'
+                '<strong>If you\'re struggling:</strong> 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US, '
+                '<a href="https://988lifeline.org" target="_blank" rel="noopener">988lifeline.org</a>). '
+                'This article is not a replacement for mental health support.'
+                '</aside>'
+            )
 
         page_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1648,39 +1896,9 @@ def generate_article_pages(data):
   <meta name="twitter:description" content="{seo_desc}">
   {f'<meta name="twitter:image" content="{img}">' if img else ''}
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD Structured Data (AI authorship flagged per §E13) -->
   <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": "{title}",
-    "description": "{seo_desc}",
-    "image": "{img}",
-    "datePublished": "{pub_date}",
-    "wordCount": {word_count},
-    "articleBody": "{article_body_text[:500]}",
-    "author": {{
-      "@type": "Organization",
-      "name": "The Mold Report",
-      "url": "https://themoldreport.org"
-    }},
-    "publisher": {{
-      "@type": "Organization",
-      "name": "The Mold Report",
-      "url": "https://themoldreport.org",
-      "logo": {{
-        "@type": "ImageObject",
-        "url": "https://themoldreport.org/logo.png"
-      }}
-    }},
-    "mainEntityOfPage": {{
-      "@type": "WebPage",
-      "@id": "https://themoldreport.org/a/{aid}.html"
-    }},
-    "articleSection": "{category}",
-    "keywords": "{tags_escaped}",
-    "isAccessibleForFree": true
-  }}
+{json_ld_str}
   </script>
 
   <style>
@@ -1696,12 +1914,18 @@ def generate_article_pages(data):
     .hero{{width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:24px}}
     .article-body p{{font-size:17px;line-height:1.8;color:#333;margin-bottom:16px}}
     .editors-note{{background:#f0f7f4;border-left:3px solid #1B4D3E;padding:12px 16px;margin:24px 0;font-size:15px;color:#444;border-radius:0 6px 6px 0}}
+    .editors-note a{{color:#1B4D3E;text-decoration:underline}}
     .tags{{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0e0}}
     .tags span{{display:inline-block;background:#f0f0f0;padding:4px 10px;border-radius:4px;font-size:13px;margin:4px 4px 4px 0;color:#555}}
     .source-link{{margin-top:24px;padding:16px;background:#f8f8f6;border-radius:8px;font-size:15px}}
     .source-link a{{color:#1B4D3E;font-weight:600}}
-    .site-footer{{margin-top:48px;padding:24px 0;border-top:2px solid #1B4D3E;font-size:13px;color:#888;text-align:center}}
-    .site-footer a{{color:#1B4D3E}}
+    .article-disclaimer{{margin-top:24px;padding:14px 18px;background:#FFFBEA;border-left:3px solid #D97706;border-radius:0 6px 6px 0;font-size:13px;color:#525252;line-height:1.65}}
+    .article-disclaimer + .article-disclaimer{{margin-top:12px}}
+    .article-disclaimer strong{{color:#1a1a1a}}
+    .article-disclaimer a{{color:#1B4D3E;text-decoration:underline}}
+    .site-footer{{margin-top:32px;padding:24px 0;border-top:2px solid #1B4D3E;font-size:13px;color:#888;text-align:center}}
+    .site-footer a{{color:#1B4D3E;text-decoration:none}}
+    .site-footer a:hover{{text-decoration:underline}}
     @media(max-width:600px){{h1{{font-size:24px}}body{{padding:16px}}.article-body p{{font-size:16px}}}}
   </style>
 </head>
@@ -1720,6 +1944,10 @@ def generate_article_pages(data):
       <span>{read_time}</span>
     </div>
 
+    {moldco_inline_html}
+    {competitor_inline_html}
+    {paywall_inline_html}
+
     {hero_html}
 
     <div class="article-body">
@@ -1737,12 +1965,52 @@ def generate_article_pages(data):
     </div>
   </article>
 
+  <aside class="article-disclaimer" role="note">
+    <strong>Not medical advice.</strong> This is a news summary. It's informational only and isn't a diagnosis or treatment recommendation. Talk to a qualified healthcare provider before making medical decisions.
+  </aside>
+
+  <aside class="article-disclaimer" role="note">
+    <strong>How this was written.</strong> The summary above was selected, rewritten, and compliance-checked by an AI pipeline I built. The original reporting belongs to the source linked above. More on <a href="/about.html#editorial">how this works</a>.
+  </aside>
+
+  <aside class="article-disclaimer" role="note">
+    <strong>Who runs this.</strong> The Mold Report is built and operated by Julien Lepleux. Julien also leads growth at <a href="https://www.moldco.com" rel="noopener">MoldCo</a>, a virtual clinic for mold illness. MoldCo Care is featured in our <a href="/providers.html">provider directory</a>. MoldCo doesn't choose stories or shape coverage. Full <a href="/about.html">disclosures</a>.
+  </aside>
+
+  {mental_health_block}
+
   <footer class="site-footer">
     <p><a href="https://themoldreport.org">The Mold Report</a> &mdash; AI-curated mold &amp; indoor health news</p>
-    <p>&copy; 2026 The Mold Report. All rights reserved.</p>
+    <p>
+      <a href="/about.html">About</a> &middot;
+      <a href="/privacy.html">Privacy</a> &middot;
+      <a href="/terms.html">Terms</a> &middot;
+      <a href="mailto:editorial@themoldreport.com">Contact</a> &middot;
+      <a href="mailto:editorial@themoldreport.com?subject=Removal%20Request">Removal request</a>
+    </p>
+    <p>&copy; 2026 The Mold Report. Operated by Julien Lepleux.</p>
   </footer>
 </body>
 </html>"""
+
+        # ------------------------------------------------------------------
+        # Disclaimer Presence regression check (Step 2.3 / §E1)
+        # ------------------------------------------------------------------
+        required_markers = [
+            "Not medical advice.",
+            "How this was written.",
+            "Who runs this.",
+            "/privacy.html",
+            "/terms.html",
+            "/about.html",
+        ]
+        missing = [m for m in required_markers if m not in page_html]
+        if missing:
+            raise RuntimeError(
+                f"Article {aid} is missing required disclaimer markers: {missing}. "
+                f"This means the article template has drifted. Fix the template "
+                f"in generate_article_pages() before running the pipeline."
+            )
 
         page_path = articles_dir / f"{aid}.html"
         with open(page_path, 'w') as f:
@@ -1750,6 +2018,26 @@ def generate_article_pages(data):
         count += 1
 
     print(f"  ✓ Generated {count} standalone article pages in /a/")
+    if flagged_moldco or flagged_competitor or flagged_mental_health:
+        print(
+            f"  ℹ Flags: aboutMoldCo={flagged_moldco}, "
+            f"competitor_mention={flagged_competitor}, "
+            f"mental_health={flagged_mental_health}"
+        )
+
+
+def pipeline_version_string():
+    """Read pipeline version from pipeline_version.json if present, else return 'unknown'."""
+    try:
+        import json as _json
+        version_file = SCRIPT_DIR / "pipeline_version.json"
+        if version_file.exists():
+            data = _json.loads(version_file.read_text())
+            return data.get("currentVersion") or data.get("version") or "unknown"
+    except Exception:
+        pass
+    return "unknown"
+
 
 
 
@@ -2121,6 +2409,37 @@ def fetch_tips():
 
     print(f"→ Loaded {len(articles)} tips for pipeline review (The Bouncer will screen them)")
     return articles
+
+
+def regenerate_all_articles():
+    """Re-render all article HTML pages from articles.json using the current
+    template in generate_article_pages(). Does not invoke any editorial agents
+    or change article content — just rebuilds the static HTML.
+
+    Use after a template change (e.g., new disclaimer block) to backfill
+    every existing article with the new template.
+    """
+    import json as _json
+    articles_file = SCRIPT_DIR / "articles.json"
+    if not articles_file.exists():
+        print(f"  ✗ {articles_file} not found")
+        return
+
+    print(f"Regenerating all article HTML pages from {articles_file}...")
+    try:
+        data = _json.loads(articles_file.read_text())
+    except _json.JSONDecodeError as e:
+        print(f"  ✗ articles.json failed to parse: {e}")
+        print(f"    This is a hard fail — articles.json must be valid JSON.")
+        raise
+
+    article_count = len([a for a in data.get("articles", []) if a.get("status") == "published"])
+    print(f"  Found {article_count} published articles")
+
+    generate_article_pages(data)
+    generate_sitemap(data)
+    generate_robots_txt()
+    print("  ✓ All article pages regenerated. Commit and push to deploy.")
 
 
 def _fetch_tips_from_file():
@@ -2756,10 +3075,14 @@ How it works:
                         help="Fetch and filter candidates only (no API key needed). Outputs candidates.json")
     parser.add_argument("--publish", type=str, metavar="FILE",
                         help="Publish pre-approved articles from FILE (no API key needed). Deploys to GitHub.")
+    parser.add_argument("--regenerate-all", action="store_true",
+                        help="Re-render every article HTML page from articles.json without re-running editorial agents. Use after a template change to backfill existing articles.")
     args = parser.parse_args()
 
     if args.fetch_only:
         fetch_only_pipeline()
+    elif args.regenerate_all:
+        regenerate_all_articles()
     elif args.publish:
         publish_approved(args.publish)
         # Auto-deploy after publishing

@@ -8,19 +8,19 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5RC8HJF40"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y5RC8HJF40');</script>
   <title>The Mold Report — The First AI-Curated Mold News Publication</title>
-  <meta name="description" content="The Mold Report is the first AI-curated mold news publication. Weekly coverage of research, regulation, industry, and health — verified by nine specialized AI editorial agents.">
+  <meta name="description" content="A personal AI-curated digest of mold and indoor health news. Built by Julien Lepleux. Daily coverage of research, regulation, industry, and health — sourced from peer-reviewed journals, government agencies, and accredited news organizations.">
   <meta name="keywords" content="mold news, mold research, indoor air quality, mold remediation, mold illness, biomarkers, mold regulation, mold testing">
   <meta name="robots" content="index, follow">
   <meta name="author" content="The Mold Report">
   <link rel="canonical" href="https://themoldreport.org">
   <meta property="og:title" content="The Mold Report — The First AI-Curated Mold News Publication">
-  <meta property="og:description" content="The first AI-curated mold news publication. Weekly coverage of research, regulation, industry, and health — every article compliance-checked and research-verified.">
+  <meta property="og:description" content="A personal AI-curated digest of mold and indoor health news. Daily coverage of research, regulation, industry, and health — every article compliance-checked and source-attributed.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://themoldreport.org">
   <meta property="og:site_name" content="The Mold Report">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Mold Report — The First AI-Curated Mold News Publication">
-  <meta name="twitter:description" content="The first AI-curated mold news publication. Weekly coverage of research, regulation, industry, and health — every article compliance-checked and research-verified.">
+  <meta name="twitter:description" content="A personal AI-curated digest of mold and indoor health news. Daily coverage of research, regulation, industry, and health — every article compliance-checked and source-attributed.">
   <meta property="og:image" content="https://themoldreport.org/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -38,7 +38,7 @@
     "@type": "NewsMediaOrganization",
     "name": "The Mold Report",
     "url": "https://themoldreport.org",
-    "description": "The first AI-curated mold news publication. Every article is sourced, rewritten, compliance-checked, and research-verified by AI editorial agents.",
+    "description": "A personal AI-curated digest of mold and indoor health news. Built and operated by Julien Lepleux. Every article is sourced, rewritten, compliance-checked, and source-attributed.",
     "publishingPrinciples": "https://themoldreport.org/editorial-standards",
     "logo": "https://themoldreport.org/apple-touch-icon.png"
   }
@@ -1687,7 +1687,10 @@
     <section class="submit-section reveal" id="submit" aria-label="Submit a news tip">
       <div class="submit-inner">
         <h2>Submit a News Tip</h2>
-        <p class="submit-intro">Got a story the mold world should know? We review every submission. Published tips get credited.</p>
+        <p class="submit-intro">Got a story the mold world should know? I review every submission. Published tips get credited.</p>
+        <p style="font-size:13px; color:var(--text-2); background:#FFFBEA; border-left:3px solid #D97706; padding:12px 16px; border-radius:0 6px 6px 0; margin:0 auto var(--sp-6); max-width:640px; line-height:1.55; text-align:left;">
+          <strong>Heads up before you submit:</strong> Don't include personal health info (your medical records, lab results, etc.) and don't share info about anyone else without their consent. By submitting, you grant The Mold Report a non-exclusive license to publish your tip with attribution. See <a href="/terms.html" style="color:var(--accent);text-decoration:underline;">Terms</a>.
+        </p>
         <form id="submitForm" class="form-grid">
           <div class="field">
             <label for="sName">Your Name</label>
@@ -1719,6 +1722,12 @@
           <div class="field form-full">
             <label for="sSum">Summary</label>
             <textarea id="sSum" name="summary" placeholder="Key details in a few sentences..." required></textarea>
+          </div>
+          <div class="form-full">
+            <label style="display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--text-2); cursor:pointer; line-height:1.5; margin-top:var(--sp-3);">
+              <input type="checkbox" name="rights_acknowledgment" required style="margin-top:3px; flex-shrink:0;">
+              <span>I have the right to share this tip and grant The Mold Report a license to publish it. I am 13 or older. The tip does not contain personal health information about anyone other than myself.</span>
+            </label>
           </div>
           <div class="form-full" style="text-align:center;">
             <button type="submit" class="btn-primary">Submit for Review</button>
@@ -1944,7 +1953,7 @@
             <div class="logo-mark">M</div>
             <div class="logo-type">The Mold <i>Report</i></div>
           </div>
-          <p>The first AI-curated mold news publication. Every article is sourced from real research, rewritten by AI editorial agents, compliance-checked, and research-verified. Updated weekly.</p>
+          <p>Personal AI-curated digest of mold and indoor health news. Built and operated by Julien Lepleux. Sources: peer-reviewed journals, government agencies, news organizations.</p>
         </div>
         <div class="footer-col">
           <h4>Sections</h4>
@@ -1956,10 +1965,10 @@
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="about.html">About Us</a>
+          <a href="about.html">About</a>
           <a href="mold-101.html">Mold 101</a>
-          <a href="#how-we-work">How We Work</a>
-          <a href="#" onclick="openModal(event, 'editorial')">Editorial Standards</a>
+          <a href="providers.html">Providers</a>
+          <a href="about.html#editorial">How it works</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -1968,14 +1977,15 @@
         </div>
       </div>
       <div class="footer-disclosure">
-        Disclosure: The Mold Report's founder is affiliated with MoldCo. Sponsored content is clearly labeled "From Our Partners." Editorial coverage is independent and AI-curated from public sources.
+        <strong>Heads up:</strong> I'm Julien Lepleux. I built and run The Mold Report on the side. My day job is leading growth at <a href="https://www.moldco.com" rel="noopener" style="color:inherit;text-decoration:underline;">MoldCo</a>, a clinician-led virtual clinic for mold illness — so yes, I have a horse in this race. MoldCo Care shows up in our <a href="providers.html" style="color:inherit;text-decoration:underline;">provider directory</a> and may come up in coverage. I run the AI pipeline, but MoldCo doesn't pick or shape stories. If you think I'm getting it wrong, email <a href="mailto:editorial@themoldreport.com" style="color:inherit;text-decoration:underline;">editorial@themoldreport.com</a>.
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 The Mold Report. All rights reserved.</span>
+        <span>&copy; 2026 The Mold Report. Operated by Julien Lepleux.</span>
         <div>
-          <a href="#" onclick="openModal(event, 'privacy')">Privacy</a>
-          <a href="#" onclick="openModal(event, 'terms')">Terms</a>
-          <a href="#" onclick="openModal(event, 'editorial')">Editorial Standards</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/about.html#editorial">How this works</a>
+          <a href="mailto:editorial@themoldreport.com?subject=Removal%20Request">Removal request</a>
         </div>
       </div>
     </div>
@@ -2024,7 +2034,7 @@
       <h2>Editorial Standards</h2>
       <p><strong>Last updated:</strong> April 15, 2026</p>
       <h3>Why AI Journalism</h3>
-      <p>The Mold Report is the first AI-curated publication in the mold and indoor environmental health space. We built it this way on purpose. Mold news is fragmented across government agencies, academic journals, local news outlets, and industry publications. No single human editor could monitor all these sources daily, rewrite them for accessibility, fact-check every medical claim, and verify scientific alignment. AI can. We believe AI journalism done transparently produces more consistent, more compliant, and more comprehensive coverage than traditional editorial alone.</p>
+      <p>The Mold Report is a personal AI-curated aggregator built by Julien Lepleux. I built it this way on purpose. Mold news is fragmented across government agencies, academic journals, local news outlets, and industry publications. No single person — me especially — could monitor all those sources daily, rewrite them for accessibility, fact-check every medical claim, and verify scientific alignment. AI can. I believe AI curation done transparently produces more consistent, more compliant, and more comprehensive coverage than I could alone.</p>
       <h3>Our AI Pipeline</h3>
       <p>Every article passes through an 11-gate pipeline powered by nine specialized AI agents before publication. The pipeline runs in four phases: <strong>Source & Filter</strong> (deduplication, freshness checks, source verification, tip screening), <strong>Score</strong> (AI-driven newsworthiness rating where only 7+ articles advance), <strong>Write</strong> (headline and summary rewriting in our editorial voice), and <strong>Verify & Publish</strong> (claims compliance, Shoemaker alignment, photo assignment, and SEO optimization). Only articles that pass all 11 gates get published.</p>
       <h3>What AI Does (and Doesn't Do)</h3>
