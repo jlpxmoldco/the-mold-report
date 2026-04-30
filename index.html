@@ -589,7 +589,8 @@
       overflow: hidden;
       margin-bottom: var(--sp-10);
       position: relative;
-      background: linear-gradient(135deg, #0F3028 0%, #1B5E4A 50%, #1B4D3E 100%);
+      background: var(--warm);
+      border: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
@@ -617,13 +618,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-3);
       margin-bottom: var(--sp-2);
     }
     .ad-native h3 {
       font-family: var(--serif);
       font-size: 26px;
-      color: white;
+      color: var(--accent);
       line-height: 1.2;
       margin-bottom: var(--sp-2);
       position: relative;
@@ -631,7 +632,7 @@
     }
     .ad-native .ad-desc {
       font-size: 14px;
-      color: rgba(255,255,255,0.6);
+      color: var(--text-2);
       max-width: 420px;
       line-height: 1.5;
       position: relative;
@@ -640,19 +641,19 @@
     .ad-cta-group { position: relative; z-index: 1; text-align: center; }
     .ad-cta-btn {
       display: inline-block;
-      background: white;
-      color: var(--accent);
+      background: var(--accent);
+      color: white;
       font-weight: 700;
       font-size: 14px;
       padding: 14px 32px;
       border-radius: 100px;
       transition: all 0.2s var(--ease);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(27,77,62,0.15);
     }
     .ad-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
     .ad-cta-sub {
       font-size: 12px;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-3);
       margin-top: var(--sp-2);
     }
 
@@ -1752,7 +1753,7 @@
       <div>
         <span class="guide-label">The complete playbook</span>
         <h3>New to mold illness? Start with Mold 101.</h3>
-        <p class="guide-desc">Ten chapters covering CIRS, the 13 symptom clusters, biomarkers, testing, and the four-step treatment framework. Grounded in 25+ years of Shoemaker research, written for people figuring this out for the first time.</p>
+        <p class="guide-desc">Ten chapters on Chronic Inflammatory Response Syndrome (CIRS), the 13 symptom clusters, biomarkers, testing, and the Shoemaker treatment framework. Written for people figuring this out for the first time.</p>
         <div class="guide-meta">
           <span>20 min read</span>
           <span>10 chapters</span>
@@ -1765,9 +1766,9 @@
     <!-- AD: STARTER PANEL -->
     <div class="ad-native reveal" role="complementary" aria-label="Sponsored">
       <div>
-        <div class="ad-label">From Our Partners</div>
+        <div class="ad-label">From Our Partners &middot; Sponsored by MoldCo</div>
         <h3>Is mold affecting your health?</h3>
-        <p class="ad-desc">The Starter Health Panel checks 3 key biomarkers linked to mold illness. Blood draw at 2,000+ LabCorp locations. Results delivered to you.</p>
+        <p class="ad-desc">The Starter Health Panel checks 3 biomarkers linked to mold-related illness. Blood draw at 2,000+ LabCorp locations. Results delivered to you.</p>
       </div>
       <div class="ad-cta-group">
         <a href="https://moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=starter_panel_ad" target="_blank" rel="noopener" class="ad-cta-btn">Get Tested for $56</a>
