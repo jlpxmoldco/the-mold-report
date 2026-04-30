@@ -508,12 +508,18 @@
       border-radius: var(--r-lg);
       padding: var(--sp-10) var(--sp-8);
       margin-bottom: var(--sp-12);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--sp-6);
-      align-items: center;
+      display: block;
       position: relative;
       overflow: hidden;
+    }
+    .guide-actions {
+      margin-top: var(--sp-5);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-5);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
     .guide-card::before {
       content: "";
@@ -576,12 +582,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     @media (max-width: 720px) {
-      .guide-card {
-        grid-template-columns: 1fr;
-        padding: var(--sp-8) var(--sp-6);
-        text-align: left;
-      }
-      .guide-card .guide-cta-btn { justify-self: flex-start; }
+      .guide-card { padding: var(--sp-8) var(--sp-6); }
     }
 
     .ad-native {
@@ -591,10 +592,7 @@
       position: relative;
       background: var(--warm);
       border: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: var(--sp-8);
+      display: block;
       padding: var(--sp-8) var(--sp-10);
     }
     .ad-native::before {
@@ -638,7 +636,15 @@
       position: relative;
       z-index: 1;
     }
-    .ad-cta-group { position: relative; z-index: 1; text-align: center; }
+    .ad-cta-group {
+      position: relative;
+      z-index: 1;
+      margin-top: var(--sp-5);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-5);
+      flex-wrap: wrap;
+    }
     .ad-cta-btn {
       display: inline-block;
       background: var(--accent);
@@ -654,7 +660,6 @@
     .ad-cta-sub {
       font-size: 12px;
       color: var(--text-3);
-      margin-top: var(--sp-2);
     }
 
     /* ===== SECTION HEADER ===== */
@@ -1594,8 +1599,7 @@
       .hero-lead { min-height: 380px; grid-row: auto; }
       .card-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
-      .ad-native { grid-template-columns: 1fr; text-align: center; padding: var(--sp-8); }
-      .ad-native .ad-desc { margin: 0 auto; }
+      .ad-native { padding: var(--sp-8); }
     }
     @media (max-width: 640px) {
       .nav { display: none; }
@@ -1750,26 +1754,24 @@
 
     <!-- MOLD 101 GUIDE -->
     <a href="/mold-101.html" class="guide-card reveal" aria-label="Read Mold 101">
-      <div>
-        <span class="guide-label">The complete playbook</span>
-        <h3>New to mold illness? Start with Mold 101.</h3>
-        <p class="guide-desc">Ten chapters on Chronic Inflammatory Response Syndrome (CIRS), the 13 symptom clusters, biomarkers, testing, and the Shoemaker treatment framework. Written for people figuring this out for the first time.</p>
+      <span class="guide-label">The complete playbook</span>
+      <h3>New to mold illness? Start with Mold 101.</h3>
+      <p class="guide-desc">Ten chapters on Chronic Inflammatory Response Syndrome (CIRS), the 13 symptom clusters, biomarkers, testing, and the Shoemaker treatment framework. Written for people figuring this out for the first time.</p>
+      <div class="guide-actions">
+        <span class="guide-cta-btn">Read Mold 101 &rarr;</span>
         <div class="guide-meta">
           <span>20 min read</span>
           <span>10 chapters</span>
           <span>Updated regularly</span>
         </div>
       </div>
-      <span class="guide-cta-btn">Read Mold 101 &rarr;</span>
     </a>
 
     <!-- AD: STARTER PANEL -->
     <div class="ad-native reveal" role="complementary" aria-label="Sponsored">
-      <div>
-        <div class="ad-label">From Our Partners &middot; Sponsored by MoldCo</div>
-        <h3>Is mold affecting your health?</h3>
-        <p class="ad-desc">The Starter Health Panel checks 3 biomarkers linked to mold-related illness. Blood draw at 2,000+ LabCorp locations. Results delivered to you.</p>
-      </div>
+      <div class="ad-label">From Our Partners &middot; Sponsored by MoldCo</div>
+      <h3>Is mold affecting your health?</h3>
+      <p class="ad-desc">The Starter Health Panel checks 3 biomarkers linked to mold-related illness. Blood draw at 2,000+ LabCorp locations. Results delivered to you.</p>
       <div class="ad-cta-group">
         <a href="https://moldco.com/products?utm_source=themoldreport&utm_medium=referral&utm_campaign=starter_panel_ad" target="_blank" rel="noopener" class="ad-cta-btn">Get Tested for $56</a>
         <div class="ad-cta-sub">At-cost pricing. No markup.</div>
