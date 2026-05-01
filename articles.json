@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-30T14:07:17.939914+00:00",
+  "lastUpdated": "2026-05-01T13:54:14.275622+00:00",
   "articles": [
     {
       "id": "03a74f2154ce",
@@ -708,6 +708,35 @@
       "featured": false,
       "editorsNote": "This study provides direct molecular evidence for a mechanism long proposed by Dr. Ritchie Shoemaker — that MARCoNS bacteria in the nasal passages of mold-exposed patients actively degrade alpha-MSH, a master regulatory peptide. In the Shoemaker biotoxin pathway, MSH suppression is a critical downstream effect of biotoxin exposure in genetically susceptible individuals (HLA-DR positive), leading to dysregulated cytokines (TGF-β1, MMP-9, C4a), hormonal disruption, and chronic inflammation. This is the first peer-reviewed confirmation of the specific enzymatic pathway by which MARCoNS achieve this suppression. For patients currently in the Shoemaker Protocol, this research reinforces why MARCoNS eradication (typically via BEG spray) is an essential early step before VIP nasal spray can be effective.",
       "readTime": 2
+    },
+    {
+      "id": "e9dfc3f29309",
+      "title": "Trade Medical Publication Frames Mold Toxicity as 'Expanding Clinical Frontier'",
+      "summary": "MedicalExpo e-Magazine, a trade publication aimed at medical professionals, published a featured article on April 20, 2026 framing mold toxicity as an \"expanding clinical frontier\" in inflammatory and immune disorders. The piece argues that emerging evidence and clinical reports increasingly point to mold exposure as a driver of complex inflammatory syndromes, and calls for sharper diagnostics and integrative treatment in primary care.\n\nThe article centers on Chronic Inflammatory Response Syndrome (CIRS), describing it as a multi-system inflammatory condition triggered by biotoxins in genetically susceptible individuals. It cites the same biomarker panel long associated with the Shoemaker Protocol — C4a, TGF-β1, and MMP-9 — alongside HLA-DR genotyping and detailed environmental history-taking as diagnostic tools clinicians should consider. Mold-derived biotoxins, the piece notes, can dysregulate innate immune signaling, disrupt hormones, and impair mitochondrial function.\n\nMedicalExpo points out that medical and scientific journals have been documenting a rising prevalence of mold-related health problems since at least 2007, and references public discussion sparked by Canadian psychologist Jordan Peterson's account of mold-linked symptoms. While the article acknowledges ongoing controversy in mainstream medicine, it argues the underlying pathophysiology of biotoxin-driven illness warrants serious clinical evaluation.",
+      "editorsNote": "The article references the same inflammatory markers — C4a, TGF-β1, and MMP-9 — and HLA-DR genotyping framework that Dr. Ritchie Shoemaker has used in CIRS diagnostics for nearly two decades.",
+      "source": "MedicalExpo e-Magazine",
+      "sourceUrl": "https://emag.medicalexpo.com/mold-toxicity-the-expanding-clinical-frontier-in-inflammatory-and-immune-disorders/",
+      "author": "MedicalExpo",
+      "publishedAt": "2026-04-20T08:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1486825586573-7131f7991bdd?w=800&q=80",
+      "imageAlt": "Trade Medical Publication Frames Mold Toxicity as 'Expanding Clinical Frontier'",
+      "status": "published",
+      "tags": [
+        "cirs",
+        "biotoxin",
+        "mold toxicity",
+        "diagnostics",
+        "hla-dr",
+        "shoemaker",
+        "mmp-9"
+      ],
+      "featured": false,
+      "readTime": 4,
+      "seoTitle": "MedicalExpo: Mold Toxicity an 'Expanding Clinical Frontier'",
+      "seoDescription": "A medical trade publication frames mold toxicity and CIRS as a serious clinical concern, citing HLA-DR, C4a, TGF-β1, and MMP-9.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-01T13:54:14.275487+00:00"
     },
     {
       "id": "3848c4e074ce",
