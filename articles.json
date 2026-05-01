@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-05-01T13:54:14.275622+00:00",
+  "lastUpdated": "2026-05-01T14:07:49.159999+00:00",
   "articles": [
+    {
+      "id": "922bc486d572",
+      "title": "UK Renters' Rights Bill Expands Awaab's Law to Cover Wider Health and Safety Hazards",
+      "summary": "The UK's Renters' Rights legislation, recently signed into law, will extend Awaab's Law next year to require social landlords to act on a wider range of health and safety risks within fixed timeframes — building on the original requirement to address emergency hazards and serious damp and mould. The renters' union Acorn estimated the broader package of reforms will affect roughly 12 million renters across the country.\n\nAwaab's Law is named after Awaab Ishak, a two-year-old who died in 2020 following prolonged exposure to mould in a Rochdale social housing flat. His death prompted national reckoning over how landlords respond to damp-and-mould complaints, and the original law established statutory deadlines for social landlords to investigate and remediate hazardous conditions. Next year's extension widens the law's scope beyond damp and mould to additional health and safety hazards.\n\nCritics of the broader bill argue the changes could push smaller landlords out of the market or push rents higher. Supporters frame the legislation as the most significant tenant-protection shift in a generation.",
+      "editorsNote": "Awaab's Law remains one of the only statutory frameworks in the world that explicitly ties water-damaged housing to landlord accountability — a regulatory model patient advocates in the U.S. have pointed to when arguing that prolonged indoor mold exposure deserves recognition as a public-health harm, not just a habitability complaint.",
+      "source": "Positive News",
+      "sourceUrl": "https://www.positive.news/society/good-news-stories-from-week-18-of-2026/",
+      "author": "Positive News",
+      "publishedAt": "2026-05-01T14:05:18.417408+00:00",
+      "category": "regulation",
+      "imageUrl": "https://www.positive.news/wp-content/uploads/2026/05/shutterstock_2692815249.jpg",
+      "imageAlt": "UK Renters' Rights Bill Expands Awaab's Law to Cover Wider Health and Safety Haz",
+      "status": "published",
+      "tags": [
+        "regulation",
+        "awaabs-law",
+        "uk",
+        "damp-and-mould",
+        "housing"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "UK Expands Awaab's Law to Cover Broader Housing Hazards",
+      "seoDescription": "The UK's new Renters' Rights legislation will extend Awaab's Law next year, broadening landlord duties beyond damp and mould.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-01T14:07:49.159887+00:00"
+    },
     {
       "id": "03a74f2154ce",
       "title": "Military Families Sound Alarm Over Toxic Mold in Base Housing",
@@ -49,7 +76,7 @@
         "hurricane helene",
         "water damage"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Researchers Track Long-Term Mold Risks After Helene Flooding",
       "seoDescription": "Virginia Tech researchers say mold-related respiratory illness from Helene flooding typically appears one to three months after the water recedes.",
