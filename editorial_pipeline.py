@@ -2820,7 +2820,9 @@ def regenerate_all_articles():
     print(f"  Found {article_count} published articles")
 
     generate_article_pages(data)
+    generate_llms_files(data)
     generate_sitemap(data)
+    generate_llms_files(data)
     generate_robots_txt()
     print("  ✓ All article pages regenerated. Commit and push to deploy.")
 
@@ -3036,6 +3038,7 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
                 save_articles(_inc_data)
                 rebuild_embedded(_inc_data)
                 generate_article_pages(_inc_data)
+                generate_llms_files(_inc_data)
                 print(f"  ✓ Incremental save ({len(_inc_data['articles'])} articles)")
         else:
             reasons = []
@@ -3065,6 +3068,7 @@ def run_pipeline(min_score=DEFAULT_MIN_SCORE, dry_run=False):
         save_articles(data)
         rebuild_embedded(data)
         generate_article_pages(data)
+        generate_llms_files(data)
 
     # Save rejection cache (with timestamps for expiry)
     now = datetime.now(timezone.utc).isoformat()
@@ -3345,6 +3349,7 @@ def publish_approved(approved_file):
     save_articles(data)
     rebuild_embedded(data)
     generate_article_pages(data)
+    generate_llms_files(data)
 
     print(f"\n{'=' * 60}")
     print(f"  PUBLISH RESULTS")
@@ -3375,6 +3380,7 @@ def compliance_check_existing():
     save_articles(data)
     rebuild_embedded(data)
     generate_article_pages(data)
+    generate_llms_files(data)
     print(f"\n  {issues_found} articles had compliance issues (auto-corrected)")
 
 
@@ -3415,6 +3421,7 @@ def seo_backfill():
         save_articles(data)
         rebuild_embedded(data)
         generate_article_pages(data)
+        generate_llms_files(data)
 
     print(f"\n{'=' * 60}")
     print(f"  SEO Backfill Complete")
@@ -3488,6 +3495,202 @@ How it works:
         has_credentials = bool(os.environ.get("GITHUB_TOKEN")) and bool(os.environ.get("GITHUB_REPO_URL"))
         if not args.dry_run and (args.deploy or has_credentials):
             deploy_to_github()
+
+
+
+def generate_llms_files(data):
+    """Generate llms.txt (root overview), llms-full.txt (concatenated content),
+    and per-article Markdown companions at /a/{id}.md. Follows the llms.txt
+    spec proposed by Answer.AI (https://llmstxt.org/) so LLM crawlers can
+    consume the site as clean text without parsing HTML.
+    """
+    site_url = "https://themoldreport.org"
+    repo_dir = SCRIPT_DIR
+    articles = [a for a in data.get("articles", []) if a.get("status") == "published"]
+
+    # ---------- per-article Markdown companions: /a/{id}.md ----------
+    a_dir = repo_dir / "a"
+    a_dir.mkdir(exist_ok=True)
+    md_count = 0
+    for art in articles:
+        aid = art["id"]
+        title = art.get("title", "").strip()
+        summary = art.get("summary", "").strip()
+        editors_note = art.get("editorsNote", "").strip()
+        source = art.get("source", "")
+        source_url = art.get("sourceUrl", "")
+        author = art.get("author", "")
+        published_at = art.get("publishedAt", "")[:10]
+        category = art.get("category", "")
+        tags = art.get("tags", []) or []
+        canonical = f"{site_url}/a/{aid}.html"
+
+        front = []
+        front.append(f"# {title}")
+        front.append("")
+        meta_bits = []
+        if published_at:
+            meta_bits.append(f"Published: {published_at}")
+        if source:
+            meta_bits.append(f"Source: {source}")
+        if author and author != source:
+            meta_bits.append(f"Author: {author}")
+        if category:
+            meta_bits.append(f"Category: {category}")
+        if meta_bits:
+            front.append("> " + " | ".join(meta_bits))
+            front.append("")
+        front.append(f"Canonical URL: {canonical}")
+        if source_url:
+            front.append(f"Original source: {source_url}")
+        front.append("")
+        front.append("---")
+        front.append("")
+        front.append(summary)
+        if editors_note:
+            front.append("")
+            front.append("## Editor's Note")
+            front.append("")
+            front.append(editors_note)
+        if tags:
+            front.append("")
+            front.append("Tags: " + ", ".join(tags))
+        front.append("")
+        front.append("---")
+        front.append("")
+        front.append(
+            "The Mold Report is an editorial site covering mold illness, "
+            "water-damaged buildings, biotoxin exposure, CIRS, indoor air "
+            "quality, mycotoxins, and Shoemaker Protocol research. Operated "
+            "by Julien Lepleux. Not medical advice — see /about.html."
+        )
+        md_text = "\n".join(front) + "\n"
+
+        md_path = a_dir / f"{aid}.md"
+        with open(md_path, "w") as f:
+            f.write(md_text)
+        md_count += 1
+    print(f"  ✓ Generated {md_count} per-article Markdown files in /a/")
+
+    # ---------- root /llms.txt: site overview + article index ----------
+    sections_by_cat = {}
+    for art in articles:
+        cat = (art.get("category") or "news").lower()
+        sections_by_cat.setdefault(cat, []).append(art)
+
+    cat_order = ["news", "research", "regulation", "industry", "diagnostics"]
+    ordered_cats = [c for c in cat_order if c in sections_by_cat]
+    for c in sections_by_cat:
+        if c not in ordered_cats:
+            ordered_cats.append(c)
+
+    lines = []
+    lines.append("# The Mold Report")
+    lines.append("")
+    lines.append(
+        "> Independent editorial coverage of mold illness, water-damaged "
+        "buildings, biotoxin exposure, Chronic Inflammatory Response Syndrome "
+        "(CIRS), indoor air quality, mycotoxins, and Shoemaker Protocol research."
+    )
+    lines.append("")
+    lines.append(
+        "The Mold Report is built and operated by Julien Lepleux. Articles are "
+        "selected, rewritten, and compliance-checked by an editorial pipeline. "
+        "Original reporting is always linked to the source. Each article page "
+        "has a Markdown companion at the same path with a .md suffix "
+        "(e.g. /a/{id}.md) that LLM crawlers can fetch as clean text."
+    )
+    lines.append("")
+    lines.append("## Site")
+    lines.append(f"- [Homepage]({site_url}/): Latest mold illness coverage")
+    lines.append(f"- [About]({site_url}/about.html): Editorial policy, ownership, disclosures")
+    lines.append(f"- [Mold 101]({site_url}/mold-101.html): Primer on mold illness, CIRS, and biotoxin exposure")
+    lines.append(f"- [Providers]({site_url}/providers.html): Provider directory")
+    lines.append(f"- [Research]({site_url}/research.html): Research and improvement evidence")
+    lines.append(f"- [Privacy]({site_url}/privacy.html)")
+    lines.append(f"- [Terms]({site_url}/terms.html)")
+    lines.append("")
+    lines.append("## Full content")
+    lines.append(
+        f"- [llms-full.txt]({site_url}/llms-full.txt): Concatenated full-text "
+        "of every article on the site, suitable for one-shot ingestion."
+    )
+    lines.append("")
+
+    for cat in ordered_cats:
+        section_articles = sections_by_cat[cat]
+        # Sort newest first
+        section_articles.sort(key=lambda a: a.get("publishedAt", ""), reverse=True)
+        lines.append(f"## {cat.capitalize()}")
+        for art in section_articles:
+            aid = art["id"]
+            title = art.get("title", "").strip()
+            seo_desc = (art.get("seoDescription") or "").strip()
+            published_at = art.get("publishedAt", "")[:10]
+            url = f"{site_url}/a/{aid}.md"
+            desc_bits = []
+            if published_at:
+                desc_bits.append(published_at)
+            if seo_desc:
+                desc_bits.append(seo_desc)
+            desc = " — " + " — ".join(desc_bits) if desc_bits else ""
+            lines.append(f"- [{title}]({url}){desc}")
+        lines.append("")
+
+    llms_txt = "\n".join(lines).rstrip() + "\n"
+    with open(repo_dir / "llms.txt", "w") as f:
+        f.write(llms_txt)
+    print(f"  ✓ Generated llms.txt ({len(articles)} articles indexed)")
+
+    # ---------- /llms-full.txt: concatenated full-text ----------
+    full_lines = []
+    full_lines.append("# The Mold Report — Full Content Archive")
+    full_lines.append("")
+    full_lines.append(
+        f"This file contains the full editorial text of every published article on "
+        f"{site_url}. Use this for one-shot ingestion. Each article is canonical at "
+        f"{site_url}/a/{{id}}.html with a Markdown companion at "
+        f"{site_url}/a/{{id}}.md. Original reporting belongs to the linked source."
+    )
+    full_lines.append("")
+    sorted_articles = sorted(articles, key=lambda a: a.get("publishedAt", ""), reverse=True)
+    for art in sorted_articles:
+        aid = art["id"]
+        title = art.get("title", "")
+        summary = art.get("summary", "")
+        editors_note = art.get("editorsNote", "")
+        source = art.get("source", "")
+        source_url = art.get("sourceUrl", "")
+        published_at = art.get("publishedAt", "")[:10]
+        category = art.get("category", "")
+        tags = ", ".join(art.get("tags", []) or [])
+        canonical = f"{site_url}/a/{aid}.html"
+
+        full_lines.append("=" * 72)
+        full_lines.append(f"## {title}")
+        full_lines.append("")
+        if published_at:
+            full_lines.append(f"Published: {published_at}")
+        if category:
+            full_lines.append(f"Category: {category}")
+        if source:
+            full_lines.append(f"Source: {source}")
+        if source_url:
+            full_lines.append(f"Original: {source_url}")
+        full_lines.append(f"Canonical: {canonical}")
+        if tags:
+            full_lines.append(f"Tags: {tags}")
+        full_lines.append("")
+        full_lines.append(summary)
+        if editors_note:
+            full_lines.append("")
+            full_lines.append("Editor's Note: " + editors_note)
+        full_lines.append("")
+
+    llms_full = "\n".join(full_lines).rstrip() + "\n"
+    with open(repo_dir / "llms-full.txt", "w") as f:
+        f.write(llms_full)
+    print(f"  ✓ Generated llms-full.txt ({len(sorted_articles)} articles, {len(llms_full):,} chars)")
 
 
 def generate_sitemap(data):
@@ -3617,7 +3820,7 @@ def deploy_to_github():
         subprocess.run(["git", "config", "user.name", "Mold Report Bot"], cwd=repo_dir, check=True, capture_output=True)
 
         # Stage only the files we want
-        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json", "sitemap.xml", "robots.txt", "category.html", "providers.html", "research.html", "privacy.html", "terms.html", "newsletter.html"]
+        files_to_push = ["index.html", "articles.json", "editorial_pipeline.py", "scraper.py", "README.md", ".gitignore", "about.html", "generate_newsletter.py", "rewrite_headlines.py", "tips.json", "CNAME", "favicon.ico", "favicon-32x32.png", "apple-touch-icon.png", "og-image.png", "mold-101.html", "pipeline_config.json", "sync_transparency.py", "bootstrap.sh", "seed_backlog.py", "knowledge_corpus.json", "knowledge_compact.json", "sitemap.xml", "robots.txt", "category.html", "providers.html", "research.html", "privacy.html", "terms.html", "newsletter.html", "llms.txt", "llms-full.txt"]
         existing = [f for f in files_to_push if (repo_dir / f).exists()]
         subprocess.run(["git", "add"] + existing, cwd=repo_dir, check=True, capture_output=True)
         # Also add article share pages directory
