@@ -3,6 +3,78 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Reality TV Star Mikayla Matthews Relocates to Hawaii to Manage CIRS
+
+Published: 2026-05-03
+Category: news
+Source: Primetimer
+Original: https://www.primetimer.com/features/the-secret-lives-of-mormon-wives-star-mikayla-matthews-relocates-to-hawaii-to-manage-cirs-calls-it-a-new-chapter
+Canonical: https://themoldreport.org/a/ee2e95127427.html
+Tags: cirs, mold-illness, biotoxin-exposure, public-figure, patient-stories
+
+Mikayla Matthews, a star of Hulu's The Secret Lives of Mormon Wives, told followers on April 29 that she is moving from Utah to Maui to help manage Chronic Inflammatory Response Syndrome, a condition she has linked to mold and biotoxin exposure. In a tearful Instagram video, the 26-year-old said the illness has driven persistent skin flare-ups, fatigue, and the difficulty of parenting through chronic illness, calling the move "a new chapter."
+
+Matthews said she is working with a team of physicians on her recovery and is planning a follow-up detox retreat in Europe. She also acknowledged that her financial position has given her access to care many CIRS patients cannot afford, saying she felt for "anybody who has to go through what I've gone through and have to worry about how they're going to pay their bills."
+
+Matthews's audience puts an unusually mainstream spotlight on CIRS, a chronic illness that is still poorly recognized by much of conventional medicine despite a growing body of literature on biotoxin-driven inflammation in genetically susceptible patients.
+
+Editor's Note: Chronic Inflammatory Response Syndrome (CIRS) is the diagnostic framework developed by Dr. Ritchie Shoemaker for patients with persistent inflammation following exposure to biotoxins, most often from water-damaged buildings. Roughly 24% of the population carries HLA-DR haplotypes that impair clearance of these toxins, which can leave them symptomatic long after the exposure ends.
+
+========================================================================
+## Tornado Survivors in Wisconsin Warned to Mask Up as Mold Surfaces in Damaged Homes
+
+Published: 2026-05-01
+Category: industry
+Source: WSAW
+Original: https://www.wsaw.com/2026/05/01/staying-safe-mold-insulation-during-tornado-clean-up/
+Canonical: https://themoldreport.org/a/c9cc950a1e9a.html
+Tags: disaster-recovery, mold-remediation, indoor-air-quality, tornado, n-95
+
+Residents of Ringle, Wisconsin are starting to see mold growth inside homes damaged in last week's tornado, and an environmental testing firm is urging anyone entering those structures to wear an N-95 respirator and treat damp drywall and insulation as a respiratory hazard, WSAW reported on May 1.
+
+Dave Barrett, operations manager at NorthStar Environmental Testing, told the station that mold growth is normal after a building takes on water and is not in itself a reason to panic, but said homes should be aggressively dried out, often by professional remediators using antimicrobial treatments. He recommended air sampling using spore-trap analysis to assess indoor air quality, and pointed homeowners to the EPA's mold guidance for cleanup standards.
+
+Volunteers in Ringle, including a group from Co-Vantage Credit Union, have largely confined their cleanup work to yard debris outside the homes to limit exposure, with masks, eye protection and gloves as standard kit. One Ringle homeowner told WSAW she can smell mold in her damaged home and is keeping her family out of it until it can be torn down.
+
+Editor's Note: Microbial growth following water intrusion can begin within 24 to 48 hours, which is why post-disaster drying timelines matter so much for long-term indoor air quality and occupant health.
+
+========================================================================
+## UK Renters' Rights Bill Expands Awaab's Law to Cover Wider Health and Safety Hazards
+
+Published: 2026-05-01
+Category: regulation
+Source: Positive News
+Original: https://www.positive.news/society/good-news-stories-from-week-18-of-2026/
+Canonical: https://themoldreport.org/a/922bc486d572.html
+Tags: regulation, awaabs-law, uk, damp-and-mould, housing
+
+The UK's Renters' Rights legislation, recently signed into law, will extend Awaab's Law next year to require social landlords to act on a wider range of health and safety risks within fixed timeframes — building on the original requirement to address emergency hazards and serious damp and mould. The renters' union Acorn estimated the broader package of reforms will affect roughly 12 million renters across the country.
+
+Awaab's Law is named after Awaab Ishak, a two-year-old who died in 2020 following prolonged exposure to mould in a Rochdale social housing flat. His death prompted national reckoning over how landlords respond to damp-and-mould complaints, and the original law established statutory deadlines for social landlords to investigate and remediate hazardous conditions. Next year's extension widens the law's scope beyond damp and mould to additional health and safety hazards.
+
+Critics of the broader bill argue the changes could push smaller landlords out of the market or push rents higher. Supporters frame the legislation as the most significant tenant-protection shift in a generation.
+
+Editor's Note: Awaab's Law remains one of the only statutory frameworks in the world that explicitly ties water-damaged housing to landlord accountability — a regulatory model patient advocates in the U.S. have pointed to when arguing that prolonged indoor mold exposure deserves recognition as a public-health harm, not just a habitability complaint.
+
+========================================================================
+## UC Irvine Single Mom Forced From Home by Toxic Mold Will Deliver Commencement Speech
+
+Published: 2026-05-01
+Category: news
+Source: UC Irvine School of Social Ecology
+Original: https://socialecology.uci.edu/news/power-reset
+Canonical: https://themoldreport.org/a/2d322ce9c879.html
+Tags: water-damaged-buildings, mold-exposure, displacement, patient-stories, remediation
+
+A toxic mold infestation that began with mushrooms pushing through her daughter's bedroom drywall pushed Aliso Viejo single mother Amanda Spencer and her four children out of their home and into a string of hotel rooms in the months before her UC Irvine graduation, the university's School of Social Ecology reported.
+
+Spencer kept attending classes throughout the displacement, taking exams from coffee shops with strong enough Wi-Fi while shuttling her kids between temporary housing. On June 14, she will deliver the commencement speech at UCI's School of Social Ecology and graduate with a bachelor's degree in criminology, law and society. "I've come too far," Spencer told the school. "This is not going to take us down."
+
+The story is a window into a problem mold illness clinicians and advocacy groups have flagged for years: visible mushrooms or mold pushing through finished surfaces almost always points to a much larger water-damage problem inside the wall cavity, and remediation often requires families to leave the building entirely while the work is done.
+
+Editor's Note: Visible fruiting bodies inside drywall typically indicate sustained moisture and active microbial growth in the cavity behind. The Shoemaker Protocol literature emphasizes that exposure remediation precedes any meaningful recovery: continued exposure to a water-damaged building blocks improvement on every other intervention.
+
+========================================================================
 ## Military Families Sound Alarm Over Toxic Mold in Base Housing
 
 Published: 2026-04-30

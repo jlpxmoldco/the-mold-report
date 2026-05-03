@@ -17,6 +17,8 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Reality TV Star Mikayla Matthews Relocates to Hawaii to Manage CIRS](https://themoldreport.org/a/ee2e95127427.md) — 2026-05-03 — The Secret Lives of Mormon Wives star says she is relocating to Maui to manage Chronic Inflammatory Response Syndrome linked to mold and biotoxin exposure.
+- [UC Irvine Single Mom Forced From Home by Toxic Mold Will Deliver Commencement Speech](https://themoldreport.org/a/2d322ce9c879.md) — 2026-05-01 — Amanda Spencer, displaced with her four children by a toxic mold infestation, will deliver UC Irvine's School of Social Ecology commencement speech in June.
 - [Military Families Sound Alarm Over Toxic Mold in Base Housing](https://themoldreport.org/a/03a74f2154ce.md) — 2026-04-30 — Service members and dependents say toxic mold in privatized military housing keeps causing respiratory and neurological symptoms.
 - [Hinesville Mother Diagnosed with Respiratory Illness Amid Apartment Mold Complaints](https://themoldreport.org/a/93bf78649d51.md) — 2026-04-30 — A Hinesville, Georgia tenant says apartment mold caused a respiratory illness diagnosis. Management has now offered a fix after public complaints.
 - [Miami University Students Report Black Mold in Dorm Showers and AC Units](https://themoldreport.org/a/036242ec9786.md) — 2026-04-27 — Students at Miami University detail black mold in Hahne and McKee Hall — including a moldy AC unit linked to two months of illness.
@@ -120,6 +122,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Mold Removal in Public Housing Cuts Asthma ER Visits, Study Finds](https://themoldreport.org/a/fe9aedc6c1da.md) — 2026-02-18 — A 2026 study found targeted mold removal in public housing measurably reduced asthma-related ER visits. See what the findings mean for housing health policy.
 
 ## Regulation
+- [UK Renters' Rights Bill Expands Awaab's Law to Cover Wider Health and Safety Hazards](https://themoldreport.org/a/922bc486d572.md) — 2026-05-01 — The UK's new Renters' Rights legislation will extend Awaab's Law next year, broadening landlord duties beyond damp and mould.
 - [Spring Hill College responds to alumna's mold-and-asthma lawsuit](https://themoldreport.org/a/32d22be4746e.md) — 2026-04-26 — Alabama college issues statement after alumna sues over alleged campus mold exposure that she says caused severe asthma and respiratory issues.
 - [Auckland landlord ordered to pay $13,000 over moldy rental linked to tenant illness](https://themoldreport.org/a/1d8d11cae91c.md) — 2026-04-26 — NZ Tenancy Tribunal cites prolonged damp and mold exposure as cause of tenant's illness in $13,000 ruling against an Auckland landlord.
 - [Inspectors Cite Decatur Township Fire Department for Mold and Health Code Violations](https://themoldreport.org/a/de50531cdc50.md) — 2026-04-25 — Inspectors documented mold and health code violations at the Decatur Township Fire Department, raising occupational exposure concerns for firefighters.
@@ -143,6 +146,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Students Sue Lipscomb University for $14.5M Over Mold Conditions](https://themoldreport.org/a/aecf27f2fbda.md) — 2026-01-09 — Students sued Lipscomb University in Nashville for $14.5M over mold in campus housing. Learn what the suit alleges about health impacts and unsafe living conditions.
 
 ## Industry
+- [Tornado Survivors in Wisconsin Warned to Mask Up as Mold Surfaces in Damaged Homes](https://themoldreport.org/a/c9cc950a1e9a.md) — 2026-05-01 — Environmental testers urge Ringle, Wisconsin residents in tornado-damaged homes to wear N-95s as mold begins to surface in waterlogged drywall and insulation.
 - [CIRSx Sets June 2026 Conference in Fort Lauderdale, Drawing CIRS Researchers and Practitioners](https://themoldreport.org/a/e566e243c221.md) — 2026-04-25 — CIRSx 2026 will convene practitioners and researchers June 25-28 at the OMNI Fort Lauderdale, with CME credits and an open call for abstracts.
 - [Mold Remediation Standard ANSI/IICRC S520 Cited in 2026 NDAA for Military Housing](https://themoldreport.org/a/7e07a3a901d8.md) — 2026-04-25 — The 2026 NDAA names the ANSI/IICRC S520 Standard for Professional Mold Remediation as the guideline for mold cleanup in military housing.
 - [Mold Remediation Market Approaches $4 Billion as Consolidation Accelerates](https://themoldreport.org/a/b5b0e7728f9c.md) — 2026-04-25 — The mold remediation market is on track to grow from $2.3B in 2025 to $3.9B by 2033, with consolidation among national restoration platforms.
