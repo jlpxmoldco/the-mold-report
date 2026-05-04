@@ -17,7 +17,6 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
-- [Psychology Today Spotlights Mold Toxicity as a Driver of Co-Occurring Psychiatric Symptoms](https://themoldreport.org/a/a4d3f7c12b9e.md) — 2026-05-04 — Psychology Today column points to mold toxicity as a common driver of co-occurring depression, anxiety, brain fog, and insomnia.
 - [Physicians Warn Indoor Laundry Drying and Unmaintained AC Units Promote Mold and Lung Damage](https://themoldreport.org/a/c7f2e6a83d51.md) — 2026-05-04 — Physicians warn that indoor laundry drying and unmaintained air conditioners raise humidity, promote mold growth, and risk lasting lung damage.
 - [Reality TV Star Mikayla Matthews Relocates to Hawaii to Manage CIRS](https://themoldreport.org/a/ee2e95127427.md) — 2026-05-03 — The Secret Lives of Mormon Wives star says she is relocating to Maui to manage Chronic Inflammatory Response Syndrome linked to mold and biotoxin exposure.
 - [UC Irvine Single Mom Forced From Home by Toxic Mold Will Deliver Commencement Speech](https://themoldreport.org/a/2d322ce9c879.md) — 2026-05-01 — Amanda Spencer, displaced with her four children by a toxic mold infestation, will deliver UC Irvine's School of Social Ecology commencement speech in June.

@@ -3,24 +3,6 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
-## Psychology Today Spotlights Mold Toxicity as a Driver of Co-Occurring Psychiatric Symptoms
-
-Published: 2026-05-04
-Category: news
-Source: Psychology Today
-Original: https://www.psychologytoday.com/us/blog/night-sweats-and-delusions-of-grandeur/202605/why-mental-disorders-so-often-travel-together
-Canonical: https://themoldreport.org/a/a4d3f7c12b9e.html
-Tags: mental health, psychiatric symptoms, brain fog, biotoxin
-
-A new Psychology Today column examines why depression, anxiety, brain fog, and insomnia so often appear together in the same patient, and points to mold toxicity as one underrecognized common cause.
-
-The piece argues that overlapping psychiatric presentations frequently share a single inflammatory driver, and asks clinicians to consider biotoxin exposure when patients present with multi-symptom psychiatric pictures that resist standard treatment.
-
-The column joins a growing wave of mainstream coverage acknowledging that environmental exposures, particularly from water-damaged buildings, can produce neuroinflammatory effects that mimic or worsen primary psychiatric disorders.
-
-Editor's Note: The neuropsychiatric symptoms of CIRS, fatigue, brain fog, mood changes, sleep disturbance, are well-documented in Dr. Ritchie Shoemaker's published research and reflect the inflammatory cascade triggered by biotoxin exposure in HLA-DR susceptible individuals. Mainstream psychiatric coverage acknowledging this link is a meaningful step.
-
-========================================================================
 ## Maine Issues Advisory on Medical Cannabis Found to Contain Unsafe Mold Levels
 
 Published: 2026-05-04
