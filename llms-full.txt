@@ -3,6 +3,60 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Psychology Today Spotlights Mold Toxicity as a Driver of Co-Occurring Psychiatric Symptoms
+
+Published: 2026-05-04
+Category: news
+Source: Psychology Today
+Original: https://www.psychologytoday.com/us/blog/night-sweats-and-delusions-of-grandeur/202605/why-mental-disorders-so-often-travel-together
+Canonical: https://themoldreport.org/a/a4d3f7c12b9e.html
+Tags: mental health, psychiatric symptoms, brain fog, biotoxin
+
+A new Psychology Today column examines why depression, anxiety, brain fog, and insomnia so often appear together in the same patient, and points to mold toxicity as one underrecognized common cause.
+
+The piece argues that overlapping psychiatric presentations frequently share a single inflammatory driver, and asks clinicians to consider biotoxin exposure when patients present with multi-symptom psychiatric pictures that resist standard treatment.
+
+The column joins a growing wave of mainstream coverage acknowledging that environmental exposures, particularly from water-damaged buildings, can produce neuroinflammatory effects that mimic or worsen primary psychiatric disorders.
+
+Editor's Note: The neuropsychiatric symptoms of CIRS, fatigue, brain fog, mood changes, sleep disturbance, are well-documented in Dr. Ritchie Shoemaker's published research and reflect the inflammatory cascade triggered by biotoxin exposure in HLA-DR susceptible individuals. Mainstream psychiatric coverage acknowledging this link is a meaningful step.
+
+========================================================================
+## Maine Issues Advisory on Medical Cannabis Found to Contain Unsafe Mold Levels
+
+Published: 2026-05-04
+Category: regulation
+Source: Hemp Gazette
+Original: https://hempgazette.com/news/maine-medical-cannabis-contamination-recall/
+Canonical: https://themoldreport.org/a/b5e8a91d2c4f.html
+Tags: mold contamination, cannabis, regulation, Maine, recall
+
+Maine regulators have issued a public advisory after laboratory testing identified unsafe mold contamination, alongside other contaminants, in medical cannabis products distributed in the state.
+
+The action highlights the ongoing challenge of mold contamination in the cannabis supply chain, where high-humidity cultivation environments and post-harvest storage can promote fungal growth. Patients using medical cannabis for chronic conditions are often immunocompromised or biotoxin-sensitive, making contamination a meaningful clinical concern.
+
+Details of the affected products and any associated recalls were issued through Maine's medical cannabis program. Patients who purchased the implicated products are advised to follow state guidance.
+
+Editor's Note: Inhaled mold contamination is a recognized exposure route for biotoxin illness. Patients with mold sensitivity should be cautious about any inhaled product, including cannabis, where post-harvest conditions can permit fungal growth.
+
+========================================================================
+## Physicians Warn Indoor Laundry Drying and Unmaintained AC Units Promote Mold and Lung Damage
+
+Published: 2026-05-04
+Category: news
+Source: Haberler
+Original: https://en.haberler.com/unmaintained-air-conditioners-and-dried-laundry-19798701/
+Canonical: https://themoldreport.org/a/c7f2e6a83d51.html
+Tags: indoor air quality, humidity, respiratory, mold prevention
+
+Indoor laundry drying and poorly maintained air conditioning systems can drive humidity levels high enough to support mold growth and contribute to lasting respiratory damage, physicians warned in newly published guidance.
+
+The advisory cites the cumulative effects of chronic exposure to airborne fungal spores in homes where moisture is not adequately managed. Recommendations include regular cleaning and maintenance of AC units, ventilation during and after laundry drying, and prompt remediation of any visible mold growth.
+
+The statement adds to mounting public-health attention on indoor air quality as a determinant of long-term respiratory and inflammatory health.
+
+Editor's Note: Sustained indoor humidity above roughly 60 percent is a well-documented enabler of mold growth on porous surfaces. For people with biotoxin sensitivity, even small reservoirs of indoor mold can produce ongoing inflammatory symptoms.
+
+========================================================================
 ## Reality TV Star Mikayla Matthews Relocates to Hawaii to Manage CIRS
 
 Published: 2026-05-03
