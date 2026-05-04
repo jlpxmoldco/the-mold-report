@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-03T14:49:04.308919+00:00",
+  "lastUpdated": "2026-05-04T15:03:58.889734+00:00",
   "articles": [
     {
       "id": "ee2e95127427",
@@ -29,6 +29,33 @@
       "qcTimestamp": "2026-05-03T14:49:03.162287+00:00"
     },
     {
+      "id": "242e354ac7b1",
+      "title": "TNF-alpha and IL-1beta Counteract TGF-beta1's Effects on Collagen and Tissue Stiffness",
+      "summary": "New research published in Scientific Reports finds that the inflammatory cytokines TNF-alpha and IL-1beta oppose TGF-beta1-driven collagen accumulation and extracellular matrix stiffening, while IL-18 has no such effect.\n\nThe study, led by Angelo and colleagues, characterizes how a trio of pro-inflammatory signals interact with TGF-beta1 in tissue remodeling. The finding sharpens the mechanistic picture of why TGF-beta1 dysregulation produces fibrotic and structural changes in chronic inflammatory states.\n\nFor clinicians and researchers tracking biomarker-guided treatment of chronic inflammatory illness, the result reinforces TGF-beta1's central role and shows that not all inflammatory cytokines push tissue remodeling in the same direction.",
+      "editorsNote": "TGF-beta1 is one of the core biomarkers in the Shoemaker Protocol for Chronic Inflammatory Response Syndrome. Elevated TGF-beta1 is commonly observed in patients with prolonged biotoxin exposure and is a target for VIP and other downstream interventions.",
+      "source": "Sci Rep",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42069942/",
+      "author": "Angelo KS",
+      "publishedAt": "2026-05-02T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "TNF-alpha and IL-1beta Counteract TGF-beta1's Effects on Collagen and Tissue Sti",
+      "status": "published",
+      "tags": [
+        "TGF-beta1",
+        "biomarkers",
+        "inflammation",
+        "CIRS",
+        "cytokines"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "TNF-alpha, IL-1beta Counter TGF-beta1 in Tissue Remodeling",
+      "seoDescription": "New Scientific Reports study shows TNF-alpha and IL-1beta oppose TGF-beta1 effects on collagen and ECM stiffness, relevant to CIRS biomarker science.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-04T15:03:58.401968+00:00"
+    },
+    {
       "id": "c9cc950a1e9a",
       "title": "Tornado Survivors in Wisconsin Warned to Mask Up as Mold Surfaces in Damaged Homes",
       "summary": "Residents of Ringle, Wisconsin are starting to see mold growth inside homes damaged in last week's tornado, and an environmental testing firm is urging anyone entering those structures to wear an N-95 respirator and treat damp drywall and insulation as a respiratory hazard, WSAW reported on May 1.\n\nDave Barrett, operations manager at NorthStar Environmental Testing, told the station that mold growth is normal after a building takes on water and is not in itself a reason to panic, but said homes should be aggressively dried out, often by professional remediators using antimicrobial treatments. He recommended air sampling using spore-trap analysis to assess indoor air quality, and pointed homeowners to the EPA's mold guidance for cleanup standards.\n\nVolunteers in Ringle, including a group from Co-Vantage Credit Union, have largely confined their cleanup work to yard debris outside the homes to limit exposure, with masks, eye protection and gloves as standard kit. One Ringle homeowner told WSAW she can smell mold in her damaged home and is keeping her family out of it until it can be torn down.",
@@ -48,7 +75,7 @@
         "tornado",
         "n-95"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 2,
       "seoTitle": "Wisconsin Tornado Survivors Warned to Mask Up Around Mold",
       "seoDescription": "Environmental testers urge Ringle, Wisconsin residents in tornado-damaged homes to wear N-95s as mold begins to surface in waterlogged drywall and insulation.",
@@ -1369,6 +1396,58 @@
       "author": "plasticsnews.com"
     },
     {
+      "id": "b82aa02b41c4",
+      "title": "Researchers Detect Patulin Mycotoxin in Reconstituted Pomegranate Juice",
+      "summary": "A study in Molecules has identified the co-occurrence of patulin and 5-hydroxymethylfurfural in samples of reconstituted pomegranate juice, raising questions about mycotoxin carry-over from contaminated source fruit into processed beverages.\n\nPatulin is a mycotoxin produced primarily by Penicillium expansum, the same mold responsible for blue rot in apples and other soft fruit. While most patulin research has focused on apple juice, this study extends the analysis to pomegranate, a fruit widely marketed for its health benefits.\n\nThe authors, led by Kayisoglu and colleagues, conducted analytical determination and risk assessment to estimate exposure under realistic consumption patterns. The work underscores that mycotoxin contamination in fruit-based beverages is not limited to a single commodity.",
+      "editorsNote": "Patulin is one of several mycotoxins implicated in immune and gastrointestinal effects at chronic low-dose exposures. For people sensitive to biotoxins, even trace dietary mycotoxin loads can compound environmental exposure from water-damaged buildings.",
+      "source": "Molecules",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42075985/",
+      "author": "Kayisoglu C",
+      "publishedAt": "2026-04-17T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Researchers Detect Patulin Mycotoxin in Reconstituted Pomegranate Juice",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "patulin",
+        "food safety",
+        "fruit juice"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Patulin Mycotoxin Detected in Pomegranate Juice",
+      "seoDescription": "Study finds patulin and HMF co-occurring in reconstituted pomegranate juice, with dietary risk assessment for consumers.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-04T15:03:57.954528+00:00"
+    },
+    {
+      "id": "579dee317de9",
+      "title": "Low-Dose Zearalenone Causes Multi-Organ Toxicity in Weaned Piglets, Study Finds",
+      "summary": "A preliminary study in Antioxidants reports that even low doses of purified zearalenone produced detectable multi-organ toxicity in weaned female piglets, suggesting that chronic low-level exposure to this mycotoxin may carry broader health consequences than current tolerance thresholds account for.\n\nZearalenone is a mycotoxin produced by several Fusarium species and is one of the most prevalent contaminants of cereal grains worldwide. It is a known endocrine disruptor with estrogenic activity, and pigs are considered the most sensitive livestock species, and a frequently cited model for human risk assessment.\n\nThe research team, led by Liu and colleagues, examined toxicity across multiple organ systems following exposure to purified zearalenone at low doses. The authors call for further investigation into chronic low-dose exposure scenarios.",
+      "editorsNote": "Multi-organ toxicity from low-dose mycotoxin exposure mirrors the multi-system symptom presentation that defines CIRS in humans. The pig model is widely used for translational mycotoxin research because of physiological similarities to humans.",
+      "source": "Antioxidants (Basel)",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42072138/",
+      "author": "Liu Y",
+      "publishedAt": "2026-04-16T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Low-Dose Zearalenone Causes Multi-Organ Toxicity in Weaned Piglets, Study Finds",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "zearalenone",
+        "low-dose toxicity",
+        "fusarium"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Low-Dose Zearalenone Causes Multi-Organ Toxicity in Pigs",
+      "seoDescription": "New Antioxidants study finds low doses of zearalenone mycotoxin trigger multi-organ toxicity in weaned piglets, raising chronic exposure questions.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-04T15:03:58.889514+00:00"
+    },
+    {
       "title": "ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards",
       "summary": "ISSA and NORMI have expanded their Indoor Health Alliance, a partnership first established in 2018, to more formally connect the cleaning and mold remediation industries under shared standards and education. The renewed agreement covers four areas: cross-disciplinary certification access, reciprocal membership benefits, coordinated advocacy with media and government bodies on indoor air quality, and unified professional standards. Cleanfax has been named the official publication of NORMI as part of the arrangement.\n\nUnder the expanded terms, ISSA members can access NORMI's mold assessment training at member pricing. NORMI members gain access to trade show resources through ISSA. Both organizations represent large professional networks, with ISSA serving the broader cleaning industry and NORMI focusing on mold inspection and remediation credentialing.\n\nThe alliance reflects a shift in how the industry understands building health. Routine cleaning and mold remediation have historically operated in separate professional silos. Bringing them into closer alignment means inspectors and cleaners may increasingly share protocols and training frameworks. For building occupants and property managers concerned about mold exposure, this coordination could lead to more consistent identification and response to indoor mold problems, particularly in commercial and institutional settings where cleaning staff are often first to encounter visible growth.",
       "source": "Environmental Protection",
@@ -1456,6 +1535,32 @@
       "seoTitle": "Mold Closes LA School, 120 Students Displaced | The Mold Report",
       "seoDescription": "120+ students at Chatsworth Park Elementary in LA remain displaced 7 weeks after mold was found. LAUSD still hasn't delivered definitive test results to families.",
       "primaryKeyword": "TGF-beta mold"
+    },
+    {
+      "id": "7db7323fc0f9",
+      "title": "Aflatoxin Contamination Detected in Dried Fruits and Chocolates Sold in Armenia",
+      "summary": "A new study published in Foods has documented aflatoxin contamination in dried fruits and chocolate products available in Armenian markets, with researchers modeling dietary exposure scenarios to estimate consumer risk.\n\nAflatoxins are a class of mycotoxins produced by Aspergillus flavus and Aspergillus parasiticus, two of the most widespread mold species in stored food crops. Chronic dietary exposure has been linked to liver damage, immune suppression, and increased cancer risk in epidemiological studies.\n\nThe research, led by Pipoyan and colleagues, applied probabilistic risk assessment to commonly consumed products. The findings add to a growing body of evidence that low-level mycotoxin exposure through everyday foods is more pervasive than most consumers realize.",
+      "editorsNote": "Aflatoxins are among the mycotoxins Dr. Ritchie Shoemaker and other CIRS researchers have flagged as relevant to chronic inflammatory response in genetically susceptible individuals. Patients carrying HLA-DR susceptibility genes can struggle to clear even trace mycotoxin exposures from diet or environment.",
+      "source": "Foods",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42073217/",
+      "author": "Pipoyan D",
+      "publishedAt": "2026-04-10T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Aflatoxin Contamination Detected in Dried Fruits and Chocolates Sold in Armenia",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "aflatoxin",
+        "food safety",
+        "exposure assessment"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Aflatoxin Found in Armenian Dried Fruits, Chocolates",
+      "seoDescription": "New study in Foods documents aflatoxin mycotoxin contamination in dried fruits and chocolates sold in Armenia, with dietary exposure risk modeling.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-04T15:03:57.555645+00:00"
     },
     {
       "id": "79441f59eb92",

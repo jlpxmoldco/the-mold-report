@@ -21,6 +21,24 @@ Matthews's audience puts an unusually mainstream spotlight on CIRS, a chronic il
 Editor's Note: Chronic Inflammatory Response Syndrome (CIRS) is the diagnostic framework developed by Dr. Ritchie Shoemaker for patients with persistent inflammation following exposure to biotoxins, most often from water-damaged buildings. Roughly 24% of the population carries HLA-DR haplotypes that impair clearance of these toxins, which can leave them symptomatic long after the exposure ends.
 
 ========================================================================
+## TNF-alpha and IL-1beta Counteract TGF-beta1's Effects on Collagen and Tissue Stiffness
+
+Published: 2026-05-02
+Category: research
+Source: Sci Rep
+Original: https://pubmed.ncbi.nlm.nih.gov/42069942/
+Canonical: https://themoldreport.org/a/242e354ac7b1.html
+Tags: TGF-beta1, biomarkers, inflammation, CIRS, cytokines
+
+New research published in Scientific Reports finds that the inflammatory cytokines TNF-alpha and IL-1beta oppose TGF-beta1-driven collagen accumulation and extracellular matrix stiffening, while IL-18 has no such effect.
+
+The study, led by Angelo and colleagues, characterizes how a trio of pro-inflammatory signals interact with TGF-beta1 in tissue remodeling. The finding sharpens the mechanistic picture of why TGF-beta1 dysregulation produces fibrotic and structural changes in chronic inflammatory states.
+
+For clinicians and researchers tracking biomarker-guided treatment of chronic inflammatory illness, the result reinforces TGF-beta1's central role and shows that not all inflammatory cytokines push tissue remodeling in the same direction.
+
+Editor's Note: TGF-beta1 is one of the core biomarkers in the Shoemaker Protocol for Chronic Inflammatory Response Syndrome. Elevated TGF-beta1 is commonly observed in patients with prolonged biotoxin exposure and is a target for VIP and other downstream interventions.
+
+========================================================================
 ## Tornado Survivors in Wisconsin Warned to Mask Up as Mold Surfaces in Damaged Homes
 
 Published: 2026-05-01
@@ -793,6 +811,42 @@ Uponor faces multiple lawsuits alleging that its AquaPEX pipes, sold between 201
 Editor's Note: Plumbing defect litigation is an important upstream factor in mold prevention — pipe failures are a leading cause of the chronic moisture conditions that drive indoor mold growth.
 
 ========================================================================
+## Researchers Detect Patulin Mycotoxin in Reconstituted Pomegranate Juice
+
+Published: 2026-04-17
+Category: research
+Source: Molecules
+Original: https://pubmed.ncbi.nlm.nih.gov/42075985/
+Canonical: https://themoldreport.org/a/b82aa02b41c4.html
+Tags: mycotoxins, patulin, food safety, fruit juice
+
+A study in Molecules has identified the co-occurrence of patulin and 5-hydroxymethylfurfural in samples of reconstituted pomegranate juice, raising questions about mycotoxin carry-over from contaminated source fruit into processed beverages.
+
+Patulin is a mycotoxin produced primarily by Penicillium expansum, the same mold responsible for blue rot in apples and other soft fruit. While most patulin research has focused on apple juice, this study extends the analysis to pomegranate, a fruit widely marketed for its health benefits.
+
+The authors, led by Kayisoglu and colleagues, conducted analytical determination and risk assessment to estimate exposure under realistic consumption patterns. The work underscores that mycotoxin contamination in fruit-based beverages is not limited to a single commodity.
+
+Editor's Note: Patulin is one of several mycotoxins implicated in immune and gastrointestinal effects at chronic low-dose exposures. For people sensitive to biotoxins, even trace dietary mycotoxin loads can compound environmental exposure from water-damaged buildings.
+
+========================================================================
+## Low-Dose Zearalenone Causes Multi-Organ Toxicity in Weaned Piglets, Study Finds
+
+Published: 2026-04-16
+Category: research
+Source: Antioxidants (Basel)
+Original: https://pubmed.ncbi.nlm.nih.gov/42072138/
+Canonical: https://themoldreport.org/a/579dee317de9.html
+Tags: mycotoxins, zearalenone, low-dose toxicity, fusarium
+
+A preliminary study in Antioxidants reports that even low doses of purified zearalenone produced detectable multi-organ toxicity in weaned female piglets, suggesting that chronic low-level exposure to this mycotoxin may carry broader health consequences than current tolerance thresholds account for.
+
+Zearalenone is a mycotoxin produced by several Fusarium species and is one of the most prevalent contaminants of cereal grains worldwide. It is a known endocrine disruptor with estrogenic activity, and pigs are considered the most sensitive livestock species, and a frequently cited model for human risk assessment.
+
+The research team, led by Liu and colleagues, examined toxicity across multiple organ systems following exposure to purified zearalenone at low doses. The authors call for further investigation into chronic low-dose exposure scenarios.
+
+Editor's Note: Multi-organ toxicity from low-dose mycotoxin exposure mirrors the multi-system symptom presentation that defines CIRS in humans. The pig model is widely used for translational mycotoxin research because of physiological similarities to humans.
+
+========================================================================
 ## ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards
 
 Published: 2026-04-14
@@ -839,6 +893,24 @@ A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has
 The Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.
 
 The district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.
+
+========================================================================
+## Aflatoxin Contamination Detected in Dried Fruits and Chocolates Sold in Armenia
+
+Published: 2026-04-10
+Category: research
+Source: Foods
+Original: https://pubmed.ncbi.nlm.nih.gov/42073217/
+Canonical: https://themoldreport.org/a/7db7323fc0f9.html
+Tags: mycotoxins, aflatoxin, food safety, exposure assessment
+
+A new study published in Foods has documented aflatoxin contamination in dried fruits and chocolate products available in Armenian markets, with researchers modeling dietary exposure scenarios to estimate consumer risk.
+
+Aflatoxins are a class of mycotoxins produced by Aspergillus flavus and Aspergillus parasiticus, two of the most widespread mold species in stored food crops. Chronic dietary exposure has been linked to liver damage, immune suppression, and increased cancer risk in epidemiological studies.
+
+The research, led by Pipoyan and colleagues, applied probabilistic risk assessment to commonly consumed products. The findings add to a growing body of evidence that low-level mycotoxin exposure through everyday foods is more pervasive than most consumers realize.
+
+Editor's Note: Aflatoxins are among the mycotoxins Dr. Ritchie Shoemaker and other CIRS researchers have flagged as relevant to chronic inflammatory response in genetically susceptible individuals. Patients carrying HLA-DR susceptibility genes can struggle to clear even trace mycotoxin exposures from diet or environment.
 
 ========================================================================
 ## Review Maps Widespread Mycotoxin Contamination Across Central Africa's Food and Feed Supply
