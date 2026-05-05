@@ -158,17 +158,42 @@ def get_corpus_context():
         return f"\n\nKNOWLEDGE CORPUS (authority hierarchy — Master Claims > Shoemaker Research > CIRS Framework):\n{_CORPUS_COMPACT}\n"
     return ""
 
-# PubMed eutils search queries (fetches recent peer-reviewed research)
-# Query #3 uses [tiab] field tags + AND structure: a mold-anchor term must
-# co-occur with a health-effect qualifier in title/abstract. Prevents loose-OR
-# false positives (e.g. "MMP-9 in skin aging" matching query #2).
+# PubMed eutils search queries (fetches recent peer-reviewed research).
+# All queries use [tiab] field tags + AND structure: a mold-anchor term must
+# co-occur with a health/exposure qualifier in title/abstract. This prevents
+# loose-OR false positives (e.g. "MMP-9 in skin aging" matching a biomarker
+# query, or "Aspergillus" matching a pure microbiology paper).
+# Coverage spans: core mold-illness terms, water-damaged buildings, specific
+# mycotoxins, fungal species + exposure, CIRS biomarker panel, indoor air
+# quality, co-morbid conditions (MCAS, chronic fatigue, neuroinflammation),
+# and remediation/testing.
 PUBMED_SEARCHES = [
-    "mold illness OR mycotoxin exposure OR chronic inflammatory response syndrome OR water-damaged building",
-    "TGF-beta1 mold OR MMP-9 biotoxin OR MSH mold OR Stachybotrys health",
-    '("Mold"[tiab] OR "microbial growth"[tiab] OR "dampness"[tiab] OR "water-damaged building"[tiab] OR "water-damaged buildings"[tiab] OR "Sick Building Syndrome"[tiab]) AND ("adverse health effects"[tiab] OR "Chronic Inflammatory Response Syndrome"[tiab] OR "innate immune system"[tiab] OR "comprehensive review"[tiab] OR "systematic review"[tiab])',
+    # 1. Core mold illness / biotoxin / CIRS terminology
+    '("mold illness"[tiab] OR "mould illness"[tiab] OR "biotoxin illness"[tiab] OR "Chronic Inflammatory Response Syndrome"[tiab] OR "CIRS"[tiab] OR "Shoemaker Protocol"[tiab])',
+
+    # 2. Water-damaged buildings + dampness + health effects
+    '("water-damaged building"[tiab] OR "water-damaged buildings"[tiab] OR "dampness"[tiab] OR "damp building"[tiab] OR "damp housing"[tiab] OR "sick building syndrome"[tiab]) AND ("health"[tiab] OR "illness"[tiab] OR "exposure"[tiab] OR "respiratory"[tiab] OR "asthma"[tiab] OR "inflammation"[tiab] OR "occupant"[tiab])',
+
+    # 3. Specific mycotoxins + human health / exposure
+    '("mycotoxin"[tiab] OR "mycotoxins"[tiab] OR "ochratoxin"[tiab] OR "aflatoxin"[tiab] OR "trichothecene"[tiab] OR "trichothecenes"[tiab] OR "gliotoxin"[tiab] OR "zearalenone"[tiab] OR "satratoxin"[tiab] OR "deoxynivalenol"[tiab]) AND ("human"[tiab] OR "exposure"[tiab] OR "illness"[tiab] OR "neuro"[tiab] OR "immune"[tiab] OR "indoor"[tiab] OR "inhalation"[tiab])',
+
+    # 4. Indoor mold / fungal species + exposure context
+    '("Stachybotrys"[tiab] OR "Aspergillus"[tiab] OR "Penicillium"[tiab] OR "Chaetomium"[tiab] OR "Fusarium"[tiab] OR "Wallemia"[tiab] OR "Cladosporium"[tiab] OR "Trichoderma"[tiab]) AND ("indoor"[tiab] OR "exposure"[tiab] OR "respiratory"[tiab] OR "building"[tiab] OR "home"[tiab] OR "dwelling"[tiab] OR "occupant"[tiab])',
+
+    # 5. CIRS biomarker panel anchored to mold/biotoxin context
+    '("TGF-beta1"[tiab] OR "TGF-B1"[tiab] OR "MMP-9"[tiab] OR "MSH"[tiab] OR "C4a"[tiab] OR "VIP"[tiab] OR "VEGF"[tiab] OR "HLA-DR"[tiab] OR "MARCoNS"[tiab]) AND ("mold"[tiab] OR "mould"[tiab] OR "mycotoxin"[tiab] OR "biotoxin"[tiab] OR "water-damaged"[tiab] OR "CIRS"[tiab] OR "dampness"[tiab])',
+
+    # 6. Indoor air quality / fungal contamination / testing
+    '("indoor air quality"[tiab] OR "indoor mold"[tiab] OR "indoor mould"[tiab] OR "fungal contamination"[tiab] OR "indoor fungi"[tiab] OR "airborne fungi"[tiab] OR "ERMI"[tiab] OR "HERTSMI-2"[tiab] OR "HERTSMI"[tiab]) AND ("health"[tiab] OR "exposure"[tiab] OR "illness"[tiab] OR "remediation"[tiab] OR "respiratory"[tiab])',
+
+    # 7. Co-morbid conditions linked to mold/dampness
+    '("mast cell activation"[tiab] OR "MCAS"[tiab] OR "chronic fatigue"[tiab] OR "myalgic encephalomyelitis"[tiab] OR "neuroinflammation"[tiab] OR "POTS"[tiab] OR "dysautonomia"[tiab]) AND ("mold"[tiab] OR "mould"[tiab] OR "mycotoxin"[tiab] OR "dampness"[tiab] OR "water-damaged"[tiab] OR "biotoxin"[tiab] OR "Aspergillus"[tiab])',
+
+    # 8. Mold remediation, exposure assessment, urinary mycotoxin testing
+    '("mold remediation"[tiab] OR "mould remediation"[tiab] OR "fungal remediation"[tiab] OR "urinary mycotoxin"[tiab] OR "mycotoxin testing"[tiab] OR "mold exposure assessment"[tiab] OR "remediation guideline"[tiab] OR "post-remediation"[tiab])',
 ]
 PUBMED_DAYS_BACK = 30   # Only fetch articles from last 30 days
-PUBMED_MAX_PER_QUERY = 5
+PUBMED_MAX_PER_QUERY = 6
 
 # Government & institutional RSS feeds
 # NOTE: Most US gov sites (EPA, CDC, NIH) block automated RSS access.
