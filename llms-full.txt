@@ -3,6 +3,60 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns
+
+Published: 2026-05-05
+Category: news
+Source: Columbia Daily Tribune
+Original: https://www.columbiatribune.com/story/news/local/2026/05/05/hurricane-helene-recovery-mapping-surveys/
+Canonical: https://themoldreport.org/a/8562783a306a.html
+Tags: disaster recovery, hurricane helene, water damage, flooding, mold exposure
+
+Community mapping and door-to-door surveys following Hurricane Helene have reshaped how researchers and emergency managers understand the storm's lasting health impact, the Columbia Daily Tribune reported. The work paired geographic exposure data with resident-reported needs, and exposures to mold and contaminated water consistently ranked among the most-cited concerns months after the storm.
+
+The reporting reflects a pattern documented after every major flooding disaster of the past two decades, from Katrina to Harvey to Ian: water-damaged structures continue producing fungal growth and microbial volatile organic compounds long after standing water recedes, and residents with prolonged exposure can develop respiratory and inflammatory symptoms. EPA guidance recommends drying water-damaged buildings within 24 to 48 hours to prevent mold colonization, a window that is rarely achievable in large-scale flooding.
+
+Researchers cited in the article said combining traditional exposure data with community-reported information helped identify households still living with mold and water contamination weeks into recovery, including residents who had not appeared in formal damage assessments.
+
+Editor's Note: Post-flood mold exposure is one of the most reliably documented environmental health risks in disaster medicine. For people with HLA-DR-mediated susceptibility, prolonged exposure inside a water-damaged structure can trigger the cascade of inflammatory biomarkers Shoemaker described as Chronic Inflammatory Response Syndrome.
+
+========================================================================
+## Missouri Recalls Cannabis Products After Aspergillus Contamination
+
+Published: 2026-05-05
+Category: regulation
+Source: MMJ Daily
+Original: https://www.mmjdaily.com/article/9834769/us-mo-state-recalls-contaminated-cannabis-products/
+Canonical: https://themoldreport.org/a/5dbe4f206461.html
+Tags: aspergillus, cannabis, product recall, missouri, fungal contamination
+
+Missouri regulators have issued a recall of cannabis products that failed required testing for Aspergillus, a fungal genus that includes several species capable of causing respiratory disease, MMJ Daily reported. The state's Division of Cannabis Regulation flagged the affected products after laboratory screening detected the contamination above allowable thresholds.
+
+Aspergillus is one of the most common indoor molds and is routinely found in soil, decaying plant matter, and water-damaged buildings. While most healthy people inhale Aspergillus spores without consequence, the fungus can cause serious illness in immunocompromised patients and can colonize the lungs of people with underlying lung disease, producing the chronic pulmonary aspergillosis that has been the subject of recent clinical research.
+
+Cannabis is particularly vulnerable to fungal contamination because flower is harvested, dried, and stored in conditions that can support mold growth if humidity and airflow are not tightly controlled. Several U.S. states with legal cannabis programs now require Aspergillus testing as part of their compliance regimes, and recalls of this type have grown more common as testing standards mature.
+
+Editor's Note: Aspergillus exposure through inhalation of contaminated cannabis is a recognized clinical risk and has been linked to invasive pulmonary aspergillosis in immunocompromised users in published case reports.
+
+========================================================================
+## Multi-omics Study Maps Microbiome Inside Aspergillus Lung Lesions
+
+Published: 2026-05-05
+Category: research
+Source: mBio
+Original: https://pubmed.ncbi.nlm.nih.gov/42084394/
+Canonical: https://themoldreport.org/a/bb033c544dab.html
+Tags: aspergillus, chronic pulmonary aspergillosis, multi-omics, fungal balls, microbiome
+
+Researchers writing in mBio have published a multi-omics analysis of fungal balls, the dense aspergillomas that form inside the lungs of patients with chronic pulmonary aspergillosis. The study, led by Liu and colleagues, profiled microbiome composition and metabolic activity inside the lesions and identified patterns of microbial dynamics and metabolic adaptation that may help explain why the disease persists despite antifungal therapy.
+
+Chronic pulmonary aspergillosis is the long-term, progressive form of Aspergillus infection in the lungs, distinct from the acute invasive disease seen in immunocompromised patients. It typically develops in people with underlying lung damage from tuberculosis, COPD, or other chronic conditions, and treatment is often prolonged and incomplete.
+
+The multi-omics approach combines genetic, transcriptomic, and metabolic data to build a richer picture of what is happening inside the lesion than any single technique could produce. The authors argue that understanding the microbial community and metabolic context of fungal balls could open new treatment angles beyond the existing antifungal drug classes.
+
+Editor's Note: Aspergillus is a frequent indoor mold genus and one of the species commonly found in water-damaged buildings. While chronic pulmonary aspergillosis is a distinct clinical entity from the inflammatory mold illness Shoemaker described, both sit on the spectrum of Aspergillus-related human disease.
+
+========================================================================
 ## Maine Issues Advisory on Medical Cannabis Found to Contain Unsafe Mold Levels
 
 Published: 2026-05-04
@@ -207,6 +261,24 @@ The piece also profiles a student in McKee Hall, Alana Molnar, who said she and 
 The column references CDC guidance noting that living with mold can cause coughing, respiratory issues, weight loss, itchy and watery eyes, and rashes. Miami University requires first- and second-year students to live on campus.
 
 Editor's Note: Visible mold inside an HVAC unit is particularly concerning because the system actively circulates spores and fragments through the breathing zone. For susceptible occupants — including the roughly 24% of the population with HLA-DR genotypes that impair biotoxin clearance — even short exposures in enclosed dorm rooms can drive multi-system symptoms consistent with chronic inflammatory response syndrome (CIRS).
+
+========================================================================
+## ECHO Cohort Study Links Prenatal Mold and Water Damage to Pregnancy Outcomes
+
+Published: 2026-04-27
+Category: research
+Source: Environmental Pollution
+Original: https://pubmed.ncbi.nlm.nih.gov/42055209/
+Canonical: https://themoldreport.org/a/447c88241246.html
+Tags: prenatal exposure, echo cohort, water damage, indoor mold, pregnancy outcomes
+
+A study published in Environmental Pollution from the ECHO (Environmental influences on Child Health Outcomes) cohort examined whether prenatal exposure to indoor environmental hazards including gas stoves, visible mold, and water damage was associated with gestational duration and fetal growth. Lead author Oh and colleagues analyzed data from one of the largest pediatric cohorts in the United States, designed specifically to study how environmental factors during pregnancy and early childhood shape later health.
+
+Indoor mold and water-damaged housing have been linked in prior epidemiologic work to respiratory illness, asthma, and inflammatory markers in both adults and children. The ECHO analysis adds a pregnancy-specific lens, asking whether the same exposures during gestation track with measurable differences in how long pregnancies last and how fetuses grow. The study was published in late April 2026.
+
+The findings add to a growing body of research on the developmental cost of indoor environmental exposures. Recent reviews have argued that water-damaged buildings should be treated as a distinct exposure category in pediatric and obstetric epidemiology, alongside outdoor air pollution and tobacco smoke.
+
+Editor's Note: Prenatal exposure to water-damaged buildings is understudied relative to its likely population impact. The ECHO cohort's scale gives this kind of analysis statistical power that smaller studies have lacked.
 
 ========================================================================
 ## Flood Cleanup Safety: Why Water-Damaged Homes May Need Remediation Before Re-Entry
