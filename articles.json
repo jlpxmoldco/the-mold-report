@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-05-05T17:17:35.128576+00:00",
+  "lastUpdated": "2026-05-05T17:18:04.163621+00:00",
   "articles": [
+    {
+      "id": "53985bd02ea8",
+      "title": "Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill",
+      "summary": "The parents of a San Diego State University student told 10News this week that they allege mold in their daughter's Zura Hall dorm room left her seriously ill for months and contributed to an emergency surgery. The family spoke publicly after raising concerns with the university about water intrusion and visible mold in the residence hall.\n\nDorm-related mold complaints have surfaced repeatedly at U.S. universities over the past several years, with students at schools including UC Berkeley, the University of Maryland, and Howard reporting respiratory symptoms, fatigue, and rashes after move-in. Indoor mold growth typically follows water intrusion: roof leaks, plumbing failures, or HVAC condensation. The CDC notes that mold exposure may trigger respiratory symptoms and can worsen asthma in sensitive people, and a subset of patients experience a broader inflammatory response.\n\nThe 10News report does not name a specific species of mold, and SDSU's full response was not included. Families like the one interviewed are increasingly turning to outside testing and legal counsel when university responses lag behind reported health impacts.",
+      "editorsNote": "Dorm-related mold complaints deserve careful documentation. Visible mold plus a moisture source plus persistent symptoms in a previously healthy occupant is a pattern clinicians familiar with the Shoemaker framework would recognize as worth a workup, including HLA-DR testing for genetic susceptibility.",
+      "source": "10News",
+      "sourceUrl": "https://www.10news.com/news/local-news/sdsu-parents-say-mold-in-daughters-zura-hall-dorm-room-made-her-sick",
+      "author": "10News Staff",
+      "publishedAt": "2026-05-05T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://ewscripps.brightspotcdn.com/dims4/default/ddd7337/2147483647/strip/true/crop/1280x672+0+24/resize/1200x630!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F66%2Ffa%2F8038734f4a2283507fdc8c9c2c63%2Fdefault.png",
+      "imageAlt": "Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill",
+      "status": "published",
+      "tags": [
+        "dorm mold",
+        "university housing",
+        "indoor air quality",
+        "water damage",
+        "student health"
+      ],
+      "featured": true,
+      "readTime": 2,
+      "seoTitle": "Family Alleges SDSU Dorm Mold Sickened Daughter",
+      "seoDescription": "Parents allege mold in a San Diego State dorm room caused months of serious illness and emergency surgery for their daughter, 10News reports.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-05T17:18:04.163345+00:00"
+    },
     {
       "id": "8562783a306a",
       "title": "Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns",
@@ -48,7 +75,7 @@
         "missouri",
         "fungal contamination"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 2,
       "seoTitle": "Missouri Recalls Cannabis Over Aspergillus",
       "seoDescription": "Missouri regulators recalled cannabis products after testing detected Aspergillus mold contamination above allowable limits.",

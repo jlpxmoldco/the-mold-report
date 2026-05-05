@@ -3,6 +3,24 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill
+
+Published: 2026-05-05
+Category: news
+Source: 10News
+Original: https://www.10news.com/news/local-news/sdsu-parents-say-mold-in-daughters-zura-hall-dorm-room-made-her-sick
+Canonical: https://themoldreport.org/a/53985bd02ea8.html
+Tags: dorm mold, university housing, indoor air quality, water damage, student health
+
+The parents of a San Diego State University student told 10News this week that they allege mold in their daughter's Zura Hall dorm room left her seriously ill for months and contributed to an emergency surgery. The family spoke publicly after raising concerns with the university about water intrusion and visible mold in the residence hall.
+
+Dorm-related mold complaints have surfaced repeatedly at U.S. universities over the past several years, with students at schools including UC Berkeley, the University of Maryland, and Howard reporting respiratory symptoms, fatigue, and rashes after move-in. Indoor mold growth typically follows water intrusion: roof leaks, plumbing failures, or HVAC condensation. The CDC notes that mold exposure may trigger respiratory symptoms and can worsen asthma in sensitive people, and a subset of patients experience a broader inflammatory response.
+
+The 10News report does not name a specific species of mold, and SDSU's full response was not included. Families like the one interviewed are increasingly turning to outside testing and legal counsel when university responses lag behind reported health impacts.
+
+Editor's Note: Dorm-related mold complaints deserve careful documentation. Visible mold plus a moisture source plus persistent symptoms in a previously healthy occupant is a pattern clinicians familiar with the Shoemaker framework would recognize as worth a workup, including HLA-DR testing for genetic susceptibility.
+
+========================================================================
 ## Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns
 
 Published: 2026-05-05

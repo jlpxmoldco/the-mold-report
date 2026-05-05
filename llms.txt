@@ -17,6 +17,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill](https://themoldreport.org/a/53985bd02ea8.md) — 2026-05-05 — Parents allege mold in a San Diego State dorm room caused months of serious illness and emergency surgery for their daughter, 10News reports.
 - [Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns](https://themoldreport.org/a/8562783a306a.md) — 2026-05-05 — Community surveys after Hurricane Helene found mold and contaminated water among the most-cited resident health concerns months after the storm.
 - [Physicians Warn Indoor Laundry Drying and Unmaintained AC Units Promote Mold and Lung Damage](https://themoldreport.org/a/c7f2e6a83d51.md) — 2026-05-04 — Physicians warn that indoor laundry drying and unmaintained air conditioners raise humidity, promote mold growth, and risk lasting lung damage.
 - [Reality TV Star Mikayla Matthews Relocates to Hawaii to Manage CIRS](https://themoldreport.org/a/ee2e95127427.md) — 2026-05-03 — The Secret Lives of Mormon Wives star says she is relocating to Maui to manage Chronic Inflammatory Response Syndrome linked to mold and biotoxin exposure.
