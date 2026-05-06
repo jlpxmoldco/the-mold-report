@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-05T17:18:04.163621+00:00",
+  "lastUpdated": "2026-05-06T14:08:44.911800+00:00",
   "articles": [
     {
       "id": "53985bd02ea8",
@@ -269,6 +269,32 @@
       "seoDescription": "The UK's new Renters' Rights legislation will extend Awaab's Law next year, broadening landlord duties beyond damp and mould.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-01T14:07:49.159887+00:00"
+    },
+    {
+      "id": "1267f300ebea",
+      "title": "Patulin Mycotoxin Disrupts Vitamin D Metabolism, Study Finds",
+      "summary": "Research published in the Journal of Biochemical and Molecular Toxicology shows that patulin — a mycotoxin produced by Penicillium, Aspergillus, and Byssochlamys species commonly found on damaged fruit and stored grains — directly interferes with the body's ability to process vitamin D.\n\nLead author Lu and colleagues found that patulin downregulates two essential cytochrome P450 enzymes: CYP2R1, which converts dietary vitamin D to 25-hydroxyvitamin D (the form measured in standard blood tests), and CYP27B1, which converts that intermediate to the active hormonal form. The study also showed patulin physically interferes with the substrate binding sites of these enzymes — meaning the disruption operates through both reduced enzyme expression and direct functional inhibition.\n\nThe findings provide a plausible biological mechanism linking mycotoxin exposure to vitamin D insufficiency, a clinically relevant connection for patients with chronic mold-related illness, where low vitamin D is commonly observed alongside multi-system inflammatory symptoms.",
+      "editorsNote": "Vitamin D dysregulation is documented in patients with chronic inflammatory response syndrome (CIRS) and biotoxin illness. This study offers one of the clearest molecular explanations to date for why supplementation alone often fails to normalize levels in chronically exposed patients.",
+      "source": "J Biochem Mol Toxicol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42085557/",
+      "author": "Lu S",
+      "publishedAt": "2026-05-01T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Patulin Mycotoxin Disrupts Vitamin D Metabolism, Study Finds",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "vitamin-d",
+        "research",
+        "patulin"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Patulin Mycotoxin Disrupts Vitamin D Metabolism: Study",
+      "seoDescription": "New study shows patulin mycotoxin downregulates enzymes CYP2R1 and CYP27B1, disrupting vitamin D metabolism. Mechanism relevant to mold illness patients.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-06T14:08:44.911480+00:00"
     },
     {
       "id": "2d322ce9c879",
