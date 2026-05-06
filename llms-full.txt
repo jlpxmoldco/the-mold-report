@@ -181,6 +181,42 @@ Critics of the broader bill argue the changes could push smaller landlords out o
 Editor's Note: Awaab's Law remains one of the only statutory frameworks in the world that explicitly ties water-damaged housing to landlord accountability — a regulatory model patient advocates in the U.S. have pointed to when arguing that prolonged indoor mold exposure deserves recognition as a public-health harm, not just a habitability complaint.
 
 ========================================================================
+## Organic Waste Workers Show Measurable Mycotoxin Exposure in Biomonitoring Study
+
+Published: 2026-05-01
+Category: research
+Source: Int J Hyg Environ Health
+Original: https://pubmed.ncbi.nlm.nih.gov/41775047/
+Canonical: https://themoldreport.org/a/aa71f04aa23c.html
+Tags: mycotoxins, occupational-health, biomonitoring, research
+
+A biomonitoring study published in the International Journal of Hygiene and Environmental Health quantifies mycotoxin exposure among workers at organic waste treatment facilities. Lead author Schmied and colleagues measured biomarkers of internal dose in workers handling decomposing biological material — an environment where Aspergillus, Penicillium, and other mycotoxin-producing molds proliferate.
+
+The study found measurable levels of multiple mycotoxins in workers' samples, providing empirical evidence that occupational contact during composting and waste handling translates into systemic burden, not just ambient exposure. The result is significant because regulatory frameworks for occupational mold exposure remain underdeveloped compared with other workplace hazards.
+
+For the broader public, the findings reinforce a long-standing principle in environmental medicine: visible mold growth and biological decomposition produce inhalable toxin loads, and occupational exposure can be quantified through biomonitoring.
+
+Editor's Note: Important context: biomonitoring studies that measure mycotoxin levels in workers cannot distinguish ingested (food) from inhaled (building) sources, and lack validated reference ranges for diagnosing mold-related illness. For evaluating chronic inflammatory response syndrome (CIRS) from water-damaged buildings, blood biomarkers — TGF-β1, MMP-9, and MSH — remain the established diagnostic tools used in the Shoemaker Protocol.
+
+========================================================================
+## Multi-Mycotoxin Co-Occurrence Found in Chinese Population Study
+
+Published: 2026-05-01
+Category: research
+Source: J Expo Sci Environ Epidemiol
+Original: https://pubmed.ncbi.nlm.nih.gov/41429927/
+Canonical: https://themoldreport.org/a/b86d387d1f75.html
+Tags: mycotoxins, biomarkers, research, exposure
+
+A comparative study in the Journal of Exposure Science and Environmental Epidemiology examined mycotoxin biomarkers across populations in three regions of China and found extensive co-occurrence — meaning most participants carried biomarker evidence of multiple mycotoxins simultaneously, not single-compound exposures.
+
+Lead author Zhou and colleagues documented co-occurrence patterns among common mycotoxins including aflatoxin metabolites, ochratoxin A, fumonisin B1, deoxynivalenol, and zearalenone. Their cumulative risk assessment quantified how combined exposures may pose greater health risk than single-toxin analyses suggest, an important methodological point for both regulators and food-safety researchers.
+
+The geographic comparison highlighted regional variation tied to dietary staples and storage conditions — a reminder that mycotoxin exposure is shaped by environmental and food-system factors, not by individual behavior alone.
+
+Editor's Note: Important context: this study uses dietary mycotoxin biomarkers as a population exposure assessment tool. These tests cannot distinguish ingested (food) from inhaled (building) sources and lack validated reference ranges for diagnosing mold-related illness. For evaluating chronic inflammatory response syndrome (CIRS) from water-damaged buildings, blood biomarkers — TGF-β1, MMP-9, and MSH — remain the established diagnostic markers used in the Shoemaker Protocol.
+
+========================================================================
 ## Patulin Mycotoxin Disrupts Vitamin D Metabolism, Study Finds
 
 Published: 2026-05-01
@@ -1035,6 +1071,24 @@ A suspected mold problem at Chatsworth Park Elementary School in Los Angeles has
 The Los Angeles Unified School District's Office of Environmental Health and Safety reported air quality as 'generally within normal, acceptable ranges.' However, an independent consultant reached a different conclusion, identifying treated wood in the building's crawlspace as the primary odor source. The discrepancy between district findings and independent analysis has fueled parental concern. PTA president Casandra Walker reported that her second-grade son has shown symptoms she attributes to mold exposure — a claim that has intensified pressure on LAUSD to respond more decisively. For families concerned about potential mold-related illness, clinicians typically recommend objective blood biomarker testing — including markers such as TGF-B1, MMP-9, and MSH — as an evidence-based starting point for evaluation.
 
 The district has closed the affected building, relocated students to other areas of campus, and installed portable classrooms as a temporary measure. The situation illustrates a recurring challenge in school mold cases: the gap between official air quality assessments and the lived experiences of families. For those monitoring mold exposure risks, this case reinforces the value of independent environmental testing alongside institutional assessments, particularly when symptoms persist and official results remain inconclusive.
+
+========================================================================
+## Plant-Based Diets May Increase Mycotoxin Exposure, Study Examines
+
+Published: 2026-04-10
+Category: research
+Source: J Expo Sci Environ Epidemiol
+Original: https://pubmed.ncbi.nlm.nih.gov/41963601/
+Canonical: https://themoldreport.org/a/3a2070d6639f.html
+Tags: mycotoxins, diet, research, exposure
+
+A study published in the Journal of Exposure Science and Environmental Epidemiology examines whether adherence to a plant-based diet correlates with higher dietary mycotoxin exposure. Lead author Halldorsson and colleagues looked at exposure patterns among individuals reporting varying degrees of plant-based eating.
+
+Mycotoxins are toxic compounds produced by molds that contaminate grains, nuts, dried fruits, coffee, and other plant foods that often feature heavily in plant-forward diets. Common dietary mycotoxins include aflatoxin (linked to liver damage), ochratoxin A (associated with kidney toxicity), and deoxynivalenol, all of which raise concerns at chronic low-dose exposure.
+
+The findings carry practical implications for anyone shifting toward plant-forward eating. Mycotoxin contamination is largely a function of crop quality and storage conditions, and individuals exploring whether their symptoms may be linked to mold exposure should be aware that dietary intake is one of several pathways being studied.
+
+Editor's Note: Important context: studies measuring mycotoxin exposure through dietary biomarkers cannot distinguish ingested mycotoxins (from food) from inhaled exposure (from water-damaged buildings). For evaluating mold-related illness, blood biomarkers such as TGF-β1, MMP-9, and MSH are the established diagnostic tools used in the Shoemaker Protocol — not dietary or urinary mycotoxin tests, which lack validated reference ranges for diagnosing CIRS.
 
 ========================================================================
 ## Aflatoxin Contamination Detected in Dried Fruits and Chocolates Sold in Armenia
