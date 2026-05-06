@@ -3,6 +3,72 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Post-Hurricane Pulmonary Events Linked to Pre-Existing Risk and Mold Exposure
+
+Published: 2026-05-06
+Category: research
+Source: conexiant.com
+Original: https://conexiant.com/pulmonary/articles/preexisting-risk-drove-poststorm-events/
+Canonical: https://themoldreport.org/a/8d312369ab80.html
+Tags: mold, respiratory, research, hurricane
+
+A Conexiant Pulmonary feature on cardiopulmonary events following major hurricanes reports that pre-existing health risk and post-disaster mold exposure both played significant roles in elevated rates of asthma and COPD exacerbations among affected populations. The piece reviews data from Hurricane Sandy and Hurricane Harvey response cohorts.
+
+Researchers cited in the report noted that women may be particularly susceptible to asthma and COPD exacerbations tied to environmental exposures and post-disaster mold. Geographic analysis showed elevated cardiopulmonary event rates in regions with overlapping public-assistance need and higher baseline comorbidity.
+
+The findings add to a body of evidence that post-hurricane mold growth in flooded structures is not merely an inconvenience but a measurable contributor to respiratory health outcomes — particularly for residents already managing chronic lung conditions.
+
+========================================================================
+## Most Plant-Based Meat Alternatives Contain Mycotoxins, Study Finds
+
+Published: 2026-05-05
+Category: research
+Source: phys.org
+Original: https://phys.org/news/2026-05-based-meat-alternatives-mycotoxins.html
+Canonical: https://themoldreport.org/a/47c69f7f5331.html
+Tags: mycotoxins, diet, research, exposure
+
+Research highlighted by Phys.org reports that nearly all plant-based meat alternatives tested contained measurable mycotoxin contamination. Plant-based meat substitutes commonly rely on soy, wheat gluten, pea protein, and other plant-derived ingredients that can harbor mycotoxins introduced during cultivation, harvest, or storage.
+
+The finding adds to a growing body of research linking plant-forward and ultra-processed plant-based foods to elevated dietary mycotoxin exposure compared with diets dominated by animal products. Common dietary mycotoxins of concern include aflatoxin, ochratoxin A, deoxynivalenol, zearalenone, and fumonisins.
+
+Consumers increasingly choosing plant-based meat alternatives for health, environmental, or ethical reasons may have reason to consider the broader contamination profile of these products, particularly when consumed regularly.
+
+Editor's Note: For patients evaluating chronic mold-related illness, dietary mycotoxin exposure is one input among many. The established diagnostic biomarkers used in the Shoemaker Protocol — TGF-β1, MMP-9, and MSH — are blood-based and assess the body's inflammatory response to biotoxins, not dietary mycotoxin levels.
+
+========================================================================
+## Renters Report Mold and Cold in Sam Stair's S2 Rental Properties
+
+Published: 2026-05-05
+Category: news
+Source: aol.com
+Original: https://www.aol.com/articles/renters-live-mold-cold-danger-100150764.html
+Canonical: https://themoldreport.org/a/f04fb7b87ff1.html
+Tags: mold, housing, news, rentals
+
+An AOL report documents complaints from renters who say they live with mold, cold, and unsafe conditions in properties owned by Sam Stair's S2 portfolio. Tenants describe persistent mold growth alongside other habitability problems, raising questions about landlord accountability and enforcement of housing codes that govern indoor mold.
+
+Mold growth in rental housing is a recurring source of tenant disputes across the United States. Persistent moisture from leaks, inadequate ventilation, and deferred maintenance are common contributors, and chronic indoor mold exposure is associated with respiratory symptoms, allergic reactions, and other health complaints.
+
+For affected tenants, documenting conditions in writing, filing formal complaints with local code enforcement, and reviewing state-specific landlord-tenant law are typical first steps. Some jurisdictions impose specific mold-disclosure or remediation obligations on landlords.
+
+========================================================================
+## NYC Issued More Than 41,000 Mold Violations in FY2025, Housing Agency Reports
+
+Published: 2026-05-05
+Category: regulation
+Source: nyc.gov
+Original: https://www.nyc.gov/site/hpd/news/030-26/improving-health-housing-housing-preservation-development-recognizes-world-asthma-day
+Canonical: https://themoldreport.org/a/e35ceb6b662f.html
+Tags: mold, housing, regulation, nyc
+
+New York City's Department of Housing Preservation and Development (HPD) issued more than 41,000 mold violations in fiscal year 2025, the agency disclosed in a World Asthma Day announcement emphasizing the connection between housing conditions and respiratory health.
+
+HPD enforces Local Law 55 of 2018, the NYC Indoor Allergen Hazard Law, which requires owners of multiple-dwelling buildings to proactively maintain apartments free of mold and pest infestations. From July 2024 through June 2025, the agency completed approximately 75,000 inspections — including more than 32,000 mold inspections and over 42,000 pest inspections — in response to nearly 96,350 indoor allergen hazard complaints citywide.
+
+The figures underscore the scale of indoor mold as a housing and public-health issue in dense urban environments, and offer a regulatory model — proactive enforcement, defined tenant rights, mandatory remediation — that contrasts with the patchwork of state and local rules elsewhere in the country.
+
+========================================================================
 ## Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill
 
 Published: 2026-05-05

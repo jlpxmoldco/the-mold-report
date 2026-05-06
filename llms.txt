@@ -17,6 +17,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Renters Report Mold and Cold in Sam Stair's S2 Rental Properties](https://themoldreport.org/a/f04fb7b87ff1.md) — 2026-05-05 — AOL report documents complaints from renters living with mold and cold in Sam Stair's S2 rental properties, raising landlord accountability questions.
 - [Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill](https://themoldreport.org/a/53985bd02ea8.md) — 2026-05-05 — Parents allege mold in a San Diego State dorm room caused months of serious illness and emergency surgery for their daughter, 10News reports.
 - [Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns](https://themoldreport.org/a/8562783a306a.md) — 2026-05-05 — Community surveys after Hurricane Helene found mold and contaminated water among the most-cited resident health concerns months after the storm.
 - [Physicians Warn Indoor Laundry Drying and Unmaintained AC Units Promote Mold and Lung Damage](https://themoldreport.org/a/c7f2e6a83d51.md) — 2026-05-04 — Physicians warn that indoor laundry drying and unmaintained air conditioners raise humidity, promote mold growth, and risk lasting lung damage.
@@ -93,6 +94,8 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Birmingham Public Housing Resident Reports Rats, Mice, and Mold in Home](https://themoldreport.org/a/6468cf60fc95.md) — 2026-01-06 — A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.
 
 ## Research
+- [Post-Hurricane Pulmonary Events Linked to Pre-Existing Risk and Mold Exposure](https://themoldreport.org/a/8d312369ab80.md) — 2026-05-06 — Conexiant Pulmonary report links post-disaster mold exposure to elevated asthma and COPD events after Hurricanes Sandy and Harvey.
+- [Most Plant-Based Meat Alternatives Contain Mycotoxins, Study Finds](https://themoldreport.org/a/47c69f7f5331.md) — 2026-05-05 — New research finds that nearly all plant-based meat alternatives tested contained mycotoxins, raising questions about dietary mycotoxin exposure.
 - [Multi-omics Study Maps Microbiome Inside Aspergillus Lung Lesions](https://themoldreport.org/a/bb033c544dab.md) — 2026-05-05 — An mBio multi-omics study profiles the microbiome and metabolism inside fungal balls in chronic pulmonary aspergillosis patients.
 - [TNF-alpha and IL-1beta Counteract TGF-beta1's Effects on Collagen and Tissue Stiffness](https://themoldreport.org/a/242e354ac7b1.md) — 2026-05-02 — New Scientific Reports study shows TNF-alpha and IL-1beta oppose TGF-beta1 effects on collagen and ECM stiffness, relevant to CIRS biomarker science.
 - [Organic Waste Workers Show Measurable Mycotoxin Exposure in Biomonitoring Study](https://themoldreport.org/a/aa71f04aa23c.md) — 2026-05-01 — Biomonitoring study measures mycotoxin exposure in organic waste workers, confirming occupational mold contact translates to internal toxin burden.
@@ -135,6 +138,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Mold Removal in Public Housing Cuts Asthma ER Visits, Study Finds](https://themoldreport.org/a/fe9aedc6c1da.md) — 2026-02-18 — A 2026 study found targeted mold removal in public housing measurably reduced asthma-related ER visits. See what the findings mean for housing health policy.
 
 ## Regulation
+- [NYC Issued More Than 41,000 Mold Violations in FY2025, Housing Agency Reports](https://themoldreport.org/a/e35ceb6b662f.md) — 2026-05-05 — NYC's housing agency issued 41,000+ mold violations and conducted 32,000+ mold inspections in FY2025 under Local Law 55, recognizing World Asthma Day.
 - [Missouri Recalls Cannabis Products After Aspergillus Contamination](https://themoldreport.org/a/5dbe4f206461.md) — 2026-05-05 — Missouri regulators recalled cannabis products after testing detected Aspergillus mold contamination above allowable limits.
 - [Maine Issues Advisory on Medical Cannabis Found to Contain Unsafe Mold Levels](https://themoldreport.org/a/b5e8a91d2c4f.md) — 2026-05-04 — Maine issues advisory after medical cannabis products test positive for unsafe mold levels and other contaminants.
 - [UK Renters' Rights Bill Expands Awaab's Law to Cover Wider Health and Safety Hazards](https://themoldreport.org/a/922bc486d572.md) — 2026-05-01 — The UK's new Renters' Rights legislation will extend Awaab's Law next year, broadening landlord duties beyond damp and mould.
