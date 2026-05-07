@@ -3,6 +3,60 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## School-Wide Renovations Tied to Better Indoor Air and Fewer Student Sick Days, Study Finds
+
+Published: 2026-05-06
+Category: research
+Source: Bioengineer.org
+Original: https://bioengineer.org/school-renovations-boost-air-quality-reduce-illness-absence/
+Canonical: https://themoldreport.org/a/accfb480baa7.html
+Tags: indoor air quality, schools, ventilation, humidity, building health, research
+
+Comprehensive district-wide school renovations produced measurable improvements in indoor environmental quality and a corresponding decline in illness-related student absences, according to a new study published in the Journal of Exposure Science & Environmental Epidemiology. Researchers tracked ventilation efficacy, air pollutant concentrations, thermal comfort and humidity across multiple modernized school buildings, using sensors to capture real-time post-renovation conditions and correlating them with attendance records.
+
+The authors report that upgrades to HVAC systems and moisture control were associated with reduced exposure to airborne contaminants and lower potential for mold growth — factors the team links to fewer respiratory and other illness-driven absences. Unlike prior work that focused on single classrooms, the analysis takes a district-wide view, capturing the systemic effects of building modernization on student health.
+
+The findings add to a growing body of evidence that institutional building conditions — humidity control, ventilation and moisture management in particular — meaningfully shape occupant health outcomes.
+
+Editor's Note: Humidity control and ventilation are upstream of fungal growth and biotoxin exposure in buildings. Studies that quantify the health payoff of these interventions at scale matter for the school, healthcare and housing systems where vulnerable populations spend most of their day.
+
+========================================================================
+## Housing Advocate Recounts How Mold Exposure Drove Her Into the Tenant-Justice Movement
+
+Published: 2026-05-06
+Category: news
+Source: National Low Income Housing Coalition
+Original: https://nlihc.org/resource/17-1-overcoming-systemic-barriers
+Canonical: https://themoldreport.org/a/9858b5961ad2.html
+Tags: housing justice, tenant rights, low-income housing, advocacy, mold exposure
+
+In a personal essay published by the National Low Income Housing Coalition, a tenant advocate describes how mold exposure in a Florida apartment was the catalyst that pulled her into housing-justice work. The piece, part of NLIHC's "Overcoming Systemic Barriers" series, frames mold not as an isolated maintenance issue but as a marker of the deeper systemic failures that make safe, healthy housing inaccessible for low-income renters.
+
+The essay adds another data point to a growing body of advocacy connecting indoor environmental quality to tenant rights, fair housing enforcement and landlord accountability — particularly in regions with humid climates where moisture intrusion and water-damaged buildings are common.
+
+NLIHC is one of the most established voices in the affordable-housing policy space, and its decision to platform mold-driven advocacy reflects rising recognition that building health is a housing-justice issue, not just a building-science one.
+
+Editor's Note: First-person accounts of how mold exposure reshaped a person's life are common in the patient and tenant-advocacy communities, but they rarely surface in mainstream housing policy publications. When they do, it widens the audience that takes water-damaged buildings seriously as a health and rights issue.
+
+========================================================================
+## Peterson Family Attributes Jordan Peterson's Latest Health Setback to Toxic Mold Exposure and CIRS
+
+Published: 2026-05-06
+Category: news
+Source: New York Post
+Original: https://nypost.com/2026/05/06/us-news/jordan-petersons-health-mystery-is-a-cautionary-tale-with-some-convinced-risky-biohacking-experiments-contributed-to-his-problems/
+Canonical: https://themoldreport.org/a/b1eacda7824d.html
+Tags: cirs, public figures, mold illness, akathisia, patient stories
+
+The family of Canadian psychologist Jordan Peterson has publicly attributed his recent health decline — including a months-long absence from public events — to toxic mold exposure and Chronic Inflammatory Response Syndrome (CIRS), according to a New York Post report. Peterson's daughter Mikhaila is quoted saying the mold exposure reignited an akathisia condition her father first developed roughly five years ago.
+
+Peterson's broader medical history, much of it chronicled by his family on social media, includes prior treatment for benzodiazepine dependence and a series of unconventional interventions abroad. The current CIRS attribution is the family's framing; Peterson's clinicians and treating physicians have not, based on public reporting, released independent diagnostic information.
+
+The story is one of the highest-profile public references to CIRS by name in recent memory. It also illustrates how readily — and how inconsistently — the diagnosis is invoked outside the clinical infrastructure that researchers like Dr. Ritchie Shoemaker built around it.
+
+Editor's Note: CIRS is a clinical diagnosis with a defined case definition: documented exposure to a water-damaged building, multi-system biotoxin-illness symptoms, susceptibility on HLA-DR genotyping, and characteristic biomarker patterns including TGF-β1, MMP-9, MSH and others. Family attributions in the press are not equivalent to a clinical workup, regardless of how prominent the patient is.
+
+========================================================================
 ## Post-Hurricane Pulmonary Events Linked to Pre-Existing Risk and Mold Exposure
 
 Published: 2026-05-06

@@ -17,6 +17,8 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Housing Advocate Recounts How Mold Exposure Drove Her Into the Tenant-Justice Movement](https://themoldreport.org/a/9858b5961ad2.md) — 2026-05-06 — A National Low Income Housing Coalition essay describes how mold exposure in a Florida apartment led one tenant into the housing-justice movement.
+- [Peterson Family Attributes Jordan Peterson's Latest Health Setback to Toxic Mold Exposure and CIRS](https://themoldreport.org/a/b1eacda7824d.md) — 2026-05-06 — Jordan Peterson's family says toxic mold exposure and CIRS triggered his current health setback, the New York Post reports — bringing CIRS into mainstream view.
 - [Renters Report Mold and Cold in Sam Stair's S2 Rental Properties](https://themoldreport.org/a/f04fb7b87ff1.md) — 2026-05-05 — AOL report documents complaints from renters living with mold and cold in Sam Stair's S2 rental properties, raising landlord accountability questions.
 - [Family Alleges Mold in San Diego State Dorm Made Daughter Seriously Ill](https://themoldreport.org/a/53985bd02ea8.md) — 2026-05-05 — Parents allege mold in a San Diego State dorm room caused months of serious illness and emergency surgery for their daughter, 10News reports.
 - [Hurricane Helene Surveys Surface Mold and Contaminated Water as Top Recovery Concerns](https://themoldreport.org/a/8562783a306a.md) — 2026-05-05 — Community surveys after Hurricane Helene found mold and contaminated water among the most-cited resident health concerns months after the storm.
@@ -94,6 +96,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Birmingham Public Housing Resident Reports Rats, Mice, and Mold in Home](https://themoldreport.org/a/6468cf60fc95.md) — 2026-01-06 — A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.
 
 ## Research
+- [School-Wide Renovations Tied to Better Indoor Air and Fewer Student Sick Days, Study Finds](https://themoldreport.org/a/accfb480baa7.md) — 2026-05-06 — District-wide school renovations improved ventilation and humidity control and reduced student illness absences, a new study in J Exposure Science & Env Epi reports.
 - [Post-Hurricane Pulmonary Events Linked to Pre-Existing Risk and Mold Exposure](https://themoldreport.org/a/8d312369ab80.md) — 2026-05-06 — Conexiant Pulmonary report links post-disaster mold exposure to elevated asthma and COPD events after Hurricanes Sandy and Harvey.
 - [Most Plant-Based Meat Alternatives Contain Mycotoxins, Study Finds](https://themoldreport.org/a/47c69f7f5331.md) — 2026-05-05 — New research finds that nearly all plant-based meat alternatives tested contained mycotoxins, raising questions about dietary mycotoxin exposure.
 - [Multi-omics Study Maps Microbiome Inside Aspergillus Lung Lesions](https://themoldreport.org/a/bb033c544dab.md) — 2026-05-05 — An mBio multi-omics study profiles the microbiome and metabolism inside fungal balls in chronic pulmonary aspergillosis patients.
