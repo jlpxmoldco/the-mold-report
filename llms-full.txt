@@ -3,6 +3,42 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Portable Sensor Uses Machine Learning to Quantify Zearalenone Mycotoxin
+
+Published: 2026-05-07
+Category: diagnostics
+Source: Analytical Chemistry
+Original: https://pubmed.ncbi.nlm.nih.gov/42096180/
+Canonical: https://themoldreport.org/a/399e59a76ffb.html
+Tags: zearalenone, mycotoxin detection, biosensor, diagnostics, machine learning
+
+Researchers reporting in Analytical Chemistry have developed a portable electrochemiluminescence microarray sensor paired with machine learning analysis to quantify zearalenone, a mycotoxin produced by Fusarium fungi that contaminates grains and animal feed.
+
+The device is designed for field-deployable detection at sensitivities relevant to regulatory thresholds. The authors report that the machine-learning component improves quantitative accuracy over conventional readout methods on the same sensor platform.
+
+Commercial mycotoxin testing has traditionally relied on benchtop instruments and laboratory infrastructure. Portable formats, if they hold up under real-world conditions, could shift screening earlier in the supply chain and bring detection closer to production sites and food manufacturers.
+
+Editor's Note: Zearalenone is one of the better-characterized mycotoxins in food and feed surveillance. Faster, cheaper detection of any mycotoxin class supports both food-safety monitoring and exposure science relevant to mold-illness research.
+
+========================================================================
+## Ugandan Study Examines Maternal Aflatoxin Exposure, Birth Outcomes, and Infant Growth
+
+Published: 2026-05-07
+Category: research
+Source: American Journal of Tropical Medicine and Hygiene
+Original: https://pubmed.ncbi.nlm.nih.gov/42097135/
+Canonical: https://themoldreport.org/a/2d0be9137fc8.html
+Tags: aflatoxin, mycotoxin, maternal health, infant growth, Uganda
+
+A study published in the American Journal of Tropical Medicine and Hygiene examines the relationship between maternal aflatoxin exposure during pregnancy, birth outcomes, and subsequent infant growth in a Ugandan cohort.
+
+Aflatoxins are mycotoxins produced primarily by Aspergillus species and are a recognized contaminant of staple crops including maize and groundnuts in sub-Saharan Africa. Chronic dietary exposure during pregnancy has been studied as a contributor to adverse birth outcomes and growth faltering in infants in regions where contamination is endemic.
+
+The paper adds to a growing body of evidence on maternal mycotoxin exposure as a developmental health concern, and underscores the role of food-system surveillance in regions where aflatoxin contamination of staple grains is common.
+
+Editor's Note: Aflatoxin is a hepatotoxic and immunotoxic mycotoxin most often discussed in the context of food safety, but it sits within the broader mycotoxin landscape that mold-illness clinicians track. Maternal and developmental exposure data extends understanding of how mycotoxin burden affects health across the lifespan.
+
+========================================================================
 ## School-Wide Renovations Tied to Better Indoor Air and Fewer Student Sick Days, Study Finds
 
 Published: 2026-05-06
@@ -71,6 +107,24 @@ A Conexiant Pulmonary feature on cardiopulmonary events following major hurrican
 Researchers cited in the report noted that women may be particularly susceptible to asthma and COPD exacerbations tied to environmental exposures and post-disaster mold. Geographic analysis showed elevated cardiopulmonary event rates in regions with overlapping public-assistance need and higher baseline comorbidity.
 
 The findings add to a body of evidence that post-hurricane mold growth in flooded structures is not merely an inconvenience but a measurable contributor to respiratory health outcomes — particularly for residents already managing chronic lung conditions.
+
+========================================================================
+## Review Examines Mycotoxin and Antibiotic Residues in Global Poultry Supply Chain
+
+Published: 2026-05-05
+Category: research
+Source: RSC Advances
+Original: https://pubmed.ncbi.nlm.nih.gov/42094731/
+Canonical: https://themoldreport.org/a/a73d56c011ed.html
+Tags: mycotoxins, food safety, poultry, aflatoxin, toxicology
+
+A new toxicological review published in RSC Advances surveys mycotoxin contaminants and antibiotic residues associated with the global poultry industry, examining the implications for human health when these compounds enter the food chain.
+
+Mycotoxins, including aflatoxins, ochratoxins, and fumonisins, are produced by fungi that contaminate feed grains and can persist in poultry tissues consumed by humans. The review consolidates the current evidence on toxicity profiles, exposure routes, and the regulatory landscape that aims to limit human dietary exposure.
+
+The paper frames mycotoxin contamination as a chronic, low-dose exposure pathway distinct from acute poisoning, and notes the difficulty of quantifying cumulative exposure across food categories. The authors call for more integrated surveillance across feed, livestock, and human health endpoints.
+
+Editor's Note: Dietary mycotoxin exposure sits alongside inhaled exposure from water-damaged buildings as a route of total mycotoxin body burden. For mold-sensitive patients, food-source contamination is an often-overlooked variable when working through symptom drivers.
 
 ========================================================================
 ## Most Plant-Based Meat Alternatives Contain Mycotoxins, Study Finds
