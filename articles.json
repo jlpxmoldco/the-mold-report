@@ -1,6 +1,32 @@
 {
-  "lastUpdated": "2026-05-11T13:49:23.900680+00:00",
+  "lastUpdated": "2026-05-11T14:06:42.607670+00:00",
   "articles": [
+    {
+      "id": "5d70a9c3e812",
+      "title": "Non-Thermal Plasma Reduces Indoor Air Contaminants in New Disinfection Study",
+      "summary": "A study published in Scientific Reports evaluates non-thermal plasma as a tool for disinfecting indoor air and reducing particulate matter. The technology, which generates reactive species at near-room temperature, has been proposed as a complement to filtration and ventilation strategies in spaces where bioaerosol load is a concern.\n\nThe paper measured reductions in both microbial contamination and particulate concentrations under controlled conditions. While the work does not establish non-thermal plasma as a replacement for source remediation in water-damaged buildings, it adds to the growing literature on engineering controls for indoor air. The authors note that practical deployment will depend on ozone byproducts, energy use, and occupant safety considerations that vary by device design.",
+      "editorsNote": "Air-cleaning technologies are downstream interventions — they do not address the underlying water-damaged building condition. They can, however, reduce ambient exposure while remediation is underway.",
+      "source": "Sci Rep",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42108307/",
+      "author": "",
+      "publishedAt": "2026-05-10T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Non-Thermal Plasma Reduces Indoor Air Contaminants in New Disinfection Study",
+      "status": "published",
+      "tags": [
+        "indoor air quality",
+        "air purification",
+        "bioaerosols",
+        "research"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Non-Thermal Plasma Shows Promise for Indoor Air Disinfection",
+      "seoDescription": "New Scientific Reports study finds non-thermal plasma reduces indoor microbial contamination and particulate matter under controlled conditions.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-11T14:06:42.607564+00:00"
+    },
     {
       "id": "2d22a200670e",
       "title": "Researchers Build First Human Kinetic Model for Trichothecene Mycotoxins T-2 and HT-2",
@@ -49,7 +75,7 @@
         "diagnostics",
         "machine learning"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Portable Sensor Quantifies Zearalenone Mycotoxin",
       "seoDescription": "New electrochemiluminescence microarray sensor uses machine learning to quantify zearalenone, a Fusarium-produced mycotoxin in grain and feed.",
@@ -190,6 +216,32 @@
       "seoDescription": "Conexiant Pulmonary report links post-disaster mold exposure to elevated asthma and COPD events after Hurricanes Sandy and Harvey.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-06T16:04:22.441721+00:00"
+    },
+    {
+      "id": "c4f81b2a07e3",
+      "title": "Airborne Microscopic Eukaryotes Show Predictable Temporal Patterns, Study Reports",
+      "summary": "Research published in Applied and Environmental Microbiology characterizes the dynamics of airborne microscopic eukaryotes — a category that includes fungal spores, yeasts, and other microorganisms commonly tracked in indoor and outdoor air sampling. The authors, led by researcher Yan, found that these airborne communities follow intrinsic temporal patterns and respond to environmental conditions with measurable lag effects.\n\nFor a field where exposure assessment depends on accurate spore counts, the work has practical implications. If airborne fungal populations shift predictably with weather, season, or recent environmental events, indoor air sampling captures a snapshot whose interpretation depends on context. The study reinforces a point that environmental hygienists and clinicians have long emphasized: a single spore-trap reading is only one frame of a much longer film.",
+      "editorsNote": "Fungal spores are the airborne fraction most relevant to mold exposure assessment. Understanding their temporal dynamics helps interpret indoor sampling results that can otherwise look paradoxical from one visit to the next.",
+      "source": "Appl Environ Microbiol",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42084384/",
+      "author": "Yan",
+      "publishedAt": "2026-05-05T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Airborne Microscopic Eukaryotes Show Predictable Temporal Patterns, Study Report",
+      "status": "published",
+      "tags": [
+        "fungal spores",
+        "bioaerosols",
+        "indoor air quality",
+        "research"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Airborne Fungal Spores Follow Predictable Temporal Patterns",
+      "seoDescription": "New research in Applied and Environmental Microbiology finds airborne microbial communities, including fungal spores, vary predictably with environmental conditions.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-11T14:06:42.169473+00:00"
     },
     {
       "id": "a73d56c011ed",
@@ -564,6 +616,32 @@
       "seoDescription": "The UK's new Renters' Rights legislation will extend Awaab's Law next year, broadening landlord duties beyond damp and mould.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-01T14:07:49.159887+00:00"
+    },
+    {
+      "id": "8e2a14f7b09c",
+      "title": "Study Links Window Design to Indoor Air Quality in Naturally Ventilated Offices",
+      "summary": "A new study published in Scientific Reports examines how window typology — the size, placement, and type of operable openings — shapes indoor air quality in naturally ventilated office buildings in tropical Africa. The research, led by author Iyiola, evaluated environments that rely on passive ventilation rather than mechanical HVAC systems, a building category where airflow patterns directly determine occupant exposure to airborne contaminants.\n\nThe findings are relevant well beyond the study region. Naturally ventilated buildings make up a substantial share of the global workspace footprint, and their performance depends on factors that are easy to overlook in routine building inspections. Window geometry, opening hours, and cross-ventilation pathways all influence whether humid indoor air, particulate matter, and bioaerosols accumulate or clear.",
+      "editorsNote": "For occupants with mold-related illness, indoor air quality is shaped by ventilation as much as by the presence of water damage. Studies like this one underscore why building-level airflow assessment matters alongside source remediation.",
+      "source": "Sci Rep",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42067566/",
+      "author": "Iyiola",
+      "publishedAt": "2026-05-01T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Study Links Window Design to Indoor Air Quality in Naturally Ventilated Offices",
+      "status": "published",
+      "tags": [
+        "indoor air quality",
+        "ventilation",
+        "buildings",
+        "research"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Window Design Affects Indoor Air Quality, Study Finds",
+      "seoDescription": "New Scientific Reports research shows window typology shapes indoor air quality in naturally ventilated offices, with implications for bioaerosol exposure.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-11T14:06:41.755977+00:00"
     },
     {
       "id": "aa71f04aa23c",
