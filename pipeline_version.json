@@ -1,31 +1,132 @@
 {
-  "currentVersion": "1.9",
-  "lastUpdated": "2026-04-26",
+  "currentVersion": "1.10",
+  "lastUpdated": "2026-05-11",
   "agents": [
-    {"name": "Duplicate Detection Agent", "function": "duplicate_detection_agent", "gate": "0"},
-    {"name": "Interest Scoring Agent", "function": "interest_agent", "gate": "3"},
-    {"name": "Tip Screening Agent", "function": "tip_screening_agent", "gate": "2b"},
-    {"name": "Headline Agent", "function": "headline_agent", "gate": "4"},
-    {"name": "Editorial Agent", "function": "editorial_agent", "gate": "5"},
-    {"name": "Compliance Agent", "function": "compliance_agent", "gate": "6"},
-    {"name": "Research Agent", "function": "research_agent", "gate": "7"},
-    {"name": "Photo Agent", "function": "photo_agent", "gate": "9"},
-    {"name": "SEO Agent", "function": "seo_agent", "gate": "10"}
+    {
+      "name": "Duplicate Detection Agent",
+      "function": "duplicate_detection_agent",
+      "gate": "0"
+    },
+    {
+      "name": "Interest Scoring Agent",
+      "function": "interest_agent",
+      "gate": "3"
+    },
+    {
+      "name": "Tip Screening Agent",
+      "function": "tip_screening_agent",
+      "gate": "2b"
+    },
+    {
+      "name": "Headline Agent",
+      "function": "headline_agent",
+      "gate": "4"
+    },
+    {
+      "name": "Editorial Agent",
+      "function": "editorial_agent",
+      "gate": "5"
+    },
+    {
+      "name": "Compliance Agent",
+      "function": "compliance_agent",
+      "gate": "6"
+    },
+    {
+      "name": "Research Agent",
+      "function": "research_agent",
+      "gate": "7"
+    },
+    {
+      "name": "Photo Agent",
+      "function": "photo_agent",
+      "gate": "9"
+    },
+    {
+      "name": "SEO Agent",
+      "function": "seo_agent",
+      "gate": "10"
+    }
   ],
   "gates": [
-    {"number": "0", "name": "Duplicate Detection", "type": "ai", "added": "v1.4"},
-    {"number": "1", "name": "Freshness", "type": "deterministic", "added": "v1.0"},
-    {"number": "2", "name": "Source Verification", "type": "deterministic", "added": "v1.1"},
-    {"number": "2b", "name": "Tip Screening", "type": "ai", "added": "v1.3"},
-    {"number": "3", "name": "Interest Scoring", "type": "ai", "added": "v1.1"},
-    {"number": "4", "name": "Headline Rewrite", "type": "ai", "added": "v1.2"},
-    {"number": "5", "name": "Editorial Rewrite", "type": "ai", "added": "v1.0"},
-    {"number": "6", "name": "Compliance Check", "type": "ai", "added": "v1.2"},
-    {"number": "7", "name": "Shoemaker Research Lens", "type": "ai", "added": "v1.2"},
-    {"number": "9", "name": "Photo Assignment", "type": "ai", "added": "v1.0"},
-    {"number": "10", "name": "SEO Optimization", "type": "ai", "added": "v1.7"}
+    {
+      "number": "0",
+      "name": "Duplicate Detection",
+      "type": "ai",
+      "added": "v1.4"
+    },
+    {
+      "number": "1",
+      "name": "Freshness",
+      "type": "deterministic",
+      "added": "v1.0"
+    },
+    {
+      "number": "2",
+      "name": "Source Verification",
+      "type": "deterministic",
+      "added": "v1.1"
+    },
+    {
+      "number": "2b",
+      "name": "Tip Screening",
+      "type": "ai",
+      "added": "v1.3"
+    },
+    {
+      "number": "3",
+      "name": "Interest Scoring",
+      "type": "ai",
+      "added": "v1.1"
+    },
+    {
+      "number": "4",
+      "name": "Headline Rewrite",
+      "type": "ai",
+      "added": "v1.2"
+    },
+    {
+      "number": "5",
+      "name": "Editorial Rewrite",
+      "type": "ai",
+      "added": "v1.0"
+    },
+    {
+      "number": "6",
+      "name": "Compliance Check",
+      "type": "ai",
+      "added": "v1.2"
+    },
+    {
+      "number": "7",
+      "name": "Shoemaker Research Lens",
+      "type": "ai",
+      "added": "v1.2"
+    },
+    {
+      "number": "9",
+      "name": "Photo Assignment",
+      "type": "ai",
+      "added": "v1.0"
+    },
+    {
+      "number": "10",
+      "name": "SEO Optimization",
+      "type": "ai",
+      "added": "v1.7"
+    }
   ],
   "changelog": [
+    {
+      "version": "1.10",
+      "date": "2026-05-11",
+      "title": "Site Improver: Sitemap Refresh + SEO Tags",
+      "changes": [
+        "Regenerated sitemap.xml \u2014 surfaces 20 newer articles search engines were missing (157 articles total)",
+        "Added rel=canonical, og:url, and Twitter Card tags to about.html and category.html",
+        "Fixed stale model reference in 'Our Weights & Biases' transparency card (now reflects claude-sonnet-4-6 + claude-haiku-4-5)"
+      ]
+    },
     {
       "version": "1.9",
       "date": "2026-04-26",
