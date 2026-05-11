@@ -3,6 +3,24 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Researchers Build First Human Kinetic Model for Trichothecene Mycotoxins T-2 and HT-2
+
+Published: 2026-05-08
+Category: research
+Source: Food Chem Toxicol
+Original: https://pubmed.ncbi.nlm.nih.gov/42107592/
+Canonical: https://themoldreport.org/a/2d22a200670e.html
+Tags: mycotoxin, trichothecene, t-2, ht-2, research, exposure
+
+A new study published in Food and Chemical Toxicology presents a physiologically-based kinetic (PBK) model for the trichothecene mycotoxins T-2 and HT-2 in humans. Led by Hayley P. McKeon, the work integrates existing human and animal kinetic data to predict how these compounds are absorbed, distributed, metabolized, and excreted after oral exposure.
+
+T-2 and its primary metabolite HT-2 are produced by Fusarium fungi and rank among the most acutely toxic mycotoxins identified. Until now, human risk assessment has relied largely on extrapolation from animal models. The new PBK framework lets researchers predict tissue concentrations and clearance rates directly in humans — an important shift for both food safety regulators and clinicians studying environmental mycotoxin exposure.
+
+The authors note that the model can be refined as more human biomonitoring data becomes available, and that it may serve as a template for kinetic modeling of other trichothecene mycotoxins.
+
+Editor's Note: Trichothecenes appear repeatedly in the biotoxin illness literature, including diagnostic frameworks like the Shoemaker Protocol. Anchoring exposure science in measurable human kinetics — rather than animal extrapolation — is a meaningful step for the field.
+
+========================================================================
 ## Portable Sensor Uses Machine Learning to Quantify Zearalenone Mycotoxin
 
 Published: 2026-05-07

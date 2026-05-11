@@ -96,6 +96,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Birmingham Public Housing Resident Reports Rats, Mice, and Mold in Home](https://themoldreport.org/a/6468cf60fc95.md) — 2026-01-06 — A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.
 
 ## Research
+- [Researchers Build First Human Kinetic Model for Trichothecene Mycotoxins T-2 and HT-2](https://themoldreport.org/a/2d22a200670e.md) — 2026-05-08 — A new study presents the first physiologically-based human kinetic model for trichothecene mycotoxins T-2 and HT-2, advancing exposure science.
 - [Ugandan Study Examines Maternal Aflatoxin Exposure, Birth Outcomes, and Infant Growth](https://themoldreport.org/a/2d0be9137fc8.md) — 2026-05-07 — Am J Trop Med Hyg study examines links between maternal aflatoxin exposure during pregnancy and birth outcomes and infant growth in Uganda.
 - [School-Wide Renovations Tied to Better Indoor Air and Fewer Student Sick Days, Study Finds](https://themoldreport.org/a/accfb480baa7.md) — 2026-05-06 — District-wide school renovations improved ventilation and humidity control and reduced student illness absences, a new study in J Exposure Science & Env Epi reports.
 - [Post-Hurricane Pulmonary Events Linked to Pre-Existing Risk and Mold Exposure](https://themoldreport.org/a/8d312369ab80.md) — 2026-05-06 — Conexiant Pulmonary report links post-disaster mold exposure to elevated asthma and COPD events after Hurricanes Sandy and Harvey.
