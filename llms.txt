@@ -17,6 +17,8 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations](https://themoldreport.org/a/a71f9d5e2c84.md) — 2026-05-11 — A Live 5 News investigation finds Charleston firefighters reported mold and water damage in stations for years before the city acted on positive mold tests.
+- [Disney Cruise Line Guest Reports Mold on Room-Service Food After Disney Adventure Cancellation](https://themoldreport.org/a/b3e08f17ca59.md) — 2026-05-11 — A guest aboard the Disney Adventure says visible mold appeared on a room-service dessert, days after the ship returned from an abrupt mechanical cancellation.
 - [Housing Advocate Recounts How Mold Exposure Drove Her Into the Tenant-Justice Movement](https://themoldreport.org/a/9858b5961ad2.md) — 2026-05-06 — A National Low Income Housing Coalition essay describes how mold exposure in a Florida apartment led one tenant into the housing-justice movement.
 - [Peterson Family Attributes Jordan Peterson's Latest Health Setback to Toxic Mold Exposure and CIRS](https://themoldreport.org/a/b1eacda7824d.md) — 2026-05-06 — Jordan Peterson's family says toxic mold exposure and CIRS triggered his current health setback, the New York Post reports — bringing CIRS into mainstream view.
 - [Renters Report Mold and Cold in Sam Stair's S2 Rental Properties](https://themoldreport.org/a/f04fb7b87ff1.md) — 2026-05-05 — AOL report documents complaints from renters living with mold and cold in Sam Stair's S2 rental properties, raising landlord accountability questions.

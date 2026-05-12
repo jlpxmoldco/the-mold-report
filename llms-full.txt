@@ -3,6 +3,40 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations
+
+Published: 2026-05-11
+Category: news
+Source: Live 5 News
+Original: https://www.live5news.com/2026/05/11/they-think-were-replaceable-charleston-firefighters-say-city-ignored-years-mold-dangers/
+Canonical: https://themoldreport.org/a/a71f9d5e2c84.html
+Tags: firefighters, workplace exposure, water-damaged buildings, charleston, public records
+
+Charleston firefighters say the city has known about mold and water damage in fire stations for years and failed to act, according to a Live 5 News investigation drawing on hundreds of emails released through a public records request. Since 2024, the Charleston Fire Department has temporarily closed two stations after positive mold tests. Station 12 was shut in December 2024 and again in April 2025; Station 9 was closed in November 2024 to replace its HVAC system.
+
+According to records and interviews cited in the report, at least 12 of the city's 17 fire stations have had mold concerns raised at some point since 2017. Former firefighter Robert Tackett, who spent most of his career at Station 9, said he and colleagues paid out of pocket for mold testing after their requests stalled. Tackett filed a lawsuit in 2025 alleging retaliation after he reported bunk-room temperatures consistently above 90 degrees; the suit has since been dismissed. Charleston Fire Deputy Chief Jason Krusen told Live 5 News he knows of no retaliation tied to transfers, demotions or terminations.
+
+The story is the latest in a growing pattern of municipal workplace mold disputes involving first-responder facilities, where 24-hour occupancy and aging building stock can compound exposure concerns.
+
+Editor's Note: Firefighters represent one of the most studied high-exposure occupational groups for indoor air contaminants. Persistent water damage in stations creates the kind of chronic, low-dose exposure conditions that Shoemaker's research has tied to multi-system illness in genetically susceptible individuals.
+
+========================================================================
+## Disney Cruise Line Guest Reports Mold on Room-Service Food After Disney Adventure Cancellation
+
+Published: 2026-05-11
+Category: news
+Source: Inside the Magic
+Original: https://insidethemagic.net/2026/05/after-abrupt-cancellations-mold-and-rust-uncovered-on-disney-cruise-line-ab1/
+Canonical: https://themoldreport.org/a/b3e08f17ca59.html
+Tags: cruise ships, food safety, sanitation, disney
+
+A guest aboard the Disney Adventure — Disney Cruise Line's newest vessel, sailing out of Singapore — reported finding visible mold on a cheesecake delivered through room service, according to a Inside the Magic report citing firsthand social-media accounts. The guest said they documented the dessert with photographs and notified onboard staff, who offered chocolate-dipped strawberries as a goodwill gesture.
+
+The incident surfaced shortly after Disney abruptly canceled a four-night Disney Adventure sailing in Singapore over what the company described as an unresolved mechanical issue, leaving boarded guests scrambling to rearrange travel plans. Affected passengers received refunds and travel assistance. There is no indication from the report that the mold finding was part of a broader sanitation failure.
+
+Cruise vessels operate under strict sanitation regulations because of how readily illness can spread in shared dining and ventilation systems. Visible mold on prepared food, when documented, typically triggers internal food-safety reviews regardless of how isolated the incident appears.
+
+========================================================================
 ## Study Finds Astragaloside IV May Blunt T-2 Mycotoxin Damage to Cells
 
 Published: 2026-05-11

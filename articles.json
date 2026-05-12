@@ -1,6 +1,59 @@
 {
-  "lastUpdated": "2026-05-12T14:06:53.634245+00:00",
+  "lastUpdated": "2026-05-12T15:25:18.446008+00:00",
   "articles": [
+    {
+      "id": "a71f9d5e2c84",
+      "title": "Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations",
+      "summary": "Charleston firefighters say the city has known about mold and water damage in fire stations for years and failed to act, according to a Live 5 News investigation drawing on hundreds of emails released through a public records request. Since 2024, the Charleston Fire Department has temporarily closed two stations after positive mold tests. Station 12 was shut in December 2024 and again in April 2025; Station 9 was closed in November 2024 to replace its HVAC system.\n\nAccording to records and interviews cited in the report, at least 12 of the city's 17 fire stations have had mold concerns raised at some point since 2017. Former firefighter Robert Tackett, who spent most of his career at Station 9, said he and colleagues paid out of pocket for mold testing after their requests stalled. Tackett filed a lawsuit in 2025 alleging retaliation after he reported bunk-room temperatures consistently above 90 degrees; the suit has since been dismissed. Charleston Fire Deputy Chief Jason Krusen told Live 5 News he knows of no retaliation tied to transfers, demotions or terminations.\n\nThe story is the latest in a growing pattern of municipal workplace mold disputes involving first-responder facilities, where 24-hour occupancy and aging building stock can compound exposure concerns.",
+      "editorsNote": "Firefighters represent one of the most studied high-exposure occupational groups for indoor air contaminants. Persistent water damage in stations creates the kind of chronic, low-dose exposure conditions that Shoemaker's research has tied to multi-system illness in genetically susceptible individuals.",
+      "source": "Live 5 News",
+      "sourceUrl": "https://www.live5news.com/2026/05/11/they-think-were-replaceable-charleston-firefighters-say-city-ignored-years-mold-dangers/",
+      "author": "Emily Johnson and Jeff McGee",
+      "publishedAt": "2026-05-11T21:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://gray-wcsc-prod.gtv-cdn.com/resizer/v2/VKDF6RWGD5CIZAU3KPGBWZMBMQ.png?auth=f94a296ef205053197646b591823b27f3356bb1f02d94810db877cb95917c3e7&width=1200&height=600&smart=true",
+      "imageAlt": "Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations",
+      "status": "published",
+      "tags": [
+        "firefighters",
+        "workplace exposure",
+        "water-damaged buildings",
+        "charleston",
+        "public records"
+      ],
+      "featured": true,
+      "readTime": 4,
+      "seoTitle": "Charleston Firefighters Say City Ignored Mold for Years",
+      "seoDescription": "A Live 5 News investigation finds Charleston firefighters reported mold and water damage in stations for years before the city acted on positive mold tests.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-12T15:25:18.337160+00:00"
+    },
+    {
+      "id": "b3e08f17ca59",
+      "title": "Disney Cruise Line Guest Reports Mold on Room-Service Food After Disney Adventure Cancellation",
+      "summary": "A guest aboard the Disney Adventure — Disney Cruise Line's newest vessel, sailing out of Singapore — reported finding visible mold on a cheesecake delivered through room service, according to a Inside the Magic report citing firsthand social-media accounts. The guest said they documented the dessert with photographs and notified onboard staff, who offered chocolate-dipped strawberries as a goodwill gesture.\n\nThe incident surfaced shortly after Disney abruptly canceled a four-night Disney Adventure sailing in Singapore over what the company described as an unresolved mechanical issue, leaving boarded guests scrambling to rearrange travel plans. Affected passengers received refunds and travel assistance. There is no indication from the report that the mold finding was part of a broader sanitation failure.\n\nCruise vessels operate under strict sanitation regulations because of how readily illness can spread in shared dining and ventilation systems. Visible mold on prepared food, when documented, typically triggers internal food-safety reviews regardless of how isolated the incident appears.",
+      "editorsNote": "",
+      "source": "Inside the Magic",
+      "sourceUrl": "https://insidethemagic.net/2026/05/after-abrupt-cancellations-mold-and-rust-uncovered-on-disney-cruise-line-ab1/",
+      "author": "Andrew Boardwine",
+      "publishedAt": "2026-05-11T18:28:44+00:00",
+      "category": "news",
+      "imageUrl": "https://insidethemagic.net/wp-content/uploads/2026/03/disney-adventure-DPB-el1.jpg",
+      "imageAlt": "Disney Cruise Line Guest Reports Mold on Room-Service Food After Disney Adventur",
+      "status": "published",
+      "tags": [
+        "cruise ships",
+        "food safety",
+        "sanitation",
+        "disney"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Disney Cruise Guest Reports Mold on Room-Service Cheesecake",
+      "seoDescription": "A guest aboard the Disney Adventure says visible mold appeared on a room-service dessert, days after the ship returned from an abrupt mechanical cancellation.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-12T15:25:18.445833+00:00"
+    },
     {
       "id": "e8a4c91f3b7d",
       "title": "Study Finds Astragaloside IV May Blunt T-2 Mycotoxin Damage to Cells",
@@ -21,7 +74,7 @@
         "research",
         "mitochondria"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Astragaloside IV Reduces T-2 Mycotoxin Cell Damage in Study",
       "seoDescription": "Preclinical study finds astragaloside IV preserves mitochondrial function and reduces apoptosis in cells exposed to T-2 trichothecene mycotoxin.",
@@ -48,7 +101,7 @@
         "biocontrol",
         "research"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Review: Atoxigenic Aspergillus Strains Reduce Aflatoxin in Crops",
       "seoDescription": "Annual Review of Phytopathology surveys native non-toxin-producing Aspergillus strains as a biocontrol tool against aflatoxin contamination.",
