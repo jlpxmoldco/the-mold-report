@@ -3,6 +3,60 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Study Finds Astragaloside IV May Blunt T-2 Mycotoxin Damage to Cells
+
+Published: 2026-05-11
+Category: research
+Source: Ecotoxicology and Environmental Safety
+Original: https://pubmed.ncbi.nlm.nih.gov/42114424/
+Canonical: https://themoldreport.org/a/e8a4c91f3b7d.html
+Tags: mycotoxins, trichothecene, t-2 toxin, research, mitochondria
+
+A new laboratory study reports that astragaloside IV, a compound derived from Astragalus membranaceus, mitigated cellular damage caused by T-2 toxin exposure by preserving mitochondrial function and reducing programmed cell death.
+
+T-2 is a trichothecene mycotoxin produced by Fusarium species and is structurally related to the trichothecenes implicated in water-damaged building exposures. Researchers exposed cells to T-2 with and without astragaloside IV pretreatment and observed that the supplemented cells retained mitochondrial homeostasis and showed reduced markers of apoptosis.
+
+The findings, published in Ecotoxicology and Environmental Safety, add to a growing literature on natural compounds that may attenuate trichothecene cytotoxicity. The work is preclinical, and the authors do not make clinical claims.
+
+Editor's Note: Trichothecene mycotoxins are among the more cytotoxic mold-derived compounds and are produced by Fusarium and Stachybotrys species. Mitochondrial dysfunction is a recurring finding in biotoxin-exposure research, which makes mechanism-of-protection studies like this one worth tracking.
+
+========================================================================
+## Annual Review Examines Atoxigenic Aspergillus Strains as Aflatoxin Biocontrol
+
+Published: 2026-05-11
+Category: research
+Source: Annual Review of Phytopathology
+Original: https://pubmed.ncbi.nlm.nih.gov/42113864/
+Canonical: https://themoldreport.org/a/f2c7b46a9e18.html
+Tags: aflatoxin, aspergillus, mycotoxins, biocontrol, research
+
+A new review in Annual Review of Phytopathology examines the use of native, atoxigenic strains of Aspergillus as a biocontrol approach to reduce aflatoxin contamination in crops. The strategy uses non-toxin-producing strains of the same fungal species to outcompete aflatoxin-producing strains in the field.
+
+Aflatoxins are produced primarily by Aspergillus flavus and Aspergillus parasiticus and are among the most extensively studied mycotoxins, with documented effects on liver function and immune health. Reducing field contamination has direct implications for downstream exposure through food and feed.
+
+The review summarizes deployment experience across multiple regions, discusses ecological considerations, and outlines remaining questions about long-term efficacy and strain stability.
+
+Editor's Note: Aspergillus is one of the more common indoor mold genera found in water-damaged buildings, and aflatoxin is one of the better-characterized mycotoxins in the human exposure literature. Reducing aflatoxin in the food supply complements indoor-exposure mitigation as a population-level strategy.
+
+========================================================================
+## Researchers Map Combined Toxicity of Penicillium Mycotoxins Across Absorption and Metabolism
+
+Published: 2026-05-11
+Category: research
+Source: Journal of the Science of Food and Agriculture
+Original: https://pubmed.ncbi.nlm.nih.gov/42116241/
+Canonical: https://themoldreport.org/a/a91f48c3d572.html
+Tags: penicillium, mycotoxins, ochratoxin, research, toxicology
+
+A new study in the Journal of the Science of Food and Agriculture evaluates the combined toxicity of multiple Penicillium-derived mycotoxins, focusing on how co-exposure affects absorption, metabolism, and excretion. The authors report that mycotoxins occurring together can produce additive or synergistic effects that single-toxin studies miss.
+
+Penicillium species produce several toxins of human-health interest, including ochratoxin A, citrinin, and patulin. Real-world exposure, whether through diet or indoor environments, typically involves multiple mycotoxins simultaneously, making combined-exposure data clinically relevant.
+
+The authors call for risk assessment frameworks that account for mixtures rather than single compounds, noting that current regulatory thresholds are typically derived from single-toxin studies.
+
+Editor's Note: Patients with biotoxin illness are rarely exposed to one mycotoxin in isolation. Combined-toxicity research helps explain why symptom burden in mold-exposed patients can exceed what single-toxin risk models predict.
+
+========================================================================
 ## Non-Thermal Plasma Reduces Indoor Air Contaminants in New Disinfection Study
 
 Published: 2026-05-10
