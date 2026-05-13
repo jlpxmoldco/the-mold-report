@@ -493,6 +493,24 @@ Critics of the broader bill argue the changes could push smaller landlords out o
 Editor's Note: Awaab's Law remains one of the only statutory frameworks in the world that explicitly ties water-damaged housing to landlord accountability — a regulatory model patient advocates in the U.S. have pointed to when arguing that prolonged indoor mold exposure deserves recognition as a public-health harm, not just a habitability complaint.
 
 ========================================================================
+## Study Maps How Aspergillus fumigatus Extracellular Vesicles Drive Immune Recognition and Macrophage Activation
+
+Published: 2026-05-01
+Category: research
+Source: Journal of Extracellular Biology
+Original: https://pubmed.ncbi.nlm.nih.gov/42116939/
+Canonical: https://themoldreport.org/a/f08f1612d907.html
+Tags: aspergillus, aspergillus fumigatus, innate immunity, macrophages, extracellular vesicles, research
+
+A new study published in the Journal of Extracellular Biology examines how extracellular vesicles released by Aspergillus fumigatus interact with the host immune system, and how the layer of biomolecules that adheres to those vesicles — the biomolecular corona — reshapes immune recognition and macrophage activation.
+
+Led by Nogueira and colleagues, the work characterizes how the corona that forms on A. fumigatus extracellular vesicles in a biological environment alters the way macrophages detect the vesicles and the activation programs those macrophages then run. The researchers report that corona remodelling shifts the immune signal that A. fumigatus presents to innate immune cells, which has implications for how the body responds to inhaled fungal material.
+
+Aspergillus fumigatus is among the most clinically significant indoor molds and is commonly identified in water-damaged buildings. The study adds mechanistic detail to a growing body of research on how fungal-derived particles drive innate immune responses in exposed individuals.
+
+Editor's Note: Macrophage activation and innate immune dysregulation are core features of the inflammatory cascade described in Dr. Ritchie Shoemaker's CIRS research, where biotoxin exposure in genetically susceptible individuals (HLA-DR haplotypes) drives chronic inflammatory signaling. Work like this helps clarify the upstream mechanics of how the immune system first sees fungal material.
+
+========================================================================
 ## Study Links Window Design to Indoor Air Quality in Naturally Ventilated Offices
 
 Published: 2026-05-01
