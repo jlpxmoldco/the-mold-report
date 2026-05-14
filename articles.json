@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-14T17:01:10.829127+00:00",
+  "lastUpdated": "2026-05-14T17:01:48.328198+00:00",
   "articles": [
     {
       "id": "051f5e4cd4ce",
@@ -31,6 +31,35 @@
       "qcTimestamp": "2026-05-14T14:07:31.450550+00:00"
     },
     {
+      "id": "f1d3b217e8fd",
+      "title": "Report: Spice Rack Contamination Can Be a Hidden Source of Mold and Mycotoxin Exposure",
+      "summary": "The New York Post reports on a growing focus among researchers and food-safety specialists on the spice rack as an under-recognized source of fungal contamination and mycotoxin exposure. Dried herbs and ground spices — particularly when stored in humid conditions or for extended periods — can harbor mold species and the mycotoxins they produce.\n\nAflatoxins (from Aspergillus species) and ochratoxin A (from both Aspergillus and Penicillium) are the mycotoxins most consistently flagged in spice supply-chain testing. Both are well-characterized contaminants of paprika, chili powder, black pepper, nutmeg, and similar products, with international regulators including the European Food Safety Authority publishing periodic intake assessments.\n\nPatients with chronic mold-related illness frequently report difficulty pinpointing dietary sources of ongoing exposure. The piece is a useful prompt to audit kitchen storage and replace old, improperly sealed spices.",
+      "editorsNote": "Dietary mycotoxin exposure from contaminated spices is a distinct problem from biotoxin illness driven by water-damaged buildings. Patients investigating chronic mold-related symptoms should audit the home environment for moisture intrusion and consider clinically validated blood biomarkers (TGF-β1, MMP-9, MSH) rather than relying on consumer mycotoxin panels.",
+      "source": "New York Post",
+      "sourceUrl": "https://nypost.com/2026/05/13/health/the-hidden-health-danger-lurking-in-your-spice-rack/",
+      "author": "New York Post Health",
+      "publishedAt": "2026-05-13T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://nypost.com/wp-content/uploads/sites/2/2026/05/newspress-collage-axaavzbfw-1778702434676.jpg?quality=75&strip=all&1778688078&w=1200",
+      "imageAlt": "Report: Spice Rack Contamination Can Be a Hidden Source of Mold and Mycotoxin Ex",
+      "status": "published",
+      "tags": [
+        "mycotoxin",
+        "aflatoxin",
+        "ochratoxin",
+        "food safety",
+        "diet",
+        "spices",
+        "consumer"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Spice Rack Mold: A Hidden Mycotoxin Exposure Source",
+      "seoDescription": "Dried spices can harbor Aspergillus and Penicillium mold and mycotoxins like aflatoxin and ochratoxin A. What to check at home.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-14T17:01:48.327871+00:00"
+    },
+    {
       "id": "9579b0cf36b8",
       "title": "Ouray County Tests Find No Mold in Disputed Meeting Rooms After Commissioner's Toxicity Claim",
       "summary": "Ouray County, Colorado has released test results showing no mold contamination in two meeting rooms — including 4-H and courthouse spaces — that a sitting commissioner had publicly described as 'toxic.' The Ouray County Plaindealer reports that the county manager has now confirmed the rooms are safe for continued use based on the testing results.\n\nThe dispute is a snapshot of how mold-related claims play out at the local-government level: a high-profile allegation, followed by environmental testing, followed by either remediation or exoneration. In this case, the testing came back clean.\n\nFor the mold illness community, civic disputes like this one are a reminder that visible concern about indoor air quality has reached small-town government — and that not every allegation of toxicity is borne out by testing. Reasonable air-quality assessments matter.",
@@ -51,7 +80,7 @@
         "civic",
         "news"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 2,
       "seoTitle": "Ouray County Mold Tests Come Back Clean After Toxicity Claim",
       "seoDescription": "Ouray County, Colorado tested meeting rooms after a commissioner alleged 'toxicity.' Results: no mold problem found.",
