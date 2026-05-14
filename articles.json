@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-14T17:01:48.328198+00:00",
+  "lastUpdated": "2026-05-14T17:09:18.540420+00:00",
   "articles": [
     {
       "id": "051f5e4cd4ce",
@@ -31,6 +31,37 @@
       "qcTimestamp": "2026-05-14T14:07:31.450550+00:00"
     },
     {
+      "id": "85af1f43db66",
+      "title": "Study: All 212 UK Plant-Based Meat and Milk Alternatives Tested Contained at Least One Mycotoxin",
+      "summary": "A new study published in Food Control on May 13, 2026 found that every one of 212 plant-based meat alternatives and plant-based beverages sampled from UK shelves contained at least one of 19 mycotoxins, with many products carrying multiple toxins. The research was led by the University of Parma in Italy and co-authored by researchers at Cranfield University.\n\nThe tested products included veggie burgers, vegetarian chicken pieces, vegan sausages, and oat-, almond-, and soy-based milks. Mycotoxins — toxic compounds produced by molds such as Aspergillus, Penicillium, and Fusarium — are common contaminants of grains, legumes, and seeds that form the base of plant-based products. Storage conditions and cultivation moisture both drive contamination risk.\n\nResearchers noted that the measured levels in UK products were below current EU guideline thresholds, but flagged that there are no established regulations specifically monitoring mycotoxins in this rapidly growing food category, and that chronic low-dose dietary exposure from a diet weighted toward plant-based alternatives could compound over time.",
+      "editorsNote": "Cumulative dietary mycotoxin exposure is a different problem from inhalational biotoxin exposure in water-damaged buildings, but the two are increasingly recognized as overlapping burdens for sensitive patients. A 100%-positive sample across 19 different mycotoxins is notable — it tells you the base ingredients (grains, legumes, seeds, oats) carry detectable fungal-metabolite load even when finished products pass regulatory thresholds.",
+      "source": "Cranfield University",
+      "sourceUrl": "https://www.cranfield.ac.uk/press/news-2026/new-research-finds-that-almost-all-plant-based-meat-alternatives-contain-mycotoxins",
+      "author": "Cranfield University / University of Parma",
+      "publishedAt": "2026-05-13T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://images.unsplash.com/photo-1592066575517-58df903152f2?w=800&q=80",
+      "imageAlt": "Study: All 212 UK Plant-Based Meat and Milk Alternatives Tested Contained at Lea",
+      "status": "published",
+      "tags": [
+        "mycotoxin",
+        "food safety",
+        "plant-based",
+        "diet",
+        "aflatoxin",
+        "ochratoxin",
+        "fusarium",
+        "uk",
+        "research"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Study: 100% of UK Plant-Based Meats Carry Mycotoxins",
+      "seoDescription": "All 212 UK plant-based meat and milk alternatives tested contained at least one of 19 mycotoxins, per a new Food Control study.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-14T17:09:18.540142+00:00"
+    },
+    {
       "id": "f1d3b217e8fd",
       "title": "Report: Spice Rack Contamination Can Be a Hidden Source of Mold and Mycotoxin Exposure",
       "summary": "The New York Post reports on a growing focus among researchers and food-safety specialists on the spice rack as an under-recognized source of fungal contamination and mycotoxin exposure. Dried herbs and ground spices — particularly when stored in humid conditions or for extended periods — can harbor mold species and the mycotoxins they produce.\n\nAflatoxins (from Aspergillus species) and ochratoxin A (from both Aspergillus and Penicillium) are the mycotoxins most consistently flagged in spice supply-chain testing. Both are well-characterized contaminants of paprika, chili powder, black pepper, nutmeg, and similar products, with international regulators including the European Food Safety Authority publishing periodic intake assessments.\n\nPatients with chronic mold-related illness frequently report difficulty pinpointing dietary sources of ongoing exposure. The piece is a useful prompt to audit kitchen storage and replace old, improperly sealed spices.",
@@ -52,7 +83,7 @@
         "spices",
         "consumer"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Spice Rack Mold: A Hidden Mycotoxin Exposure Source",
       "seoDescription": "Dried spices can harbor Aspergillus and Penicillium mold and mycotoxins like aflatoxin and ochratoxin A. What to check at home.",

@@ -21,6 +21,24 @@ The full paper is available via PubMed (PMID 42128793).
 Editor's Note: Public-health discussion of damp housing typically focuses on standard asthma and infection pathways. The mold illness community has long argued that water-damaged buildings can also drive biotoxin-mediated illness — Chronic Inflammatory Response Syndrome (CIRS), in Shoemaker's framework — in genetically susceptible patients, with childhood exposure of particular concern given developing immune systems.
 
 ========================================================================
+## Study: All 212 UK Plant-Based Meat and Milk Alternatives Tested Contained at Least One Mycotoxin
+
+Published: 2026-05-13
+Category: research
+Source: Cranfield University
+Original: https://www.cranfield.ac.uk/press/news-2026/new-research-finds-that-almost-all-plant-based-meat-alternatives-contain-mycotoxins
+Canonical: https://themoldreport.org/a/85af1f43db66.html
+Tags: mycotoxin, food safety, plant-based, diet, aflatoxin, ochratoxin, fusarium, uk, research
+
+A new study published in Food Control on May 13, 2026 found that every one of 212 plant-based meat alternatives and plant-based beverages sampled from UK shelves contained at least one of 19 mycotoxins, with many products carrying multiple toxins. The research was led by the University of Parma in Italy and co-authored by researchers at Cranfield University.
+
+The tested products included veggie burgers, vegetarian chicken pieces, vegan sausages, and oat-, almond-, and soy-based milks. Mycotoxins — toxic compounds produced by molds such as Aspergillus, Penicillium, and Fusarium — are common contaminants of grains, legumes, and seeds that form the base of plant-based products. Storage conditions and cultivation moisture both drive contamination risk.
+
+Researchers noted that the measured levels in UK products were below current EU guideline thresholds, but flagged that there are no established regulations specifically monitoring mycotoxins in this rapidly growing food category, and that chronic low-dose dietary exposure from a diet weighted toward plant-based alternatives could compound over time.
+
+Editor's Note: Cumulative dietary mycotoxin exposure is a different problem from inhalational biotoxin exposure in water-damaged buildings, but the two are increasingly recognized as overlapping burdens for sensitive patients. A 100%-positive sample across 19 different mycotoxins is notable — it tells you the base ingredients (grains, legumes, seeds, oats) carry detectable fungal-metabolite load even when finished products pass regulatory thresholds.
+
+========================================================================
 ## Report: Spice Rack Contamination Can Be a Hidden Source of Mold and Mycotoxin Exposure
 
 Published: 2026-05-13
