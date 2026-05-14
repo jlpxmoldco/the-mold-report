@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-14T14:07:31.995405+00:00",
+  "lastUpdated": "2026-05-14T17:01:10.829127+00:00",
   "articles": [
     {
       "id": "051f5e4cd4ce",
@@ -31,6 +31,34 @@
       "qcTimestamp": "2026-05-14T14:07:31.450550+00:00"
     },
     {
+      "id": "9579b0cf36b8",
+      "title": "Ouray County Tests Find No Mold in Disputed Meeting Rooms After Commissioner's Toxicity Claim",
+      "summary": "Ouray County, Colorado has released test results showing no mold contamination in two meeting rooms — including 4-H and courthouse spaces — that a sitting commissioner had publicly described as 'toxic.' The Ouray County Plaindealer reports that the county manager has now confirmed the rooms are safe for continued use based on the testing results.\n\nThe dispute is a snapshot of how mold-related claims play out at the local-government level: a high-profile allegation, followed by environmental testing, followed by either remediation or exoneration. In this case, the testing came back clean.\n\nFor the mold illness community, civic disputes like this one are a reminder that visible concern about indoor air quality has reached small-town government — and that not every allegation of toxicity is borne out by testing. Reasonable air-quality assessments matter.",
+      "editorsNote": "A 'clean' surface or air sample doesn't always rule out a water-damaged building — visual inspection, moisture mapping, and ERMI/HERTSMI-2 dust testing are more sensitive than spot air samples. The Ouray testing methodology is not detailed in the article.",
+      "source": "Ouray County Plaindealer",
+      "sourceUrl": "https://www.ouraynews.com/2026/05/13/county-tests-no-mold-problem-meeting-rooms/",
+      "author": "Ouray County Plaindealer",
+      "publishedAt": "2026-05-13T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1636652966850-5ac4d02370e9?w=800&q=80",
+      "imageAlt": "Ouray County Tests Find No Mold in Disputed Meeting Rooms After Commissioner's T",
+      "status": "published",
+      "tags": [
+        "local government",
+        "indoor air quality",
+        "mold testing",
+        "colorado",
+        "civic",
+        "news"
+      ],
+      "featured": true,
+      "readTime": 2,
+      "seoTitle": "Ouray County Mold Tests Come Back Clean After Toxicity Claim",
+      "seoDescription": "Ouray County, Colorado tested meeting rooms after a commissioner alleged 'toxicity.' Results: no mold problem found.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-14T17:01:10.828838+00:00"
+    },
+    {
       "id": "31f588f64638",
       "title": "Study Maps How T-2 and HT-2 Mycotoxins Damage Intestinal Cells via Ferroptosis",
       "summary": "A new study in Food and Chemical Toxicology, led by H. Zhao, reports that combined exposure to T-2 and HT-2 mycotoxins induces ferroptosis — a form of iron-dependent programmed cell death — in Caco-2 human intestinal epithelial cells. The researchers identify down-regulation of the SLC7A11/GPX4 antioxidant axis and the NAD(P)H/FSP1/CoQ10 pathway as the key mechanisms driving cell death.\n\nT-2 and HT-2 are trichothecene mycotoxins produced by Fusarium species, common contaminants of cereal grains and animal feed worldwide. Because Caco-2 is a standard human intestinal model, the findings are directly relevant to how these mycotoxins may damage the gut barrier in humans following dietary or environmental exposure.\n\nEarlier work has linked trichothecene exposure to nausea, immune dysregulation, and gut inflammation. This paper adds a specific mechanistic explanation — dual antioxidant pathway suppression — for that pattern. Full text via PubMed (PMID 42128264).",
@@ -52,7 +80,7 @@
         "fusarium",
         "research"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "T-2, HT-2 Mycotoxins Trigger Ferroptosis in Gut Cells",
       "seoDescription": "New study: combined T-2 and HT-2 trichothecene exposure causes ferroptosis in human intestinal cells via SLC7A11/GPX4 suppression.",
