@@ -3,6 +3,42 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## UK Cohort Study Examines Damp, Mouldy Housing and Children's Respiratory Health in Bradford
+
+Published: 2026-05-14
+Category: research
+Source: Environmental Pollution
+Original: https://pubmed.ncbi.nlm.nih.gov/42128793/
+Canonical: https://themoldreport.org/a/051f5e4cd4ce.html
+Tags: mold, indoor air quality, children, respiratory health, housing, uk, cohort study
+
+Researchers have published a longitudinal cohort study in Environmental Pollution examining the relationship between damp and mouldy housing conditions and respiratory health outcomes in children living in Bradford, UK. The study, led by S.N. Clark, follows pediatric respiratory health within a multi-ethnic urban population that has long been studied for environmental health disparities.
+
+Damp and mouldy housing is a well-documented contributor to childhood asthma, wheeze, and respiratory infection in epidemiological literature. The UK has tightened housing standards in recent years following the 2020 death of two-year-old Awaab Ishak from prolonged mould exposure, and longitudinal data from cohorts like Born in Bradford continues to shape that policy conversation.
+
+The full paper is available via PubMed (PMID 42128793).
+
+Editor's Note: Public-health discussion of damp housing typically focuses on standard asthma and infection pathways. The mold illness community has long argued that water-damaged buildings can also drive biotoxin-mediated illness — Chronic Inflammatory Response Syndrome (CIRS), in Shoemaker's framework — in genetically susceptible patients, with childhood exposure of particular concern given developing immune systems.
+
+========================================================================
+## Study Maps How T-2 and HT-2 Mycotoxins Damage Intestinal Cells via Ferroptosis
+
+Published: 2026-05-12
+Category: research
+Source: Food and Chemical Toxicology
+Original: https://pubmed.ncbi.nlm.nih.gov/42128264/
+Canonical: https://themoldreport.org/a/31f588f64638.html
+Tags: mycotoxin, trichothecene, t-2, ht-2, gut health, fusarium, research
+
+A new study in Food and Chemical Toxicology, led by H. Zhao, reports that combined exposure to T-2 and HT-2 mycotoxins induces ferroptosis — a form of iron-dependent programmed cell death — in Caco-2 human intestinal epithelial cells. The researchers identify down-regulation of the SLC7A11/GPX4 antioxidant axis and the NAD(P)H/FSP1/CoQ10 pathway as the key mechanisms driving cell death.
+
+T-2 and HT-2 are trichothecene mycotoxins produced by Fusarium species, common contaminants of cereal grains and animal feed worldwide. Because Caco-2 is a standard human intestinal model, the findings are directly relevant to how these mycotoxins may damage the gut barrier in humans following dietary or environmental exposure.
+
+Earlier work has linked trichothecene exposure to nausea, immune dysregulation, and gut inflammation. This paper adds a specific mechanistic explanation — dual antioxidant pathway suppression — for that pattern. Full text via PubMed (PMID 42128264).
+
+Editor's Note: Trichothecenes are among the mycotoxins frequently implicated in patient-reported symptom patterns within the mold illness community. Mechanistic findings like ferroptosis via GPX4 suppression help explain why even low-dose, chronic mycotoxin exposure can produce GI symptoms that don't resolve until the source is removed.
+
+========================================================================
 ## Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations
 
 Published: 2026-05-11
