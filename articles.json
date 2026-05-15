@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-15T14:07:19.992200+00:00",
+  "lastUpdated": "2026-05-15T15:43:40.211198+00:00",
   "articles": [
     {
       "id": "ba107fe59a5a",
@@ -83,6 +83,35 @@
       "seoDescription": "A Bradford cohort study in Environmental Pollution examines how damp and mouldy housing affects children's respiratory health outcomes.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-14T14:07:31.450550+00:00"
+    },
+    {
+      "id": "eb638bbb2833",
+      "title": "Review Maps How Foodborne Mycotoxins Disrupt the Gut-Brain Axis and Drive Chronic Illness",
+      "summary": "A review published in Toxicon synthesizes how emetic foodborne toxins — including the mycotoxins deoxynivalenol (DON), zearalenone (ZEA), and T-2 toxin — activate the brainstem's area postrema through gut barrier disruption, dysbiosis, and vagal signaling. Acute exposure triggers anorexia and nausea via AP and NTS receptor pathways; chronic exposure impairs the area postrema–hypothalamus–locus coeruleus axis, producing neuropsychiatric symptoms, cachexia-like metabolic reprogramming, and multi-organ dysfunction.\n\nThe authors describe how microbial dysbiosis and LPS translocation amplify systemic inflammation, and identify older adults, immunocompromised patients, and people with comorbidities as particularly vulnerable due to weakened intestinal barriers, immunosenescence, and polypharmacy. The paper outlines a toxin-induced acute-to-chronic cascade across the gut-brain-neuro-metabolic network and calls for further work on chronic pathogenic mechanisms underlying complex mycotoxin-related comorbidities.",
+      "editorsNote": "Mycotoxins like DON, ZEA, and T-2 are produced by Fusarium species and are well known in agriculture, but the systemic mechanisms outlined here — gut barrier disruption, vagal signaling, and downstream neuroinflammation — overlap with patterns clinicians see in chronic biotoxin-driven illness.",
+      "source": "Toxicon",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42134555/",
+      "author": "Xu H",
+      "publishedAt": "2026-05-13T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Review Maps How Foodborne Mycotoxins Disrupt the Gut-Brain Axis and Drive Chroni",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "t-2 toxin",
+        "deoxynivalenol",
+        "zearalenone",
+        "gut-brain axis",
+        "neuroinflammation",
+        "chronic illness"
+      ],
+      "featured": false,
+      "readTime": 4,
+      "seoTitle": "Review: Mycotoxins, Gut-Brain Axis, and Chronic Illness",
+      "seoDescription": "Toxicon review details how foodborne mycotoxins like DON, ZEA, and T-2 toxin disrupt the gut-brain axis and drive chronic systemic disease.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-15T15:43:40.210976+00:00"
     },
     {
       "id": "85af1f43db66",

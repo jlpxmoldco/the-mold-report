@@ -57,6 +57,22 @@ The full paper is available via PubMed (PMID 42128793).
 Editor's Note: Public-health discussion of damp housing typically focuses on standard asthma and infection pathways. The mold illness community has long argued that water-damaged buildings can also drive biotoxin-mediated illness — Chronic Inflammatory Response Syndrome (CIRS), in Shoemaker's framework — in genetically susceptible patients, with childhood exposure of particular concern given developing immune systems.
 
 ========================================================================
+## Review Maps How Foodborne Mycotoxins Disrupt the Gut-Brain Axis and Drive Chronic Illness
+
+Published: 2026-05-13
+Category: research
+Source: Toxicon
+Original: https://pubmed.ncbi.nlm.nih.gov/42134555/
+Canonical: https://themoldreport.org/a/eb638bbb2833.html
+Tags: mycotoxins, t-2 toxin, deoxynivalenol, zearalenone, gut-brain axis, neuroinflammation, chronic illness
+
+A review published in Toxicon synthesizes how emetic foodborne toxins — including the mycotoxins deoxynivalenol (DON), zearalenone (ZEA), and T-2 toxin — activate the brainstem's area postrema through gut barrier disruption, dysbiosis, and vagal signaling. Acute exposure triggers anorexia and nausea via AP and NTS receptor pathways; chronic exposure impairs the area postrema–hypothalamus–locus coeruleus axis, producing neuropsychiatric symptoms, cachexia-like metabolic reprogramming, and multi-organ dysfunction.
+
+The authors describe how microbial dysbiosis and LPS translocation amplify systemic inflammation, and identify older adults, immunocompromised patients, and people with comorbidities as particularly vulnerable due to weakened intestinal barriers, immunosenescence, and polypharmacy. The paper outlines a toxin-induced acute-to-chronic cascade across the gut-brain-neuro-metabolic network and calls for further work on chronic pathogenic mechanisms underlying complex mycotoxin-related comorbidities.
+
+Editor's Note: Mycotoxins like DON, ZEA, and T-2 are produced by Fusarium species and are well known in agriculture, but the systemic mechanisms outlined here — gut barrier disruption, vagal signaling, and downstream neuroinflammation — overlap with patterns clinicians see in chronic biotoxin-driven illness.
+
+========================================================================
 ## Study: All 212 UK Plant-Based Meat and Milk Alternatives Tested Contained at Least One Mycotoxin
 
 Published: 2026-05-13
