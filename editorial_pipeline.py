@@ -2845,7 +2845,6 @@ def regenerate_all_articles():
     print(f"  Found {article_count} published articles")
 
     generate_article_pages(data)
-    generate_llms_files(data)
     generate_sitemap(data)
     generate_llms_files(data)
     generate_robots_txt()
@@ -3776,6 +3775,13 @@ def generate_sitemap(data):
     <loc>{site_url}/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>""")
+
+    # Newsletter landing page
+    urls.append(f"""  <url>
+    <loc>{site_url}/newsletter.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>""")
 
     # Individual article pages — high priority, they carry the SEO weight
