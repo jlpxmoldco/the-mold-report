@@ -309,7 +309,7 @@ Editor's Note: CIRS is a clinical diagnosis with a defined case definition: docu
 
 Published: 2026-05-06
 Category: research
-Source: conexiant.com
+Source: Conexiant
 Original: https://conexiant.com/pulmonary/articles/preexisting-risk-drove-poststorm-events/
 Canonical: https://themoldreport.org/a/8d312369ab80.html
 Tags: mold, respiratory, research, hurricane
@@ -359,7 +359,7 @@ Editor's Note: Dietary mycotoxin exposure sits alongside inhaled exposure from w
 
 Published: 2026-05-05
 Category: research
-Source: phys.org
+Source: Phys.org
 Original: https://phys.org/news/2026-05-based-meat-alternatives-mycotoxins.html
 Canonical: https://themoldreport.org/a/47c69f7f5331.html
 Tags: mycotoxins, diet, research, exposure
@@ -377,7 +377,7 @@ Editor's Note: For patients evaluating chronic mold-related illness, dietary myc
 
 Published: 2026-05-05
 Category: news
-Source: aol.com
+Source: AOL
 Original: https://www.aol.com/articles/renters-live-mold-cold-danger-100150764.html
 Canonical: https://themoldreport.org/a/f04fb7b87ff1.html
 Tags: mold, housing, news, rentals
@@ -393,7 +393,7 @@ For affected tenants, documenting conditions in writing, filing formal complaint
 
 Published: 2026-05-05
 Category: regulation
-Source: nyc.gov
+Source: NYC.gov
 Original: https://www.nyc.gov/site/hpd/news/030-26/improving-health-housing-housing-preservation-development-recognizes-world-asthma-day
 Canonical: https://themoldreport.org/a/e35ceb6b662f.html
 Tags: mold, housing, regulation, nyc
@@ -693,7 +693,7 @@ Editor's Note: Visible fruiting bodies inside drywall typically indicate sustain
 
 Published: 2026-04-30
 Category: news
-Source: pbs.org
+Source: PBS
 Original: https://www.pbs.org/newshour/show/families-sound-alarm-on-toxic-mold-in-military-housing
 Canonical: https://themoldreport.org/a/03a74f2154ce.html
 Tags: mold, housing, military, indoor air quality, policy
@@ -707,7 +707,7 @@ Families say children and active-duty service members are reporting respiratory 
 
 Published: 2026-04-30
 Category: research
-Source: wvtf.org
+Source: WVTF
 Original: https://www.wvtf.org/news/2026-04-29/researchers-learning-more-about-long-term-health-impacts-of-flooding-from-helene
 Canonical: https://themoldreport.org/a/17157d2a984c.html
 Tags: mold, flooding, respiratory illness, research, hurricane helene, water damage
@@ -723,7 +723,7 @@ Editor's Note: For genetically susceptible patients (often HLA-DR / DQ haplotype
 
 Published: 2026-04-30
 Category: news
-Source: wtoc.com
+Source: WTOC
 Original: https://www.wtoc.com/2026/04/29/pregnant-hinesville-mother-gets-help-after-apartment-mold-complaints-apartment-provides-solution/
 Canonical: https://themoldreport.org/a/93bf78649d51.html
 Tags: mold, housing, respiratory illness, indoor air quality, pregnancy
@@ -1177,7 +1177,7 @@ For people managing mold-related illness, this case draws public attention to th
 
 Published: 2026-04-19
 Category: news
-Source: Aol
+Source: AOL
 Original: https://www.aol.com/news/advocates-huron-valley-correctional-facility-012525226.html
 Canonical: https://themoldreport.org/a/4b21d70e3952.html
 Tags: office mold, mold remediation, mold in schools, mold news
