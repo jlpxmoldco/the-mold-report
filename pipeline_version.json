@@ -1,6 +1,6 @@
 {
-  "currentVersion": "1.10",
-  "lastUpdated": "2026-05-11",
+  "currentVersion": "1.11",
+  "lastUpdated": "2026-05-15",
   "agents": [
     {
       "name": "Duplicate Detection Agent",
@@ -117,6 +117,20 @@
     }
   ],
   "changelog": [
+    {
+      "version": "1.11",
+      "date": "2026-05-15",
+      "title": "SEO Cleanup + Source Normalization + Newsletter Page",
+      "changes": [
+        "Trimmed 66 oversized seoTitles (>60 chars) and 32 oversized seoDescriptions (>160 chars) at word boundaries \u2014 Google now sees full meta in SERPs",
+        "Wrapped newsletter.html in proper HTML head/body with canonical, OG, and Twitter Card tags (was a bare HTML fragment)",
+        "Normalized 8 inconsistent source names (e.g. aol.com \u2192 AOL, pbs.org \u2192 PBS, phys.org \u2192 Phys.org)",
+        "Re-synced EMBEDDED_ARTICLES blob in index.html with articles.json after the metadata edits",
+        "Corrected 'Source Bias' WB card from misleading '85% academic/gov' to actual '~31% academic/gov, ~51% with established news included'",
+        "Added newsletter.html to sitemap.xml (and patched sitemap generator so future runs include it)",
+        "Removed duplicate generate_llms_files() call in regenerate_all_articles()"
+      ]
+    },
     {
       "version": "1.10",
       "date": "2026-05-11",
