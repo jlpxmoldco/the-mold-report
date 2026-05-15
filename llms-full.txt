@@ -3,6 +3,42 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance
+
+Published: 2026-05-14
+Category: research
+Source: mBio
+Original: https://pubmed.ncbi.nlm.nih.gov/42132439/
+Canonical: https://themoldreport.org/a/ba107fe59a5a.html
+Tags: fungal biofilm, antifungal resistance, aspergillus, mycology, research
+
+A study published in mBio identifies ceramide synthase as an important factor in the morphology of filamentous fungal biofilms and in how these fungi respond to antifungal drugs. Filamentous fungi — the group that includes Aspergillus species and other molds implicated in human respiratory illness — form biofilms that are notoriously difficult to treat and a recognized driver of antifungal resistance.
+
+The lead author, Puerner CTS, and colleagues report that ceramide synthase activity is tied to both biofilm structure and susceptibility to antifungal agents. The finding adds to a growing body of basic-science research aimed at understanding why filamentous fungi resist treatment, particularly in chronic infections of the lung and sinuses.
+
+The full study is available via PubMed.
+
+Editor's Note: Filamentous fungi, especially Aspergillus, are central to mold-related illness. Antifungal resistance is one of the harder problems facing clinicians treating chronic mold colonization, including in CIRS and ABPA patients.
+
+========================================================================
+## Researchers Call for One Health Approach to Antifungal Resistance in Allergic Bronchopulmonary Aspergillosis
+
+Published: 2026-05-14
+Category: research
+Source: Mol Biol Rep
+Original: https://pubmed.ncbi.nlm.nih.gov/42133179/
+Canonical: https://themoldreport.org/a/9a45501c8bc5.html
+Tags: aspergillus, abpa, antifungal resistance, one health, mold illness
+
+A review in Molecular Biology Reports argues that managing antifungal resistance in allergic bronchopulmonary aspergillosis (ABPA) requires a One Health approach — one that considers human, animal, and environmental drivers of resistance together rather than in isolation.
+
+ABPA is a hypersensitivity lung condition caused by Aspergillus fumigatus, the same mold genus repeatedly implicated in water-damaged buildings and indoor air contamination. The authors, led by Falcon RMG, point to the growing problem of azole-resistant Aspergillus strains, including resistance that appears to be driven by agricultural use of fungicides in the environment.
+
+The piece reflects a broader shift in fungal disease research: treating mold-related illness in humans cannot be separated from how molds are encountered in homes, agriculture, and the wider environment.
+
+Editor's Note: ABPA is one of the better-characterized mold-driven illnesses and sits adjacent to the broader CIRS literature on biotoxin exposure. Environmental azole resistance is a structural problem for any patient who needs long-term antifungal therapy.
+
+========================================================================
 ## UK Cohort Study Examines Damp, Mouldy Housing and Children's Respiratory Health in Bradford
 
 Published: 2026-05-14
@@ -527,6 +563,24 @@ Matthews said she is working with a team of physicians on her recovery and is pl
 Matthews's audience puts an unusually mainstream spotlight on CIRS, a chronic illness that is still poorly recognized by much of conventional medicine despite a growing body of literature on biotoxin-driven inflammation in genetically susceptible patients.
 
 Editor's Note: Chronic Inflammatory Response Syndrome (CIRS) is the diagnostic framework developed by Dr. Ritchie Shoemaker for patients with persistent inflammation following exposure to biotoxins, most often from water-damaged buildings. Roughly 24% of the population carries HLA-DR haplotypes that impair clearance of these toxins, which can leave them symptomatic long after the exposure ends.
+
+========================================================================
+## Novel Enzyme Shown to Reduce Aflatoxin B1 Toxicity and Liver Residues in Broilers
+
+Published: 2026-05-02
+Category: research
+Source: Poult Sci
+Original: https://pubmed.ncbi.nlm.nih.gov/42134142/
+Canonical: https://themoldreport.org/a/ee4e74274787.html
+Tags: mycotoxins, aflatoxin, aspergillus, food safety, research
+
+A new study in Poultry Science describes an aflatoxin oxidase, CotA, that the authors report alleviates aflatoxin B1 toxicity in broiler chickens by reducing hepatic aflatoxin residues and limiting oxidative-stress–driven ferroptosis. Aflatoxin B1 is a mycotoxin produced primarily by Aspergillus flavus and Aspergillus parasiticus — molds that contaminate stored grains, animal feed, and human food supplies worldwide.
+
+The lead author, Rao Z, and colleagues frame CotA as a potential biological tool for detoxifying aflatoxin contamination at the animal-feed stage. While the work is performed in poultry, the underlying chemistry — enzymatic degradation of a major mycotoxin — is part of the broader research effort to reduce human and animal exposure to Aspergillus toxins.
+
+The study is indexed in PubMed.
+
+Editor's Note: Aflatoxin B1 is one of the most studied mycotoxins and a recognized hepatotoxin and carcinogen. Tools that degrade it upstream — in feed, in storage — are relevant to anyone tracking the broader mycotoxin exposure literature.
 
 ========================================================================
 ## TNF-alpha and IL-1beta Counteract TGF-beta1's Effects on Collagen and Tissue Stiffness

@@ -1,6 +1,60 @@
 {
-  "lastUpdated": "2026-05-14T17:09:18.540420+00:00",
+  "lastUpdated": "2026-05-15T14:07:19.992200+00:00",
   "articles": [
+    {
+      "id": "ba107fe59a5a",
+      "title": "Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance",
+      "summary": "A study published in mBio identifies ceramide synthase as an important factor in the morphology of filamentous fungal biofilms and in how these fungi respond to antifungal drugs. Filamentous fungi — the group that includes Aspergillus species and other molds implicated in human respiratory illness — form biofilms that are notoriously difficult to treat and a recognized driver of antifungal resistance.\n\nThe lead author, Puerner CTS, and colleagues report that ceramide synthase activity is tied to both biofilm structure and susceptibility to antifungal agents. The finding adds to a growing body of basic-science research aimed at understanding why filamentous fungi resist treatment, particularly in chronic infections of the lung and sinuses.\n\nThe full study is available via PubMed.",
+      "editorsNote": "Filamentous fungi, especially Aspergillus, are central to mold-related illness. Antifungal resistance is one of the harder problems facing clinicians treating chronic mold colonization, including in CIRS and ABPA patients.",
+      "source": "mBio",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42132439/",
+      "author": "Puerner CTS",
+      "publishedAt": "2026-05-14T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formati",
+      "status": "published",
+      "tags": [
+        "fungal biofilm",
+        "antifungal resistance",
+        "aspergillus",
+        "mycology",
+        "research"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Ceramide Synthase Tied to Fungal Biofilm, Drug Resistance",
+      "seoDescription": "New mBio study links ceramide synthase to filamentous fungal biofilm morphology and antifungal drug susceptibility — implications for Aspergillus treatment.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-15T14:07:19.128877+00:00"
+    },
+    {
+      "id": "9a45501c8bc5",
+      "title": "Researchers Call for One Health Approach to Antifungal Resistance in Allergic Bronchopulmonary Aspergillosis",
+      "summary": "A review in Molecular Biology Reports argues that managing antifungal resistance in allergic bronchopulmonary aspergillosis (ABPA) requires a One Health approach — one that considers human, animal, and environmental drivers of resistance together rather than in isolation.\n\nABPA is a hypersensitivity lung condition caused by Aspergillus fumigatus, the same mold genus repeatedly implicated in water-damaged buildings and indoor air contamination. The authors, led by Falcon RMG, point to the growing problem of azole-resistant Aspergillus strains, including resistance that appears to be driven by agricultural use of fungicides in the environment.\n\nThe piece reflects a broader shift in fungal disease research: treating mold-related illness in humans cannot be separated from how molds are encountered in homes, agriculture, and the wider environment.",
+      "editorsNote": "ABPA is one of the better-characterized mold-driven illnesses and sits adjacent to the broader CIRS literature on biotoxin exposure. Environmental azole resistance is a structural problem for any patient who needs long-term antifungal therapy.",
+      "source": "Mol Biol Rep",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42133179/",
+      "author": "Falcon RMG",
+      "publishedAt": "2026-05-14T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Researchers Call for One Health Approach to Antifungal Resistance in Allergic Br",
+      "status": "published",
+      "tags": [
+        "aspergillus",
+        "abpa",
+        "antifungal resistance",
+        "one health",
+        "mold illness"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "One Health Approach Urged for Antifungal Resistance in ABPA",
+      "seoDescription": "Review in Mol Biol Rep argues human, animal, and environmental drivers of azole-resistant Aspergillus must be managed together in ABPA care.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-15T14:07:19.659648+00:00"
+    },
     {
       "id": "051f5e4cd4ce",
       "title": "UK Cohort Study Examines Damp, Mouldy Housing and Children's Respiratory Health in Bradford",
@@ -23,7 +77,7 @@
         "uk",
         "cohort study"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "UK Study: Damp Housing and Children's Respiratory Health",
       "seoDescription": "A Bradford cohort study in Environmental Pollution examines how damp and mouldy housing affects children's respiratory health outcomes.",
@@ -54,7 +108,7 @@
         "uk",
         "research"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Study: 100% of UK Plant-Based Meats Carry Mycotoxins",
       "seoDescription": "All 212 UK plant-based meat and milk alternatives tested contained at least one of 19 mycotoxins, per a new Food Control study.",
@@ -815,6 +869,33 @@
       "seoDescription": "The Secret Lives of Mormon Wives star says she is relocating to Maui to manage Chronic Inflammatory Response Syndrome linked to mold and biotoxin exposure.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-03T14:49:03.162287+00:00"
+    },
+    {
+      "id": "ee4e74274787",
+      "title": "Novel Enzyme Shown to Reduce Aflatoxin B1 Toxicity and Liver Residues in Broilers",
+      "summary": "A new study in Poultry Science describes an aflatoxin oxidase, CotA, that the authors report alleviates aflatoxin B1 toxicity in broiler chickens by reducing hepatic aflatoxin residues and limiting oxidative-stress–driven ferroptosis. Aflatoxin B1 is a mycotoxin produced primarily by Aspergillus flavus and Aspergillus parasiticus — molds that contaminate stored grains, animal feed, and human food supplies worldwide.\n\nThe lead author, Rao Z, and colleagues frame CotA as a potential biological tool for detoxifying aflatoxin contamination at the animal-feed stage. While the work is performed in poultry, the underlying chemistry — enzymatic degradation of a major mycotoxin — is part of the broader research effort to reduce human and animal exposure to Aspergillus toxins.\n\nThe study is indexed in PubMed.",
+      "editorsNote": "Aflatoxin B1 is one of the most studied mycotoxins and a recognized hepatotoxin and carcinogen. Tools that degrade it upstream — in feed, in storage — are relevant to anyone tracking the broader mycotoxin exposure literature.",
+      "source": "Poult Sci",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42134142/",
+      "author": "Rao Z",
+      "publishedAt": "2026-05-02T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://cdn.ncbi.nlm.nih.gov/pubmed/persistent/pubmed-meta-image-v2.jpg",
+      "imageAlt": "Novel Enzyme Shown to Reduce Aflatoxin B1 Toxicity and Liver Residues in Broiler",
+      "status": "published",
+      "tags": [
+        "mycotoxins",
+        "aflatoxin",
+        "aspergillus",
+        "food safety",
+        "research"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "New Enzyme Cuts Aflatoxin B1 Toxicity in Broilers",
+      "seoDescription": "Poultry Science study reports CotA aflatoxin oxidase reduces AFB1 liver residues and oxidative stress — relevant to broader mycotoxin detox research.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-15T14:07:19.991950+00:00"
     },
     {
       "id": "242e354ac7b1",
