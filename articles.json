@@ -1,6 +1,62 @@
 {
-  "lastUpdated": "2026-05-15T15:43:40.211198+00:00",
+  "lastUpdated": "2026-05-16T15:50:31.166670+00:00",
   "articles": [
+    {
+      "id": "65b276e4e96f",
+      "title": "Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release",
+      "summary": "Khaira Howard, 28, died on May 14 inside Women's Huron Valley Correctional Facility in Michigan, days before her scheduled release, according to reporting by the Detroit Free Press. In the months before her death, Howard had reportedly raised concerns about conditions at the prison — including alleged toxic mold — with the office of state Rep. Laurie Pohutsky and with a prison advocacy group.\n\nHoward's case has drawn renewed attention to longstanding complaints from incarcerated women at Huron Valley about water intrusion, dampness, and visible mold inside housing units. Pohutsky's office has previously raised the issue publicly. The Michigan Department of Corrections has not, at the time of this writing, attributed Howard's death to mold exposure, and the official cause of death has not been released.\n\nThe story is also being covered by Michigan Advance, Michigan Public, and PressReader (syndicating the Detroit Free Press). The Mold Report will update coverage as the cause of death and any official response from MDOC become available.",
+      "editorsNote": "Allegations of mold inside correctional facilities are difficult to verify externally and rarely lead to remediation on the timelines public-health guidance would call for. The Shoemaker Protocol literature emphasizes that meaningful exposure to a water-damaged building can drive inflammation in genetically susceptible people long before any visible structural failure — a population that, in a custodial setting, has no ability to relocate. We are not attributing cause of death; we are reporting the facts as published.",
+      "source": "Detroit Free Press",
+      "sourceUrl": "https://www.freep.com/story/news/politics/2026/05/14/khaira-howard-dies-womens-huron-valley-prison-mold-complaints-pohutsky/90083780007/",
+      "author": "Detroit Free Press",
+      "publishedAt": "2026-05-16T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://www.freep.com/gcdn/-mm-/2655786dc94953efa60a8fe239232a36f792454f/c=0-246-2397-1600/local/-/media/2017/05/04/DetroitFreeP/DetroitFreePress/636295153557940580-Huron-Valley.jpg?width=2397&height=1354&fit=crop&format=pjpg&auto=webp",
+      "imageAlt": "Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before ",
+      "status": "published",
+      "tags": [
+        "mold",
+        "michigan",
+        "prison",
+        "indoor air quality",
+        "water damage",
+        "policy"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Woman Who Reported Prison Mold Dies Days Before Release",
+      "seoDescription": "Khaira Howard, 28, died at Michigan's Huron Valley prison after reportedly raising mold concerns to a state lawmaker. Detroit Free Press reports.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-16T15:50:30.276618+00:00"
+    },
+    {
+      "id": "8c63675fbff0",
+      "title": "Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk",
+      "summary": "Firefighters in Lancaster, Texas, have raised concerns about possible mold contamination at Fire Station 3, according to reporting by WFAA (syndicated by Yahoo News). \"It was brought to the association's attention that there's a possible mold issue,\" Raymond De Los Santos, representing the firefighters' association, said in the report.\n\nCity officials have disputed the characterization that the station is unsafe, the report indicates, while the firefighters' association is pressing for independent testing and remediation. Disputes between municipal employers and first-responder unions over indoor air quality at fire stations have become a recurring story in U.S. local news as aging facilities accumulate water damage and HVAC issues.\n\nThe Mold Report will follow the story as Lancaster's testing results and any remediation plan are released.",
+      "editorsNote": "Fire stations are a recurring setting for occupational mold disputes. Firefighters already carry an elevated cumulative-toxin load from on-duty exposures, and chronic indoor biotoxin exposure on top of that is exactly the kind of multi-hit scenario the Shoemaker literature warns about in susceptible workers.",
+      "source": "Yahoo News (via WFAA)",
+      "sourceUrl": "https://www.yahoo.com/news/articles/lancaster-firefighters-raise-mold-concerns-213422503.html",
+      "author": "WFAA",
+      "publishedAt": "2026-05-16T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://s.yimg.com/cv/apiv2/social/images/yahoo_default_logo-1200x1200.png",
+      "imageAlt": "Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk",
+      "status": "published",
+      "tags": [
+        "mold",
+        "firefighters",
+        "occupational health",
+        "lancaster",
+        "texas",
+        "indoor air quality"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "Lancaster Firefighters Allege Mold at Fire Station 3",
+      "seoDescription": "Lancaster, Texas firefighters say Station 3 may have a mold problem. City disputes the risk; union is pushing for independent testing.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-16T15:50:31.166503+00:00"
+    },
     {
       "id": "ba107fe59a5a",
       "title": "Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance",
@@ -21,7 +77,7 @@
         "mycology",
         "research"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Ceramide Synthase Tied to Fungal Biofilm, Drug Resistance",
       "seoDescription": "New mBio study links ceramide synthase to filamentous fungal biofilm morphology and antifungal drug susceptibility — implications for Aspergillus treatment.",
@@ -48,7 +104,7 @@
         "one health",
         "mold illness"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "One Health Approach Urged for Antifungal Resistance in ABPA",
       "seoDescription": "Review in Mol Biol Rep argues human, animal, and environmental drivers of azole-resistant Aspergillus must be managed together in ABPA care.",

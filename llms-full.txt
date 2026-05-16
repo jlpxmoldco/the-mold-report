@@ -3,6 +3,42 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release
+
+Published: 2026-05-16
+Category: news
+Source: Detroit Free Press
+Original: https://www.freep.com/story/news/politics/2026/05/14/khaira-howard-dies-womens-huron-valley-prison-mold-complaints-pohutsky/90083780007/
+Canonical: https://themoldreport.org/a/65b276e4e96f.html
+Tags: mold, michigan, prison, indoor air quality, water damage, policy
+
+Khaira Howard, 28, died on May 14 inside Women's Huron Valley Correctional Facility in Michigan, days before her scheduled release, according to reporting by the Detroit Free Press. In the months before her death, Howard had reportedly raised concerns about conditions at the prison — including alleged toxic mold — with the office of state Rep. Laurie Pohutsky and with a prison advocacy group.
+
+Howard's case has drawn renewed attention to longstanding complaints from incarcerated women at Huron Valley about water intrusion, dampness, and visible mold inside housing units. Pohutsky's office has previously raised the issue publicly. The Michigan Department of Corrections has not, at the time of this writing, attributed Howard's death to mold exposure, and the official cause of death has not been released.
+
+The story is also being covered by Michigan Advance, Michigan Public, and PressReader (syndicating the Detroit Free Press). The Mold Report will update coverage as the cause of death and any official response from MDOC become available.
+
+Editor's Note: Allegations of mold inside correctional facilities are difficult to verify externally and rarely lead to remediation on the timelines public-health guidance would call for. The Shoemaker Protocol literature emphasizes that meaningful exposure to a water-damaged building can drive inflammation in genetically susceptible people long before any visible structural failure — a population that, in a custodial setting, has no ability to relocate. We are not attributing cause of death; we are reporting the facts as published.
+
+========================================================================
+## Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk
+
+Published: 2026-05-16
+Category: news
+Source: Yahoo News (via WFAA)
+Original: https://www.yahoo.com/news/articles/lancaster-firefighters-raise-mold-concerns-213422503.html
+Canonical: https://themoldreport.org/a/8c63675fbff0.html
+Tags: mold, firefighters, occupational health, lancaster, texas, indoor air quality
+
+Firefighters in Lancaster, Texas, have raised concerns about possible mold contamination at Fire Station 3, according to reporting by WFAA (syndicated by Yahoo News). "It was brought to the association's attention that there's a possible mold issue," Raymond De Los Santos, representing the firefighters' association, said in the report.
+
+City officials have disputed the characterization that the station is unsafe, the report indicates, while the firefighters' association is pressing for independent testing and remediation. Disputes between municipal employers and first-responder unions over indoor air quality at fire stations have become a recurring story in U.S. local news as aging facilities accumulate water damage and HVAC issues.
+
+The Mold Report will follow the story as Lancaster's testing results and any remediation plan are released.
+
+Editor's Note: Fire stations are a recurring setting for occupational mold disputes. Firefighters already carry an elevated cumulative-toxin load from on-duty exposures, and chronic indoor biotoxin exposure on top of that is exactly the kind of multi-hit scenario the Shoemaker literature warns about in susceptible workers.
+
+========================================================================
 ## Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance
 
 Published: 2026-05-14

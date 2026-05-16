@@ -17,6 +17,8 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release](https://themoldreport.org/a/65b276e4e96f.md) — 2026-05-16 — Khaira Howard, 28, died at Michigan's Huron Valley prison after reportedly raising mold concerns to a state lawmaker. Detroit Free Press reports.
+- [Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk](https://themoldreport.org/a/8c63675fbff0.md) — 2026-05-16 — Lancaster, Texas firefighters say Station 3 may have a mold problem. City disputes the risk; union is pushing for independent testing.
 - [Report: Spice Rack Contamination Can Be a Hidden Source of Mold and Mycotoxin Exposure](https://themoldreport.org/a/f1d3b217e8fd.md) — 2026-05-13 — Dried spices can harbor Aspergillus and Penicillium mold and mycotoxins like aflatoxin and ochratoxin A. What to check at home.
 - [Ouray County Tests Find No Mold in Disputed Meeting Rooms After Commissioner's Toxicity Claim](https://themoldreport.org/a/9579b0cf36b8.md) — 2026-05-13 — Ouray County, Colorado tested meeting rooms after a commissioner alleged 'toxicity.' Results: no mold problem found.
 - [Charleston Firefighters Allege City Ignored Years of Mold Problems in Stations](https://themoldreport.org/a/a71f9d5e2c84.md) — 2026-05-11 — A Live 5 News investigation finds Charleston firefighters reported mold and water damage in stations for years before the city acted on positive mold tests.
