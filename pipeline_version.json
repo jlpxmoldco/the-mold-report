@@ -1,6 +1,6 @@
 {
-  "currentVersion": "1.11",
-  "lastUpdated": "2026-05-15",
+  "currentVersion": "1.12",
+  "lastUpdated": "2026-05-17",
   "agents": [
     {
       "name": "Duplicate Detection Agent",
@@ -117,6 +117,16 @@
     }
   ],
   "changelog": [
+    {
+      "version": "1.12",
+      "date": "2026-05-17",
+      "title": "Site Improver: MARCoNS Article SEO Fix + Sitemap Refresh",
+      "changes": [
+        "Added missing seoTitle and seoDescription on the MARCoNS/alpha-MSH study article (was breaking Google's SERP rendering and OG tags)",
+        "Regenerated sitemap.xml \u2014 adds 6 newly-published articles that were missed by the last sitemap rebuild (177 article URLs now, up from 171)",
+        "Re-synced EMBEDDED_ARTICLES blob in index.html with articles.json after the metadata fix"
+      ]
+    },
     {
       "version": "1.11",
       "date": "2026-05-15",
