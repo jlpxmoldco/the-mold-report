@@ -1955,7 +1955,9 @@
       ],
       "featured": false,
       "editorsNote": "This study provides direct molecular evidence for a mechanism long proposed by Dr. Ritchie Shoemaker — that MARCoNS bacteria in the nasal passages of mold-exposed patients actively degrade alpha-MSH, a master regulatory peptide. In the Shoemaker biotoxin pathway, MSH suppression is a critical downstream effect of biotoxin exposure in genetically susceptible individuals (HLA-DR positive), leading to dysregulated cytokines (TGF-β1, MMP-9, C4a), hormonal disruption, and chronic inflammation. This is the first peer-reviewed confirmation of the specific enzymatic pathway by which MARCoNS achieve this suppression. For patients currently in the Shoemaker Protocol, this research reinforces why MARCoNS eradication (typically via BEG spray) is an essential early step before VIP nasal spray can be effective.",
-      "readTime": 2
+      "readTime": 2,
+      "seoTitle": "Study: MARCoNS Bacteria Suppress Alpha-MSH in CIRS",
+      "seoDescription": "New peer-reviewed study shows MARCoNS bacteria directly degrade alpha-MSH, validating a key node in Dr. Shoemaker's biotoxin pathway model."
     },
     {
       "id": "e9dfc3f29309",
