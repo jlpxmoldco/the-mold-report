@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-18T14:08:03.935841+00:00",
+  "lastUpdated": "2026-05-18T17:44:35.167510+00:00",
   "articles": [
     {
       "id": "2c1eb99fffaa",
@@ -29,6 +29,34 @@
       "qcTimestamp": "2026-05-18T14:08:03.170536+00:00"
     },
     {
+      "id": "f9d667f21d1c",
+      "title": "Major U.S. Home Builders Face Surging Construction-Defect Claims, Including Mold Cases",
+      "summary": "America's largest home builders are facing a sharp rise in construction-defect litigation, including high-profile cases that allege mold contamination from improperly built or poorly ventilated homes, the Wall Street Journal reported. Lennar is being sued by the Seminole Tribe of Florida over more than 450 homes that the tribe alleges were built with improperly installed roofs and mold-ridden walls causing health problems. D.R. Horton is defending litigation involving thousands of Louisiana homeowners whose homes allegedly fail to keep out moisture.\n\nAmong the named plaintiffs in the Louisiana case is Tabatha Hayden, who told the Journal her D.R. Horton-built home in Slidell developed a mold infestation that specialists attributed to inadequate ventilation and an HVAC system positioned poorly for the region's humidity. Hayden said one of her children developed a sinus condition, another has chronic headaches, and a third has developed skin rashes. D.R. Horton did not respond to WSJ requests for comment. Lennar declined to comment.\n\nFinancial filings reflect the trend. D.R. Horton's reserves for legal claims — nearly all of them construction-defect matters — rose 57% to $1.1 billion between fiscal 2022 and fiscal 2025. Lennar's self-insurance reserve climbed 21% in fiscal 2025 to $336.9 million. Builders attribute many defects to subcontractors and characterize the surge as partly driven by aggressive plaintiffs' counsel; homeowners and their attorneys allege cheaper materials, cut corners, and undersupervised trades.",
+      "editorsNote": "The mold angle here matters beyond the litigation: the Hayden case describes a common pattern in newer construction — tight building envelopes paired with undersized or poorly placed HVAC, in a hot-humid climate, with predictable moisture and microbial growth downstream. Patients in water-damaged buildings often present with sinus symptoms, headaches, and skin complaints; the underlying exposure is the building, not the symptoms.",
+      "source": "Wall Street Journal",
+      "sourceUrl": "https://www.wsj.com/real-estate/home-builders-are-getting-buried-in-claims-of-shoddy-construction-346e4a05",
+      "author": "Wall Street Journal",
+      "publishedAt": "2026-05-18T12:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "imageAlt": "Major U.S. Home Builders Face Surging Construction-Defect Claims, Including Mold",
+      "status": "published",
+      "tags": [
+        "construction-defects",
+        "litigation",
+        "mold-infestation",
+        "hvac",
+        "water-damaged-buildings",
+        "home-builders"
+      ],
+      "featured": true,
+      "readTime": 4,
+      "seoTitle": "Home Builders Hit With Surging Mold and Defect Claims",
+      "seoDescription": "WSJ: D.R. Horton, Lennar and others face rising construction-defect litigation, including mold cases from poor ventilation and HVAC design.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-18T17:44:35.167179+00:00"
+    },
+    {
       "id": "5b35be13ad91",
       "title": "Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets",
       "summary": "A new study published in Clinical Therapeutics by Boyar and colleagues analyzes mycotoxin compliance testing data across cannabis flower and concentrates in U.S. regulated markets. The analysis surveys how often samples exceed action limits set by state regulators and how those rates differ between unprocessed flower and concentrated products.\n\nMycotoxin contamination — including aflatoxins and ochratoxin A — can persist in stored plant material when post-harvest moisture and temperature controls are inadequate. State-level testing programs are one of the only systematic windows into how often these toxins reach consumer products.\n\nFor patients managing chronic inflammatory illness, the data is a reminder that ingestion exposure to mycotoxins is not limited to obvious sources like water-damaged buildings; it can also come through routinely consumed products, and regulatory thresholds vary by jurisdiction.",
@@ -48,7 +76,7 @@
         "compliance",
         "aflatoxin"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Cannabis Mycotoxin Testing Trends: New U.S. Data",
       "seoDescription": "New Clinical Therapeutics study analyzes mycotoxin contamination rates in U.S. cannabis flower and concentrates.",
