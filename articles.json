@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-05-16T15:50:31.166670+00:00",
+  "lastUpdated": "2026-05-18T13:25:25.286634+00:00",
   "articles": [
+    {
+      "id": "b0bea75aa317",
+      "title": "NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing",
+      "summary": "A New York City public housing mold remediation program reduced asthma-related emergency department visits by roughly 25 percent and prevented an estimated 2,800 ER trips, according to a new study released through EurekAlert.\n\nThe intervention, nicknamed Mold Busters, paired faster response timelines with evidence-based remediation practices in apartments where mold exposure had been linked to asthma morbidity. Researchers credited the combination of structural repair, moisture control, and consistent follow-up for the drop in acute respiratory events among residents.\n\nThe authors note that the asthma findings likely understate the full health impact of removing mold from chronically damp housing, since the analysis captured only emergency visits and not the broader range of respiratory, sleep, and inflammatory outcomes associated with chronic mold exposure.",
+      "editorsNote": "Mold exposure in water-damaged buildings drives airway inflammation in susceptible individuals and is a recognized trigger for asthma exacerbations. The size of the effect here, a 25 percent reduction in ER visits, underscores how directly indoor mold contributes to acute respiratory disease in vulnerable populations.",
+      "source": "EurekAlert!",
+      "sourceUrl": "https://www.eurekalert.org/news-releases/1127655",
+      "author": "EurekAlert!",
+      "publishedAt": "2026-05-17T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://mediasvc.eurekalert.org/Api/v1/Multimedia/54d0ce22-850d-4fd9-98b6-5ce6d60025c8/Rendition/thumbnail/Content/Public",
+      "imageAlt": "NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing",
+      "status": "published",
+      "tags": [
+        "mold remediation",
+        "asthma",
+        "public housing",
+        "indoor air quality",
+        "new york city"
+      ],
+      "featured": true,
+      "readTime": 3,
+      "seoTitle": "NYC Mold Program Cuts Asthma ER Visits 25% in Public Housing",
+      "seoDescription": "A New York City public housing mold remediation program cut asthma-related ER visits by about 25 percent, preventing an estimated 2,800 trips.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-18T13:25:24.962171+00:00"
+    },
     {
       "id": "65b276e4e96f",
       "title": "Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release",
@@ -50,7 +77,7 @@
         "texas",
         "indoor air quality"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 3,
       "seoTitle": "Lancaster Firefighters Allege Mold at Fire Station 3",
       "seoDescription": "Lancaster, Texas firefighters say Station 3 may have a mold problem. City disputes the risk; union is pushing for independent testing.",
@@ -139,6 +166,33 @@
       "seoDescription": "A Bradford cohort study in Environmental Pollution examines how damp and mouldy housing affects children's respiratory health outcomes.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-14T14:07:31.450550+00:00"
+    },
+    {
+      "id": "d0fba2df1ca3",
+      "title": "French CRESPI Study Links Daycare VOC Levels to Childhood Wheeze",
+      "summary": "A new analysis from the French CRESPI study, published in Environmental Health, finds an association between higher concentrations of volatile organic compounds in daycare facilities and increased wheeze among the children who attend them.\n\nThe authors measured indoor VOC levels across a network of French daycares and matched the readings to respiratory symptom reports from children in those settings. Higher cumulative exposure tracked with a higher likelihood of wheeze, an early indicator of asthma and chronic airway inflammation.\n\nIndoor air contaminants such as VOCs frequently co-occur in damp, poorly ventilated, or water-damaged buildings, where they can compound the respiratory burden created by mold growth and bacterial colonization on building materials.",
+      "editorsNote": "Chronic exposure to indoor air contaminants in early life is a recognized risk factor for persistent airway inflammation. For families and clinicians focused on biotoxin illness, this study is a reminder that mold rarely exists in isolation, indoor VOCs, dampness, and microbial growth typically travel together in compromised buildings.",
+      "source": "Environmental Health",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42129817/",
+      "author": "Sakellaris IA et al.",
+      "publishedAt": "2026-05-13T00:00:00+00:00",
+      "category": "research",
+      "imageUrl": "https://images.unsplash.com/photo-1486825586573-7131f7991bdd?w=800&q=80",
+      "imageAlt": "French CRESPI Study Links Daycare VOC Levels to Childhood Wheeze",
+      "status": "published",
+      "tags": [
+        "indoor air quality",
+        "VOCs",
+        "child health",
+        "wheeze",
+        "daycare"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "French CRESPI Study: Daycare VOCs Linked to Child Wheeze",
+      "seoDescription": "The French CRESPI study links higher VOC concentrations in daycares to increased wheeze among children attending them.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-18T13:25:25.283745+00:00"
     },
     {
       "id": "eb638bbb2833",

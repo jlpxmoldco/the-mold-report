@@ -3,6 +3,24 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing
+
+Published: 2026-05-17
+Category: news
+Source: EurekAlert!
+Original: https://www.eurekalert.org/news-releases/1127655
+Canonical: https://themoldreport.org/a/b0bea75aa317.html
+Tags: mold remediation, asthma, public housing, indoor air quality, new york city
+
+A New York City public housing mold remediation program reduced asthma-related emergency department visits by roughly 25 percent and prevented an estimated 2,800 ER trips, according to a new study released through EurekAlert.
+
+The intervention, nicknamed Mold Busters, paired faster response timelines with evidence-based remediation practices in apartments where mold exposure had been linked to asthma morbidity. Researchers credited the combination of structural repair, moisture control, and consistent follow-up for the drop in acute respiratory events among residents.
+
+The authors note that the asthma findings likely understate the full health impact of removing mold from chronically damp housing, since the analysis captured only emergency visits and not the broader range of respiratory, sleep, and inflammatory outcomes associated with chronic mold exposure.
+
+Editor's Note: Mold exposure in water-damaged buildings drives airway inflammation in susceptible individuals and is a recognized trigger for asthma exacerbations. The size of the effect here, a 25 percent reduction in ER visits, underscores how directly indoor mold contributes to acute respiratory disease in vulnerable populations.
+
+========================================================================
 ## Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release
 
 Published: 2026-05-16
@@ -91,6 +109,24 @@ Damp and mouldy housing is a well-documented contributor to childhood asthma, wh
 The full paper is available via PubMed (PMID 42128793).
 
 Editor's Note: Public-health discussion of damp housing typically focuses on standard asthma and infection pathways. The mold illness community has long argued that water-damaged buildings can also drive biotoxin-mediated illness — Chronic Inflammatory Response Syndrome (CIRS), in Shoemaker's framework — in genetically susceptible patients, with childhood exposure of particular concern given developing immune systems.
+
+========================================================================
+## French CRESPI Study Links Daycare VOC Levels to Childhood Wheeze
+
+Published: 2026-05-13
+Category: research
+Source: Environmental Health
+Original: https://pubmed.ncbi.nlm.nih.gov/42129817/
+Canonical: https://themoldreport.org/a/d0fba2df1ca3.html
+Tags: indoor air quality, VOCs, child health, wheeze, daycare
+
+A new analysis from the French CRESPI study, published in Environmental Health, finds an association between higher concentrations of volatile organic compounds in daycare facilities and increased wheeze among the children who attend them.
+
+The authors measured indoor VOC levels across a network of French daycares and matched the readings to respiratory symptom reports from children in those settings. Higher cumulative exposure tracked with a higher likelihood of wheeze, an early indicator of asthma and chronic airway inflammation.
+
+Indoor air contaminants such as VOCs frequently co-occur in damp, poorly ventilated, or water-damaged buildings, where they can compound the respiratory burden created by mold growth and bacterial colonization on building materials.
+
+Editor's Note: Chronic exposure to indoor air contaminants in early life is a recognized risk factor for persistent airway inflammation. For families and clinicians focused on biotoxin illness, this study is a reminder that mold rarely exists in isolation, indoor VOCs, dampness, and microbial growth typically travel together in compromised buildings.
 
 ========================================================================
 ## Review Maps How Foodborne Mycotoxins Disrupt the Gut-Brain Axis and Drive Chronic Illness
