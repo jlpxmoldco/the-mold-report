@@ -3,6 +3,40 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits
+
+Published: 2026-05-18
+Category: news
+Source: Medical Xpress
+Original: https://medicalxpress.com/news/2026-05-housing-mold-intervention-york-asthma.html
+Canonical: https://themoldreport.org/a/2c1eb99fffaa.html
+Tags: asthma, housing, mold-remediation, public-health, indoor-air
+
+A New York City public-housing intervention that combined visible mold remediation with leak repair and tenant education was associated with a meaningful reduction in asthma-related emergency department visits among residents, according to research covered this week by Medical Xpress and HCPLive. The program targeted apartments with documented water damage and prioritized faster response timelines for tenant mold complaints.
+
+Researchers framed the result as evidence that addressing the building environment, not just patient medications, can shift asthma outcomes at a population level. The authors noted that the reported health benefits likely underestimate the full impact, since severe symptom flares that did not reach the ER were not captured.
+
+For households in water-damaged buildings, the practical takeaway is consistent with the broader literature: source removal and repair of moisture intrusion remains the foundation, and downstream symptoms in sensitized residents can improve when the indoor environment is corrected.
+
+Editor's Note: Building-level remediation reducing ED visits is consistent with the Shoemaker model's core premise that ongoing exposure in water-damaged buildings drives chronic inflammatory response in susceptible individuals. The story is about asthma, but the mechanism — removing the source — generalizes.
+
+========================================================================
+## Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets
+
+Published: 2026-05-17
+Category: research
+Source: Clinical Therapeutics
+Original: https://pubmed.ncbi.nlm.nih.gov/42144307/
+Canonical: https://themoldreport.org/a/5b35be13ad91.html
+Tags: mycotoxins, cannabis, testing, compliance, aflatoxin
+
+A new study published in Clinical Therapeutics by Boyar and colleagues analyzes mycotoxin compliance testing data across cannabis flower and concentrates in U.S. regulated markets. The analysis surveys how often samples exceed action limits set by state regulators and how those rates differ between unprocessed flower and concentrated products.
+
+Mycotoxin contamination — including aflatoxins and ochratoxin A — can persist in stored plant material when post-harvest moisture and temperature controls are inadequate. State-level testing programs are one of the only systematic windows into how often these toxins reach consumer products.
+
+For patients managing chronic inflammatory illness, the data is a reminder that ingestion exposure to mycotoxins is not limited to obvious sources like water-damaged buildings; it can also come through routinely consumed products, and regulatory thresholds vary by jurisdiction.
+
+========================================================================
 ## NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing
 
 Published: 2026-05-17
@@ -55,6 +89,38 @@ City officials have disputed the characterization that the station is unsafe, th
 The Mold Report will follow the story as Lancaster's testing results and any remediation plan are released.
 
 Editor's Note: Fire stations are a recurring setting for occupational mold disputes. Firefighters already carry an elevated cumulative-toxin load from on-duty exposures, and chronic indoor biotoxin exposure on top of that is exactly the kind of multi-hit scenario the Shoemaker literature warns about in susceptible workers.
+
+========================================================================
+## Mycotoxins in Commercial Pet Foods Show Immunotoxic Effects In Vitro
+
+Published: 2026-05-15
+Category: research
+Source: Mycotoxin Research
+Original: https://pubmed.ncbi.nlm.nih.gov/42144471/
+Canonical: https://themoldreport.org/a/458b47a273e2.html
+Tags: mycotoxins, pet-food, immunotoxicity, feed-safety
+
+A study in Mycotoxin Research by Dänicke and colleagues evaluated the in vitro immunotoxic potential of mycotoxins commonly detected in commercial dry dog and cat foods, comparing the laboratory effects against estimates of internal exposure for animals consuming contaminated feed.
+
+The researchers note that several mycotoxins routinely turn up in pet food at detectable concentrations even when products meet regulatory action limits, and that the combined effect of multiple low-level contaminants is poorly characterized.
+
+For households where pets share the same indoor environment as people, the paper is a useful data point: mycotoxin exposure pathways extend beyond water-damaged buildings to include the food chain, and animals exposed to contaminated feed can show measurable biological effects.
+
+========================================================================
+## Melbourne Study Maps Allergen–Environment Drivers of Asthma Presentations
+
+Published: 2026-05-14
+Category: research
+Source: Scientific Reports
+Original: https://pubmed.ncbi.nlm.nih.gov/42135365/
+Canonical: https://themoldreport.org/a/c17cd387ec28.html
+Tags: asthma, allergens, fungal-spores, environmental-health, epidemiology
+
+A new analysis in Scientific Reports by Hughes and colleagues examined six years of emergency asthma presentations in Metropolitan Melbourne (2017–2022) alongside environmental data, working to identify which allergen and environmental factors best explained variation in acute asthma episodes.
+
+Studies of this design help separate signal from noise in a complex exposure environment where pollen, fungal spores, air pollutants, and weather all interact. Outdoor fungal spore counts are an established trigger for sensitized asthmatics, and several Australian and UK groups have linked thunderstorm asthma events to specific spore and pollen release patterns.
+
+For readers tracking the environmental contribution to respiratory illness, the paper adds to a growing body of work using ED-visit time series to disentangle exposures that are often confounded in shorter studies.
 
 ========================================================================
 ## Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance

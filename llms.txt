@@ -17,6 +17,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits](https://themoldreport.org/a/2c1eb99fffaa.md) — 2026-05-18 — A New York public-housing mold remediation program was linked to fewer asthma emergency visits, new research finds.
 - [NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing](https://themoldreport.org/a/b0bea75aa317.md) — 2026-05-17 — A New York City public housing mold remediation program cut asthma-related ER visits by about 25 percent, preventing an estimated 2,800 trips.
 - [Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release](https://themoldreport.org/a/65b276e4e96f.md) — 2026-05-16 — Khaira Howard, 28, died at Michigan's Huron Valley prison after reportedly raising mold concerns to a state lawmaker. Detroit Free Press reports.
 - [Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk](https://themoldreport.org/a/8c63675fbff0.md) — 2026-05-16 — Lancaster, Texas firefighters say Station 3 may have a mold problem. City disputes the risk; union is pushing for independent testing.
@@ -103,6 +104,9 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Birmingham Public Housing Resident Reports Rats, Mice, and Mold in Home](https://themoldreport.org/a/6468cf60fc95.md) — 2026-01-06 — A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.
 
 ## Research
+- [Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets](https://themoldreport.org/a/5b35be13ad91.md) — 2026-05-17 — New Clinical Therapeutics study analyzes mycotoxin contamination rates in U.S. cannabis flower and concentrates.
+- [Mycotoxins in Commercial Pet Foods Show Immunotoxic Effects In Vitro](https://themoldreport.org/a/458b47a273e2.md) — 2026-05-15 — Mycotoxin Research study finds in vitro immunotoxic effects from mycotoxins commonly detected in commercial dry dog and cat food.
+- [Melbourne Study Maps Allergen–Environment Drivers of Asthma Presentations](https://themoldreport.org/a/c17cd387ec28.md) — 2026-05-14 — Scientific Reports study maps how allergen and environmental factors drive asthma ED presentations in Melbourne, 2017-2022.
 - [Ceramide Synthase Identified as Key Factor in Filamentous Fungal Biofilm Formation and Antifungal Drug Resistance](https://themoldreport.org/a/ba107fe59a5a.md) — 2026-05-14 — New mBio study links ceramide synthase to filamentous fungal biofilm morphology and antifungal drug susceptibility — implications for Aspergillus treatment.
 - [Researchers Call for One Health Approach to Antifungal Resistance in Allergic Bronchopulmonary Aspergillosis](https://themoldreport.org/a/9a45501c8bc5.md) — 2026-05-14 — Review in Mol Biol Rep argues human, animal, and environmental drivers of azole-resistant Aspergillus must be managed together in ABPA care.
 - [UK Cohort Study Examines Damp, Mouldy Housing and Children's Respiratory Health in Bradford](https://themoldreport.org/a/051f5e4cd4ce.md) — 2026-05-14 — A Bradford cohort study in Environmental Pollution examines how damp and mouldy housing affects children's respiratory health outcomes.
