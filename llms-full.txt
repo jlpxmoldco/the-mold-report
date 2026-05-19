@@ -3,6 +3,20 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Crisis
+
+Published: 2026-05-19
+Category: news
+Source: KLC Journal
+Original: https://klcjournal.com/wichita-fire-stations-health-solutions/
+Canonical: https://themoldreport.org/a/67c77650169d.html
+Tags: firefighter health, mold, wichita, occupational exposure, indoor air quality
+
+A new commentary published by the KLC Journal revisits the long-running mold contamination problem at Wichita's fire stations and asks what it would take to put firefighter health first. The piece notes that, as of publication, there were still firefighters reported to be ill from prior mold exposure inside Wichita stations — a crisis that, earlier this year, forced the closure of multiple stations and the relocation of crews while remediation was underway.
+
+The article frames the Wichita situation as a broader case study in how municipal employers handle indoor air quality complaints from first responders, who are often exposed at work to environments they did not choose and cannot easily leave.
+
+========================================================================
 ## NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits
 
 Published: 2026-05-18
@@ -37,6 +51,38 @@ Among the named plaintiffs in the Louisiana case is Tabatha Hayden, who told the
 Financial filings reflect the trend. D.R. Horton's reserves for legal claims — nearly all of them construction-defect matters — rose 57% to $1.1 billion between fiscal 2022 and fiscal 2025. Lennar's self-insurance reserve climbed 21% in fiscal 2025 to $336.9 million. Builders attribute many defects to subcontractors and characterize the surge as partly driven by aggressive plaintiffs' counsel; homeowners and their attorneys allege cheaper materials, cut corners, and undersupervised trades.
 
 Editor's Note: The mold angle here matters beyond the litigation: the Hayden case describes a common pattern in newer construction — tight building envelopes paired with undersized or poorly placed HVAC, in a hot-humid climate, with predictable moisture and microbial growth downstream. Patients in water-damaged buildings often present with sinus symptoms, headaches, and skin complaints; the underlying exposure is the building, not the symptoms.
+
+========================================================================
+## Albany Family Says Mushrooms Grew From Apartment Ceiling as Mold Repairs Stalled for Months
+
+Published: 2026-05-18
+Category: news
+Source: CBS6 Albany (WRGB)
+Original: https://cbs6albany.com/news/local/mushrooms-growing-on-walls-albany-family-says-mold-made-children-sick-as-repairs-stalled-tenant-landlord-code-new-york-wrgb
+Canonical: https://themoldreport.org/a/47e668543710.html
+Tags: housing, water damage, mold, pediatric health, code enforcement, new york
+
+An Albany, N.Y. family says months of water damage and visible mold growth in a Clinton Avenue apartment — including mushrooms growing from the ceiling — sent their children to repeated emergency room and urgent care visits, according to a CBS6 Albany (WRGB) investigation. Medical providers at Albany Medical Center's Pediatric Pulmonology clinic and ENT & Allergy Services documented worsening respiratory symptoms, chronic inflammation, sleep disruption and a need for increased respiratory medication that they linked to the home environment, with one provider recommending the children be removed from the apartment.
+
+Albany code enforcement cited the property multiple times for mold-related violations and required the owner to obtain a licensed mold assessment for the entire building and hire a qualified remediation company. According to records reviewed by CBS6, some corrective actions remain incomplete. The owner told CBS6 he initially sent a handyman to cut visible mushroom growth from the ceiling five days after it was reported in September; a formal mold assessment was not delivered until late January. The case has been referred to Albany Corporation Counsel for further enforcement action.
+
+Tenant advocates told CBS6 the case highlights why Albany's emergency repair fund, which the city charter authorizes when conditions present an immediate danger to occupant health, is underused in practice.
+
+Editor's Note: Pediatric exposure to water-damaged buildings has been linked in the published literature to asthma exacerbation and chronic respiratory inflammation. Families with worsening symptoms in a damp or visibly mold-contaminated home should ask their clinician about both an environmental assessment and an evaluation for biotoxin-driven inflammation when symptoms persist after exposure ends.
+
+========================================================================
+## Mold, HVAC Failures and Fires Drove Dozens of Investigations at Connecticut Cannabis Growers, Report Finds
+
+Published: 2026-05-18
+Category: regulation
+Source: MSN (syndicated)
+Original: https://www.msn.com/en-us/health/medical/mold-hvac-failures-and-fires-drove-dozens-of-investigations-at-connecticut-cannabis-growers/ar-AA23u0YU
+Canonical: https://themoldreport.org/a/2a3415dcc550.html
+Tags: cannabis, regulation, mold, connecticut, indoor air quality
+
+Mold contamination, HVAC system failures and fires drove dozens of regulatory investigations at licensed cannabis cultivation facilities in Connecticut, according to reporting syndicated by MSN. The incidents underscore the operational and air-quality risks that indoor cultivation can create when humidity, airflow and equipment maintenance are not tightly controlled — the same conditions that make grow rooms vulnerable to Aspergillus and other fungal contamination of finished product.
+
+Connecticut joins a growing list of state cannabis programs — including Missouri and Maine, both of which have issued mold-related recalls in recent weeks — where regulators are intervening over microbial contamination concerns. For patients in medical programs, mold-contaminated cannabis is a particular concern because immunocompromised consumers are at elevated risk of fungal infection from inhaled spores.
 
 ========================================================================
 ## Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets

@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-05-18T19:44:41.842762+00:00",
+  "lastUpdated": "2026-05-19T14:10:37.982262+00:00",
   "articles": [
+    {
+      "id": "67c77650169d",
+      "title": "KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Crisis",
+      "summary": "A new commentary published by the KLC Journal revisits the long-running mold contamination problem at Wichita's fire stations and asks what it would take to put firefighter health first. The piece notes that, as of publication, there were still firefighters reported to be ill from prior mold exposure inside Wichita stations — a crisis that, earlier this year, forced the closure of multiple stations and the relocation of crews while remediation was underway.\n\nThe article frames the Wichita situation as a broader case study in how municipal employers handle indoor air quality complaints from first responders, who are often exposed at work to environments they did not choose and cannot easily leave.",
+      "editorsNote": "",
+      "source": "KLC Journal",
+      "sourceUrl": "https://klcjournal.com/wichita-fire-stations-health-solutions/",
+      "author": "KLC Journal",
+      "publishedAt": "2026-05-19T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://klcjournal.com/wp-content/uploads/2026/05/FirestationinfrastructureMay2026SMF_0758-scaled.jpg",
+      "imageAlt": "KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Cris",
+      "status": "published",
+      "tags": [
+        "firefighter health",
+        "mold",
+        "wichita",
+        "occupational exposure",
+        "indoor air quality"
+      ],
+      "featured": true,
+      "readTime": 2,
+      "seoTitle": "Wichita Firefighter Mold Crisis: New KLC Journal Commentary",
+      "seoDescription": "A new KLC Journal piece revisits Wichita's fire-station mold crisis and asks what it takes to put firefighter health first.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-19T14:10:37.981900+00:00"
+    },
     {
       "id": "2c1eb99fffaa",
       "title": "NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits",
@@ -49,12 +76,67 @@
         "water-damaged-buildings",
         "home-builders"
       ],
-      "featured": true,
+      "featured": false,
       "readTime": 4,
       "seoTitle": "Home Builders Hit With Surging Mold and Defect Claims",
       "seoDescription": "WSJ: D.R. Horton, Lennar and others face rising construction-defect litigation, including mold cases from poor ventilation and HVAC design.",
       "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
       "qcTimestamp": "2026-05-18T17:44:35.167179+00:00"
+    },
+    {
+      "id": "47e668543710",
+      "title": "Albany Family Says Mushrooms Grew From Apartment Ceiling as Mold Repairs Stalled for Months",
+      "summary": "An Albany, N.Y. family says months of water damage and visible mold growth in a Clinton Avenue apartment — including mushrooms growing from the ceiling — sent their children to repeated emergency room and urgent care visits, according to a CBS6 Albany (WRGB) investigation. Medical providers at Albany Medical Center's Pediatric Pulmonology clinic and ENT & Allergy Services documented worsening respiratory symptoms, chronic inflammation, sleep disruption and a need for increased respiratory medication that they linked to the home environment, with one provider recommending the children be removed from the apartment.\n\nAlbany code enforcement cited the property multiple times for mold-related violations and required the owner to obtain a licensed mold assessment for the entire building and hire a qualified remediation company. According to records reviewed by CBS6, some corrective actions remain incomplete. The owner told CBS6 he initially sent a handyman to cut visible mushroom growth from the ceiling five days after it was reported in September; a formal mold assessment was not delivered until late January. The case has been referred to Albany Corporation Counsel for further enforcement action.\n\nTenant advocates told CBS6 the case highlights why Albany's emergency repair fund, which the city charter authorizes when conditions present an immediate danger to occupant health, is underused in practice.",
+      "editorsNote": "Pediatric exposure to water-damaged buildings has been linked in the published literature to asthma exacerbation and chronic respiratory inflammation. Families with worsening symptoms in a damp or visibly mold-contaminated home should ask their clinician about both an environmental assessment and an evaluation for biotoxin-driven inflammation when symptoms persist after exposure ends.",
+      "source": "CBS6 Albany (WRGB)",
+      "sourceUrl": "https://cbs6albany.com/news/local/mushrooms-growing-on-walls-albany-family-says-mold-made-children-sick-as-repairs-stalled-tenant-landlord-code-new-york-wrgb",
+      "author": "CBS6 Albany",
+      "publishedAt": "2026-05-18T00:00:00+00:00",
+      "category": "news",
+      "imageUrl": "https://cbs6albany.com/resources/media2/16x9/1170/1320/0x435/90/0c569439-e6d7-4f69-bdb8-b0cb9d5515c8-mushrooms_albapt3.png",
+      "imageAlt": "Albany Family Says Mushrooms Grew From Apartment Ceiling as Mold Repairs Stalled",
+      "status": "published",
+      "tags": [
+        "housing",
+        "water damage",
+        "mold",
+        "pediatric health",
+        "code enforcement",
+        "new york"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "Albany Family: Mushrooms Grew From Ceiling as Mold Repairs Stalled",
+      "seoDescription": "An Albany family says months of mold and water damage — including mushrooms on the ceiling — sickened their children as repairs stalled.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-19T14:10:35.765402+00:00"
+    },
+    {
+      "id": "2a3415dcc550",
+      "title": "Mold, HVAC Failures and Fires Drove Dozens of Investigations at Connecticut Cannabis Growers, Report Finds",
+      "summary": "Mold contamination, HVAC system failures and fires drove dozens of regulatory investigations at licensed cannabis cultivation facilities in Connecticut, according to reporting syndicated by MSN. The incidents underscore the operational and air-quality risks that indoor cultivation can create when humidity, airflow and equipment maintenance are not tightly controlled — the same conditions that make grow rooms vulnerable to Aspergillus and other fungal contamination of finished product.\n\nConnecticut joins a growing list of state cannabis programs — including Missouri and Maine, both of which have issued mold-related recalls in recent weeks — where regulators are intervening over microbial contamination concerns. For patients in medical programs, mold-contaminated cannabis is a particular concern because immunocompromised consumers are at elevated risk of fungal infection from inhaled spores.",
+      "editorsNote": "",
+      "source": "MSN (syndicated)",
+      "sourceUrl": "https://www.msn.com/en-us/health/medical/mold-hvac-failures-and-fires-drove-dozens-of-investigations-at-connecticut-cannabis-growers/ar-AA23u0YU",
+      "author": "MSN",
+      "publishedAt": "2026-05-18T00:00:00+00:00",
+      "category": "regulation",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+      "imageAlt": "Mold, HVAC Failures and Fires Drove Dozens of Investigations at Connecticut Cann",
+      "status": "published",
+      "tags": [
+        "cannabis",
+        "regulation",
+        "mold",
+        "connecticut",
+        "indoor air quality"
+      ],
+      "featured": false,
+      "readTime": 3,
+      "seoTitle": "CT Cannabis Growers: Mold, HVAC and Fire Drove Dozens of Probes",
+      "seoDescription": "Mold, HVAC failures and fires drove dozens of regulatory investigations at Connecticut cannabis cultivators, according to syndicated reporting.",
+      "qcReviewer": "AI Editorial Pipeline v1.4 (session-scored)",
+      "qcTimestamp": "2026-05-19T14:10:36.140029+00:00"
     },
     {
       "id": "5b35be13ad91",

@@ -17,8 +17,10 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Crisis](https://themoldreport.org/a/67c77650169d.md) — 2026-05-19 — A new KLC Journal piece revisits Wichita's fire-station mold crisis and asks what it takes to put firefighter health first.
 - [NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits](https://themoldreport.org/a/2c1eb99fffaa.md) — 2026-05-18 — A New York public-housing mold remediation program was linked to fewer asthma emergency visits, new research finds.
 - [Major U.S. Home Builders Face Surging Construction-Defect Claims, Including Mold Cases](https://themoldreport.org/a/f9d667f21d1c.md) — 2026-05-18 — WSJ: D.R. Horton, Lennar and others face rising construction-defect litigation, including mold cases from poor ventilation and HVAC design.
+- [Albany Family Says Mushrooms Grew From Apartment Ceiling as Mold Repairs Stalled for Months](https://themoldreport.org/a/47e668543710.md) — 2026-05-18 — An Albany family says months of mold and water damage — including mushrooms on the ceiling — sickened their children as repairs stalled.
 - [NYC 'Mold Busters' Program Cut Asthma ER Visits by 25 Percent in Public Housing](https://themoldreport.org/a/b0bea75aa317.md) — 2026-05-17 — A New York City public housing mold remediation program cut asthma-related ER visits by about 25 percent, preventing an estimated 2,800 trips.
 - [Detroit Free Press: Woman Who Reported Mold at Michigan Prison Died Days Before Release](https://themoldreport.org/a/65b276e4e96f.md) — 2026-05-16 — Khaira Howard, 28, died at Michigan's Huron Valley prison after reportedly raising mold concerns to a state lawmaker. Detroit Free Press reports.
 - [Lancaster Firefighters Allege Mold at Station 3; City Disputes the Risk](https://themoldreport.org/a/8c63675fbff0.md) — 2026-05-16 — Lancaster, Texas firefighters say Station 3 may have a mold problem. City disputes the risk; union is pushing for independent testing.
@@ -172,6 +174,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Mycotoxins and Reproductive Health: New Review Links OTA and Zearalenone to Fertility Risk](https://themoldreport.org/a/2feb375dfaf0.md) — 2025-03-26 — Journal of IVF-Worldwide review links ochratoxin A and zearalenone to sperm damage, hormonal disruption, and miscarriage risk.
 
 ## Regulation
+- [Mold, HVAC Failures and Fires Drove Dozens of Investigations at Connecticut Cannabis Growers, Report Finds](https://themoldreport.org/a/2a3415dcc550.md) — 2026-05-18 — Mold, HVAC failures and fires drove dozens of regulatory investigations at Connecticut cannabis cultivators, according to syndicated reporting.
 - [NYC Issued More Than 41,000 Mold Violations in FY2025, Housing Agency Reports](https://themoldreport.org/a/e35ceb6b662f.md) — 2026-05-05 — NYC's housing agency issued 41,000+ mold violations and conducted 32,000+ mold inspections in FY2025 under Local Law 55, recognizing World Asthma Day.
 - [Missouri Recalls Cannabis Products After Aspergillus Contamination](https://themoldreport.org/a/5dbe4f206461.md) — 2026-05-05 — Missouri regulators recalled cannabis products after testing detected Aspergillus mold contamination above allowable limits.
 - [Maine Issues Advisory on Medical Cannabis Found to Contain Unsafe Mold Levels](https://themoldreport.org/a/b5e8a91d2c4f.md) — 2026-05-04 — Maine issues advisory after medical cannabis products test positive for unsafe mold levels and other contaminants.
