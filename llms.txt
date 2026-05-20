@@ -17,6 +17,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [llms-full.txt](https://themoldreport.org/llms-full.txt): Concatenated full-text of every article on the site, suitable for one-shot ingestion.
 
 ## News
+- [Second Death in a Week at Michigan Women's Prison Renews Scrutiny of Reported Mold Conditions](https://themoldreport.org/a/bbe4837da985.md) — 2026-05-20 — Second incarcerated woman has died in under a week at Michigan's only women's prison, where lawsuits allege toxic mold and unsafe conditions.
 - [KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Crisis](https://themoldreport.org/a/67c77650169d.md) — 2026-05-19 — A new KLC Journal piece revisits Wichita's fire-station mold crisis and asks what it takes to put firefighter health first.
 - [NYC Public Housing Mold Remediation Program Linked to Drop in Asthma ER Visits](https://themoldreport.org/a/2c1eb99fffaa.md) — 2026-05-18 — A New York public-housing mold remediation program was linked to fewer asthma emergency visits, new research finds.
 - [Major U.S. Home Builders Face Surging Construction-Defect Claims, Including Mold Cases](https://themoldreport.org/a/f9d667f21d1c.md) — 2026-05-18 — WSJ: D.R. Horton, Lennar and others face rising construction-defect litigation, including mold cases from poor ventilation and HVAC design.
@@ -107,6 +108,11 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [Birmingham Public Housing Resident Reports Rats, Mice, and Mold in Home](https://themoldreport.org/a/6468cf60fc95.md) — 2026-01-06 — A Birmingham public housing resident reports mold growth, rats, and mice in their unit. See how housing authorities are responding to uninhabitable conditions.
 
 ## Research
+- [Review Updates the Microbial Spectrum of Mixed Respiratory Fungal Infections](https://themoldreport.org/a/2f0200d2dca3.md) — 2026-05-19 — New review catalogs the fungal species behind mixed respiratory infections and calls for broader diagnostic panels in high-risk patients.
+- [CO2 Levels Shape Fungal Pathogen Virulence and Antifungal Response, Study Finds](https://themoldreport.org/a/04de82cd74df.md) — 2026-05-19 — Medical Gas Research paper details how CO2 sensing controls virulence and drug response in medically important fungi like Aspergillus and Candida.
+- [New Review Maps How Aflatoxin B1 Triggers Multiple Forms of Programmed Cell Death](https://themoldreport.org/a/8e6a8c90dce0.md) — 2026-05-18 — New Apoptosis review surveys how the Aspergillus mycotoxin AFB1 drives apoptosis, ferroptosis, pyroptosis, and autophagy across tissues.
+- [Wastewater Plant Workers Face Measurable Fungal and Bacterial Bioaerosol Exposure, Study Finds](https://themoldreport.org/a/0d065c716d86.md) — 2026-05-18 — New Scientific Reports paper quantifies wastewater plant workers' inhalation exposure to bacterial and fungal bioaerosols and runs a risk assessment.
+- [Fusarium Mycotoxin Deoxynivalenol Halts Dental Stem Cell Growth at the G2/M Checkpoint](https://themoldreport.org/a/542022eca589.md) — 2026-05-17 — New Toxicology study shows Fusarium mycotoxin DON halts human dental pulp stem cell growth via p21-mediated G2/M arrest.
 - [Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets](https://themoldreport.org/a/5b35be13ad91.md) — 2026-05-17 — New Clinical Therapeutics study analyzes mycotoxin contamination rates in U.S. cannabis flower and concentrates.
 - [Mycotoxins in Commercial Pet Foods Show Immunotoxic Effects In Vitro](https://themoldreport.org/a/458b47a273e2.md) — 2026-05-15 — Mycotoxin Research study finds in vitro immunotoxic effects from mycotoxins commonly detected in commercial dry dog and cat food.
 - [Melbourne Study Maps Allergen–Environment Drivers of Asthma Presentations](https://themoldreport.org/a/c17cd387ec28.md) — 2026-05-14 — Scientific Reports study maps how allergen and environmental factors drive asthma ED presentations in Melbourne, 2017-2022.
@@ -210,6 +216,7 @@ The Mold Report is built and operated by Julien Lepleux. Articles are selected, 
 - [ISSA and NORMI Expand Alliance to Bridge Cleaning and Mold Remediation Standards](https://themoldreport.org/a/7a8ca235a1e4.md) — 2026-04-14 — ISSA and NORMI have expanded their Indoor Health Alliance, a partnership first established in 2018, to more formally connect the cleaning and mold...
 
 ## Diagnostics
+- [New Dual-Mode Sensor Improves Detection of Zearalenone Mycotoxin](https://themoldreport.org/a/e647f94ea63f.md) — 2026-05-19 — Microchimica Acta paper details a dual-mode aptasensor that improves detection of the Fusarium mycotoxin zearalenone in food samples.
 - [Portable Sensor Uses Machine Learning to Quantify Zearalenone Mycotoxin](https://themoldreport.org/a/399e59a76ffb.md) — 2026-05-07 — New electrochemiluminescence microarray sensor uses machine learning to quantify zearalenone, a Fusarium-produced mycotoxin in grain and feed.
 - [MoldCo Drops Mold Blood Test Price From $99 to $56](https://themoldreport.org/a/d972861abbe1.md) — 2026-04-12 — MoldCo cut its Starter Health Panel from $99 to $56, screening TGF-beta1, MMP-9, and MSH mold illness biomarkers at 2,000+ LabCorp locations nationwide.
 - [MoldCo Drops Barriers to Mold Illness Care With Virtual Clinic Model](https://themoldreport.org/a/7800e6f545a6.md) — 2026-01-14 — MoldCo's telehealth model gives mold illness patients access to real clinicians, biomarker testing, and treatment — no specialist waitlists or $10K intake fees.

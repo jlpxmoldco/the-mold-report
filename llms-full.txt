@@ -3,6 +3,72 @@
 This file contains the full editorial text of every published article on https://themoldreport.org. Use this for one-shot ingestion. Each article is canonical at https://themoldreport.org/a/{id}.html with a Markdown companion at https://themoldreport.org/a/{id}.md. Original reporting belongs to the linked source.
 
 ========================================================================
+## Second Death in a Week at Michigan Women's Prison Renews Scrutiny of Reported Mold Conditions
+
+Published: 2026-05-20
+Category: news
+Source: Michigan Public
+Original: https://www.michiganpublic.org/health/2026-05-18/second-death-at-state-womens-prison-in-less-than-a-week
+Canonical: https://themoldreport.org/a/bbe4837da985.html
+Tags: mold, litigation, correctional facilities, michigan, water-damaged buildings, indoor air quality
+
+A second incarcerated woman has died at Michigan's Women's Huron Valley Correctional Facility in less than a week, according to reporting from Michigan Public. The facility is Michigan's only state prison for women, and prisoners there are suing the state in litigation that has documented allegations of toxic mold, inadequate medical care, and unsafe living conditions.
+
+The deaths follow years of complaints captured in lawsuits, medical records, and internal state reports. Prior coverage by the Detroit Free Press and other Michigan outlets has detailed claims that incarcerated women raised mold and water-damage concerns before falling ill. The Michigan Department of Corrections has not publicly tied either death to the facility's environmental conditions, and investigators have not released findings on cause of death.
+
+Advocates and lawmakers are pressing for outside review of medical care and building conditions at the facility, with the active lawsuit serving as the primary public record of the documented complaints.
+
+Editor's Note: Mold exposure inside water-damaged buildings — including correctional facilities, fire stations, schools, and public housing — is one of the most under-investigated environmental health drivers in the U.S. Litigation often surfaces the documentary record regulators do not.
+
+========================================================================
+## Review Updates the Microbial Spectrum of Mixed Respiratory Fungal Infections
+
+Published: 2026-05-19
+Category: research
+Source: Journal of Epidemiology and Global Health
+Original: https://pubmed.ncbi.nlm.nih.gov/42151636/
+Canonical: https://themoldreport.org/a/2f0200d2dca3.html
+Tags: fungi, respiratory infections, aspergillus, candida, immunocompromised, research
+
+A review article published in the Journal of Epidemiology and Global Health catalogs the microorganisms involved in mixed respiratory fungal infections, where two or more fungal species — or fungi co-occurring with bacterial or viral pathogens — colonize or infect the airway. The authors highlight Aspergillus, Candida, Cryptococcus, and emerging Mucorales as the most clinically significant fungal contributors.
+
+Mixed infections are increasingly recognized in immunocompromised patients, post-influenza and post-COVID patients, and patients with chronic lung conditions such as cystic fibrosis and severe asthma. The review notes that current diagnostic workflows still miss co-infections regularly because single-organism culture and molecular panels remain dominant in clinical microbiology labs.
+
+The authors call for broader, syndromic respiratory panels and routine surveillance for fungal co-infection in high-risk patients, citing the higher mortality and longer hospital stays associated with mixed infections.
+
+========================================================================
+## New Dual-Mode Sensor Improves Detection of Zearalenone Mycotoxin
+
+Published: 2026-05-19
+Category: diagnostics
+Source: Microchimica Acta
+Original: https://pubmed.ncbi.nlm.nih.gov/42154057/
+Canonical: https://themoldreport.org/a/e647f94ea63f.html
+Tags: mycotoxins, zearalenone, fusarium, detection, food safety, diagnostics
+
+A team writing in Microchimica Acta has built a label-free dual-mode aptasensor for zearalenone, a Fusarium-produced mycotoxin that contaminates corn, wheat, and other cereal crops worldwide. The sensor combines exonuclease-I cleavage with a PtNWs/MXene nanozyme to deliver both colorimetric and electrochemical readouts, improving sensitivity and reducing false positives compared with single-readout assays.
+
+Zearalenone is a non-steroidal estrogenic mycotoxin that binds estrogen receptors in mammals and is a recurring contaminant in livestock feed and human grain products. Improved detection methods are a precondition for tighter food-safety enforcement and exposure research.
+
+The authors validated the sensor in spiked corn flour and beer samples and report a working range that overlaps regulatory limits set by the FDA, EU, and Codex.
+
+========================================================================
+## CO2 Levels Shape Fungal Pathogen Virulence and Antifungal Response, Study Finds
+
+Published: 2026-05-19
+Category: research
+Source: Medical Gas Research
+Original: https://pubmed.ncbi.nlm.nih.gov/42157423/
+Canonical: https://themoldreport.org/a/04de82cd74df.html
+Tags: fungi, aspergillus, candida, cryptococcus, virulence, antifungal, research
+
+A paper in Medical Gas Research argues that carbon dioxide — sensed as a host-environment signal by fungi — is a master regulator of virulence and drug response in medically relevant species. Aspergillus fumigatus, Candida albicans, Cryptococcus neoformans, and other human-pathogenic fungi modulate their gene expression, hyphal growth, biofilm formation, and stress response in response to CO2 concentrations in different host niches.
+
+The authors describe how the fungal carbonic anhydrase / cAMP-PKA axis links environmental CO2 to virulence-program activation, and they catalog the evidence that elevated CO2 also alters susceptibility to several classes of antifungal drugs. They propose that CO2-aware in vitro testing may improve the predictive value of antifungal susceptibility assays.
+
+The paper is framed as a perspective on host-environment sensing and does not propose new clinical interventions, but it highlights a sensing pathway that links environmental conditions to human fungal disease.
+
+========================================================================
 ## KLC Journal: What Wichita Owes Its Firefighters After the Fire-Station Mold Crisis
 
 Published: 2026-05-19
@@ -53,6 +119,38 @@ Financial filings reflect the trend. D.R. Horton's reserves for legal claims —
 Editor's Note: The mold angle here matters beyond the litigation: the Hayden case describes a common pattern in newer construction — tight building envelopes paired with undersized or poorly placed HVAC, in a hot-humid climate, with predictable moisture and microbial growth downstream. Patients in water-damaged buildings often present with sinus symptoms, headaches, and skin complaints; the underlying exposure is the building, not the symptoms.
 
 ========================================================================
+## New Review Maps How Aflatoxin B1 Triggers Multiple Forms of Programmed Cell Death
+
+Published: 2026-05-18
+Category: research
+Source: Apoptosis
+Original: https://pubmed.ncbi.nlm.nih.gov/42149329/
+Canonical: https://themoldreport.org/a/8e6a8c90dce0.html
+Tags: mycotoxins, aflatoxin, aspergillus, cell death, toxicology, research
+
+A new review published in Apoptosis surveys the expanding evidence that aflatoxin B1 (AFB1) — a mycotoxin produced by Aspergillus flavus and Aspergillus parasiticus — drives several distinct forms of programmed cell death in mammalian cells. AFB1 is one of the most studied food-borne mycotoxins worldwide and contaminates staple crops such as corn, peanuts, and tree nuts under warm, humid storage conditions.
+
+Beyond the long-established link to liver cancer, the authors describe pathways through which AFB1 triggers apoptosis, ferroptosis, pyroptosis, and autophagy-dependent cell death across tissues including liver, kidney, and reproductive organs. The review consolidates molecular markers and signaling cascades that researchers can use as endpoints in mycotoxin toxicology studies.
+
+The paper does not address airborne mold exposure from water-damaged buildings, which involves a different exposure route and broader cocktail of mycotoxins, but it adds to a growing body of mechanistic work on how mycotoxin metabolites injure tissue at the cellular level.
+
+========================================================================
+## Wastewater Plant Workers Face Measurable Fungal and Bacterial Bioaerosol Exposure, Study Finds
+
+Published: 2026-05-18
+Category: research
+Source: Scientific Reports
+Original: https://pubmed.ncbi.nlm.nih.gov/42151255/
+Canonical: https://themoldreport.org/a/0d065c716d86.html
+Tags: bioaerosols, occupational exposure, fungi, wastewater, indoor air quality, research
+
+A study published in Scientific Reports has quantified the inhalation exposure of wastewater treatment plant workers to airborne bacterial and fungal bioaerosols, and run a non-carcinogenic risk assessment of the levels measured on-site. Workers in the screening, aeration, and sludge-handling zones were exposed to elevated concentrations of culturable fungi alongside bacterial species, with seasonal variation in the mix.
+
+The authors conclude that occupational bioaerosol exposure at the plants studied warrants improved ventilation, personal protective equipment, and monitoring programs, particularly for workers stationed near aerosol-generating processes. The risk-assessment framework used in the paper draws on EPA and WHO inhalation reference values.
+
+Bioaerosol research in water-damaged indoor environments has historically focused on residential and office buildings; the new data extend the occupational exposure picture into a class of facilities where workers may inhale large volumes of fungal spores and fragments every shift.
+
+========================================================================
 ## Albany Family Says Mushrooms Grew From Apartment Ceiling as Mold Repairs Stalled for Months
 
 Published: 2026-05-18
@@ -83,6 +181,22 @@ Tags: cannabis, regulation, mold, connecticut, indoor air quality
 Mold contamination, HVAC system failures and fires drove dozens of regulatory investigations at licensed cannabis cultivation facilities in Connecticut, according to reporting syndicated by MSN. The incidents underscore the operational and air-quality risks that indoor cultivation can create when humidity, airflow and equipment maintenance are not tightly controlled — the same conditions that make grow rooms vulnerable to Aspergillus and other fungal contamination of finished product.
 
 Connecticut joins a growing list of state cannabis programs — including Missouri and Maine, both of which have issued mold-related recalls in recent weeks — where regulators are intervening over microbial contamination concerns. For patients in medical programs, mold-contaminated cannabis is a particular concern because immunocompromised consumers are at elevated risk of fungal infection from inhaled spores.
+
+========================================================================
+## Fusarium Mycotoxin Deoxynivalenol Halts Dental Stem Cell Growth at the G2/M Checkpoint
+
+Published: 2026-05-17
+Category: research
+Source: Toxicology
+Original: https://pubmed.ncbi.nlm.nih.gov/42150664/
+Canonical: https://themoldreport.org/a/542022eca589.html
+Tags: mycotoxins, deoxynivalenol, fusarium, stem cells, toxicology, research
+
+Researchers writing in Toxicology have shown that deoxynivalenol (DON) — a mycotoxin produced by Fusarium species that contaminates wheat, corn, barley, and other cereal crops — induces a p21-mediated G2/M cell-cycle arrest in human dental pulp stem cells. The arrested cells also up-regulated several differentiation markers, suggesting that low-level mycotoxin exposure may push regenerative dental cells out of a proliferative state and toward a partially differentiated one.
+
+Dental pulp stem cells are studied for use in tooth regeneration, bone repair, and neural tissue engineering. The new finding adds DON to the list of environmental contaminants that can compromise the expansion phase of stem cell-based therapies.
+
+DON is the most prevalent trichothecene mycotoxin in the global grain supply and is regulated in food and feed by the FDA, EFSA, and Codex Alimentarius. The study did not test inhalation exposure or human dosing.
 
 ========================================================================
 ## Cannabis Mycotoxin Compliance Testing: New Trend Data Across U.S. Markets
